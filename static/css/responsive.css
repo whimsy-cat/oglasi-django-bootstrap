@@ -69,7 +69,7 @@
 	.feature_property_half_clist li.extrawide{width: 46%;}
 	.h1ads_1st_list.half_style li.custome_fields_half:nth-child(2){width: 54%;}
 	.iu_heading .candidate_revew_search_box input.form-control{width: 70%;}
-	
+
 
 	header.header-nav.menu_style_home_one a.navbar_brand{margin-top: 21px;}
 	header.header-nav.menu_style_home_one .ace-responsive-menu > li > a{padding: 37px 20px 27px 5px;}
@@ -122,7 +122,7 @@
 	header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing{width: 165px;}
 	.inbox_chatting_box .chatting_content li.media.reply.first {margin: 0;}
 	.m_box.our-dashbord:before {width: 25%;}
-	.cnddte_fvrt.our-dashbord:before {width: 25%;} 
+	.cnddte_fvrt.our-dashbord:before {width: 25%;}
 	.ff_one .detais{padding: 35px 20px 18px 35px;}
 	.feature_property_home6_slider.owl-carousel.owl-theme .owl-stage-outer,
 	.our_agents_home6_slider.owl-carousel.owl-theme .owl-stage-outer{display: block;}
@@ -143,7 +143,7 @@
 	.p0-mdd {padding: 0;}
 	.m0-mdd {margin: 0 !important;}
 	.tac-md {text-align: center;}
-	.dn-lg,.dn-1199 {display: none !important;}	
+	.dn-lg,.dn-1199 {display: none !important;}
 	.plpr5-md {padding-left: 5px; padding-right: 5px;}
 	.fn-1199,
 	.fn-lg {float: none !important;}
@@ -170,7 +170,7 @@
 	header.header-nav.menu_style_home_three .ace-responsive-menu > li > a,
 	header.header-nav.menu_style_home_four .ace-responsive-menu > li > a{padding: 30px 20px 30px 10px;}
 	header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing{height: 33px;top: 25px;width: 100px;}
-	header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing a{top: -25px;}
+	header.header-nav.menu_style_home_one ul.ace-responsive-menu li.add_listing a{top: -22px;}
 	header.header-nav.menu_style_home_one.style2 ul.ace-responsive-menu li.add_listing a{line-height: .7;}
 	.sign_up_btn .btn {width: auto;}
 	.cnddte_fvrt.our-dashbord:before {width: 35%;}
@@ -242,7 +242,7 @@
 	.stylehome1 .nav_logo_img,
 	.stylehome1.dashbord_mobile_logo .nav_logo_img{position: relative;}
 	.alpha-pag ul.option-set li{margin-bottom: 10px;}
-	
+
 
 
 	.header_top.home3 .container-fluid,
@@ -551,7 +551,7 @@
 
 	header.header-nav.menu_style_home_three.stricky-fixed{background-color: #4568dc;}
 	header.header-nav.menu_style_home_three .ace-responsive-menu li ul.sub-menu{background-color: #4568dc;}
-	header.header-nav.menu_style_home_three .ace-responsive-menu > li:hover a .title:before, 
+	header.header-nav.menu_style_home_three .ace-responsive-menu > li:hover a .title:before,
 	header.header-nav.menu_style_home_three .ace-responsive-menu > li > a.active .title:before{background-color: transparent;}
 	header.header-nav.menu_style_home_three .ace-responsive-menu > li,
 	header.header-nav.menu_style_home_three .ace-responsive-menu li a{border-bottom: #4568dc;}
@@ -785,7 +785,7 @@
 	.mega_dropdown_content_closer h5{margin-top: 5px;}
 	.h1ads_1st_list.half_style li.custome_fields_half:nth-child(2){width: 70%;}
 
-	
+
 	.app_grid .apple_btn, .app_grid .play_store_btn{margin-bottom: 10px;}
 
 	.small_dropdown2.home2.style2{position: relative;}
@@ -898,7 +898,7 @@
 	.mobile-menu .header_user_notif{right: 14%;}
 	.application_statics{padding: 15px;}
 
-	
+
 	.divider{padding: 80px 0;}
 	.app_grid{text-align: center;}
 	.app_grid .apple_btn{margin-bottom: 30px;}
@@ -944,7 +944,7 @@
 	.product_single_content.style2 .mbp_pagination_comments .mbp_second.media{display: block;}
 	.product_single_content.style2 .mbp_pagination_comments .mbp_first.media img,
 	.product_single_content.style2 .mbp_first .mbp_sub img{margin-bottom: 15px !important;}
-	.product_single_content.style2 .mbp_pagination_comments .mbp_first img, 
+	.product_single_content.style2 .mbp_pagination_comments .mbp_first img,
 	.product_single_content.style2 .mbp_pagination_comments .mbp_second img{margin-bottom: 15px !important;}
 	.candidate_revew_select.style2 ul li{display: block;text-align: center; }
 	.candidate_revew_search_box.course input.form-control{width: 80%;}
@@ -1079,7 +1079,7 @@
 
 
 
-	
+
 	.app_grid .apple_btn .icon, .app_grid .play_store_btn .icon{margin-left: 50px;}
 	.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper #mk-fullscreen-searchform #mk-fullscreen-search-input,
 	.mk-fullscreen-search-overlay #mk-fullscreen-search-wrapper2 #mk-fullscreen-searchform2 #mk-fullscreen-search-input2{max-width: 220px;}
