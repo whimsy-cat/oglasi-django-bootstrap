@@ -2318,9 +2318,9 @@ header.header-nav.menu_style_home_seven .ace-responsive-menu > li.last{
   margin-right: 15px !important;
   vertical-align: text-top;
 }
-.home1-advnc-search.home2{
-  padding-left: 8px;
-}
+/*.home1-advnc-search.home2{*/
+/*  padding-left: 8px;*/
+/*}*/
 .home1-advnc-search.home2 ul li{
   margin-right: 15px !important;
 }
@@ -11513,7 +11513,7 @@ a.btn.btn_error{
   width: 120px;
 }
 .half_map_area_content .grid_list_search_result{
-  width: 97%;
+  width: 100%;
 }
 .half_style .search_option_two .dropdown.bootstrap-select>.dropdown-toggle{
   background-color: #ffffff;
@@ -16534,4 +16534,8 @@ button.gm-ui-hover-effect:focus {
 }
 [disabled].noUi-origin,[disabled] .noUi-handle {
   cursor: not-allowed;
+}
+
+.listing-results {
+  padding-top: 20px;
 }
