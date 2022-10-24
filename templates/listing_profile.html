@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  hello there
+{% endblock %}
+
+
+{% block page_specific_scripts %}
+
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkSMOzXbSii4y-Skg2_SGrFQM9MLVYOA&callback=initMap&v=weekly"
+      defer
+  ></script>
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru 44.8125° N, 20.4612° E
+      const belgrade = { lat: 44.8125, lng: 20.4612 };
+      // The map, centered at Uluru
+      const map = new google.maps.Map(document.getElementById("contact-google-map"), {
+        zoom: 10,
+        center: belgrade,
+      });
+      // The marker, positioned at Uluru
+      const marker = new google.maps.Marker({
+        position: belgrade,
+        map: map,
+      });
+    }
+
+    window.initMap = initMap;
+  </script>
+{% endblock %}

@@ -4,7 +4,8 @@ from category.models import Category
 
 
 class Listing(models.Model):
-    name = models.CharField(max_length=150)
+    name = models.CharField(max_length=150, null=False)
+    slug = models.CharField(max_length=150, null=False, default="")
     address = models.CharField(max_length=250, null=False)
     zipcode = models.CharField(max_length=20)
     rooms = models.DecimalField(decimal_places=1, max_digits=4, null=False)

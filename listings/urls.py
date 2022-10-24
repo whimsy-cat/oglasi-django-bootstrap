@@ -3,5 +3,6 @@ from listings import views
 
 
 urlpatterns = [
-    path('', views.listings, name="listings")
+    path('', views.listings, name="listings"),
+    path('<slug>/', views.listing, name="listing_profile"),
 ]
