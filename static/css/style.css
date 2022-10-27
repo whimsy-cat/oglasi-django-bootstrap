@@ -19,23 +19,23 @@ section {
 
 
 /*forms*/
-.form-control {
-  background-color: #ffffff;
-  border: 1px solid #ebebeb;
-  border-radius: 8px;
-  font-size: 14px;
-  color: #484848;
-  line-height: 1.2;
-  height: 50px;
-}
+/*.form-control {*/
+/*  background-color: #ffffff;*/
+/*  border: 1px solid #ebebeb;*/
+/*  border-radius: 8px;*/
+/*  font-size: 14px;*/
+/*  color: #484848;*/
+/*  line-height: 1.2;*/
+/*  height: 50px;*/
+/*}*/
 
-.form-select {
-  font-size: 14px;
-  padding: 13px;
-  background-color: #ffffff;
-  border: 1px solid #ebebeb;
-  color: #484848;
-}
+/*.form-select {*/
+/*  font-size: 14px;*/
+/*  padding: 13px;*/
+/*  background-color: #ffffff;*/
+/*  border: 1px solid #ebebeb;*/
+/*  color: #484848;*/
+/*}*/
 
 
 /*header*/

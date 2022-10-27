@@ -32,7 +32,7 @@ def register(request):
             # User activation
             current_site = get_current_site(request)
             mail_subject = "Please activate your account"
-            mail_body = render_to_string('accounts/account_verification_email.html', {
+            mail_body = render_to_string('accounts/emails/account_verification.html', {
                 'user': user,
                 'domain': current_site,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -101,7 +101,7 @@ def forgot_password(request):
             user = Account.objects.get(email__icontains=email_address)
             current_site = get_current_site(request)
             mail_subject = "Reset your password"
-            mail_body = render_to_string('accounts/forgot_password_email.html.html', {
+            mail_body = render_to_string('accounts/emails/forgot_password.html', {
                 'user': user,
                 'domain': current_site,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
