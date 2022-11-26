@@ -51,7 +51,7 @@ header .logo-text {
 
 /*homepage*/
 .home-search {
-  background-image: url(../images/background/1.jpg);
+  background-image: url("../images/background/1.jpg");
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
@@ -92,10 +92,10 @@ header .logo-text {
   border-radius: 8px;
   border: 2px solid #ff5a5f;
   background-color: #ff5a5f;
-  -webkit-box-shadow: 0px 1px 4px 0px rgb(255 90 95 / 30%);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  -o-box-shadow: 0px 1px 4px 0px rgba(255, 90, 95, 0.3);
-  box-shadow: 0px 1px 4px 0px rgb(255 90 95 / 30%);
+  -webkit-box-shadow: 0 1px 4px 0 rgb(255 90 95 / 30%);
+  -moz-box-shadow: 0 1px 4px 0 rgba(255, 90, 95, 0.3);
+  -o-box-shadow: 0 1px 4px 0 rgba(255, 90, 95, 0.3);
+  box-shadow: 0 1px 4px 0 rgb(255 90 95 / 30%);
   font-size: 16px;
   color: #ffffff;
   font-weight: bold;
