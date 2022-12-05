@@ -7,45 +7,30 @@
         <div class="col-lg-12">
           <div class="home-content">
             <div class="text-center home-text">
-              <h2>Пронађи свој идеални дом</h2>
-              <p>Од гарсоњере до виле на Дедињу</p>
+              <h2>Pronadjite dom vaših snova</h2>
             </div>
 
             <div class="home-search-form p-3">
               <form method="post" action="">
                 {% csrf_token %}
-                <div class="row g-3">
-                  <div class="col-sm">
-                    <select class="form-select" aria-label="Default select example">
-															<option>Property Type</option>
-															<option>Apartment</option>
-															<option>Bungalow</option>
-															<option>Condo</option>
-															<option>House</option>
-															<option>Land</option>
-															<option>Single Family</option>
-														</select>
-                  </div>
-                  <div class="col-sm">
-                    <input type="text" name="location" class="form-control" placeholder="Локација" aria-label="Локација">
-                  </div>
-                  <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="Цена од" aria-label="Цена од">
-                  </div>
-                  <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="Цена до" aria-label="Цена до">
-                  </div>
-                  <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="Квадратура од" aria-label="Квадратура од">
-                  </div>
-                  <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="Квадратура до" aria-label="Квадратура до">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm text-center p-3">
-                    <div class="search_option_button">
-                        <button type="submit" class="btn btn-thm">Search</button>
+                <div class="row justify-content-md-center">
+                  <div class="col col-md-auto col-lg-10">
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" aria-label="Lokacija" placeholder="Lokacija">
+                      <select class="form-select select-listing-type" id="inputGroupSelect02">
+                        <option selected>Tip...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <input type="text" class="form-control" aria-label="Kraj" placeholder="Kraj">
+                      <button class="btn btn-outline btn-details" type="button" id="inputGroupFileAddon04">Detaljnije</button>
+                      <button class="btn btn-search" type="submit" id="inputGroupFileAddon04">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                        </svg>
+                        Pretrazi
+                      </button>
                     </div>
                   </div>
                 </div>
