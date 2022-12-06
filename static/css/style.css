@@ -99,6 +99,7 @@ section {
   background-color: #617E8C;
   box-shadow: 0 4px 18px rgba(31, 56, 54, 0.22);
   border-radius: 5px;
+  float:right;
 }
 
 .header .nav {
