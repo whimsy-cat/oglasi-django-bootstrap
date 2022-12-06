@@ -1,44 +1,178 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-  <section class="home-search">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="home-content">
-            <div class="text-center home-text">
-              <h2>Pronadjite dom vaših snova</h2>
-            </div>
 
-            <div class="home-search-form p-3">
-              <form method="post" action="">
-                {% csrf_token %}
-                <div class="row justify-content-md-center">
-                  <div class="col col-md-auto col-lg-10">
-                    <div class="input-group mb-3">
-                      <input type="text" class="form-control" aria-label="Lokacija" placeholder="Lokacija">
-                      <select class="form-select select-listing-type" id="inputGroupSelect02">
-                        <option selected>Tip...</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <input type="text" class="form-control" aria-label="Kraj" placeholder="Kraj">
-                      <button class="btn btn-outline btn-details" type="button" id="inputGroupFileAddon04">Detaljnije</button>
-                      <button class="btn btn-search" type="submit" id="inputGroupFileAddon04">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                        </svg>
-                        Pretrazi
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </form>
-            </div>
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+{% endblock %}
+
+{% block content %}
+  <header class="p-3 border-bottom header header-homepage">
+    <div class="container text-center text-light">
+      <div class="row">
+        <div class="col">
+          <a href="/" class="d-flex align-items-center text-decoration-none link-light">
+            <img class="logo" src="{% static 'images/shared/logo.svg' %}" alt="logo">
+            <span class="logo-text">Мој Дом</span>
+          </a>
+        </div>
+        <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
+          <ul class="nav mb-3 mb-lg-0 me-lg-3">
+            <li><a href="#" class="nav-link px-2 link-light">Nekretnine</a></li>
+            <li><a href="#" class="nav-link px-2 link-secondary">Novogradnja</a></li>
+            <li><a href="#" class="nav-link px-2 link-light">Vesti</a></li>
+            <li><a href="#" class="nav-link px-2 link-light">Oglašavanje</a></li>
+            <li><a href="#" class="nav-link px-2 link-light">Info</a></li>
+            <li>
+              <a href="#" class="nav-link px-2 link-light">
+                <img width="21" height="19" src="{% static 'images/shared/flag_serbia.png' %}" alt="language flag">
+                Jezik
+              </a>
+            </li>
+            <li class="vr"></li>
+          </ul>
+          <div class="dropdown text-end">
+            <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
+               data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                   class="rounded-circle">
+            </a>
+            <ul class="dropdown-menu text-small" style="">
+              <li><a class="dropdown-item" href="#">Нови оглас</a></li>
+              <li><a class="dropdown-item" href="#">Подешавања</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Одјава</a></li>
+            </ul>
           </div>
         </div>
+        <div class="col">
+          <a href="#" class="btn create-listing-btn">+ Postavi Oglas</a>
+        </div>
       </div>
+    </div>
+  </header>
+
+  <section class="home-search">
+    <div class="container">
+      <div class="home-content">
+        <div class="text-center home-text">
+          <h2>Pronadjite dom vaših snova</h2>
+        </div>
+
+        <div class="home-search-form p-3">
+          <form method="post" action="">
+            {% csrf_token %}
+            <div class="row justify-content-sm-center">
+              <div class="col col-md-auto">
+                <div class="input-group mb-3">
+                  <button class="btn btn-blue" type="button">Prodaja</button>
+                  <button class="btn btn-transparent" type="button">Izdavanje</button>
+                </div>
+              </div>
+            </div>
+            <div class="mx-auto search-form-row">
+              <div class="row">
+                <div class="col mx-auto">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control input-location" name="location" id="location" aria-label="Lokacija" placeholder="Lokacija">
+                    <select class="form-select select-listing-type" name="type" id="type">
+                      <option selected>Tip...</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <input type="text" class="form-control input-area" name="neighbourhood" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
+                    <button class="btn btn-outline btn-white btn-details" type="button" id="btnFormDetails">Detaljnije
+                    </button>
+                    <button class="btn btn-blue btn-search" type="submit" id="inputGroupFileAddon04">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                           class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
+                      </svg>
+                      Pretrazi
+                    </button>
+                  </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="mx-auto detail-form">
+              <div class="row mb-3">
+              <div class="col-lg-4">
+                <label for="price" class="form-label">Cena</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="price" name="price_from" placeholder="od">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="price" name="price_to" placeholder="do">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label for="size" class="form-label">Površina</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="size_to" name="size_from" placeholder="od">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="size_from" name="size_to" placeholder="do">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label for="structure" class="form-label">Struktura</label>
+                <select class="form-select" id="structure" name="structure" required="">
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="condition" class="form-label">Stanje</label>
+                <select class="form-select" id="condition" name="condition" required="">
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+              </div>
+            </div>
+              <div class="row">
+              <div class="col-lg-4">
+                <label for="levels" class="form-label">Spratnost</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="levels" name="levels_from" placeholder="od">
+                  </div>
+                  <div class="col-md-6">
+                    <input type="text" class="form-control" id="levels" name="levels_to" placeholder="do">
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label for="garage" class="form-label">Garažni prostor</label>
+                <select class="form-select" id="garage" name="garage" required="">
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+              </div>
+              <div class="col">
+                <label for="heating" class="form-label">Grejanje</label>
+                <select class="form-select" id="heating" name="heating" required="">
+                  <option value="">Choose...</option>
+                  <option>United States</option>
+                </select>
+              </div>
+              <div class="col text-center">
+                <h5>Broj oglasa:</h5>
+                <h5>1.083</h5>
+              </div>
+            </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
 
@@ -49,5 +183,5 @@
 {% endblock %}
 
 {% block page_specific_scripts %}
-
+  <script></script>
 {% endblock %}
