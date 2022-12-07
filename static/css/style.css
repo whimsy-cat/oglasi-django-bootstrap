@@ -1,10 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito:400,400i,600,700&display=swap);
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css");
 
 body {
   color: #484848;
   font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  line-height: 1.642;
+  /*font-size: 14px;*/
+  /*line-height: 1.642;*/
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -12,9 +13,8 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.2;
 }
 
-section {
-  padding: 60px 0;
-  position: relative;
+input, select {
+  font-size: 14px !important;
 }
 
 
@@ -105,9 +105,4 @@ section {
 .header .nav {
   display: flex;
   justify-content: center;
-}
-
-
-.featured-properties {
-  background-color: #f7f7f7;
 }
