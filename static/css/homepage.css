@@ -87,10 +87,6 @@
 
 
 /* Featured properties */
-.featured-properties {
-  background-color: #f7f7f7;
-}
-
 .featured-properties .sale-label,
 .featured-properties .rent-label,
 .featured-properties .favorite-label {
@@ -144,4 +140,76 @@
 .featured-item .item-amenity small {
   display: block;
   font-size: 12px;
+}
+.featured-item .card-text {
+  width: 80%;
+}
+.featured-item .meta-controls {
+  width: 20%;
+  position: relative;
+}
+.featured-item .meta-controls .action-compare {
+  position: absolute;
+  top: 0;
+  right: 30px;
+  width: 17px;
+  cursor: pointer;
+}
+.featured-item .meta-controls .action-like {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.featured-item .meta-controls .bi {
+  font-size: 18px;
+  color: #EC6664;
+}
+
+
+/* property city */
+.property-city .property-item {
+  height: 320px;
+  position: relative;
+}
+.property-city .property-item .thumb {
+  position: relative;
+  height: 100%;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center center;
+}
+.background-beograd {
+  background-image: url("/static/images/homepage/bg_bg.jpg");
+}
+.background-kg {
+  background-image: url("/static/images/homepage/kg_bg.jpg");
+}
+.background-nis {
+  background-image: url("/static/images/homepage/nis_bg.jpg");
+}
+.background-ns {
+  background-image: url("/static/images/homepage/ns_bg.jpg");
+}
+.background-subotica {
+  background-image: url("/static/images/homepage/su_bg.jpg");
+}
+.property-city .property-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.property-city .property-item .details {
+  text-align: center;
+  flex: 0 0 320px;
+  color: white;
+  z-index: 10;
+  font-weight: 700;
+  font-size: 40px;
 }
