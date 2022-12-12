@@ -213,3 +213,27 @@
   font-weight: 700;
   font-size: 40px;
 }
+
+/* Agencies break */
+.break-bg {
+  height: 480px;
+  width: 100%;
+  background: url("/static/images/homepage/hram_bg.jpg") center;
+  background-size: cover;
+}
+
+.clip-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+         line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.loyalty-program {
+  height: 195px;
+  background: #617E8C;
+  color: white;
+  font-size: 14px;
+}

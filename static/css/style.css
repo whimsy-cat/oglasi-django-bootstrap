@@ -106,3 +106,10 @@ input, select {
   display: flex;
   justify-content: center;
 }
+
+
+.footer {
+  background: #455A64;
+  color: white;
+  font-size: 14px;
+}
