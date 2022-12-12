@@ -76,6 +76,15 @@ input, select {
   opacity: 0.85;
 }
 
+.btn-circle {
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
+}
+
 
 /*header*/
 .header {
@@ -112,4 +121,14 @@ input, select {
   background: #455A64;
   color: white;
   font-size: 14px;
+}
+.footer .border-top {
+  border-top: 1px solid #6D828C !important;
+}
+.footer .social-buttons a {
+  color: #00A6BD;
+  font-size: 28px;
+}
+.footer .newsletter {
+  border-radius: 19px;
 }

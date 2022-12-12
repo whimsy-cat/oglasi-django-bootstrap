@@ -237,3 +237,10 @@
   color: white;
   font-size: 14px;
 }
+
+.blog-news {
+  font-size: 14px;
+}
+.blog-user {
+  margin-bottom: 0;
+}
