@@ -46,8 +46,8 @@
   color: #ffffff;
   margin-top: 0;
 }
-.home-search .home-text h2 {
-  font-size: 55px;
+.home-search .home-text h1 {
+  font-weight: bold;
 }
 .home-search .home-text p {
   font-size: 18px;
@@ -212,6 +212,49 @@
   z-index: 10;
   font-weight: 700;
   font-size: 40px;
+}
+.property-city a {
+  color: white;
+  text-decoration: none;
+}
+
+.popular-location {
+
+}
+.popular-location [class*="-cover"] {
+  position: relative;
+  height: 96px;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: top;
+}
+.popular-location [class*="-cover"] h4 {
+  line-height: 96px;
+  margin-left: 31px;
+}
+.popular-location .ablock-cover {
+  background-image: url("/static/images/homepage/nbg_cover.jpg")
+}
+.popular-location .kosancicev-cover {
+  background-image: url("/static/images/homepage/kosancicev_cover.jpg")
+}
+.popular-location .waterfront-cover {
+  background-image: url("/static/images/homepage/waterfront_cover.jpg")
+}
+.popular-location .residencies-cover {
+  background-image: url("/static/images/homepage/residencies_cover.jpg")
+}
+.popular-location .dorcol-cover {
+  background-image: url("/static/images/homepage/dorcol_cover.jpg")
+}
+.popular-location .kalemegdan-cover {
+  background-image: url("/static/images/homepage/kalemegdan_cover.jpg")
+}
+.popular-location .usce-cover {
+  background-image: url("/static/images/homepage/usce_cover.jpg")
+}
+.popular-location .hram-cover {
+  background-image: url("/static/images/homepage/hram_cover.jpg")
 }
 
 /* Agencies break */

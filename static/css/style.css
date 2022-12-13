@@ -4,7 +4,7 @@
 body {
   color: #484848;
   font-family: 'Nunito', sans-serif;
-  /*font-size: 14px;*/
+  font-size: 14px;
   /*line-height: 1.642;*/
 }
 
@@ -99,6 +99,9 @@ input, select {
   padding-left: 15px;
   text-transform: capitalize;
   vertical-align: middle;
+}
+.header a {
+  font-size: 16px;
 }
 
 .header .create-listing-btn {
