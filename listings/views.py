@@ -7,4 +7,8 @@ def listings(request):
 
 def listing(request, slug):
     print(slug)
-    return render(request, 'listing_profile.html')
+    return render(request, 'listing/listing_profile.html')
+
+
+def create(request):
+    return render(request, 'listing/create_new_listing.html')
