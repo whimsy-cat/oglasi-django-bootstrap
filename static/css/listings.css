@@ -2,8 +2,42 @@
 .create-listing {
 
 }
-.create-listing .profile-sidebar {
+.profile-sidebar {
   background: #617E8C;
   border-radius: 5px;
   color: white;
+  padding: 12px;
+}
+.profile-sidebar .profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid #FFFFFF;
+  margin-bottom: 12px;
+}
+.profile-sidebar .profile-name {
+  font-size: 18px;
+  line-height: 25px;
+  border-bottom: 1px solid white;
+  padding-bottom: 8px;
+}
+.profile-sidebar ul > li {
+  margin-bottom: 12px;
+}
+.profile-sidebar a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  line-height: 22px;
+}
+.profile-sidebar a:hover {
+  color: #eeeeee;
+}
+.profile-sidebar .bi {
+  font-size: 18px;
+  margin-right: 8px;
+}
+.profile-sidebar .loyalty-text {
+  font-size: 16px;
+  line-height: 22px;
 }
