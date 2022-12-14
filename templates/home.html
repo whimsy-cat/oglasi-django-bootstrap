@@ -66,8 +66,9 @@
             <div class="row justify-content-sm-center">
               <div class="col col-md-auto">
                 <div class="input-group mb-3">
-                  <button class="btn btn-blue" type="button">Prodaja</button>
-                  <button class="btn btn-transparent" type="button">Izdavanje</button>
+                  <button id="btnBuy" class="btn btn-blue" type="button">Prodaja</button>
+                  <button id="btnRent" class="btn btn-transparent" type="button">Izdavanje</button>
+                  <input type="hidden" name="search_type" value="buy" id="search_type">
                 </div>
               </div>
             </div>
@@ -98,7 +99,7 @@
                 </div>
             </div>
 
-            <div class="mx-auto detail-form">
+            <div id="detailsForm" class="mx-auto detail-form hide">
               <div class="row mb-3">
               <div class="col-lg-4">
                 <label for="price" class="form-label">Cena</label>
@@ -343,5 +344,29 @@
 {% endblock %}
 
 {% block page_specific_scripts %}
-  <script></script>
+  <script>
+    const detailForm = document.getElementById('detailsForm');
+    const detailBtn = document.getElementById('btnFormDetails');
+    detailBtn.onclick = function(event) {
+      detailForm.classList.toggle('show')
+    }
+
+    const btnBuy = document.getElementById('btnBuy');
+    const btnRent = document.getElementById('btnRent');
+    const searchType = document.getElementById('search_type');
+    const toggleBtnClasses = function(value) {
+      btnBuy.classList.toggle('btn-blue');
+      btnBuy.classList.toggle('btn-transparent');
+      btnRent.classList.toggle('btn-transparent');
+      btnRent.classList.toggle('btn-blue');
+      searchType.value = value;
+    }
+    btnRent.onclick = function() {
+      toggleBtnClasses('rent');
+    }
+    btnBuy.onclick = function() {
+      toggleBtnClasses('buy');
+    }
+
+  </script>
 {% endblock %}

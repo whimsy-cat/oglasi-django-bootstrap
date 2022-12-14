@@ -83,6 +83,13 @@
   background: white;
   border-radius: 5px;
   padding: 15px 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+}
+.detail-form.show {
+  visibility: visible;
+  opacity: 1;
 }
 
 
