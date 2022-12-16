@@ -6,71 +6,89 @@
 {% endblock %}
 
 {% block content %}
-<section class="create-listing p-3">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-2 profile-sidebar">
-        <div class="">
-          <div class="d-flex justify-content-center">
-            <img class="profile-avatar" src="{% static 'images/property/fp1.jpg' %}" alt="Avatar">
+  <section class="create-listing p-3 pt-4">
+    <div class="container-fluid">
+      <div class="row">
+        {% include 'includes/profile_sidebar.html' %}
+        <div class="col-10 main-area">
+          <div class="creation-steps d-flex justify-content-center mb-3">
+            <div class="col shadow-sm active">1. Opis</div>
+            <div class="col shadow-sm">2. Multimedija</div>
+            <div class="col shadow-sm">3. Lokacija</div>
+            <div class="col shadow-sm">4. Karakteristike</div>
+            <div class="col shadow-sm">5. Detalji</div>
           </div>
-          <p class="text-center profile-name">Petar Petrović</p>
-        </div>
-        <ul class="list-unstyled">
-          <li>
-            <i class="bi bi-person-circle"></i>
-            <a href="">Profil</a>
-          </li>
-          <li class="d-flex">
-            <img class="bi" src="{% static 'images/icons/promote_listing.svg' %}" alt="promote listing icon">
-            <a href="">Promoviši oglas</a>
-          </li>
-          <li class="d-flex">
-            <img class="bi" src="{% static 'images/icons/my_listings.svg' %}" alt="my listings icon">
-            <a href="">Moji oglasi</a>
-          </li>
-          <li>
-            <i class="bi bi-envelope"></i>
-            <a href="">Moje poruke</a>
-          </li>
-          <li>
-            <i class="bi bi-heart"></i>
-            <a href="">Moji favoriti</a>
-          </li>
-          <li class="d-flex">
-            <img class="bi" src="{% static 'images/icons/saved_searches.svg' %}" alt="saved searches icon">
-            <a href="">Sačuvane pretrage</a>
-          </li>
-          <li>
-            <i class="bi bi-eye"></i>
-            <a href="">Pregledi</a>
-          </li>
-          <li>
-            <i class="bi bi-file-earmark-text"></i>
-            <a href="">Pretplate</a>
-          </li>
-          <li>
-            <i class="bi bi-gear"></i>
-            <a href="">Podešavanja</a>
-          </li>
-          <li>
-            <i class="bi bi-cash-coin"></i>
-            <a href="">Plaćanja</a>
-          </li>
-          <li class="d-flex">
-            <img class="bi" src="{% static 'images/icons/logout.svg' %}" alt="logout icon">
-            <a href="">Izloguj se</a>
-          </li>
-        </ul>
+          <form>
+            <div class="creation-content justify-content-center show" id="step1">
+              <div class="col creation-step me-4">
+                <div class="step-section mb-4">
+                  {# Step main heading #}
+                  <div class="d-flex justify-content-start mb-4 step-heading">
+                    <h5 class="align-self-end me-4">Opis</h5>
+                    <small class="align-self-end">Opišite vašu nekretninu</small>
+                  </div>
+                  <div class="mb-3">
+                    <label for="title" class="form-label">Naslov oglasa (obavezno)</label>
+                    <input type="text" class="form-control" id="title" aria-describedby="titleHelp">
+                  </div>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-start mb-4 step-heading">
+                      <p class="align-self-end me-4">Opis</p>
+                      <small class="align-self-end">Napišite par rečenica o vašoj nekretnini</small>
+                    </div>
+                    <textarea class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+                  </div>
+                </div>
+                <div class="step-section">
+                  {# Step sub heading #}
+                  <div class="d-flex justify-content-start mb-4 step-heading">
+                    <h5 class="align-self-end me-4">Status</h5>
+                    <small class="align-self-end">Izaberite vrstu oglašavanja</small>
+                  </div>
+                  <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example">
+                      <option value="1" selected>Prodaja</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
 
-        <p class="text-center loyalty-text">Program lojalnosti 10%</p>
-      </div>
-      <div class="col-10 main-area">
-        Oglas
+              </div>
+              <div class="col">
+                <div class="creation-step mb-4">
+                  <div class="step-section ">
+                    <div class="d-flex justify-content-start mb-4 step-heading">
+                      <h5 class="align-self-end me-4">Tip</h5>
+                      <small class="align-self-end">(Izaberite kategoriju i tip vaše nekretnine)</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="creation-step mb-4">
+                  <div class="step-section">
+                    <div class="d-flex justify-content-start mb-4 step-heading">
+                      <h5 class="align-self-end me-4">Cena</h5>
+                      <small class="align-self-end">(Izaberite kategoriju i tip vaše nekretnine)</small>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="creation-step">
+                  <div class="step-section mb-4">
+                    <div class="d-flex justify-content-start mb-4 step-heading">
+                      <h5 class="align-self-end me-4">Oglašavač</h5>
+                      <small class="align-self-end">(Izaberite kategoriju i tip vaše nekretnine)</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 {% endblock %}
 
 {% block page_specific_scripts %}

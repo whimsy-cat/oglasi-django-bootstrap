@@ -38,8 +38,8 @@ input, select {
 /*}*/
 
 .link-secondary {
-  color: #00A6BD;
-  background: #FFFFFF;
+  color: #00A6BD !important;
+  background: #FFFFFF !important;
   opacity: 0.7;
   backdrop-filter: blur(142px);
   /* Note: backdrop-filter has minimal browser support */
@@ -90,6 +90,7 @@ input, select {
 .header {
   box-shadow: none;
   border-bottom: none;
+  color: #484848;
 }
 
 .header .logo-text {
@@ -99,9 +100,11 @@ input, select {
   padding-left: 15px;
   text-transform: capitalize;
   vertical-align: middle;
+  color: #484848;
 }
 .header a {
   font-size: 16px;
+  color: #484848;
 }
 
 .header .create-listing-btn {

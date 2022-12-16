@@ -4,6 +4,16 @@
 .header {
   display: none;
 }
+.header .logo-text {
+  color: #f8f9fa;
+}
+.header a {
+  color: #f8f9fa;
+}
+.header a:hover {
+  color: #f8f9fa;
+  filter: brightness(0.85);
+}
 .header-homepage {
   display: block;
   position: absolute;

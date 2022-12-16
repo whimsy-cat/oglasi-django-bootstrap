@@ -1,48 +1,7 @@
 {% load static %}
 <header class="p-3 border-bottom header">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col">
-        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-          <img class="logo" src="{% static 'images/shared/logo.svg' %}" alt="logo">
-          <span class="logo-text">Мој Дом</span>
-        </a>
-      </div>
-      <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
-        <ul class="nav mb-3 mb-lg-0 me-lg-3">
-          <li><a href="#" class="nav-link px-2 link-secondary">Nekretnine</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Novogradnja</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Vesti</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Oglašavanje</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Info</a></li>
-          <li>
-            <a href="#" class="nav-link px-2 link-dark">
-              <img width="21" height="19" src="{% static 'images/shared/flag_serbia.png' %}" alt="language flag">
-              Jezik
-            </a>
-          </li>
-          <li class="vr"></li>
-        </ul>
-        <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
-             data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
-                 class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small" style="">
-            <li><a class="dropdown-item" href="#">Нови оглас</a></li>
-            <li><a class="dropdown-item" href="#">Подешавања</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Одјава</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <a href="{% url 'listing_create' %}" class="btn create-listing-btn">+ Postavi Oglas</a>
-      </div>
-    </div>
+  <div class="container-fluid text-center">
+    {% include 'includes/menu.html' %}
   </div>
 </header>
 

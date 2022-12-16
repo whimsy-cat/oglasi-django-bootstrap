@@ -41,3 +41,41 @@
   font-size: 16px;
   line-height: 22px;
 }
+
+.creation-steps .col {
+  height: 44px;
+  font-size: 18px;
+  line-height: 44px;
+  text-align: center;
+  margin-right: 20px;
+  border-radius: 5px;
+  border: 1px solid rgba(31, 56, 54, 0.1);
+}
+.creation-steps .col:last-child {
+  margin-right: 0;
+}
+.creation-steps .col.active {
+  color: white;
+  background: #617E8C;
+}
+.creation-content {
+  display: none;
+}
+.creation-content.show {
+  display: flex;
+}
+.creation-step {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid rgba(31, 56, 54, 0.1);
+}
+.step-heading h3,
+.step-heading p,
+.step-heading h5,
+.step-heading small {
+  margin-bottom: 0;
+  line-height: 1;
+}
+.step-heading h5 {
+  font-weight: 700;
+}
