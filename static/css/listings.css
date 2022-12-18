@@ -79,3 +79,12 @@
 .step-heading h5 {
   font-weight: 700;
 }
+
+.next-step {
+  padding-top: 100px;
+}
+.next-step button {
+  width: 145px;
+  height: 45px;
+  line-height: 1;
+}
