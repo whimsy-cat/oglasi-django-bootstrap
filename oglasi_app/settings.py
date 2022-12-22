@@ -47,11 +47,13 @@ INSTALLED_APPS = [
     # "allauth",
     # "allauth.account",
     "debug_toolbar",
+    "rest_framework",
     # local
     'accounts',
     'category',
     'listings',
     'blog',
+    'uploader',
 ]
 
 MIDDLEWARE = [

@@ -23,7 +23,9 @@ from oglasi_app import views
 urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
+    path('api/', include('rest_framework.urls')),
     path('accounts/', include('accounts.urls')),
     path('oglasi/', include('listings.urls')),
+    path('files/', include('uploader.urls')),
     path('', views.home, name="home"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
