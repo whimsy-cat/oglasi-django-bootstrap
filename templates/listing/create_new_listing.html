@@ -178,6 +178,16 @@
   <script src="{% static 'js/uppy-rs.min.js' %}"></script>
 
 <script>
+  function uploadFiles(type, result) {
+    for (const item of result.successful) {
+      let elem = document.createElement("input");
+      elem.setAttribute("type", "hidden");
+      elem.setAttribute("name", type);
+      elem.setAttribute("value", item.response.body.id);
+      document.querySelector('#create-listing-form').appendChild(elem);
+    }
+  }
+
   const uppy = new Uppy.Uppy({
     debug: true,
     locale: Uppy.locales.sr_RS_Latin,
@@ -203,17 +213,9 @@
   uppy.on('complete', (result) => {
     console.log(result);
     console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    for (const item of result.successful) {
-      console.log(item.response.body.id);
-      let elem = document.createElement("input");
-      elem.setAttribute("type", "hidden");
-      elem.setAttribute("name", "images[]");
-      elem.setAttribute("value", item.response.body.id);
-      document.querySelector('#create-listing-form').appendChild(elem);
-    }
+    uploadFiles('images[]', result);
   });
-</script>
-  <script>
+
   const uppyTlocrt = new Uppy.Uppy({
     debug: true,
     locale: Uppy.locales.sr_RS_Latin,
@@ -233,17 +235,17 @@
     closeAfterFinish: false,
     note: 'Slike su jedino dozvoljene, 1 fajl, do 1MB veličine',
   });
-  uppyTlocrt.use(Uppy.Tus, {
-    endpoint: 'https://tusd.tusdemo.net/files/'
+  uppyTlocrt.use(Uppy.XHRUpload, {
+    endpoint: '/files/upload/',
+    method: 'POST',
+    formData: true,
+    fieldName: 'file',
   });
   uppyTlocrt.on('complete', (result) => {
     console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    // iterate over result.successful
-    // Create new html element `<input name="myParam" value=""/>` for each image uploaded
-    // from response.uploadURL set value for the input field
+    uploadFiles('tlocrt', result);
   });
-  </script>
-  <script>
+
   const uppyVideo = new Uppy.Uppy({
     debug: true,
     locale: Uppy.locales.sr_RS_Latin,
@@ -263,17 +265,17 @@
     closeAfterFinish: false,
     note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',
   });
-  uppyVideo.use(Uppy.Tus, {
-    endpoint: 'https://tusd.tusdemo.net/files/'
+  uppyVideo.use(Uppy.XHRUpload, {
+    endpoint: '/files/upload/',
+    method: 'POST',
+    formData: true,
+    fieldName: 'file',
   });
   uppyVideo.on('complete', (result) => {
     console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    // iterate over result.successful
-    // Create new html element `<input name="myParam" value=""/>` for each image uploaded
-    // from response.uploadURL set value for the input field
+    uploadFiles('video', result);
   });
-  </script>
-{#   <script>#}
+
 {#  const uppyTura = new Uppy.Uppy({#}
 {#    debug: true,#}
 {#    locale: Uppy.locales.sr_RS_Latin,#}
@@ -302,5 +304,5 @@
 {#    // Create new html element `<input name="myParam" value=""/>` for each image uploaded#}
 {#    // from response.uploadURL set value for the input field#}
 {#  });#}
-{#  </script>#}
+  </script>
 {% endblock %}
