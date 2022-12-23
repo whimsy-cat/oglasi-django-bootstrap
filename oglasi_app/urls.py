@@ -24,6 +24,7 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
     path('api/', include('rest_framework.urls')),
+    path('api/', include('category.urls')),
     path('accounts/', include('accounts.urls')),
     path('oglasi/', include('listings.urls')),
     path('files/', include('uploader.urls')),

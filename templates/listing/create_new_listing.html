@@ -13,11 +13,21 @@
         {% include 'includes/profile_sidebar.html' %}
         <div class="col-10 main-area">
           <div class="creation-steps d-flex justify-content-center mb-3">
-            <div class="col shadow-sm active">1. Opis</div>
-            <div class="col shadow-sm">2. Multimedija</div>
-            <div class="col shadow-sm">3. Lokacija</div>
-            <div class="col shadow-sm">4. Karakteristike</div>
-            <div class="col shadow-sm">5. Detalji</div>
+            <div id="tab1" class="col shadow-sm">
+              <a href="#" onclick="changeActive(1)">1. Opis</a>
+            </div>
+            <div id="tab2" class="col shadow-sm">
+              <a href="#" onclick="changeActive(2)">2. Multimedija</a>
+            </div>
+            <div id="tab3" class="col shadow-sm active">
+              <a href="#" onclick="changeActive(3)">3. Lokacija</a>
+            </div>
+            <div id="tab4" class="col shadow-sm">
+              <a href="#" onclick="changeActive(4)">4. Karakteristike</a>
+            </div>
+            <div id="tab5" class="col shadow-sm">
+              <a href="#" onclick="changeActive(5)">5. Detalji</a>
+            </div>
           </div>
           <form id="create-listing-form">
             <div class="creation-content justify-content-center" id="step1">
@@ -111,7 +121,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end next-step">
-                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep">
+                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(1, 2)">
                     Dalje
                     <i class="bi bi-chevron-double-right"></i>
                   </button>
@@ -119,23 +129,23 @@
               </div>
             </div>
 
-            <div class="creation-content justify-content-center show" id="step2">
+            <div class="creation-content justify-content-center" id="step2">
               <div class="col me-4">
                 <div class="creation-step step-section mb-4">
                   {# Step main heading #}
                   <div class="text-center mb-4 step-heading">
                     <h5>Učitajte slike</h5>
-{#                    <div id="drag-drop-area"></div>#}
-                    <div id="browse-images"></div>
+                    {#                    <div id="drag-drop-area"></div>#}
                   </div>
+                  <div id="browse-images"></div>
                 </div>
 
                 <div class="creation-step step-section mb-4">
                   {# Step main heading #}
                   <div class="text-center mb-4 step-heading">
                     <h5>Učitajte tlocrt</h5>
-                    <div id="tlocrt-area"></div>
                   </div>
+                  <div id="tlocrt-area"></div>
                 </div>
               </div>
 
@@ -144,8 +154,8 @@
                   {# Step main heading #}
                   <div class="text-center mb-4 step-heading">
                     <h5>Učitajte video</h5>
-                    <div id="video-area"></div>
                   </div>
+                  <div id="video-area"></div>
                 </div>
 
                 <div class="creation-step step-section mb-4">
@@ -159,10 +169,79 @@
                 </div>
 
                 <div class="d-flex justify-content-end next-step">
-                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep">
+                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(2, 3)">
                     Dalje
                     <i class="bi bi-chevron-double-right"></i>
                   </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="creation-content justify-content-center" id="step3">
+              <div class="col me-4">
+                <div class="creation-step step-section mb-4">
+                  <div class="mb-4 step-heading">
+                    <h5  class="mb-2">Lokacija</h5>
+                    <small>Unesite informacije o lokaciji vaše nekretnine</small>
+                  </div>
+                  <div class="location-input">
+                    <label for="country" class="form-label">Država (obavezno)</label>
+                    <input type="text" class="form-control" id="country" name="country" aria-describedby="titleHelp">
+                  </div>
+                  <div class="location-input">
+                    <label for="city" class="form-label">Grad (obavezno)</label>
+                    <input type="text" class="form-control" id="city" name="city" aria-describedby="titleHelp">
+                  </div>
+                  <div class="location-input">
+                    <label for="municipality" class="form-label">Opština (obavezno)</label>
+                    <input type="text" class="form-control" id="municipality" name="municipality"
+                           aria-describedby="titleHelp">
+                  </div>
+                  <div class="location-input">
+                    <label for="area" class="form-label">Lokacija (obavezno)</label>
+                    <input type="text" class="form-control" id="area" name="area" aria-describedby="titleHelp">
+                  </div>
+                  <div class="location-input">
+                    <label for="street" class="form-label">Ulica (obavezno)</label>
+                    <input type="text" class="form-control" id="street" name="street" aria-describedby="titleHelp">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col">
+                <div class="creation-step step-section mb-4">
+                  <div class="mb-4 step-heading">
+                    <h5 class="mb-2">Postavite pin na mapu</h5>
+                    <small>Postavite pin što preciznije možete kako biste bolje odredili lokaciju vaše nekretnine</small>
+                  </div>
+                  <div class="map-holder" style="height: 400px"></div>
+                  <input type="hidden" id="lat" name="lat">
+                  <input type="hidden" id="lng" name="lng">
+                  <input type="hidden" id="zoom" name="zoom">
+                </div>
+
+                <div class="d-flex justify-content-end next-step">
+                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(3, 4)">
+                    Dalje
+                    <i class="bi bi-chevron-double-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="creation-content show" id="step4">
+              <div class="creation-step step-section mb-4 flex-grow-1">
+                <div class="mb-4 step-heading">
+                  <h5 class="mb-2">Karakteristike</h5>
+                </div>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-3 col-lg-3">1</div>
+                    <div class="col-3 col-lg-3">2</div>
+                    <div class="col-3 col-lg-3">3</div>
+                    <div class="col-3 col-lg-3">4</div>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -177,132 +256,198 @@
   <script src="{% static 'js/uppy.min.js' %}"></script>
   <script src="{% static 'js/uppy-rs.min.js' %}"></script>
 
-<script>
-  function uploadFiles(type, result) {
-    for (const item of result.successful) {
-      let elem = document.createElement("input");
-      elem.setAttribute("type", "hidden");
-      elem.setAttribute("name", type);
-      elem.setAttribute("value", item.response.body.id);
-      document.querySelector('#create-listing-form').appendChild(elem);
+  <script>
+
+    function switchStep(currentStep, nextStep) {
+      if (currentStep) {
+        document.querySelector(`#step${currentStep}`).classList.remove('show')
+        document.querySelector(`#tab${currentStep}`).classList.remove('active')
+      }
+      document.querySelector(`#step${nextStep}`).classList.add('show')
+      document.querySelector(`#tab${nextStep}`).classList.add('active')
     }
-  }
 
-  const uppy = new Uppy.Uppy({
-    debug: true,
-    locale: Uppy.locales.sr_RS_Latin,
-  });
-  uppy.use(Uppy.Dashboard, {
-    inline: true,
-    width: '100%',
-    height: 450,
-    target: '#browse-images',
-    closeAfterFinish: false,
-    note: 'Slike su jedino dozvoljene, do 5 slika, do 1MB svaka',
-  });
-  uppy.use(Uppy.ImageEditor, {
-    target: Uppy.Dashboard,
-    quality: 0.8,
-  });
-  uppy.use(Uppy.XHRUpload, {
-    endpoint: '/files/upload/',
-    method: 'POST',
-    formData: true,
-    fieldName: 'file',
-  });
-  uppy.on('complete', (result) => {
-    console.log(result);
-    console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    uploadFiles('images[]', result);
-  });
+    function changeActive(step) {
+      const tabs = document.querySelectorAll('.creation-steps > .col')
+      tabs.forEach((tab => {
+        tab.classList.remove('active');
+      }))
+      const steps = document.querySelectorAll('.creation-content')
+      steps.forEach((step => {
+        step.classList.remove('show');
+      }))
+      switchStep(null, step);
+    }
 
-  const uppyTlocrt = new Uppy.Uppy({
-    debug: true,
-    locale: Uppy.locales.sr_RS_Latin,
-    restrictions: {
-      maxFiles: 1,
-      maxFileSize: 1000000,
-      minFileSize: 50000,
-      minNumberOfFiles: 1,
-      allowedFileTypes: ['image/*'],
-    },
-  });
-  uppyTlocrt.use(Uppy.Dashboard, {
-    width: '100%',
-    height: 450,
-    inline: true,
-    target: '#tlocrt-area',
-    closeAfterFinish: false,
-    note: 'Slike su jedino dozvoljene, 1 fajl, do 1MB veličine',
-  });
-  uppyTlocrt.use(Uppy.XHRUpload, {
-    endpoint: '/files/upload/',
-    method: 'POST',
-    formData: true,
-    fieldName: 'file',
-  });
-  uppyTlocrt.on('complete', (result) => {
-    console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    uploadFiles('tlocrt', result);
-  });
+    function uploadFiles(type, result) {
+      for (const item of result.successful) {
+        let elem = document.createElement("input");
+        elem.setAttribute("type", "hidden");
+        elem.setAttribute("name", type);
+        elem.setAttribute("value", item.response.body.id);
+        document.querySelector('#create-listing-form').appendChild(elem);
+      }
+    }
 
-  const uppyVideo = new Uppy.Uppy({
-    debug: true,
-    locale: Uppy.locales.sr_RS_Latin,
-    restrictions: {
-      maxFiles: 1,
-      maxFileSize: 1000000,
-      minFileSize: 50000,
-      minNumberOfFiles: 1,
-      allowedFileTypes: ['video/*'],
-    },
-  });
-  uppyVideo.use(Uppy.Dashboard, {
-    width: '100%',
-    height: 450,
-    inline: true,
-    target: '#video-area',
-    closeAfterFinish: false,
-    note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',
-  });
-  uppyVideo.use(Uppy.XHRUpload, {
-    endpoint: '/files/upload/',
-    method: 'POST',
-    formData: true,
-    fieldName: 'file',
-  });
-  uppyVideo.on('complete', (result) => {
-    console.log('Upload complete! We’ve uploaded these files:', result.successful);
-    uploadFiles('video', result);
-  });
+    const uppy = new Uppy.Uppy({
+      debug: true,
+      locale: Uppy.locales.sr_RS_Latin,
+      restrictions: {
+        maxFiles: 5,
+        maxFileSize: 1000000,
+        minFileSize: 50000,
+        minNumberOfFiles: 1,
+        allowedFileTypes: ['image/*'],
+      },
+    });
+    uppy.use(Uppy.Dashboard, {
+      inline: true,
+      width: '100%',
+      height: 450,
+      target: '#browse-images',
+      closeAfterFinish: false,
+      note: 'Slike su jedino dozvoljene, do 5 slika, do 1MB svaka',
+    });
+    uppy.use(Uppy.ImageEditor, {
+      target: Uppy.Dashboard,
+      quality: 0.8,
+    });
+    uppy.use(Uppy.XHRUpload, {
+      endpoint: '/files/upload/',
+      method: 'POST',
+      formData: true,
+      fieldName: 'file',
+    });
+    uppy.on('complete', (result) => {
+      console.log(result);
+      console.log('Upload complete! We’ve uploaded these files:', result.successful);
+      uploadFiles('images[]', result);
+    });
 
-{#  const uppyTura = new Uppy.Uppy({#}
-{#    debug: true,#}
-{#    locale: Uppy.locales.sr_RS_Latin,#}
-{#    restrictions: {#}
-{#      maxFiles: 1,#}
-{#      maxFileSize: 1000000,#}
-{#      minFileSize: 50000,#}
-{#      minNumberOfFiles: 1,#}
-{#      allowedFileTypes: ['video/*'],#}
-{#    },#}
-{#  });#}
-{#  uppyTura.use(Uppy.Dashboard, {#}
-{#    width: '100%',#}
-{#    height: 450,#}
-{#    inline: true,#}
-{#    target: '#video-area',#}
-{#    closeAfterFinish: false,#}
-{#    note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',#}
-{#  });#}
-{#  uppyTura.use(Uppy.Tus, {#}
-{#    endpoint: 'https://tusd.tusdemo.net/files/'#}
-{#  });#}
-{#  uppyTura.on('complete', (result) => {#}
-{#    console.log('Upload complete! We’ve uploaded these files:', result.successful);#}
-{#    // iterate over result.successful#}
-{#    // Create new html element `<input name="myParam" value=""/>` for each image uploaded#}
-{#    // from response.uploadURL set value for the input field#}
-{#  });#}
+    const uppyTlocrt = new Uppy.Uppy({
+      debug: true,
+      locale: Uppy.locales.sr_RS_Latin,
+      restrictions: {
+        maxFiles: 1,
+        maxFileSize: 1000000,
+        minFileSize: 50000,
+        minNumberOfFiles: 1,
+        allowedFileTypes: ['image/*'],
+      },
+    });
+    uppyTlocrt.use(Uppy.Dashboard, {
+      width: '100%',
+      height: 450,
+      inline: true,
+      target: '#tlocrt-area',
+      closeAfterFinish: false,
+      note: 'Slike su jedino dozvoljene, 1 fajl, do 1MB veličine',
+    });
+    uppyTlocrt.use(Uppy.XHRUpload, {
+      endpoint: '/files/upload/',
+      method: 'POST',
+      formData: true,
+      fieldName: 'file',
+    });
+    uppyTlocrt.on('complete', (result) => {
+      console.log('Upload complete! We’ve uploaded these files:', result.successful);
+      uploadFiles('tlocrt', result);
+    });
+
+    const uppyVideo = new Uppy.Uppy({
+      debug: true,
+      locale: Uppy.locales.sr_RS_Latin,
+      restrictions: {
+        maxFiles: 1,
+        maxFileSize: 1000000,
+        minFileSize: 50000,
+        minNumberOfFiles: 1,
+        allowedFileTypes: ['video/*'],
+      },
+    });
+    uppyVideo.use(Uppy.Dashboard, {
+      width: '100%',
+      height: 450,
+      inline: true,
+      target: '#video-area',
+      closeAfterFinish: false,
+      note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',
+    });
+    uppyVideo.use(Uppy.XHRUpload, {
+      endpoint: '/files/upload/',
+      method: 'POST',
+      formData: true,
+      fieldName: 'file',
+    });
+    uppyVideo.on('complete', (result) => {
+      console.log('Upload complete! We’ve uploaded these files:', result.successful);
+      uploadFiles('video', result);
+    });
+
+    {#  const uppyTura = new Uppy.Uppy({#}
+    {#    debug: true,#}
+    {#    locale: Uppy.locales.sr_RS_Latin,#}
+    {#    restrictions: {#}
+    {#      maxFiles: 1,#}
+    {#      maxFileSize: 1000000,#}
+    {#      minFileSize: 50000,#}
+    {#      minNumberOfFiles: 1,#}
+    {#      allowedFileTypes: ['video/*'],#}
+    {#    },#}
+    {#  });#}
+    {#  uppyTura.use(Uppy.Dashboard, {#}
+    {#    width: '100%',#}
+    {#    height: 450,#}
+    {#    inline: true,#}
+    {#    target: '#video-area',#}
+    {#    closeAfterFinish: false,#}
+    {#    note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',#}
+    {#  });#}
+    {#  uppyTura.use(Uppy.Tus, {#}
+    {#    endpoint: 'https://tusd.tusdemo.net/files/'#}
+    {#  });#}
+    {#  uppyTura.on('complete', (result) => {#}
+    {#    console.log('Upload complete! We’ve uploaded these files:', result.successful);#}
+    {#    // iterate over result.successful#}
+    {#    // Create new html element `<input name="myParam" value=""/>` for each image uploaded#}
+    {#    // from response.uploadURL set value for the input field#}
+    {#  });#}
+  </script>
+  <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkSMOzXbSii4y-Skg2_SGrFQM9MLVYOA&callback=initMap&v=weekly"
+      defer
+  ></script>
+  <script>
+    let map;
+    let marker;
+    // Initialize and add the map
+    function initMap() {
+      const belgrade = { lat: 44.8125, lng: 20.4612 };
+      // The map, centered at Uluru
+      map = new google.maps.Map(document.querySelector(".map-holder"), {
+        zoom: 10,
+        center: belgrade,
+      });
+      // The marker, positioned at Belgrade
+      marker = new google.maps.Marker({
+        position: belgrade,
+        map: map,
+        draggable: true,
+      });
+
+      map.addListener("click", (e) => {
+        placeMarkerAndPanTo(e.latLng, map);
+      });
+    }
+
+    function placeMarkerAndPanTo(latLng, map) {
+      marker.setPosition(latLng);
+      map.panTo(latLng);
+      document.querySelector('#lat').value = latLng.lat();
+      document.querySelector('#lng').value = latLng.lng();
+      document.querySelector('#zoom').value = map.getZoom();
+    }
+
+    window.initMap = initMap;
   </script>
 {% endblock %}

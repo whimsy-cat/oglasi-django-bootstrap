@@ -51,6 +51,10 @@
   border-radius: 5px;
   border: 1px solid rgba(31, 56, 54, 0.1);
 }
+.creation-steps .col a {
+  text-decoration: none;
+  color: inherit;
+}
 .creation-steps .col:last-child {
   margin-right: 0;
 }
@@ -80,11 +84,15 @@
   font-weight: 700;
 }
 
-.next-step {
+#step1 .next-step {
   padding-top: 100px;
 }
 .next-step button {
   width: 145px;
   height: 45px;
   line-height: 1;
+}
+
+.location-input {
+  margin-bottom: 28px;
 }
