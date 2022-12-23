@@ -87,6 +87,9 @@
 #step1 .next-step {
   padding-top: 100px;
 }
+#step4 .next-step {
+  padding-top: 18px;
+}
 .next-step button {
   width: 145px;
   height: 45px;

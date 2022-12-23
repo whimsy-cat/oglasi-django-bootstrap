@@ -11,5 +11,8 @@ def listing(request, slug):
 
 
 def create(request, **kwargs):
-    return render(request, 'listing/create_new_listing.html')
+    context = {
+        'elems': range(0, 30)
+    }
+    return render(request, 'listing/create_new_listing.html', context)
 
