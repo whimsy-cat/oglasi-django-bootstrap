@@ -236,12 +236,118 @@
                 </div>
                 <div class="container-fluid">
                   <div class="row">
-                    <div class="col-3 col-lg-3">1</div>
-                    <div class="col-3 col-lg-3">2</div>
-                    <div class="col-3 col-lg-3">3</div>
-                    <div class="col-3 col-lg-3">4</div>
+                    <div class="col-3 col-lg-3">
+                      <div class="mb-3">
+                        <label for="size" class="form-label">Površina</label>
+                        <input type="text" class="form-control" id="size" name="size" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="structure" class="form-label">Struktura (brojevima)</label>
+                        <input type="text" class="form-control" id="structure" name="structure" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="year_built" class="form-label">Godina Izgradnje</label>
+                        <input type="text" class="form-control" id="year_built" name="year_built" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="floor" class="form-label">Sprat</label>
+                        <input type="text" class="form-control" id="floor" name="floor" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="total_floors" class="form-label">Od Spratova</label>
+                        <input type="text" class="form-control" id="total_floors" name="total_floors" aria-describedby="titleHelp">
+                      </div>
+                    </div>
+                    <div class="col-3 col-lg-3">
+                      <div class="mb-3">
+                        <label for="bedrooms" class="form-label">Spavaćih soba</label>
+                        <input type="text" class="form-control" id="bedrooms" name="bedrooms" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="baths" class="form-label">Kupatila</label>
+                        <input type="text" class="form-control" id="baths" name="baths" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="half_baths" class="form-label">Toaleta</label>
+                        <input type="text" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="parcel_size" class="form-label">Površina parcele</label>
+                        <input type="text" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="additional" class="form-label">Ostalo/dodatno</label>
+                        <input type="text" class="form-control" id="additional" name="additional" aria-describedby="titleHelp">
+                      </div>
+                    </div>
+                    <div class="col-3 col-lg-3">
+                      <div class="mb-3">
+                        <label for="parking" class="form-label">Parking (izaberite vrstu)</label>
+                        <select class="form-select" aria-label="Default select example" id="parking" name="parking">
+                          <option value="1" selected>Prodaja</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="parking_slots" class="form-label">Parking mesta</label>
+                        <input type="text" class="form-control" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="balcony" class="form-label">Terasa</label>
+                        <input type="text" class="form-control" id="balcony" name="balcony" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="basement" class="form-label">Podrum</label>
+                        <input type="text" class="form-control" id="basement" name="basement" aria-describedby="titleHelp">
+                      </div>
+                      <div class="mb-3">
+                        <label for="storage" class="form-label">Ostava</label>
+                        <input type="text" class="form-control" id="storage" name="storage" aria-describedby="titleHelp">
+                      </div>
+                    </div>
+                    <div class="col-3 col-lg-3">
+                      <div class="mb-3">
+                        <label for="legal_status" class="form-label">Katastarski status</label>
+                        <select class="form-select" aria-label="Default select example" id="legal_status" name="legal_status">
+                          <option value="1" selected>Prodaja</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="condition" class="form-label">Stanje</label>
+                        <select class="form-select" aria-label="Default select example" id="condition" name="condition">
+                          <option value="1" selected>Prodaja</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="efficiency" class="form-label">Energetski pasoš</label>
+                        <select class="form-select" aria-label="Default select example" id="efficiency" name="efficiency">
+                          <option value="1" selected>Prodaja</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="efficiency_index" class="form-label">Indeks u kWh/m2a (izaberite)</label>
+                        <select class="form-select" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
+                          <option value="1" selected>Prodaja</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                      </div>
+                    </div>
                   </div>
+                </div>
 
+                <div class="d-flex justify-content-end next-step">
+                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(4, 5)">
+                    Dalje
+                    <i class="bi bi-chevron-double-right"></i>
+                  </button>
                 </div>
               </div>
             </div>
