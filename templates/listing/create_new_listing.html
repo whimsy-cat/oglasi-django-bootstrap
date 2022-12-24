@@ -363,11 +363,12 @@
                   </div>
                   <div class="container-fluid">
                   <div class="row">
-                    {% for item in elems %}
+                    {% for item in details %}
                       <div class="col-lg-2 col-md-4 col-sm-12">
-                        <div class="form-check form-check-inline">
-                          <input type="checkbox" class="form-check-input" id="same-address">
-                          <label class="form-check-label" for="same-address">Internet</label>
+                        <div class="form-check form-check-inline mb-2">
+                          <input type="checkbox" class="form-check-input" id="same-address" name="{{ item.title }}"
+                                 value="{{ item.id }}">
+                          <label class="form-check-label" for="same-address">{{ item.description }}</label>
                         </div>
                       </div>
                     {% endfor %}
