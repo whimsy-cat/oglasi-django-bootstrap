@@ -42,7 +42,6 @@ class ListingCharacteristics(models.Model):
     efficiency_index = models.CharField(null=False, max_length=50)
 
 
-
 class Detail(models.Model):
     name = models.CharField(max_length=100, unique=True, null=True)
     description = models.CharField(max_length=255, null=True)
@@ -90,4 +89,3 @@ class ListingMap(models.Model):
     lat = models.DecimalField(decimal_places=2, max_digits=4, null=False)
     lng = models.DecimalField(decimal_places=2, max_digits=4, null=False)
     zoom = models.IntegerField(null=False)
-
