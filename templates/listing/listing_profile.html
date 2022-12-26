@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-  hello there
+  hello there {{ listing.title }}
 {% endblock %}
 
 
 {% block page_specific_scripts %}
-
   <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkSMOzXbSii4y-Skg2_SGrFQM9MLVYOA&callback=initMap&v=weekly"
       defer

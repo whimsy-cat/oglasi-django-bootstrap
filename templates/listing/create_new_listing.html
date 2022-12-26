@@ -29,7 +29,7 @@
               <a href="#" onclick="changeActive(5)">5. Detalji</a>
             </div>
           </div>
-          <form id="create-listing-form" method="POST" action="{%  %}">
+          <form id="create-listing-form" method="POST" action="{% url 'listing_submit' %}">
             {% csrf_token %}
             <div class="creation-content justify-content-center show" id="step1">
               <div class="col creation-step me-4">
@@ -58,10 +58,10 @@
                     <small class="align-self-end">Izaberite vrstu oglašavanja</small>
                   </div>
                   <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example" name="type" id="type">
-                      <option value="1" selected>Prodaja</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" aria-label="Default select example" name="status" id="status">
+                      <option value="sell" selected>Prodaja</option>
+                      <option value="rent">Izdavanje</option>
+                      <option value="buy">Kupovina</option>
                     </select>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ from category.models import Category
 
 
 class Listing(models.Model):
-    name = models.CharField(max_length=150, null=False)
+    title = models.CharField(max_length=150, null=False)
     description = models.CharField(max_length=255, null=True)
     status = models.CharField(max_length=25)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, default=1)
