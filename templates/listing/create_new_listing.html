@@ -78,10 +78,9 @@
                       <div style="width: 280px;">
                         <label for="category" class="form-label">Kategorija</label>
                         <select class="form-select" id="category">
-                          <option selected="">Open this select menu</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                          {% for categ in categories %}
+                            <option value="{{ categ.id }}">{{ categ.name }}</option>
+                          {% endfor %}
                         </select>
                       </div>
                       <div style="width: 220px;">

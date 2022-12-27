@@ -1,5 +1,8 @@
+import random
+
 from django.db import DataError
 from django.shortcuts import render, redirect
+from django.utils.text import slugify
 from django.utils.timezone import now
 
 from category.models import Category
@@ -26,8 +29,10 @@ def listing(request, slug):
 
 def create(request, **kwargs):
     details = Detail.objects.all()
+    categories = Category.objects.all()
     context = {
         'details': details,
+        'categories': categories,
     }
     return render(request, 'listing/create_new_listing.html', context)
 
@@ -45,12 +50,17 @@ def submit(request):
         status=request.POST['status'],
         category=listing_category,
         price=100_000,
-        slug="hello_there",
-        country="Srbija",
-        city="Beograd",
-        municipality="Stari Grad",
-        area="Dorćol",
-        address="Strahinjića Bana",
+        slug=slugify(
+            request.POST['city'] + '-' +
+            request.POST['municipality'] + '-' +
+            request.POST['area'] + '-' +
+            request.POST['title']
+        ),
+        country=request.POST['country'],
+        city=request.POST['city'],
+        municipality=request.POST['municipality'],
+        area=request.POST['area'],
+        address=request.POST['street'],
         date_listed=now()
     )
     listing_instance.save()
@@ -90,8 +100,8 @@ def submit(request):
 
     listing_map = ListingMap.objects.create(
         listing=listing_instance,
-        lat=44.82,
-        lng=20.46,
+        lat=44 + (random.randint(10, 90) / 1000),
+        lng=20 + (random.randint(10, 90) / 1000),
         zoom=12
     )
     listing_map.save()
