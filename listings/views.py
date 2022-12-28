@@ -17,14 +17,15 @@ def listings(request):
 def listing(request, slug):
     try:
         listing = Listing.objects.get(slug=slug)
-        #listing_images = ListingImages.objects.get(listing=listing)
+        listing_images = listing.images.all()
 
     except Listing.DoesNotExist:
         # add error handling
         return redirect('home')
 
     context = {
-        "listing": listing
+        "listing": listing,
+        "images": listing_images
     }
 
     return render(request, 'listing/listing_profile.html', context)
@@ -69,6 +70,15 @@ def submit(request):
     for image in request.POST.getlist('images[]'):
         dropbox = DropBox.objects.get(pk=image)
         listing_instance.images.add(dropbox)
+
+    if request.POST['tlocrt']:
+        dropbox = DropBox.objects.get(pk=request.POST['tlocrt'])
+        listing_instance.floor_plan.add(dropbox)
+
+    if request.POST['video']:
+        dropbox = DropBox.objects.get(pk=request.POST['video'])
+        listing_instance.video.add(dropbox)
+
     listing_instance.save()
 
     listing_chars = ListingCharacteristics.objects.create(

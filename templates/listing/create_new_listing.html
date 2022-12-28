@@ -382,7 +382,8 @@
                 </button>
               </div>
               </div>
-
+              <input type="hidden" id="video" name="video">
+              <input type="hidden" id="tlocrt" name="tlocrt">
             </div>
           </form>
         </div>
@@ -497,7 +498,9 @@
     });
     uppyTlocrt.on('complete', (result) => {
       console.log('Upload complete! We’ve uploaded these files:', result.successful);
-      uploadFiles('tlocrt', result);
+      for (const item of result.successful) {
+        document.querySelector('#tlocrt').value = item.response.body.id;
+      }
     });
 
     const uppyVideo = new Uppy.Uppy({
@@ -530,7 +533,9 @@
     });
     uppyVideo.on('complete', (result) => {
       console.log('Upload complete! We’ve uploaded these files:', result.successful);
-      uploadFiles('video', result);
+      for (const item of result.successful) {
+        document.querySelector('#video').value = item.response.body.id;
+      }
     });
 
     {#  const uppyTura = new Uppy.Uppy({#}
