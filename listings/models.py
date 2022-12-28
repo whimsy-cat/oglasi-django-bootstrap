@@ -1,6 +1,7 @@
 from django.db import models
 
 from category.models import Category
+from uploader.models import DropBox
 
 
 class Listing(models.Model):
@@ -16,9 +17,12 @@ class Listing(models.Model):
     area = models.CharField(max_length=250, null=False, default=None)
     address = models.CharField(max_length=250, null=False)
     date_listed = models.DateTimeField(auto_now_add=True)
+    images = models.ManyToManyField(DropBox, related_name="images")
+    floor_plan = models.ManyToManyField(DropBox, related_name="floor_plan")
+    video = models.ManyToManyField(DropBox, related_name="video")
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class ListingCharacteristics(models.Model):
@@ -67,21 +71,6 @@ class Amenity(models.Model):
 class ListingAmenities(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     amenity = models.ForeignKey(Amenity, on_delete=models.CASCADE)
-
-
-class ListingFloorPlan(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE, default=None)
-    floor_plan = models.CharField(null=False, max_length=255, default=None)
-
-
-class ListingImages(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    url = models.CharField(null=False, max_length=255)
-
-
-class ListingVideo(models.Model):
-    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    url = models.CharField(null=False, max_length=255)
 
 
 class ListingMap(models.Model):

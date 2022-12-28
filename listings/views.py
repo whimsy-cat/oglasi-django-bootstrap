@@ -6,7 +6,8 @@ from django.utils.text import slugify
 from django.utils.timezone import now
 
 from category.models import Category
-from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingImages, ListingMap
+from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap
+from uploader.models import DropBox
 
 
 def listings(request):
@@ -16,6 +17,8 @@ def listings(request):
 def listing(request, slug):
     try:
         listing = Listing.objects.get(slug=slug)
+        #listing_images = ListingImages.objects.get(listing=listing)
+
     except Listing.DoesNotExist:
         # add error handling
         return redirect('home')
@@ -49,7 +52,7 @@ def submit(request):
         description=request.POST['description'],
         status=request.POST['status'],
         category=listing_category,
-        price=100_000,
+        price=request.POST['price'],
         slug=slugify(
             request.POST['city'] + '-' +
             request.POST['municipality'] + '-' +
@@ -63,6 +66,9 @@ def submit(request):
         address=request.POST['street'],
         date_listed=now()
     )
+    for image in request.POST.getlist('images[]'):
+        dropbox = DropBox.objects.get(pk=image)
+        listing_instance.images.add(dropbox)
     listing_instance.save()
 
     listing_chars = ListingCharacteristics.objects.create(
@@ -92,17 +98,12 @@ def submit(request):
         detail_id=1
     )
     listing_details.save()
-    listing_images = ListingImages.objects.create(
-        listing=listing_instance,
-        url="https://www.compass.com/m/448c35603c0c966641459a7bfbe9d01a6a54e6a3_img_0_9c76f/1500x1000.jpg"
-    )
-    listing_images.save()
 
     listing_map = ListingMap.objects.create(
         listing=listing_instance,
-        lat=44 + (random.randint(10, 90) / 1000),
-        lng=20 + (random.randint(10, 90) / 1000),
-        zoom=12
+        lat = request.POST['lat'],
+        lng = request.POST['lng'],
+        zoom = request.POST['zoom'],
     )
     listing_map.save()
 

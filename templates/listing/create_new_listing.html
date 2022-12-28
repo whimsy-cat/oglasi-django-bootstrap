@@ -427,6 +427,7 @@
         document.querySelector('#create-listing-form').appendChild(elem);
       }
     }
+    const csrfToken = document.querySelector('[name="csrfmiddlewaretoken"]').value;
 
     const uppy = new Uppy.Uppy({
       debug: true,
@@ -456,6 +457,9 @@
       method: 'POST',
       formData: true,
       fieldName: 'file',
+      headers: {
+        'X-CSRFToken': csrfToken
+      }
     });
     uppy.on('complete', (result) => {
       console.log(result);
@@ -487,6 +491,9 @@
       method: 'POST',
       formData: true,
       fieldName: 'file',
+      headers: {
+        'X-CSRFToken': csrfToken
+      }
     });
     uppyTlocrt.on('complete', (result) => {
       console.log('Upload complete! We’ve uploaded these files:', result.successful);
@@ -517,6 +524,9 @@
       method: 'POST',
       formData: true,
       fieldName: 'file',
+      headers: {
+        'X-CSRFToken': csrfToken
+      }
     });
     uppyVideo.on('complete', (result) => {
       console.log('Upload complete! We’ve uploaded these files:', result.successful);
@@ -575,6 +585,9 @@
       });
 
       map.addListener("click", (e) => {
+        placeMarkerAndPanTo(e.latLng, map);
+      });
+      marker.addListener("dragend", (e) => {
         placeMarkerAndPanTo(e.latLng, map);
       });
     }
