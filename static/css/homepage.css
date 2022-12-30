@@ -7,10 +7,10 @@
 .header .logo-text {
   color: #f8f9fa;
 }
-.header a {
+.header .nav a {
   color: #f8f9fa;
 }
-.header a:hover {
+.header .nav a:hover {
   color: #f8f9fa;
   filter: brightness(0.85);
 }

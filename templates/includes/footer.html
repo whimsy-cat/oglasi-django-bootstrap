@@ -1,5 +1,10 @@
 {% load static %}
-<section class="footer p-3 pt-5 {% if request.resolver_match.kwargs.footer == 'create_listing' %}sticky{% endif %}">
+{#<section class="footer p-3 pt-5 {% if request.resolver_match.kwargs.footer == 'create_listing' %}sticky{% endif %}">#}
+{% if request.path == '/oglasi/postavi/' or '/accounts/login/' %}
+<section class="footer p-3 pt-5 sticky">
+  {% else %}
+<section class="footer p-3 pt-5">
+  {% endif %}
   <footer class="container-fluid">
     <div class="row">
       <div class="col-3 col-md-3 mb-3">

@@ -25,7 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('rest_framework.urls')),
     path('api/', include('category.urls')),
-    path('accounts/', include('accounts.urls')),
+    path('nalog/', include('accounts.urls')),
     path('oglasi/', include('listings.urls')),
     path('files/', include('uploader.urls')),
     path('', views.home, name="home"),
