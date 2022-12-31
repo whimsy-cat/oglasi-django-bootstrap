@@ -422,6 +422,12 @@
       }
       document.querySelector(`#step${nextStep}`).classList.add('show')
       document.querySelector(`#tab${nextStep}`).classList.add('active')
+
+      if (nextStep === 2) {
+        document.querySelector('.footer').classList.remove('sticky');
+      } else {
+        document.querySelector('.footer').classList.add('sticky');
+      }
     }
 
     function changeActive(step) {

@@ -99,3 +99,10 @@
 .location-input {
   margin-bottom: 28px;
 }
+
+
+/* View listing */
+.view-listing {}
+.view-listing .listing-gallery {
+  height: 600px;
+}
