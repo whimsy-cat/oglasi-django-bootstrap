@@ -17,6 +17,12 @@ input, select, textarea {
   font-size: 14px !important;
 }
 
+input::placeholder {
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.8;
+}
+
 
 /*forms*/
 /*.form-control {*/

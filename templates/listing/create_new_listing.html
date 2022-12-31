@@ -10,7 +10,9 @@
   <section class="create-listing p-3 pt-4 flex-shrink-0">
     <div class="container-fluid">
       <div class="row">
+
         {% include 'includes/profile_sidebar.html' %}
+
         <div class="col-10 main-area">
           <div class="creation-steps d-flex justify-content-center mb-3">
             <div id="tab1" class="col shadow-sm active">
@@ -29,7 +31,8 @@
               <a href="#" onclick="changeActive(5)">5. Detalji</a>
             </div>
           </div>
-          <form id="create-listing-form" method="POST" action="{% url 'listing_submit' %}">
+
+          <form id="create-listing-form" class="needs-validation" method="POST" action="{% url 'listing_submit' %}" novalidate>
             {% csrf_token %}
             <div class="creation-content justify-content-center show" id="step1">
               <div class="col creation-step me-4">
@@ -41,19 +44,22 @@
                   </div>
                   <div class="mb-3">
                     <label for="title" class="form-label">Naslov oglasa (obavezno)</label>
-                    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp">
+                    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp" required>
                   </div>
                   <div class="mb-3">
                     <div class="d-flex justify-content-start mb-4 step-heading">
                       <p class="align-self-end me-4">Opis</p>
                       <small class="align-self-end">Napišite par rečenica o vašoj nekretnini</small>
                     </div>
-                    <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="16" required></textarea>
                   </div>
                 </div>
-                <div class="step-section">
-                  {# Step sub heading #}
-                  <div class="d-flex justify-content-start mb-4 step-heading">
+              </div>
+
+              <div class="col">
+                <div class="creation-step mb-4">
+                  <div class="step-section mb-4">
+                    <div class="d-flex justify-content-start mb-4 step-heading">
                     <h5 class="align-self-end me-4">Status</h5>
                     <small class="align-self-end">Izaberite vrstu oglašavanja</small>
                   </div>
@@ -64,10 +70,9 @@
                       <option value="buy">Kupovina</option>
                     </select>
                   </div>
+                  </div>
                 </div>
 
-              </div>
-              <div class="col">
                 <div class="creation-step mb-4">
                   <div class="step-section ">
                     <div class="d-flex justify-content-start mb-4 step-heading">
@@ -91,34 +96,35 @@
                   </div>
                 </div>
 
-                <div class="creation-step mb-4">
+                <div class="creation-step">
                   <div class="step-section">
                     <div class="d-flex justify-content-start mb-4 step-heading">
                       <h5 class="align-self-end me-4">Cena</h5>
                       <small class="align-self-end">Upišite cenu vaše nekretnine u EUR</small>
                     </div>
                     <div class="w100">
-                      <input type="text" class="form-control" id="price" name="price">
+                      <input type="text" class="form-control" id="price" name="price" required>
                     </div>
                   </div>
                 </div>
 
-                <div class="creation-step">
-                  <div class="step-section mb-4">
-                    <div class="d-flex justify-content-start mb-4 step-heading">
-                      <h5 class="align-self-end me-4">Oglašavač</h5>
-                      <small class="align-self-end">(Izaberite kategoriju i tip vaše nekretnine)</small>
-                    </div>
-                    <div class="w100">
-                      <select class="form-select" id="advertiser" name="advertiser">
-                        <option selected="">Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
+{#              Ovo nije potrebno jer znamo ko je oglasavac #}
+{#                <div class="creation-step">#}
+{#                  <div class="step-section mb-4">#}
+{#                    <div class="d-flex justify-content-start mb-4 step-heading">#}
+{#                      <h5 class="align-self-end me-4">Oglašavač</h5>#}
+{#                      <small class="align-self-end">(Izaberite kategoriju i tip vaše nekretnine)</small>#}
+{#                    </div>#}
+{#                    <div class="w100">#}
+{#                      <select class="form-select" id="advertiser" name="advertiser">#}
+{#                        <option selected="">Open this select menu</option>#}
+{#                        <option value="1">One</option>#}
+{#                        <option value="2">Two</option>#}
+{#                        <option value="3">Three</option>#}
+{#                      </select>#}
+{#                    </div>#}
+{#                  </div>#}
+{#                </div>#}
 
                 <div class="d-flex justify-content-end next-step">
                   <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(1, 2)">
@@ -186,24 +192,26 @@
                   </div>
                   <div class="location-input">
                     <label for="country" class="form-label">Država (obavezno)</label>
-                    <input type="text" class="form-control" id="country" name="country" aria-describedby="titleHelp">
+                    <select class="form-select" id="country" name="country">
+                      <option selected value="srbija">Srbija</option>
+                    </select>
                   </div>
                   <div class="location-input">
                     <label for="city" class="form-label">Grad (obavezno)</label>
-                    <input type="text" class="form-control" id="city" name="city" aria-describedby="titleHelp">
+                    <input type="text" class="form-control" id="city" name="city" aria-describedby="titleHelp" required>
                   </div>
                   <div class="location-input">
                     <label for="municipality" class="form-label">Opština (obavezno)</label>
                     <input type="text" class="form-control" id="municipality" name="municipality"
-                           aria-describedby="titleHelp">
+                           aria-describedby="titleHelp" required>
                   </div>
                   <div class="location-input">
                     <label for="area" class="form-label">Lokacija (obavezno)</label>
-                    <input type="text" class="form-control" id="area" name="area" aria-describedby="titleHelp">
+                    <input type="text" class="form-control" id="area" name="area" aria-describedby="titleHelp" required>
                   </div>
                   <div class="location-input">
                     <label for="street" class="form-label">Ulica (obavezno)</label>
-                    <input type="text" class="form-control" id="street" name="street" aria-describedby="titleHelp">
+                    <input type="text" class="form-control" id="street" name="street" aria-describedby="titleHelp" required>
                   </div>
                 </div>
               </div>
@@ -232,49 +240,55 @@
             <div class="creation-content" id="step4">
               <div class="col flex-grow-1">
                 <div class="creation-step step-section mb-4">
-                  <div class="mb-4 step-heading">
-                    <h5 class="mb-2">Karakteristike</h5>
+                  <div class="mb-4 d-flex step-heading justify-content-start">
+                    <h5 class="mb-2 flex-grow-1">
+                      Karakteristike
+                    </h5>
+                    <a href="#" class="text-dark" data-bs-toggle="popover" data-bs-title="Smernice" data-bs-content="Primer ispod je za dvoiposoban stan od 80kvadrata, sa 1 kupatilom i jednim toaletom, 2 spavaće sobe i jednim garažnim mestom u zajedničkoj garaži zgrade.">
+                        Potrebna pomoć?
+                        <i class="bi bi-info-circle-fill"></i>
+                      </a>
                   </div>
                   <div class="container-fluid">
                     <div class="row">
                       <div class="col-3 col-lg-3">
                         <div class="mb-3">
-                          <label for="size" class="form-label">Površina</label>
-                          <input type="text" class="form-control" id="size" name="size" aria-describedby="titleHelp">
+                          <label for="size" class="form-label">Površina (obavezno)</label>
+                          <input type="text" class="form-control" id="size" name="size" aria-describedby="titleHelp" placeholder="npr 80" required>
                         </div>
                         <div class="mb-3">
                           <label for="structure" class="form-label">Struktura (brojevima)</label>
-                          <input type="text" class="form-control" id="structure" name="structure" aria-describedby="titleHelp">
+                          <input type="text" class="form-control" id="structure" name="structure" aria-describedby="titleHelp" placeholder="npr 2.5">
                         </div>
                         <div class="mb-3">
                           <label for="year_built" class="form-label">Godina Izgradnje</label>
-                          <input type="text" class="form-control" id="year_built" name="year_built" aria-describedby="titleHelp">
+                          <input type="text" class="form-control" id="year_built" name="year_built" aria-describedby="titleHelp" placeholder="npr 1983">
                         </div>
                         <div class="mb-3">
                           <label for="floor" class="form-label">Sprat</label>
-                          <input type="text" class="form-control" id="floor" name="floor" aria-describedby="titleHelp">
+                          <input type="text" class="form-control" id="floor" name="floor" aria-describedby="titleHelp" placeholder="npr 2">
                         </div>
                         <div class="mb-3">
                           <label for="total_floors" class="form-label">Od Spratova</label>
-                          <input type="text" class="form-control" id="total_floors" name="total_floors" aria-describedby="titleHelp">
+                          <input type="text" class="form-control" id="total_floors" name="total_floors" aria-describedby="titleHelp" placeholder="5">
                         </div>
                       </div>
                       <div class="col-3 col-lg-3">
                         <div class="mb-3">
-                          <label for="bedrooms" class="form-label">Spavaćih soba</label>
-                          <input type="text" class="form-control" id="bedrooms" name="bedrooms" aria-describedby="titleHelp">
+                          <label for="bedrooms" class="form-label">Spavaćih soba (brojevima)</label>
+                          <input type="text" class="form-control" id="bedrooms" name="bedrooms" aria-describedby="titleHelp" placeholder="npr 2">
                         </div>
                         <div class="mb-3">
-                          <label for="baths" class="form-label">Kupatila</label>
-                          <input type="text" class="form-control" id="baths" name="baths" aria-describedby="titleHelp">
+                          <label for="baths" class="form-label">Kupatila (brojevima)</label>
+                          <input type="text" class="form-control" id="baths" name="baths" aria-describedby="titleHelp" placeholder="npr 1">
                         </div>
                         <div class="mb-3">
-                          <label for="half_baths" class="form-label">Toaleta</label>
-                          <input type="text" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp">
+                          <label for="half_baths" class="form-label">Toaleta (brojevima)</label>
+                          <input type="text" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
                         </div>
                         <div class="mb-3">
-                          <label for="parcel_size" class="form-label">Površina parcele</label>
-                          <input type="text" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp">
+                          <label for="parcel_size" class="form-label">Površina parcele (u kvm)</label>
+                          <input type="text" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
                         </div>
                         <div class="mb-3">
                           <label for="additional" class="form-label">Ostalo/dodatno</label>
@@ -291,11 +305,11 @@
                           </select>
                         </div>
                         <div class="mb-3">
-                          <label for="parking_slots" class="form-label">Parking mesta</label>
+                          <label for="parking_slots" class="form-label">Parking mesta (brojevima)</label>
                           <input type="text" class="form-control" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
                         </div>
                         <div class="mb-3">
-                          <label for="balcony" class="form-label">Terasa</label>
+                          <label for="balcony" class="form-label">Terasa (brojevima)</label>
                           <input type="text" class="form-control" id="balcony" name="balcony" aria-describedby="titleHelp">
                         </div>
                         <div class="mb-3">
@@ -311,17 +325,18 @@
                         <div class="mb-3">
                           <label for="legal_status" class="form-label">Katastarski status</label>
                           <select class="form-select" aria-label="Default select example" id="legal_status" name="legal_status">
-                            <option value="1" selected>Prodaja</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="uknjizeno" selected>Uknjizeno</option>
+                            <option value="legalizacija">Legalizacija u toku</option>
+                            <option value="izgradnja" selected>U izgradnji</option>
+                            <option value="neuknjizeno">Neuknjizeno</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="condition" class="form-label">Stanje</label>
                           <select class="form-select" aria-label="Default select example" id="condition" name="condition">
-                            <option value="1" selected>Prodaja</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="novogradnja" selected>Novogradnja</option>
+                            <option value="renovirano">Renovirano</option>
+                            <option value="izvorno">Izvorno</option>
                           </select>
                         </div>
                         <div class="mb-3">
@@ -397,6 +412,8 @@
   <script src="{% static 'js/uppy-rs.min.js' %}"></script>
 
   <script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
     function switchStep(currentStep, nextStep) {
       if (currentStep) {

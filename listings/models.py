@@ -1,5 +1,6 @@
 from django.db import models
 
+from accounts.models import Account
 from category.models import Category
 from uploader.models import DropBox
 
@@ -20,6 +21,7 @@ class Listing(models.Model):
     images = models.ManyToManyField(DropBox, related_name="images")
     floor_plan = models.ManyToManyField(DropBox, related_name="floor_plan")
     video = models.ManyToManyField(DropBox, related_name="video")
+    posted_by = models.ForeignKey(Account, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title
