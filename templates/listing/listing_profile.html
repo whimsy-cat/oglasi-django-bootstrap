@@ -14,7 +14,7 @@
 {% endblock %}
 
 {% block content %}
-  <section class="view-listing p-3 pt-4 flex-shrink-0">
+  <section class="view-listing p-3 pt-4">
     <div class="container-fluid">
       <div class="listing-gallery">
         <div class="test-gallery">
@@ -68,9 +68,11 @@
     </div>
   </section>
 
-  hello there {{ listing.title }}
+  <section>
+    hello there {{ listing.title }}
 
-  <div id="listing-map"></div>
+    <div id="listing-map"></div>
+  </section>
 {% endblock %}
 
 

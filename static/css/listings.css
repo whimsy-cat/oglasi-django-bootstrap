@@ -106,3 +106,6 @@
 .view-listing .listing-gallery {
   height: 600px;
 }
+.view-listing .listing-gallery .carousel {
+  height: 660px;
+}
