@@ -1,0 +1,54 @@
+{% load static %}
+
+{% block content %}
+
+<div class="card shadow-sm border-0" onclick="onListingClick('{{listing.slug}}')" onmouseover="onListingHover('{{ listing.id }}')" onmouseleave="onListingUnhover('{{ listing.id }}')">
+  <div class="rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 250px">
+    <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
+      <div class="col-12 mb-auto d-flex justify-content-between">
+        <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
+        <img src="{% static 'images/icons/hearth.svg' %}" class="m-2" alt="Hearth">
+      </div>
+      <div class="col-12 px-3 pb-2 text-white">
+        <h6>{{ listing.price }} eur</h6> 
+      <p class="card-text listing-description">{{ listing.description }}</p> 
+      <div class="d-flex justify-content-between align-items-center" >
+        <div class="item-amenity">
+          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-house.svg' %}" alt="House item">
+          <small>{{ listing.category.name }}</small>
+        </div>
+        <div class="item-amenity">
+          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+          <small>{{ listing.listingcharacteristics_set.first.size }}</small>
+        </div>
+        <div class="item-amenity">
+          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor map item">
+          <small>{{ listing.listingcharacteristics_set.first.floor }}</small>
+        </div>
+        {% if listing.listingcharacteristics_set.first.parking_slots %}
+        <div class="item-amenity">
+          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-parkingspace.svg' %}" alt="Parking space item">
+          <small>{{ listing.listingcharacteristics_set.first.parking }}</small>
+        </div>
+        {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block page_specific_scripts %}
+<script>
+    function onListingClick(slug) {
+        {% if debug != None %}
+          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
+        {% else %}
+          console.error('Define real URL');
+        {% endif %}
+    }
+
+</script>
+{% endblock %}
+

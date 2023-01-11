@@ -1,0 +1,85 @@
+{% load static %}
+
+<div class="col-7 d-flex px-2 my-2 align-items-center">
+  <select class="form-select" onchange="queryParam('grad', this.value)" aria-label="Default select example">
+    <option value="">Grad</option>
+    <option  {% if request.GET.grad == 'beograd' %} selected {% endif %} value="beograd">Beograd</option>
+  </select>
+  <select class="form-select mx-1" onchange="queryParam('lokacija', this.value)" aria-label="Default select example">
+    <option value="">Lokacija</option>
+    <option  {% if request.GET.lokacija == 'šumadija' %} selected {% endif %} value="šumadija">Šumadija</option>
+  </select>
+  <select class="form-select mx-1" onchange="queryParam('tip', this.value)" aria-label="Default select example">
+    <option value="">Tip</option>
+    {% for categ in categories %}
+      <option  {% if request.GET.tip == categ.name %} selected {% endif %} value="{{ categ.name }}">{{ categ.name }}</option>
+    {% endfor %}
+  </select>
+  <select class="form-select mx-1" onchange="queryParam('cena', this.value)" aria-label="Default select example">
+    <option value="">Cena</option>
+    <option  {% if request.GET.cena == '20000' %} selected {% endif %} value="20000">do 20.000 e</option>
+    <option  {% if request.GET.cena == '40000' %} selected {% endif %} value="40000">do 40.000 e</option>
+    <option  {% if request.GET.cena == '60000' %} selected {% endif %} value="60000">do 60.000 e</option>
+    <option  {% if request.GET.cena == '80000' %} selected {% endif %} value="80000">do 80.000 e</option>
+    <option  {% if request.GET.cena == '100000' %} selected {% endif %} value="100000">do 100.000 e</option>
+    <option  {% if request.GET.cena == '150000' %} selected {% endif %} value="150000">do 150.000 e</option>
+    <option  {% if request.GET.cena == '200000' %} selected {% endif %} value="200000">do 200.000 e</option>
+    <option  {% if request.GET.cena == '300000' %} selected {% endif %} value="300000">do 300.000 e</option>
+    <option  {% if request.GET.cena == '500000' %} selected {% endif %} value="500000">do 500.000 e</option>
+  </select>
+  <select class="form-select mx-1" onchange="queryParam('povrsina', this.value)" aria-label="Default select example">
+    <option value="">Površina</option>
+    <option  {% if request.GET.povrsina == '35' %} selected {% endif %} value="35">do 35 km2</option>
+    <option  {% if request.GET.povrsina == '45' %} selected {% endif %} value="45">do 45 km2</option>
+    <option  {% if request.GET.povrsina == '55' %} selected {% endif %} value="55">do 55 km2</option>
+    <option  {% if request.GET.povrsina == '75' %} selected {% endif %} value="75">do 75 km2</option>
+    <option  {% if request.GET.povrsina == '100' %} selected {% endif %} value="100">do 100 km2</option>
+    <option  {% if request.GET.povrsina == '150' %} selected {% endif %} value="150">do 150 km2</option>
+    <option  {% if request.GET.povrsina == '200' %} selected {% endif %} value="200">do 200 km2</option>
+    <option  {% if request.GET.povrsina == '300' %} selected {% endif %} value="300">do 300 km2</option>
+  </select>
+
+  <select class="form-select mx-1" onchange="queryParam('struktura', this.value)" aria-label="Default select example">
+    <option value="">Struktura</option>
+    <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
+    <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
+    <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">2 Prostorija</option>
+    <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>   
+    <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 Prostorija</option>
+    <option  {% if request.GET.struktura == '5' %} selected {% endif %} value="5">5 Prostorija</option>
+
+  </select>
+
+</div>
+<div class="col-5 d-flex my-2 align-items-center">
+  <!-- TODO: Define and create db table for this -->
+  <!-- <div class="col-5 d-flex justify-content-around">
+    <button onclick="resetQueryParams()" type="button" class="btn btn-sm border-0 px-1" >
+      Poništi
+      <img src="{% static 'images/icons/cancel.svg' %}" alt="Sort" width="17px"/>
+    </button>
+    <button type="button" class="btn btn-sm border-0">
+      Sačuvaj
+      <img src="{% static 'images/icons/save.svg' %}" alt="Sort" width="17px" />
+    </button>
+  </div> -->
+  <div class="col-7 d-flex justify-content-around align-items-center">
+    <!-- TODO: Add more Filters -->
+    <!-- <button class="btn btn-sm btn-blue border-0" aria-label="Default select example" >
+      <img src="{% static 'images/icons/main_filter.svg' %}" alt="Sort" width="15px" />
+      Više Filtera
+      <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" />
+    </button> -->
+  <button class="btn btn-sm btn-blue border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="{% static 'images/icons/map.svg' %}" alt="Sort" width="15px" />
+     {% if request.GET.prikaz == 'mapa2' %} Mapa 2
+     {% else %} Mapa 1
+     {% endif %}
+    <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" />
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa1')">Mapa 1</a></li>
+    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa2')">Mapa 2</a></li>
+  </ul>
+  </div>
+</div>

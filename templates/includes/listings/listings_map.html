@@ -1,0 +1,137 @@
+
+{% load static %}
+
+{% block content %}
+
+<div 
+    class="map-canvas h-100" 
+    id="contact-google-map"
+    data-icon-path="{% static 'images/logo/1.png' %}" 
+    data-map-title="Awesome Place"
+    data-map-zoom="14">
+</div>
+
+{% endblock %}
+
+{% block page_specific_scripts %}
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkSMOzXbSii4y-Skg2_SGrFQM9MLVYOA&callback=initMap&v=weekly"defer></script>
+
+<script>
+    const markers = {};
+    const infoWindows = {};
+    let prevInfoWindow = false; 
+
+    let map = null;
+
+    function initMap() {
+        const belgrade = { lat: 44.8125, lng: 20.4612 };
+        map = new google.maps.Map(document.getElementById("contact-google-map"), {
+        zoom: 10,
+        center: belgrade,
+        });
+
+        {% for l in listings %}
+        {% if l.listingmap_set.first.lat != None %}
+
+        const contentString{{ l.id }} = `
+        <div class="card shadow-sm border-0" id="listingCard">
+            <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:280px">
+                <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
+                <div class="col-12 mb-auto d-flex">
+                    <span class="bg-blue rounded m-2 p-1 color-white">Prodaja</span>
+                </div>
+                <div class="col-12 px-3 pb-2 text-white">
+                    <h6>{{ l.price }} eur</h6>
+                    <div class="d-flex flex-direction-column justify-content-between">
+                        <p class="card-text listing-description">{{ l.description }}</p>
+                        <div onclick="onListingClick('{{l.slug}}')"><img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-eye.svg' %}" alt="House item"></div>
+                    </div> 
+                <div class="d-flex justify-content-between align-items-center border-top border-light pt-2" >
+                    <div class="item-amenity">
+                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-house.svg' %}" alt="House item">
+                    <small>{{ l.category.name }}</small>
+                    </div>
+                    <div class="item-amenity">
+                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+                    <small>{{ l.listingcharacteristics_set.first.size }}</small>
+                    </div>
+                    <div class="item-amenity">
+                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor map item">
+                    <small>{{ l.listingcharacteristics_set.first.floor }}</small>
+                    </div>
+                    {% if listing.listingcharacteristics_set.first.parking_slots %}
+                    <div class="item-amenity">
+                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-parkingspace.svg' %}" alt="Parking space item">
+                    <small>{{ l.listingcharacteristics_set.first.parking }}</small>
+                    </div>
+                    {% endif %}
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>`;
+
+        const infowindow{{ l.id }} = new google.maps.InfoWindow({
+            content: contentString{{ l.id }},
+        });
+
+        const marker{{ l.id }} = new google.maps.Marker({
+            position: {
+            lat: Number("{{l.listingmap_set.first.lat }}"),
+            lng: Number("{{l.listingmap_set.first.lng }}"),
+            },
+            map: map,
+            listing_id: {{ l.id }},
+        });
+
+        marker{{ l.id }}.addListener("click", () => {
+            if(prevInfoWindow) {
+                prevInfoWindow.close();
+            }
+
+            prevInfoWindow = infowindow{{ l.id }};
+
+            infowindow{{ l.id }}.open({
+            anchor: marker{{ l.id }},
+            map: map
+            })
+        });
+
+        markers[{{ l.id }}] = marker{{ l.id }};
+        infoWindows[{{ l.id }}] = infowindow{{ l.id }};
+
+        {% endif %}
+        {% endfor %}
+
+    }
+
+    window.initMap = initMap;
+
+    function onListingHover(id) {
+        const infoModal = infoWindows[id];
+        if (infoModal) {
+        infoModal.open({
+            anchor: markers[id],
+            map: map
+        })
+        }
+    }
+
+    function onListingUnhover(id) {
+        const infoModal = infoWindows[id];
+        if (infoModal) {
+        infoModal.close()
+        }
+    }
+    
+    function onListingClick(slug) {
+        {% if debug != None %}
+          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
+        {% else %}
+          console.error('Define real URL');
+        {% endif %}
+    }
+</script>
+
+{% endblock %}

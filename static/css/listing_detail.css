@@ -1,0 +1,11 @@
+
+.detail_cover {
+    background-image: url("../images/listing_detail/cover.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    height: 666px;
+    /*margin-top: -76px;*/
+    padding: 0;
+    position: relative;
+  }

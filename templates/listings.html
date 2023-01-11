@@ -1,57 +1,56 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block content %}
-  <!-- Listing Grid View -->
-  <section id="feature-property" class="our-listing bgc-f7 pt0 pb0">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="sidebar_switch mobile_style dn db-991 mt30 mb0">
-            <div id="main2">
-              <span id="open2" class="flaticon-filter-results-button filter_open_btn style4"> Show Filter</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-5">
-          <div class="half_map_area">
-            <div class="home_two_map style2">
-              <div class="map-canvas skin2 half_style" id="contact-google-map"
-                   data-map-lat="51.510280" data-map-lng="-0.084028"
-                   data-icon-path="{% static 'images/logo/1.png' %}" data-map-title="Awesome Place"
-                   data-map-zoom="14"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-7">
 
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+  <section class="half-map-listing-section">
+
+    <div class="container-fluid h-100">
+      
+      <!-- Filters -->
+      <div class="row">
+        <div class="col-lg-12 d-flex border-top border-bottom">
+          {% include 'includes/listings/listings_filter_top.html' %}
         </div>
       </div>
+
+      <!-- Listings and Map -->
+      <div class="d-flex justify-content-center full-screen-row">
+
+        <div class="col h-100 overflow-y-scroll">
+          <div class="container-fluid">
+            <!-- Pagination and Sort -->
+            <div class="row pt-2 pb-2" >
+              <p class="col-4 m-auto">Rezultata: {{ listings.paginator.count }}</p>
+              {% include 'includes/listings/listings_pagination.html' %}
+              {% include 'includes/listings/listings_sorting.html' %}
+            </div>
+        
+            <!-- Listing Items -->
+            <div class="row mb-3">
+              {% for listing in listings %}
+              <div class="col-xxl-6 col-md-6 col-sm-12  pb-5">
+                {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="col h-100">
+          {% include 'includes/listings/listings_map.html' with listing=listing %}
+        </div>
+
+      </div>
+
     </div>
   </section>
 {% endblock %}
 
 {% block page_specific_scripts %}
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkSMOzXbSii4y-Skg2_SGrFQM9MLVYOA&callback=initMap&v=weekly"
-      defer
-  ></script>
-  <script>
-    // Initialize and add the map
-    function initMap() {
-      // The location of Uluru 44.8125° N, 20.4612° E
-      const belgrade = { lat: 44.8125, lng: 20.4612 };
-      // The map, centered at Uluru
-      const map = new google.maps.Map(document.getElementById("contact-google-map"), {
-        zoom: 10,
-        center: belgrade,
-      });
-      // The marker, positioned at Uluru
-      const marker = new google.maps.Marker({
-        position: belgrade,
-        map: map,
-      });
-    }
-
-    window.initMap = initMap;
-  </script>
+  <script src="{% static 'js/helpers.js' %}"></script>
 {% endblock %}

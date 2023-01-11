@@ -4,14 +4,80 @@ from django.db import DataError
 from django.shortcuts import render, redirect
 from django.utils.text import slugify
 from django.utils.timezone import now
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+from accounts.models import Account
 from category.models import Category
 from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap
 from uploader.models import DropBox
 
 
 def listings(request):
-    return render(request, 'listings.html')
+    listing_data = Listing.objects.filter(status=0)
+    categories = Category.objects.all()
+
+    # Query Params
+    query_city = request.GET.get('grad')
+    query_location = request.GET.get('lokacija')
+    query_category = request.GET.get('tip')
+    query_price = request.GET.get('cena')
+    query_size = request.GET.get('povrsina')
+    query_structure = request.GET.get('struktura')
+    if query_city:
+        listing_data = listing_data.filter(city__iexact=query_city)
+    if query_location:
+        listing_data = listing_data.filter(area__iexact=query_location)
+    if query_category:
+        listing_data = listing_data.filter(
+            category__name__iexact=query_category)
+    if query_price:
+        listing_data = listing_data.filter(price__lte=query_price)
+    if query_size:
+        listing_data = listing_data.filter(
+            listingcharacteristics__size__lte=query_size)
+    if query_structure:
+        listing_data = listing_data.filter(
+            listingcharacteristics__structure=query_structure)
+
+    # Sort Params
+    sort = request.GET.get('sort')
+    if sort:
+        sort_by_name = sort.split('-')[1]
+        sort_by_sign = sort.split('-')[0]
+        sort_by_sign = '' if sort_by_sign == 'asc' else '-'
+        listing_data = listing_data.order_by(sort_by_sign + sort_by_name)
+
+
+    # View Query Param
+    view = request.GET.get('prikaz')
+    
+    # Full Map View
+    if view == 'mapa2':
+        context = {
+            "listings": listing_data,
+            "categories": categories,
+        }
+        return render(request, 'listings_fullmap.html', context)
+    
+    # Half Map View
+    else:
+        # Pagination
+        paginator = Paginator(listing_data, 12)
+        page = request.GET.get('page')
+
+        try:
+            listings = paginator.page(page)
+        except PageNotAnInteger:
+            listings = paginator.page(1)
+        except EmptyPage:
+            listings = paginator.page(paginator.num_pages)
+
+        context = {
+            "listings": listings,
+            "categories": categories,
+        }
+
+        return render(request, 'listings.html', context)
 
 
 def listing(request, slug):
@@ -45,10 +111,12 @@ def submit(request):
     try:
         listing_category = Category.objects.get(pk=3)
     except Category.DoesNotExist:
-        #add error handling
+        # add error handling
         return redirect('home')
 
+    user = Account.objects.get(id=request.user.id)
     listing_instance = Listing.objects.create(
+        posted_by=user,
         title=request.POST['title'],
         description=request.POST['description'],
         status=request.POST['status'],
@@ -111,9 +179,9 @@ def submit(request):
 
     listing_map = ListingMap.objects.create(
         listing=listing_instance,
-        lat = request.POST['lat'],
-        lng = request.POST['lng'],
-        zoom = request.POST['zoom'],
+        lat=request.POST['lat'],
+        lng=request.POST['lng'],
+        zoom=request.POST['zoom'],
     )
     listing_map.save()
 

@@ -1,6 +1,6 @@
 {% load static %}
 {#<section class="footer p-3 pt-5 {% if request.resolver_match.kwargs.footer == 'create_listing' %}sticky{% endif %}">#}
-{% if request.path == '/oglasi/postavi/' or '/accounts/login/' %}
+{% if request.path == '/oglasi/postavi/' or request.path == '/accounts/login/' or request.path == '/oglasi/' %}
 <section class="footer p-3 pt-5 sticky">
   {% else %}
 <section class="footer p-3 pt-5">

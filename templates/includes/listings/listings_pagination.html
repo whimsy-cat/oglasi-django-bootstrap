@@ -1,0 +1,32 @@
+<!-- Pagination -->
+{% if listings.has_other_pages %}
+<div class="col-4 d-flex justify-content-center">
+  <ul class="pagination">
+    <!-- Render Previous Button -->
+    {% if listings.has_previous %}
+      <li><a onclick="queryParam('page', '{{ listings.previous_page_number }}')" class="page-link color-blue rounded-circle m-1"><</a></li>
+    {% else %}
+      <li><a class="disabled  rounded-circle page-link color-blue m-1"><</a></li>
+    {% endif %}
+      
+    <!-- Render 3 before and 3 after - Pages -->
+    {% for num in listings.paginator.page_range %}
+      {% if num <= listings.number|add:3 and num >= listings.number|add:-3 %}
+        {% if listings.number == num %}
+        <li><a class="page-link text-white bg-blue rounded-circle active m-1">{{ num }}</a></li>
+        {% else %}
+        <li><a onclick="queryParam('page', '{{ num }}')" class="page-link color-blue rounded-circle m-1">{{ num }}</a></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+      
+    <!-- Render Next Button -->
+    {% if listings.has_next %}
+      <li><a onclick="queryParam('page', '{{ listings.next_page_number }}')" class="page-link color-blue  rounded-circle m-1">></a></li>
+    {% else %}
+      <li><a class="disabled rounded-circle page-link color-blue m-1">></a></li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}
+<!-- END Pagination -->

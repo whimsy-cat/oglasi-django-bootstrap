@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+  <section class="full-map-listing-section">
+    
+    <div class="container-fluid h-100">
+      <!-- Filters -->
+      <div class="row">
+        <div class="col-lg-12 d-flex border-top border-bottom">
+          {% include 'includes/listings/listings_filter_top.html' %}
+        </div>
+      </div>
+      
+      <!-- Map -->
+      <div class="full-screen-row">
+        <div class="col h-100">
+          {% include 'includes/listings/listings_map.html' with listing=listing %}
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+{% endblock %}
+
+{% block page_specific_scripts %}
+  <script src="{% static 'js/helpers.js' %}"></script>
+{% endblock %}

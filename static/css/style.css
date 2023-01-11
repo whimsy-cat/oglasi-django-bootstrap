@@ -8,6 +8,11 @@ body {
   /*line-height: 1.642;*/
 }
 
+main {
+  height: 100vh;
+  width: 100%;
+}
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.2;
@@ -144,11 +149,69 @@ input::placeholder {
 .footer .newsletter {
   border-radius: 19px;
 }
-@media only screen and (min-width: 768px) and (min-height: 1046px) {
+/* @media only screen and (min-width: 768px) and (min-height: 768px) {
   .footer.sticky {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
   }
+} */
+
+.listing-item-overlayed {
+  background-color: #00000070
 }
+
+.listing-description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+
+
+.pagination .page-link.active {
+  color: white !important;
+  background-color: #00A6BD !important;
+    border-color: #00A6BD !important;
+}
+
+ul.pagination {
+  margin-bottom: 0 !important;
+}
+
+.bg-blue {
+  background-color: #00A6BD;
+}
+.bg-white {
+  background-color: white;
+}
+
+.min-height-40vh{
+  min-height: 40vh;
+}
+
+.min-height-50vh{
+  min-height: 50vh;
+}
+
+.color-blue {
+  color: #00A6BD !important;
+}
+
+.color-white {
+  color: white;
+}
+
+.icons-black {
+  filter: brightness(2.5) invert(1);
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
