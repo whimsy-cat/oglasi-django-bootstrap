@@ -63,13 +63,23 @@
       <img src="{% static 'images/icons/save.svg' %}" alt="Sort" width="17px" />
     </button>
   </div> -->
+
+  <!-- More filters modal -->
   <div class="col-7 d-flex justify-content-around align-items-center">
-    <!-- TODO: Add more Filters -->
-    <!-- <button class="btn btn-sm btn-blue border-0" aria-label="Default select example" >
+    <button class="btn btn-sm btn-blue border-0" aria-label="Default select example" onclick="openModal()" >
       <img src="{% static 'images/icons/main_filter.svg' %}" alt="Sort" width="15px" />
       Više Filtera
       <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" />
-    </button> -->
+    </button> 
+    <div class="fixed-top align-items-center justify-content-center w-100 h-100 z-1" id="filter"  style="display: none;">
+      <div class="position-absolute listing-item-overlayed w-100 h-100" onclick="closeModal()">
+      </div>
+      <div class="h-50 w-50 bg-blue position-absolute z-2 bg-white rounded">
+        CONTENT
+      </div>
+    </div>
+
+    <!-- Change page view -->
   <button class="btn btn-sm btn-blue border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <img src="{% static 'images/icons/map.svg' %}" alt="Sort" width="15px" />
      {% if request.GET.prikaz == 'mapa2' %} Mapa 2
@@ -83,3 +93,19 @@
   </ul>
   </div>
 </div>
+
+<script>
+
+function openModal() {
+  let modal = document.getElementById('filter')
+  if (modal.style.display === 'none') {
+    modal.style.display = 'flex'
+  }
+}
+
+function closeModal() {
+  let modal = document.getElementById('filter')
+  modal.style.display = 'none'
+}
+
+</script>

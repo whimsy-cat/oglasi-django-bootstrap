@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/uppy.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="create-listing p-3 pt-4 flex-shrink-0">
+  <div class="container-fluid">
+    <div class="row">
+        {% include 'includes/profile_sidebar.html' %}
+      <div class="col-10">
+        <div class="d-flex justify-content-between">
+          <div class="col">
+            {% include 'includes/listings/listings_sorting.html' %}
+          </div>
+          <div class="col-5 px-5">
+            <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
+          </div>
+          <div class="col">
+            {% include 'includes/listings/listings_pagination.html' %}
+            pagination
+          </div>
+       </div>
+       <div class="col shadow p-3">
+          <div class="col d-flex justify-content-between border-bottom  border-secondary">
+            <h6 class="col-4">Naslov Oglasa</h6>
+            <h6 class="col-2 d-flex justify-content-center">Datum</h6>
+            <h6 class="col-2 d-flex justify-content-center">Status</h6>
+            <h6 class="col-2 d-flex justify-content-center">Pregledi</h6>
+            <h6 class="col-2 d-flex justify-content-center">Uredi</h6>
+          </div>
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% include 'includes/dashboard/my_listings_card.html' %}
+        </div>
+      </div>
+    </div>
+    <div class="col d-flex justify-content-center my-3">
+        {% include 'includes/listings/listings_pagination.html' %}
+        pagination
+      </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/uppy.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="create-listing p-3 pt-4 flex-shrink-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="row mb-1">
+        <div class="d-flex justify-content-between align-items-center">
+          <h6 class="col-2 fw-bold text-center">
+            Dobrodošao/la
+          </h6>
+          <div class="col">
+            {% include 'includes/listings/listings_sorting.html' %}
+          </div>
+          <div class="col-5 px-5">
+            <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
+          </div>
+          <div class="col">
+            {% include 'includes/listings/listings_pagination.html' %}
+            pagination
+          </div>
+        </div>
+      </div>
+        {% include 'includes/profile_sidebar.html' %}
+        
+      <div class="col-8 d-flex flex-column px-4">
+          {% include 'includes/dashboard/my_favorites_card.html' %}
+          {% include 'includes/dashboard/my_favorites_card.html' %}
+          {% include 'includes/dashboard/my_favorites_card.html' %}
+          {% include 'includes/dashboard/my_favorites_card.html' %}
+      </div>
+      <div class="col-2">
+        <div class="shadow d-flex rounded flex-column justify-content-center align-items-center " >
+          <h5>Promovisi oglas</h5>
+          <h6>Status oglasa</h6>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/diamond_star.svg' %}" class="" alt="..." height="20px" width="20px">
+              Diamond
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">555</div>
+          </div>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/platinum_star.svg' %}" class="" alt="..." height="20px" width="20px">
+              Platinum
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">1</div>
+          </div>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/star.svg' %}" class="" alt="..." height="20px" width="20px">
+              Gold
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">42</div>
+          </div>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/silver_star.svg' %}" class="" alt="..." height="20px" width="20px">
+              Silver
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">5</div>
+          </div>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/bronze_star.svg' %}" class="" alt="..." height="20px" width="20px">
+              Bronze
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">11</div>
+          </div>
+          <h6 class="mt-3">Obelezavanje oglasa</h6>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/top_listing.svg' %}" class="" alt="..." height="20px" width="20px">
+              Top oglas
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">22</div>
+          </div>
+          <div class="form-check  d-flex align-items-center mt-2">
+            <input class="form-check-input me-2 rounded-circle" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-nowrap text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/listing_color.svg' %}" class="" alt="..." height="20px" width="20px">
+              Boja oglasa
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">0</div>
+          </div>
+          <div class="form-check  d-flex align-items-center mt-2 mb-5">
+            <input class="form-check-input me-2 rounded-circles" type="checkbox" name="exampleRadios" id="exampleRadios3" value="option3" >
+            <label class="form-check-label bg-gray px-2 py-1 rounded text-white" for="exampleRadios3" style="width: 112px;">
+              <img src="{% static 'images/icons/location.svg' %}" class="" alt="..." height="20px" width="20px">
+              Pin boja
+            </label>
+            <div class="rounded-circle border  border-secondary d-flex justify-content-center align-items-center ms-2" style="height: 28px; width: 28px;">10</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="col d-flex justify-content-center my-3">
+        {% include 'includes/listings/listings_pagination.html' %}
+        pagination
+    </div>
+  </div>
+</section>
+<script>
+
+  function favoriteHandler() {
+    console.log('Favorite')
+  }
+
+</script>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/uppy.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="create-listing p-3 pt-4 flex-shrink-0">
+  <div class="container-fluid">
+    <div class="row ">
+        {% include 'includes/profile_sidebar.html' %}
+      <div class="col">
+        <div class="row">
+          <div class="col-10">
+                {% include 'includes/dashboard/profile_card.html' %}
+            <div class="row mt-4">
+              <div class="col">
+                <div class="shadow rounded pt-3 ps-3">
+                  <h5>
+                    Poruke:
+                  </h5>
+                  <div class="d-flex flex-row">
+                    <div class="border-top border-end p-1 text-center overflow-auto" style="height: 190px; width: 144px;">
+                      <div class="border-bottom py-3">
+                        Vladimir Stevic
+                      </div>
+                      <div class="border-bottom py-3">
+                        Dario Saric
+                      </div>
+                      <div class="border-bottom py-3">
+                        Vladimir Stevic
+                      </div>
+                      <div class="border-bottom py-3">
+                        Dario Saric
+                      </div>
+                    </div>
+                    <div class="w-75">
+                      <div class="overflow-auto" style="background: url('/static/images/placeholders/messenger_background.jpg');height: 100%;">
+                        <div>PORUKE</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="shadow rounded">
+                  <div class="d-flex  justify-content-between align-items-center px-3 pt-3 border-bottom">
+                    <h5>
+                      Pregledi:
+                    </h5>
+                    <div class="nav  d-flex justify-content-between" id="nav-tab" role="tablist">
+                      <h5 class="fs-6 me-4 active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">dnevni</h5>
+                      <h5 class="fs-6 me-4" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">nedeljni</h5>
+                      <h5 class="fs-6" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">mesecni</h5>
+                    </div>
+                  </div>
+                  <div class="tab-content p-2" id="nav-tabContent" style="height: 190px;">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">CHART</div>
+                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">CHART</div>
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">CHART</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2 d-flex flex-column">
+            {% include 'includes/dashboard/listing_profile_views.html' %}
+          </div>
+          <div class="col">
+            {% include 'includes/dashboard/subscription_card.html' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

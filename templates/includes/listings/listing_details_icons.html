@@ -1,0 +1,46 @@
+{% load static %}
+  <div class="d-flex flex-column text-center align-items-center me-4" >
+    <img class=" p-2" src="{% static 'images/shared/item-apartment.svg' %}" alt="Hearth" width="44px" height="44px">
+    Stan
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-4" >
+    <img class=" p-2" src="{% static 'images/shared/item-house.svg' %}" alt="Hearth" width="44px" height="44px">
+    Kuca
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-4" >
+    <img class=" p-2" src="{% static 'images/shared/item-parcel.svg' %}" alt="Hearth" width="44px" height="44px">
+    Parcela
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-4" >
+    <img class=" p-2" src="{% static 'images/shared/item-office.svg' %}" alt="Hearth" width="44px" height="44px">
+    Pos. Prostor
+  </div>
+
+  <div class="d-flex flex-column text-center align-items-center me-4">
+    <img class=" p-2" src="{% static 'images/shared/item-area.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.size}}
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-4">
+    <img class=" p-2" src="{% static 'images/shared/item-floormap.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.structure}}
+  </div>
+  {% if listing.listingcharacteristics_set.first.parking != '0' %}
+  <div class="d-flex flex-column text-center align-items-center me-4">
+    <img class=" p-2" src="{% static 'images/shared/item-parking.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.parking}} Parking
+  </div>
+  {% else %}
+  <div class="d-flex flex-column text-center align-items-center me-4">
+    <img class=" p-2" src="{% static 'images/shared/item-balcony.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.balcony}} 
+  </div>
+  {% endif %}
+  <div class="d-flex flex-column text-center align-items-center me-4">
+    <img class=" p-2" src="{% static 'images/shared/item-up_and_down_arrows.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.floor}}/{{listing.listingcharacteristics_set.first.total_floors}}
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-4">
+    <img class=" p-2" src="{% static 'images/shared/item-calender.svg' %}" alt="date" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.year_built}}
+  </div>
+  

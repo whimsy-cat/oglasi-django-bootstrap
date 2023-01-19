@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="d-flex border-bottom  border-secondary mt-3">
+  <div class="col-4 d-flex">
+    <div class="position-absolute p-1 rounded bg-danger text-white">Izdavanje</div>
+    <img class="rounded" src="{% static 'images/homepage/nis_bg.jpg' %}" alt="Hearth" width="180px" height="102px">
+    <div class="ps-3">
+      <p class="fw-bold">Moderan stan na vozdovcu kod fona</p>
+      <p class="d-flex">beograd vozdovac fon</p>
+      <h6 class="fw-bold">170 000 eur</h6>
+    </div>
+  </div>
+  <div class="col-2 d-flex justify-content-center align-items-center fw-light">
+      22.11.22
+  </div>
+  <div class="col-2 d-flex justify-content-center align-items-center">
+    <div class="rounded py-2 px-4 color-blue border border-info ">
+      Aktivan
+    </div> 
+  </div>
+  <div class="col-2 d-flex justify-content-center align-items-center">
+      2321
+  </div>
+  <div class="col-2 d-flex justify-content-evenly align-items-center">
+    <img class="" onclick="editHandler()" src="{% static 'images/icons/edit.svg' %}" alt="Hearth" width="30px" height="30px">
+    <img class="" onclick="deleteHandler()" src="{% static 'images/icons/bin.svg' %}" alt="Hearth" width="28px" height="28px">
+  </div>
+</div>
+
+<script>
+    
+    function editHandler() {
+      console.log('edit')
+    }
+
+    function deleteHandler() {
+      console.log('delete')
+    }
+
+</script>

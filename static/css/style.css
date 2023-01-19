@@ -183,8 +183,13 @@ ul.pagination {
 .bg-blue {
   background-color: #00A6BD;
 }
+
 .bg-white {
   background-color: white;
+}
+
+.bg-red {
+  background-color: #E57374;
 }
 
 .min-height-40vh{
@@ -211,7 +216,19 @@ ul.pagination {
   overflow-y: scroll;
 }
 
-::-webkit-scrollbar {
-  display: none;
+.overflow-x-scroll {
+  overflow-x: scroll;
 }
 
+/* ::-webkit-scrollbar {
+  display: none;
+}
+ */
+
+.text-small {
+  font-size: 12px!important;
+}
+
+.bg-gray {
+  background-color: #617E8C
+}

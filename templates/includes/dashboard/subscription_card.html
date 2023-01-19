@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="d-flex shadow mt-4 p-3 rounded">
+  <div class="col-2 d-flex  align-items-center fw-bold">
+    AGGIG11221 
+  </div>
+  <div class="col-1 text-nowrap d-flex justify-content-center align-items-center fw-light">
+    05.11.2023
+  </div>
+  <div class="col-2 text-nowrap d-flex justify-content-center align-items-center">
+    02.12.2023 
+  </div>
+  <div class="col-2 d-flex justify-content-center align-items-center">
+    110.000,00 din
+  </div>
+  <div class="col-1 d-flex justify-content-evenly align-items-center">
+    Isteklo
+  </div>
+  <div class="col-4 d-flex justify-content-evenly align-items-center text-white">
+    <div class="bg-info d-flex justify-content-center align-items-center py-1 px-2 rounded" onclick="refreshHandler()">
+        Ponovi
+        <img src="{% static 'images/shared/item-recycle.svg' %}" style="filter: brightness(0) invert(1)" class="ms-3" alt="..." height="19px" width="19px">
+    </div>
+    <div class="bg-warning py-1 px-2 rounded d-flex justify-content-center align-items-center" onclick="editHandler()">
+        Uredi
+        <img src="{% static 'images/icons/edit.svg' %}" style="filter: brightness(0) invert(1)" class="ms-3" alt="..." height="19px" width="19px">
+    </div>
+    <div class="bg-danger py-1 px-2 rounded d-flex justify-content-center align-items-center" onclick="deleteHandler()">
+        Obrisi
+        <img src="{% static 'images/icons/bin.svg' %}" style="filter: brightness(0) invert(1)" class="ms-3" alt="..." height="19px" width="19px">
+    </div>
+  </div>
+</div>
+  <script>
+
+    function refreshHandler() {
+      console.log('refresh')
+    }
+
+    function editHandler() {
+      console.log('edit')
+    }
+
+    function deleteHandler() {
+      console.log('delete')
+    }
+
+</script>

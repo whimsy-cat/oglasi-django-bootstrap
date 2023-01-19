@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/uppy.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="create-listing p-3 pt-4 flex-shrink-0">
+  <div class="container-fluid">
+    <div class="row">
+        {% include 'includes/profile_sidebar.html' %}
+      <div class="col-8 d-flex flex-column">
+        <div class="col shadow rounded">
+          <div class="row d-flex justify-content-around px-4">
+            <div class="col-5">
+              <div class="fw-bold my-2">
+                Pronađi oglas
+              </div>
+              <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
+            </div>
+            <div class="col-4 px-4">
+              <div class="fw-bold my-2">
+                Naslov oglasa
+              </div>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <div class="col-3">
+              <div class="fw-bold my-2">
+                Ukupno pregleda: 1231
+              </div>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="p-4">
+            diagram
+          </div>
+        </div>
+      </div>
+      <div class="col-2 d-flex flex-column">
+        {% include 'includes/dashboard/listing_profile_views.html' %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

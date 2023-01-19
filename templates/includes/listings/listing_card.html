@@ -1,0 +1,40 @@
+{% load static %}
+
+<div class="card shadow-sm featured-item">
+    <div class="d-flex justify-content-between position-absolute w-100" >
+      <span class="rounded bg-red color-white m-2 px-2">Prodaja</span>
+      <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
+    </div>
+    <img class="bd-placeholder-img card-img-top" src="{% static 'images/placeholders/apt1.jpg' %}" height="200" alt="">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <p class="card-text">Novogradnja, NBG West 65, kompletno sredjen</p>
+      <div class="meta-controls d-flex align-items-start">
+        <img class="me-2" src="{% static 'images/shared/actionitem-compare.svg' %}" alt="Compare item" width="21px">
+        <img src="{% static 'images/icons/hearth.svg' %}" alt="Compare item" width="25px">
+      </div>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <small class="item-location">Beograd, Novi Beograd</small>
+      <h5>150.000.000 eur</h5>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="item-amenity">
+        <img src="{% static 'images/shared/item-house.svg' %}" alt="House item">
+        <small>Kuća</small>
+      </div>
+      <div class="item-amenity">
+        <img src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+        <small>80m2</small>
+      </div>
+      <div class="item-amenity">
+        <img src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor map item">
+        <small>3.0</small>
+      </div>
+      <div class="item-amenity">
+        <img src="{% static 'images/shared/item-parkingspace.svg' %}" alt="Parking space item">
+        <small>Garaža</small>
+      </div>
+    </div>
+  </div>
+</div>

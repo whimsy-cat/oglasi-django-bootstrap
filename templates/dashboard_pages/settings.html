@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/uppy.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="create-listing p-3 pt-4 flex-shrink-0">
+  <div class="container-fluid">
+    <div class="row">
+        {% include 'includes/profile_sidebar.html' %}
+      <div class="col-4" >
+        <div class="col shadow rounded p-4 h-100">
+          <div class="d-flex">
+            <div class="me-3"> 
+              <h5 class="text-center">Profil</h5>
+              <div class="rounded-circle" style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 127px; width: 127px;"></div>
+            </div>
+            <div class="w-100">
+              <div class="d-flex justify-content-end">
+                <img src="{% static 'images/icons/edit.svg' %}" style="filter: brightness(1) invert(0.5)" class="ms-3" alt="..." height="25px" width="25px">
+              </div>
+                <label for="exampleInputPassword1" class="ps-3">Ime</label>
+                <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Ime">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Prezime</label>
+                <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Prezime">
+            </div>
+          </div>
+          <div>
+            <label for="exampleInputPassword1" class="ps-3 mt-3">E-mail</label>
+            <input type="email" class="form-control mt-1" id="exampleInputPassword1" placeholder="E-mail">
+            <div class="d-flex justify-content-between">
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Telefon 1</label>
+                <input type="tel" class="form-control mt-1" id="exampleInputPassword1" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Telefon 2</label>
+                <input type="tel" class="form-control mt-1" id="exampleInputPassword1" placeholder="">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Drzava</label>
+                <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Drzava">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Grad</label>
+                <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Grad">
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Opstina</label>
+                <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Opstina">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1" class="ps-3 mt-3">Postanski kod</label>
+                <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Postanski kod">
+              </div>
+            </div>
+            <label for="exampleInputPassword1" class="ps-3 mt-3">Ulica i broj</label>
+            <input type="text" class="form-control mt-1" id="exampleInputPassword1" placeholder="Ulica i broj">
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="col shadow rounded h-100 p-4">
+          <div class="d-flex justify-content-between">
+            <h5>Lozinka</h5>
+            <img src="{% static 'images/icons/security.svg' %}" class="ms-3" alt="..." height="25px" width="25px">
+          </div>
+          <div class="d-flex justify-content-between">
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="ps-3 mt-3">Trenutna sifra</label>
+              <input type="password" class="form-control mt-1" id="exampleInputPassword1" placeholder="Trenutna sifra">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="ps-3 mt-3">Nova sifra</label>
+              <input type="password" class="form-control mt-1" id="exampleInputPassword1" placeholder="Nova sifra">
+            </div>
+          </div>
+          <label for="exampleInputPassword1" class="ps-3 mt-3">Potvrdi sifru</label>
+          <input type="password" class="form-control mt-1"  placeholder="Potvrdi sifru">
+          <div class="d-flex">
+            <h5 class="my-4 ms-5 text-center w-100">Placanja</h5>
+            <img  src="{% static 'images/icons/cash.svg' %}" class="ms-3 my-4" alt="..." height="25px" width="25px">
+          </div>
+          <label for="exampleInputPassword1" class="ps-3">Nacin placanja</label>
+          <select class="form-select form-select-lg" placeholder="Potvrdi sifru">
+            <option selected>E-baning / M-banking</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <p class="ps-3 py-1" style="font-size: 13px;">Kartica koja se zavrsava na xxxx</p>
+          <div class="d-flex">
+            <h5 class="mb-4 ms-5 text-center w-100">Program lojalnosti</h5>
+            <img  src="{% static 'images/icons/loyalty.svg' %}" class="ms-3 mb-4" alt="..." height="25px" width="25px">
+          </div>
+          <label for="exampleInputPassword1" class="ps-3">Izaberite Vas loyalty</label>
+          <select class="form-select form-select-lg" placeholder="Potvrdi sifru">
+            <option selected>Loyalty program 10%</option>
+            <option value="1">Loyalty program 20%</option>
+            <option value="2">Loyalty program 30%</option>
+            <option value="3">Loyalty program 40%</option>
+          </select>
+          <label for="exampleInputPassword1" class="ps-3 mt-3">Unesite kod za loyalty</label>
+          <input type="password" class="form-control"  placeholder="Kod za loyalty">
+        </div>
+      </div>
+      <div class="col-2 d-flex justify-content-center align-items-end"><div class="bg-info py-3 px-5 rounded shadow text-white fs-6">Sacuvaj</div></div>
+    </div>
+  </div>
+</section>
+{% endblock %}

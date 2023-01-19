@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="d-flex shadow mt-4 p-3 rounded">
+  <div class="col-2 d-flex  align-items-center fw-bold">
+    Pretraga 0221 
+  </div>
+  <div class="col-1 d-flex justify-content-center align-items-center fw-light">
+    Izdavanje
+  </div>
+  <div class="col-2 d-flex justify-content-center align-items-center">
+    Poslovni prostor 
+  </div>
+  <div class="col-1 d-flex justify-content-center align-items-center">
+    04.02.2022
+  </div>
+  <div class="col-2 d-flex justify-content-evenly align-items-center">
+    Beograd, Novi Beograd...
+  </div>
+  <div class="col-4 d-flex justify-content-evenly align-items-center">
+    <div class="border d-flex justify-content-center align-items-center border-info py-1 px-2 rounded" onclick="viewHandler()">
+        Pogledaj
+        <img src="{% static 'images/icons/view.svg' %}" style="filter: brightness(1) invert(0.5)" class="ms-3" alt="..." height="19px" width="19px">
+    </div>
+    <div class="border border-warning px-2 py-1 rounded d-flex justify-content-center align-items-center" onclick="editHandler()">
+        Uredi
+        <img src="{% static 'images/icons/edit.svg' %}" class="ms-3" alt="..." height="19px" width="19px">
+    </div>
+    <div class="border border-danger px-2 py-1 rounded d-flex justify-content-center align-items-center" onclick="deleteHandler()">
+        Obrisi
+        <img src="{% static 'images/icons/bin.svg' %}" class="ms-3" alt="..." height="19px" width="19px">
+    </div>
+  </div>
+</div>
+  <script>
+
+    function viewHandler() {
+      console.log('view')
+    }
+
+    function editHandler() {
+      console.log('edit')
+    }
+
+    function deleteHandler() {
+      console.log('delete')
+    }
+
+</script>

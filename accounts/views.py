@@ -32,7 +32,7 @@ def register(request):
             # User activation
             current_site = get_current_site(request)
             mail_subject = "Please activate your account"
-            mail_body = render_to_string('accounts/emails/account_verification.html', {
+            mail_body = render_to_string('account_pages/emails/account_verification.html', {
                 'user': user,
                 'domain': current_site,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -48,7 +48,7 @@ def register(request):
     context = {
         'form': form
     }
-    return render(request, 'accounts/register.html', context)
+    return render(request, 'account_pages/register.html', context)
 
 
 def login(request):
@@ -66,7 +66,7 @@ def login(request):
             messages.error(request, 'Invalid login credentials')
             return redirect('login')
 
-    return render(request, 'accounts/login.html')
+    return render(request, 'account_pages/login.html')
 
 
 @login_required(login_url='login')
@@ -101,7 +101,7 @@ def forgot_password(request):
             user = Account.objects.get(email__icontains=email_address)
             current_site = get_current_site(request)
             mail_subject = "Reset your password"
-            mail_body = render_to_string('accounts/emails/forgot_password.html', {
+            mail_body = render_to_string('account_pages/emails/forgot_password.html', {
                 'user': user,
                 'domain': current_site,
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
@@ -115,7 +115,7 @@ def forgot_password(request):
             messages.error(request, 'Account does not exist.')
             return redirect('forgot_password')
 
-    return render(request, 'accounts/forgot_password.html')
+    return render(request, 'account_pages/forgot_password.html')
 
 
 def reset_password_validate(request, uidb64, token):
@@ -150,4 +150,4 @@ def reset_password(request):
             messages.error(request, 'Passwords do not match')
             return redirect('reset_password')
 
-    return render(request, 'accounts/reset_password.html')
+    return render(request, 'account_pages/reset_password.html')
