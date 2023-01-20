@@ -29,18 +29,18 @@
     <!-- Top Info View -->
     <div class="row">
       <div class="col">
-        <h4 class="fw-bold">{{ listing.title }}</h4> 
-        <h6 class="py-4">{{ listing.city }}, {{ listing.area }}</h6> 
+        <h4 class="fw-bold">{{ listing.title }}</h4>
+        <h6 class="py-4">{{ listing.city }}, {{ listing.area }}</h6>
       </div>
       <div class="col-3">
         <div class="d-flex justify-content-center">
-          <h2 class="fw-bold">{{ listing.price }}</h2> 
-          <h2 class="px-2 fw-bold">eur</h2> 
+          <h2 class="fw-bold">{{ listing.price }}</h2>
+          <h2 class="px-2 fw-bold">eur</h2>
         </div>
         <div class="d-flex justify-content-center ">
           <div class="shadow d-flex justify-content-center">
-            <div class="bg-blue text-white p-1 rounded-start" id="price-per-square">{% widthratio listing.price listing.listingcharacteristics_set.first.size 1 %}</div> 
-            <div class="bg-blue text-white p-1 rounded-end">eur/m2</div> 
+            <div class="bg-blue text-white p-1 rounded-start" id="price-per-square">{% widthratio listing.price listing.listingcharacteristics_set.first.size 1 %}</div>
+            <div class="bg-blue text-white p-1 rounded-end">eur/m2</div>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
 
       <!-- Left "Main" Side -->
       <div class="col-8">
-        
+
         <!-- 1. Info Pills -->
         <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
           <div class="row nav-tabs  my-3" id="myTab" role="tablist">
@@ -122,7 +122,7 @@
               Opremljenost
             </div>
           </div>
-        </div>    
+        </div>
 
         <!-- 2. Images/Videos/Floorplan Pills -->
         <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
@@ -178,7 +178,7 @@
             </div>
           </div>
         </div>
-        
+
         <!-- TODO: Define data for aprox listing price per location -->
         <!-- <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
           <div class="row nav-tabs  my-3" id="myTab" role="tablist">
@@ -193,14 +193,14 @@
       </div>
 
       <!-- Right Side -->
-      <div class="col"> 
+      <div class="col">
 
         {% for promoted in promoted_listings %}
         <div class="col shadow card-body rounded min-height-40vh p-4 mb-4">
           <!-- TODO: Define blog data and agency data
           {% include 'includes/agencies/agency_card.html' %}
           {% include 'includes/blog/blog_card.html' %} -->
-          <!-- TODO: Image from listing or to remove 
+          <!-- TODO: Image from listing or to remove
           <div class="rounded" style="background: center / cover no-repeat url('/static/images/placeholders/apt2.jpg');height: 250px;"></div> -->
           <div class="col mt-4">
             {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
@@ -210,7 +210,7 @@
       </div>
 
     </div>
-    
+
     <!-- Suggested Listings -->
     <div class="row mb-3">
       <div class="row">
@@ -229,7 +229,7 @@
 
 {% block page_specific_scripts %}
   <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkSMOzXbSii4y-Skg2_SGrFQM9MLVYOA&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly"
       defer
   ></script>
   <script>
@@ -261,6 +261,6 @@
     window.initMap = initMap;
 </script>
 
- 
+
 {% endblock %}
 
