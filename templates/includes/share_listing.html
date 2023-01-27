@@ -1,0 +1,52 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title fw-bolder ms-3 mt-2" id="exampleModalLabel">Share</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="row mx-3">
+          <div class="col-3" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href), 'facebook-share-dialog', 'width=626,height=436'); return false;">
+            <span id="boot-icon" class="bi bi-facebook" style="font-size: 55px;color: #3b5998"></span>
+            <h6 class="fs-6">Facebook</h6>
+          </div>
+          <div class="col-3" onclick="window.open('https://twitter.com/share?url='+encodeURIComponent(window.location.href), 'twitter-share-dialog', 'width=626,height=436'); return false;">
+            <span id="boot-icon" class="bi bi-twitter" style="font-size: 55px;color:#4c6ef5"></span>
+            <h6 class="fs-6">Twitter</h6>
+          </div>
+          <div class="col-3" onclick="window.open('https://www.reddit.com/submit?url='+encodeURIComponent(window.location.href), 'reddit-share-dialog', 'width=626,height=436'); return false;">
+            <span id="boot-icon" class="bi bi-reddit" style="font-size: 55px;color: #FF5700"></span>
+            <h6 class="fs-6">Reddit</h6>
+          </div>
+          <div class="col-3" onclick="prompt('Discord Invite Link:', 'https://discord.gg/'+encodeURIComponent(window.location.href)); return false;">
+            <span id="boot-icon" class="bi bi-discord" style="font-size: 55px;color: #738ADB"></span>
+            <h6 class="fs-6">Discord</h6>
+          </div>
+          <div class="col-3 mt-2" onclick="window.open('https://api.whatsapp.com/send?text='+encodeURIComponent(window.location.href), 'whatsapp-share-dialog', 'width=626,height=436'); return false;">
+            <span id="boot-icon" class="bi bi-whatsapp" style="font-size: 55px;color: #25D366"></span>
+            <h6 class="fs-6">Whatsapp</h6>
+          </div>
+          <div class="col-3 mt-2" onclick="window.open('https://www.facebook.com/dialog/send?app_id=YOUR_APP_ID&link='+encodeURIComponent(window.location.href), 'messenger-share-dialog', 'width=626,height=436'); return false;">
+            <span id="boot-icon" class="bi bi-messenger" style="font-size: 55px;color: #3b5998"></span>
+            <h6 class="fs-6">Messenger</h6>
+          </div>
+          <div class="col-3 mt-2" onclick="window.open('https://t.me/share/url?url='+encodeURIComponent(window.location.href), 'telegram-share-dialog', 'width=626,height=436'); return false;">
+            <span id="boot-icon" class="bi bi-telegram" style="font-size: 55px;color: #4c6ef5"></span>
+            <h6 class="fs-6">Telegram</h6>
+          </div>
+          <div class="col-3 mt-2" onclick="window.location='weixin://dl/chat?text='+encodeURIComponent('Check out this awesome page: '+window.location.href); return false;">
+            <span id="boot-icon" class="bi bi-wechat" style="font-size: 55px;color: #7bb32e"></span>
+            <h6 class="fs-6">WeChat</h6>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <label style="font-weight: 600">Page Link <span class="message"></span></label><br />
+        <div class="row">
+        <input class="col-10 ur" type="url" placeholder="https://gosnippets.com/snippets/bootstrap-5-creative-pricing-table-snippets" readonly id="myInput" aria-describedby="inputGroup-sizing-default" style="height: 40px;"> <button class="cpy" onclick="myFunction()"><i class="far fa-clone"></i></button> 
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

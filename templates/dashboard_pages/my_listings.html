@@ -32,15 +32,10 @@
             <h6 class="col-2 d-flex justify-content-center">Pregledi</h6>
             <h6 class="col-2 d-flex justify-content-center">Uredi</h6>
           </div>
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
-          {% include 'includes/dashboard/my_listings_card.html' %}
+          {% for listing in listings %}
+            {% include 'includes/dashboard/my_listings_card.html' %}
+          {% endfor %}
+          
         </div>
       </div>
     </div>

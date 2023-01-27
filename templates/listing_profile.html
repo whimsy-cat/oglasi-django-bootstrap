@@ -8,11 +8,29 @@
 {% block content %}
 
 <!-- Listing images carousel -->
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
     {% for i in listing.images.all %}
     <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %}  w-100 mx-2" aria-label="Slide {{ forloop.counter }}" style="background: center / contain no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;max-width: 150px;"></div>
     {% endfor %}
+  </div>
+  <div class="carousel-inner w-100">
+    {% for i in listing.images.all %}
+    <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
+      <div class="d-block w-100 rounded w-100 me-2" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 666px;"></div>
+    </div>
+    {% endfor %}
+  </div>
+</div> -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="d-flex justify-content-center position-absolute align-items-end w-100 h-100" style="z-index: 2;">
+    <div class="overflow-hidden mb-4 w-75 ">
+      <div class="d-flex carousel-indicators m-0" style="width: fit-content;position: inherit;">
+      {% for i in listing.images.all %}
+      <div  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %} thumbnail-item thumbnail-target me-3 rounded" aria-label="Slide {{ forloop.counter }}" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;width: 150px"></div>
+      {% endfor %}
+      </div>
+    </div>
   </div>
   <div class="carousel-inner w-100">
     {% for i in listing.images.all %}
@@ -33,30 +51,33 @@
         <h6 class="py-4">{{ listing.city }}, {{ listing.area }}</h6>
       </div>
       <div class="col-3">
-        <div class="d-flex justify-content-center">
-          <h2 class="fw-bold">{{ listing.price }}</h2>
-          <h2 class="px-2 fw-bold">eur</h2>
+        <div class="d-flex justify-content-center ">
+          <h2 class="fw-bold" id="money{{listing.id}}"></h2>
         </div>
+        {% if listing.status == '0' %}
         <div class="d-flex justify-content-center ">
           <div class="shadow d-flex justify-content-center">
-            <div class="bg-blue text-white p-1 rounded-start" id="price-per-square">{% widthratio listing.price listing.listingcharacteristics_set.first.size 1 %}</div>
+              <div class="bg-blue text-white p-1 rounded-start" >{% widthratio listing.price listing.listingcharacteristics_set.first.size 1 %}</div>          
             <div class="bg-blue text-white p-1 rounded-end">eur/m2</div>
           </div>
         </div>
+        {% endif %}
       </div>
       <div class="col-3 d-flex justify-content-end">
         <!-- TODO:  <img class="shadow rounded p-2 mx-2 " src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
-        <!-- TODO: add print function -->
-        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
-        <!-- TODO: add to favorites <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px"> -->
-        <!-- TODO: Create share modal -->
-        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
+        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          {% include 'includes/share_listing.html' %}
+
+        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
+
+        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
     </div>
 
     <!-- Listing Featured Icons -->
     <div class="col d-flex mb-4 icons-black">
       {% include 'includes/listings/listing_details_icons.html' %}
+      
     </div>
 
     <div class="row mb-4">
@@ -65,45 +86,35 @@
       <div class="col-8">
 
         <!-- 1. Info Pills -->
-        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
+        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-60vh mb-4">
           <div class="row nav-tabs  my-3" id="myTab" role="tablist">
             <h5 class="active col" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Opis</h5>
             <h5 class="col" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">Detalji</h5>
             <h5 class="col"  id="properties-tab" data-bs-toggle="tab" data-bs-target="#properties-tab-pane" type="button" role="tab" aria-controls="properties-tab-pane" aria-selected="false">Karakteristike</h5>
+            {% if listing.status == '1' %}
             <h5 class="col" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment-tab-pane" type="button" role="tab" aria-controls="equipment-tab-pane" aria-selected="false">Opremljenost</h5>
+            {% endif %}
           </div>
           <div class="tab-content " id="myTabContent">
             <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
              {{listing.description}}
             </div>
             <div class="tab-pane fade" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
+              <pre></pre>
               <div class="row">
+                {% for listing_detail in listing.listingdetails_set.all %}
+           
                 <div class="col-3">
-                  <img class="p-2 " src="{% static 'images/shared/item-calender.svg' %}" alt="Hearth" width="44px" height="44px"  >
-                  Terasa
+                  <img class="p-2 " style="filter: brightness(0.8) invert(0.6)" src="{% static 'images/items/' %}{{listing_detail.detail.name|cut:' '}}.svg" alt="..." width="44px" height="44px"  >
+                  {{ listing_detail.detail.name }}
                 </div>
-                <div class="col-3">
-                  <img class="p-2 " src="{% static 'images/shared/item-calender.svg' %}" alt="Hearth" width="44px" height="44px" >
-                  Terasa
-                </div>
-                <div class="col-3">
-                  <img class="p-2 " src="{% static 'images/shared/item-calender.svg' %}" alt="Hearth" width="44px" height="44px" >
-                  Terasa
-                </div>
-                <div class="col-3">
-                  <img class="p-2 " src="{% static 'images/shared/item-calender.svg' %}" alt="Hearth" width="44px" height="44px" >
-                  Terasa
-                </div>
-                <div class="col-3">
-                  <img class="p-2 " src="{% static 'images/shared/item-calender.svg' %}" alt="Hearth" width="44px" height="44px" >
-                  Terasa
-                </div>
+                {% endfor %}
               </div>
             </div>
             <div class="tab-pane fade row" id="properties-tab-pane" role="tabpanel" aria-labelledby="properties-tab" tabindex="0">
               <div class="row">
                 <div class="col-6 py-2 border-end" >
-                  <h6>Površina: {{listing.area}}</h6>
+                  <h6>Površina: {{listing.listingcharacteristics_set.first.size}}m2</h6>
                   <h6>Struktura: {{listing.listingcharacteristics_set.first.structure}}</h6>
                   <h6>Parking: {{listing.listingcharacteristics_set.first.parking}}</h6>
                   <h6>Spratnost: {{listing.listingcharacteristics_set.first.floor}} od {{listing.listingcharacteristics_set.first.total_floors}} spratova</h6>
@@ -119,15 +130,25 @@
               </div>
             </div>
             <div class="tab-pane fade" id="equipment-tab-pane" role="tabpanel" aria-labelledby="equipment-tab" tabindex="0">
-              Opremljenost
+              <div class="row">
+              {% for listing_amenity in listing.listingamenities_set.all %}
+              <div class="col-3">
+                <img class="p-2 " style="filter: brightness(0.8) invert(0.6)" src="{% static 'images/items/' %}{{listing_detail.detail.name|cut:' '}}.svg" alt="..." width="44px" height="44px"  >
+                {{ listing_amenity.amenity.name }}
+              </div>
+              {% endfor %}
+              </div>
             </div>
           </div>
         </div>
 
         <!-- 2. Images/Videos/Floorplan Pills -->
-        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
+        {% if listing.floor_plan.all != '0' and listing.video.all != '0' %}
+        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-60vh mb-4">
           <div class="row nav-tabs  my-3" id="myTab" role="tablist">
+            {% if listing.floor_plan.all != '0'%}
             <h5 class="active col-3" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</h5>
+            {% endif %}
             <h5 class="col-3" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="false">Video</h5>
             <h5 class="col-3"  id="virtuelnatura-tab" data-bs-toggle="tab" data-bs-target="#virtuelnatura-tab-pane" type="button" role="tab" aria-controls="virtuelnatura-tab-pane" aria-selected="false">Virtuelna tura</h5>
           </div>
@@ -150,19 +171,23 @@
               </div>
             </div>
             <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
-              Video
+              {% with listing.video.all|first as video %}
+              <video controls style="max-height: 666px; width: 100%;">
+                <source src="{{ video.file.url }}" type="video/mp4">
+              </video>
+              {% endwith %}
             </div>
             <div class="tab-pane fade row" id="virtuelnatura-tab-pane" role="tabpanel" aria-labelledby="virtuelnatura-tab" tabindex="0">
               Virtuelna Tura
             </div>
           </div>
         </div>
-
+        {% endif %}
         <!-- 3. Map & Locations -->
-        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
+        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-60vh mb-4">
           <div class="row nav-tabs  my-3" id="myTab" role="tablist">
             <h5 class="active col-3" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="true">Mapa</h5>
-            <h5 class="col-3" id="location-tab" data-bs-toggle="tab" data-bs-target="#location-tab-pane" type="button" role="tab" aria-controls="location-tab-pane" aria-selected="false">Lokacija</h5>
+            <!--TO DO: LOKACIJA <h5 class="col-3" id="location-tab" data-bs-toggle="tab" data-bs-target="#location-tab-pane" type="button" role="tab" aria-controls="location-tab-pane" aria-selected="false">Lokacija</h5> -->
           </div>
           <div class="tab-content " id="myTabContent">
                 <div class="full_map_area tab-pane fade show active" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
@@ -194,11 +219,14 @@
 
       <!-- Right Side -->
       <div class="col">
-
-        {% for promoted in promoted_listings %}
-        <div class="col shadow card-body rounded min-height-40vh p-4 mb-4">
-          <!-- TODO: Define blog data and agency data
+        <div class="col shadow card-body rounded  p-4 mb-4">
           {% include 'includes/agencies/agency_card.html' %}
+        </div>
+
+        {% for promoted in promoted_listings|slice:":2" %}
+        <div class="col shadow card-body rounded  p-4 mb-4">
+
+          <!-- TODO: Define blog data
           {% include 'includes/blog/blog_card.html' %} -->
           <!-- TODO: Image from listing or to remove
           <div class="rounded" style="background: center / cover no-repeat url('/static/images/placeholders/apt2.jpg');height: 250px;"></div> -->
@@ -233,6 +261,18 @@
       defer
   ></script>
   <script>
+const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+const carouselItems = document.querySelectorAll('.thumbnail-target');
+
+thumbnailItems.forEach((thumbnail, index) => {
+  thumbnail.addEventListener('click', () => {
+    carouselItems[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  });
+});
+
+    // money parser //
+    document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+
 
     // Initialize and add the map
     function initMap() {
@@ -241,21 +281,14 @@
         zoom: 10,
         center: belgrade,
       });
-      new google.maps.Marker({
-        position: belgrade,
-        map,
+      const marker{{ listing.id }} = new google.maps.Marker({
+        position: {
+        lat: Number("{{listing.listingmap_set.first.lat }}"),
+        lng: Number("{{listing.listingmap_set.first.lng }}"),
+        },
+        map: map,
+        listing_id: {{ listing.id }},
       });
-
-      {% for l in listings %}
-        const marker{{ l.id }} = new google.maps.Marker({
-          position: {
-          lat: Number("{{l.listingmap_set.first.lat }}"),
-          lng: Number("{{l.listingmap_set.first.lng }}"),
-          },
-          map: map,
-          listing_id: {{ l.id }},
-        });
-      {% endfor %}
     }
 
     window.initMap = initMap;

@@ -10,25 +10,56 @@
         <img src="{% static 'images/icons/hearth.svg' %}" class="m-2" alt="Hearth">
       </div>
       <div class="col-12 px-3 pb-2 text-white">
-        <h6>{{ listing.price }} eur</h6> 
-      <p class="card-text listing-description">{{ listing.description }}</p> 
-      <div class="d-flex justify-content-between align-items-center" >
-        <div class="item-amenity">
-          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-house.svg' %}" alt="House item">
-          <small>{{ listing.category.name }}</small>
+        <h6 id="money{{listing.id}}"></h6> 
+      <p class="card-text listing-description">{{ listing.title|truncatechars:30 }}</p> 
+      <div class="row" >
+        <div class="col-3 text-nowrap">
+          <img style="height: 18px;width: 18px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
+          <small">
+            {% if listing.category.name == 'Poslovni prostor' %}
+            Pos. Prostor
+            {% elif listing.category.name == 'Komercijalni prostor' %}
+            Kom. Prostor
+            {% elif listing.category.name == 'Građevinska parcela' %}
+            Građ. Zem.
+            {% elif listing.category.name == 'Poljoprivredna parcela' %}
+            Poljo. Zem.
+            {% elif listing.category.name == 'Proizvodni prostor' %}
+            Pro. Prostor
+            {% elif listing.category.name == 'Ugostiteljski prostor' %}
+            Ugo. Prostor
+            {% elif listing.category.name == 'Stambene nekretnine' %}
+            Ostalo
+            {% elif listing.category.name == 'Poslovni prostor - Lokal' %}
+            Lokal
+            {% elif listing.category.name == 'Poslovni prostor - Kancelarija' %}
+            Kancelarija
+            {% else %}
+            {{listing.category.name}}
+            {% endif %}
+          </small>
         </div>
-        <div class="item-amenity">
-          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-          <small>{{ listing.listingcharacteristics_set.first.size }}</small>
+        <div class="col-3 text-nowrap">
+          <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+          <small>{{ listing.listingcharacteristics_set.first.size }}m2</small>
         </div>
-        <div class="item-amenity">
-          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor map item">
-          <small>{{ listing.listingcharacteristics_set.first.floor }}</small>
+        {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
+        <div class="col-3">
+          <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
+          <small>Struja</small>
         </div>
-        {% if listing.listingcharacteristics_set.first.parking_slots %}
-        <div class="item-amenity">
-          <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-parkingspace.svg' %}" alt="Parking space item">
-          <small>{{ listing.listingcharacteristics_set.first.parking }}</small>
+        <div class="col-3">
+          <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
+          <small>Voda</small>
+        </div>
+        {% else %}
+        <div class="col-3">
+          <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
+          <small>{{ listing.listingcharacteristics_set.first.structure }}</small>
+        </div>
+        <div class="col-3 text-nowrap">
+          <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
+          <small class="{% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
         </div>
         {% endif %}
         </div>
@@ -48,6 +79,9 @@
           console.error('Define real URL');
         {% endif %}
     }
+
+    document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+
 
 </script>
 {% endblock %}

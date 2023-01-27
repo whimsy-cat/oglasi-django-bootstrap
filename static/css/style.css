@@ -232,3 +232,6 @@ ul.pagination {
 .bg-gray {
   background-color: #617E8C
 }
+.min-height-60vh {
+  min-height: 60vh;
+}

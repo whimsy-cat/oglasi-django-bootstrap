@@ -64,10 +64,9 @@
                     <small class="align-self-end">Izaberite vrstu oglašavanja</small>
                   </div>
                   <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example" name="status" id="status">
+                    <select class="form-select" aria-label="Default select example" name="status" id="status" onchange="getDetails()">
                       <option value="0" selected>Prodaja</option>
                       <option value="1">Izdavanje</option>
-                      <option value="2">Kupovina</option>
                     </select>
                   </div>
                   </div>
@@ -82,15 +81,19 @@
                     <div class="d-flex justify-content-between">
                       <div style="width: 280px;">
                         <label for="category" class="form-label">Kategorija</label>
-                        <select class="form-select" id="category">
+                        <select class="form-select" id="category" onchange="populateSubCategories(this)">
+                          <option value="">Izaberite kategoriju</option>
                           {% for categ in categories %}
-                            <option value="{{ categ.id }}">{{ categ.name }}</option>
+                            {% if categ.parent is None %}
+                              <option value="{{ categ.id }}">{{ categ.name }}</option>
+                            {% endif %}
                           {% endfor %}
                         </select>
                       </div>
                       <div style="width: 220px;">
-                        <label for="subcateg" class="form-label">Tip</label>
-                        <input type="text" class="form-control" id="subcateg" name="subcateg">
+                        <select class="form-select" id="subcateg" name="subcateg" onchange="getDetails()">
+                            <option value="">Izaberite kategoriju</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -377,16 +380,11 @@
                     <small>Čekirajte kvadratiće oglasa za prodaju</small>
                   </div>
                   <div class="container-fluid">
-                  <div class="row">
-                    {% for item in details %}
-                      <div class="col-lg-2 col-md-4 col-sm-12">
-                        <div class="form-check form-check-inline mb-2">
-                          <input type="checkbox" class="form-check-input" id="same-address" name="{{ item.title }}"
-                                 value="{{ item.id }}">
-                          <label class="form-check-label" for="same-address">{{ item.description }}</label>
-                        </div>
-                      </div>
-                    {% endfor %}
+                  <div class="row" id="details">
+                    
+                  </div>
+                  <div class="row" id="amenities">
+                    
                   </div>
                   </div>
                 </div>
@@ -560,35 +558,6 @@
         document.querySelector('#video').value = item.response.body.id;
       }
     });
-
-    {#  const uppyTura = new Uppy.Uppy({#}
-    {#    debug: true,#}
-    {#    locale: Uppy.locales.sr_RS_Latin,#}
-    {#    restrictions: {#}
-    {#      maxFiles: 1,#}
-    {#      maxFileSize: 1000000,#}
-    {#      minFileSize: 50000,#}
-    {#      minNumberOfFiles: 1,#}
-    {#      allowedFileTypes: ['video/*'],#}
-    {#    },#}
-    {#  });#}
-    {#  uppyTura.use(Uppy.Dashboard, {#}
-    {#    width: '100%',#}
-    {#    height: 450,#}
-    {#    inline: true,#}
-    {#    target: '#video-area',#}
-    {#    closeAfterFinish: false,#}
-    {#    note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',#}
-    {#  });#}
-    {#  uppyTura.use(Uppy.Tus, {#}
-    {#    endpoint: 'https://tusd.tusdemo.net/files/'#}
-    {#  });#}
-    {#  uppyTura.on('complete', (result) => {#}
-    {#    console.log('Upload complete! We’ve uploaded these files:', result.successful);#}
-    {#    // iterate over result.successful#}
-    {#    // Create new html element `<input name="myParam" value=""/>` for each image uploaded#}
-    {#    // from response.uploadURL set value for the input field#}
-    {#  });#}
   </script>
   <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly"
@@ -629,5 +598,56 @@
     }
 
     window.initMap = initMap;
+
+    async function populateSubCategories(data) {
+      const category = data.value;
+      const response = await fetch(`/oglasi/get-subcategories?category=${category}`);
+      const json = await response.json();
+      const subcategorySelect = document.getElementById('subcateg');
+      subcategorySelect.innerHTML = "";
+
+      json.forEach(subCat => {
+        const option = document.createElement("option");
+        option.value = subCat.id;
+        option.text = subCat.name;
+        subcategorySelect.appendChild(option);
+      })
+
+      getDetails();
+      
+    }
+
+    // Get corresponding details and amenities based on selected category and status
+    async function getDetails() {
+      const subcategorySelect = document.getElementById('subcateg').value;
+      const status = document.getElementById('status').value;
+
+      const response = await fetch(`/oglasi/get-details?category=${subcategorySelect}&status=${status}`);
+      const data = await response.json();
+
+      const detailsDiv = document.getElementById('details');
+      const amenitiesDiv = document.getElementById('amenities');
+
+      detailsDiv.innerHTML = "";
+      amenitiesDiv.innerHTML = "";
+
+      data.details.forEach(detail => {
+        detailsDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="form-check form-check-inline mb-2">
+              <input type="checkbox" class="form-check-input" id="same-address" name="${detail.detail__name}" value="${detail.detail__id}">
+              <label class="form-check-label" for="same-address">${detail.detail__name}</label>
+            </div>
+          </div>`
+      })
+
+      data.amenities.forEach(detail => {
+        amenitiesDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="form-check form-check-inline mb-2">
+              <input type="checkbox" class="form-check-input" id="same-address" name="${detail.amenity__name}" value="${detail.amenity__id}">
+              <label class="form-check-label" for="same-address">${detail.amenity__name}</label>
+            </div>
+          </div>`
+      })
+    }
   </script>
 {% endblock %}

@@ -56,6 +56,10 @@ class Detail(models.Model):
     def __str__(self):
         return self.name
 
+class CategoryDetails(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    detail = models.ForeignKey(Detail, on_delete=models.CASCADE)
+
 
 class ListingDetails(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
@@ -69,6 +73,9 @@ class Amenity(models.Model):
     def __str__(self):
         return self.name
 
+class CategoryAmenities(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    amenity = models.ForeignKey(Amenity, on_delete=models.CASCADE)
 
 class ListingAmenities(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
@@ -80,3 +87,4 @@ class ListingMap(models.Model):
     lat = models.DecimalField(decimal_places=2, max_digits=4, null=False)
     lng = models.DecimalField(decimal_places=2, max_digits=4, null=False)
     zoom = models.IntegerField(null=False)
+

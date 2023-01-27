@@ -1,21 +1,27 @@
 {% load static %}
 
-<div class="d-flex border-bottom  border-secondary mt-3">
+<div class="d-flex border-bottom  border-secondary mt-3" >
   <div class="col-4 d-flex">
-    <div class="position-absolute p-1 rounded bg-danger text-white">Izdavanje</div>
-    <img class="rounded" src="{% static 'images/homepage/nis_bg.jpg' %}" alt="Hearth" width="180px" height="102px">
+    <div class="position-absolute p-1 rounded text-white {% if listing.status == '0' %} bg-danger {% elif listing.status == '1' %} bg-secondary {% endif %}">
+      {% if listing.status == '0' %}
+        Prodaja
+      {% elif listing.status == '1' %}
+        Izdavanje
+      {% endif %}
+    </div>
+    <img class="rounded" src='{% get_media_prefix %}{{ listing.images.first.file }}' alt="Hearth" width="180px" height="102px" onclick="onListingClick('{{listing.slug}}')">
     <div class="ps-3">
-      <p class="fw-bold">Moderan stan na vozdovcu kod fona</p>
-      <p class="d-flex">beograd vozdovac fon</p>
-      <h6 class="fw-bold">170 000 eur</h6>
+      <p class="fw-bold">{{listing.title|truncatechars:25}}</p>
+      <p class="d-flex">{{listing.city}}, {{listing.municipality}}</p>
+      <h6 class="fw-bold " id="money{{listing.id}}"> </h6>
     </div>
   </div>
-  <div class="col-2 d-flex justify-content-center align-items-center fw-light">
-      22.11.22
+  <div class="col-2 d-flex justify-content-center align-items-center fw-light" >
+      {{listing.date_listed|date:"d"}}.{{listing.date_listed|date:"m"}}.{{listing.date_listed|date:"Y"}}
   </div>
-  <div class="col-2 d-flex justify-content-center align-items-center">
+  <div class="col-2 d-flex justify-content-center align-items-center">  
     <div class="rounded py-2 px-4 color-blue border border-info ">
-      Aktivan
+      {{listing.status}}
     </div> 
   </div>
   <div class="col-2 d-flex justify-content-center align-items-center">
@@ -26,9 +32,18 @@
     <img class="" onclick="deleteHandler()" src="{% static 'images/icons/bin.svg' %}" alt="Hearth" width="28px" height="28px">
   </div>
 </div>
-
 <script>
-    
+  function onListingClick(slug) {
+        {% if debug != None %}
+          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
+        {% else %}
+          console.error('Define real URL');
+        {% endif %}
+    }
+
+// price parser //
+document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+
     function editHandler() {
       console.log('edit')
     }

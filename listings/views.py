@@ -5,15 +5,16 @@ from django.shortcuts import render, redirect
 from django.utils.text import slugify
 from django.utils.timezone import now
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import JsonResponse
 
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap
+from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, CategoryDetails, CategoryAmenities
 from uploader.models import DropBox
 
 
 def listings(request):
-    listing_data = Listing.objects.filter(status=0)
+    listing_data = Listing.objects.all()
     categories = Category.objects.all()
 
     # Query Params
@@ -100,3 +101,25 @@ def listing(request, slug):
     }
 
     return render(request, 'listing_profile.html', context)
+
+def get_details(request):
+    details = CategoryDetails.objects.all()
+    amenities = []
+
+    category_id = request.GET.get('category')
+    if category_id:
+        details = details.filter(category=category_id).values('detail__name','detail__id')
+    
+    status = request.GET.get('status')
+    if status == "1":
+        amenities = CategoryAmenities.objects.filter(category=category_id).values('amenity__name','amenity__id')
+
+    data = {'details': list(details), 'amenities': list(amenities)}
+    return JsonResponse(data, safe=False)
+
+def get_subcategories(request):
+    category_id = request.GET.get('category')
+    categories = Category.objects.filter(parent=category_id).values('name', 'id')
+
+    return JsonResponse(list(categories), safe=False)
+

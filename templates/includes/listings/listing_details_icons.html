@@ -1,46 +1,91 @@
 {% load static %}
-  <div class="d-flex flex-column text-center align-items-center me-4" >
-    <img class=" p-2" src="{% static 'images/shared/item-apartment.svg' %}" alt="Hearth" width="44px" height="44px">
-    Stan
-  </div>
-  <div class="d-flex flex-column text-center align-items-center me-4" >
-    <img class=" p-2" src="{% static 'images/shared/item-house.svg' %}" alt="Hearth" width="44px" height="44px">
-    Kuca
-  </div>
-  <div class="d-flex flex-column text-center align-items-center me-4" >
-    <img class=" p-2" src="{% static 'images/shared/item-parcel.svg' %}" alt="Hearth" width="44px" height="44px">
-    Parcela
-  </div>
-  <div class="d-flex flex-column text-center align-items-center me-4" >
-    <img class=" p-2" src="{% static 'images/shared/item-office.svg' %}" alt="Hearth" width="44px" height="44px">
-    Pos. Prostor
+  <div class="d-flex flex-column text-center align-items-center me-5" >
+    <img class=" p-2" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt="Hearth" style="filter: brightness(0) invert(1)" width="44px" height="44px">
+    <small>
+      {% if listing.category.name == 'Poslovni prostor' %}
+      Pos. Prostor
+      {% elif listing.category.name == 'Komercijalni prostor' %}
+      Kom. Prostor
+      {% elif listing.category.name == 'Građevinska parcela' %}
+      Građ. Zem.
+      {% elif listing.category.name == 'Poljoprivredna parcela' %}
+      Poljo. Zem.
+      {% elif listing.category.name == 'Proizvodni prostor' %}
+      Pro. Prostor
+      {% elif listing.category.name == 'Ugostiteljski prostor' %}
+      Ugo. Prostor
+      {% elif listing.category.name == 'Stambene nekretnine' %}
+      Ostalo
+      {% elif listing.category.name == 'Poslovni prostor - Lokal' %}
+      Lokal
+      {% elif listing.category.name == 'Poslovni prostor - Kancelarija' %}
+      Kancelarija
+      {% else %}
+      {{listing.category.name}}
+      {% endif %}
+    </small>
   </div>
 
-  <div class="d-flex flex-column text-center align-items-center me-4">
+  <div class="d-flex flex-column text-center align-items-center me-5">
     <img class=" p-2" src="{% static 'images/shared/item-area.svg' %}" alt="Hearth" width="44px" height="44px">
-    {{listing.listingcharacteristics_set.first.size}}
+    {{listing.listingcharacteristics_set.first.size}}m2
   </div>
-  <div class="d-flex flex-column text-center align-items-center me-4">
+  {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
+
+  <div class="d-flex flex-column text-center align-items-center me-5 {% for listing_detail in listing.listingdetails_set.all %} {% if  listing_detail.detail.name == 'Struja'  %} text-decoration-line-through {% endif %}{% endfor %}">
+    <img class="p-2 " src="{% static 'images/items/Struja.svg' %}" alt="Hearth" width="44px" height="44px">
+    Struja
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-5 {% for listing_detail in listing.listingdetails_set.all %} {% if  listing_detail.detail.name == 'Voda'  %} text-decoration-line-through {% endif %}{% endfor %}">
+    <img class=" p-2" src="{% static 'images/items/Voda.svg' %}" alt="Hearth" width="44px" height="44px">
+    Voda
+  </div>
+  {% else %}
+    {% if listing.category.name|cut:' ' != 'Soba'%}
+      {% if listing.category.name|cut:' ' != 'Proizvodniprostor' or listing.category.name|cut:' ' != 'Ostalo'%}
+  <div class="d-flex flex-column text-center align-items-center me-5">
     <img class=" p-2" src="{% static 'images/shared/item-floormap.svg' %}" alt="Hearth" width="44px" height="44px">
     {{listing.listingcharacteristics_set.first.structure}}
   </div>
-  {% if listing.listingcharacteristics_set.first.parking != '0' %}
-  <div class="d-flex flex-column text-center align-items-center me-4">
-    <img class=" p-2" src="{% static 'images/shared/item-parking.svg' %}" alt="Hearth" width="44px" height="44px">
-    {{listing.listingcharacteristics_set.first.parking}} Parking
-  </div>
-  {% else %}
-  <div class="d-flex flex-column text-center align-items-center me-4">
-    <img class=" p-2" src="{% static 'images/shared/item-balcony.svg' %}" alt="Hearth" width="44px" height="44px">
-    {{listing.listingcharacteristics_set.first.balcony}} 
-  </div>
   {% endif %}
-  <div class="d-flex flex-column text-center align-items-center me-4">
+  <div class="d-flex flex-column text-center align-items-center me-5 {% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">
+    <img class="p-2 " src="{% static 'images/items/Parking.svg' %}" alt="Parking" width="44px" height="44px">
+    Parking
+  </div>
+    {% elif listing.category.name|cut:' ' == 'Soba' %}
+    <div class="d-flex flex-column text-center align-items-center me-5">
+      <img class=" p-2" src="{% static 'images/items/Lift.svg' %}" alt="Lift" width="44px" height="44px">
+      Lift
+    </div>
+    <div class="d-flex flex-column text-center align-items-center me-5">
+      <img class=" p-2" src="{% static 'images/items/Hlađenje.svg' %}" alt="Hlađenje" width="44px" height="44px">
+      Hlađenje
+    </div>
+    {% endif %}
+    {% if listing.category.name|cut:' ' != 'Stambenenekretnine'%}
+  <div class="d-flex flex-column text-center align-items-center me-5">
     <img class=" p-2" src="{% static 'images/shared/item-up_and_down_arrows.svg' %}" alt="Hearth" width="44px" height="44px">
     {{listing.listingcharacteristics_set.first.floor}}/{{listing.listingcharacteristics_set.first.total_floors}}
   </div>
-  <div class="d-flex flex-column text-center align-items-center me-4">
+    {% endif %}
+  <div class="d-flex flex-column text-center align-items-center me-5">
     <img class=" p-2" src="{% static 'images/shared/item-calender.svg' %}" alt="date" width="44px" height="44px">
     {{listing.listingcharacteristics_set.first.year_built}}
   </div>
+      {% endif %}
+
+  <!-- {% for listing_detail in listing.listingdetails_set.all %}
+      <div class="d-flex flex-column text-center align-items-center me-5">
+        <img class=" p-2" src="{% static 'images/items/Voda.svg' %}" alt="Hearth" width="44px" height="44px">
+        {{ listing_detail.detail.name }}
+      </div>
+  {% endfor %} -->
+
+
+  <script>
+    var data = JSON.parse("{{ listing.listingdetails_set.all }}")
   
+    console.log('ovo gledamo', data);
+
+
+  </script>

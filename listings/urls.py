@@ -6,6 +6,11 @@ urlpatterns = [
     path('', views.listings, name="listings"),
     path('pregled/<slug>/', views.listing, name="listing_profile"),
 
+    # API Calls
+    path('get-details/', views.get_details, name='get_details'),
+    path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
+
+
     # TODO: Redefine pages to specific models 
     path('postavi/', views_dashboard.create, name="listing_create", kwargs={'footer': 'create_listing'}),
     path('postavi/sacuvaj', views_dashboard.submit, name="listing_submit"),

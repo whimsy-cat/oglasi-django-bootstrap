@@ -22,7 +22,12 @@ def create(request, **kwargs):
     return render(request, 'dashboard_pages/create_new_listing.html', context)
 
 def my_listings(request):
-    return render(request, 'dashboard_pages/my_listings.html')
+    user = Account.objects.get(id=request.user.id)
+    listings = Listing.objects.filter(posted_by=user)
+    context = {
+        'listings' : listings
+    }
+    return render(request, 'dashboard_pages/my_listings.html', context)
 
 def saved_listings(request):
     return render(request, 'dashboard_pages/saved_listings.html')
