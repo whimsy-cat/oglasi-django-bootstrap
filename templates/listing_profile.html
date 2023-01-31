@@ -7,25 +7,10 @@
 {% endblock %}
 {% block content %}
 
-<!-- Listing images carousel -->
-<!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-  <div class="carousel-indicators">
-    {% for i in listing.images.all %}
-    <div data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %}  w-100 mx-2" aria-label="Slide {{ forloop.counter }}" style="background: center / contain no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;max-width: 150px;"></div>
-    {% endfor %}
-  </div>
-  <div class="carousel-inner w-100">
-    {% for i in listing.images.all %}
-    <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
-      <div class="d-block w-100 rounded w-100 me-2" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 666px;"></div>
-    </div>
-    {% endfor %}
-  </div>
-</div> -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="d-flex justify-content-center position-absolute align-items-end w-100 h-100" style="z-index: 2;">
     <div class="overflow-hidden mb-4 w-75 d-flex">
-      <div class="d-flex carousel-indicators m-0" style="width: fit-content;position: inherit;">
+      <div class="d-flex justify-content-center carousel-indicators m-0" id="caroseulIndicatorFrame" style="width: fit-content;position: inherit">
       {% for i in listing.images.all %}
       <div  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %} thumbnail-item thumbnail-target me-3 rounded" aria-label="Slide {{ forloop.counter }}" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;width: 150px"></div>
       {% endfor %}
@@ -247,7 +232,7 @@
         <h3 class="col my-4  text-center">Preporuceni Oglasi</h3>
       </div>
       {% for similar in similar_listings %}
-      <div class="col-xxl-3 col-md-6 col-sm-12  pb-5">
+      <div class="col-xxl-3 col-xl-3 col-sm-12  pb-5">
         {% include 'includes/listings/listing_card.html' with listing=similar%}
       </div>
       {% endfor %}
@@ -263,6 +248,14 @@
       defer
   ></script>
   <script>
+function caroseulIndicatorFrame() {
+  const caroseul = document.getElementById('caroseulIndicatorFrame')
+  if(caroseul.childElementCount < 7)
+  caroseul.style.width = '100%'
+}
+caroseulIndicatorFrame()
+
+
 const thumbnailItems = document.querySelectorAll('.thumbnail-item');
 const carouselItems = document.querySelectorAll('.thumbnail-target');
 
