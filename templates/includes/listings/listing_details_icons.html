@@ -31,12 +31,12 @@
     {{listing.listingcharacteristics_set.first.size}}m2
   </div>
   {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
-
-  <div class="d-flex flex-column text-center align-items-center me-5 {% for listing_detail in listing.listingdetails_set.all %} {% if  listing_detail.detail.name == 'Struja'  %} text-decoration-line-through {% endif %}{% endfor %}">
+  
+  <div class="d-flex flex-column text-center align-items-center me-5 {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">
     <img class="p-2 " src="{% static 'images/items/Struja.svg' %}" alt="Hearth" width="44px" height="44px">
     Struja
   </div>
-  <div class="d-flex flex-column text-center align-items-center me-5 {% for listing_detail in listing.listingdetails_set.all %} {% if  listing_detail.detail.name == 'Voda'  %} text-decoration-line-through {% endif %}{% endfor %}">
+  <div class="d-flex flex-column text-center align-items-center me-5  {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">
     <img class=" p-2" src="{% static 'images/items/Voda.svg' %}" alt="Hearth" width="44px" height="44px">
     Voda
   </div>

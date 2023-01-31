@@ -24,7 +24,7 @@
 </div> -->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="d-flex justify-content-center position-absolute align-items-end w-100 h-100" style="z-index: 2;">
-    <div class="overflow-hidden mb-4 w-75 ">
+    <div class="overflow-hidden mb-4 w-75 d-flex">
       <div class="d-flex carousel-indicators m-0" style="width: fit-content;position: inherit;">
       {% for i in listing.images.all %}
       <div  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %} thumbnail-item thumbnail-target me-3 rounded" aria-label="Slide {{ forloop.counter }}" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;width: 150px"></div>
@@ -67,9 +67,11 @@
         <!-- TODO:  <img class="shadow rounded p-2 mx-2 " src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
         <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
           {% include 'includes/share_listing.html' %}
-
-        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
-
+            {% if user.id in listing.likes %}
+              <img src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" width="44px">
+            {% else %}
+              <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
+            {% endif %}
         <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
     </div>

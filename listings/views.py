@@ -9,13 +9,15 @@ from django.http import JsonResponse
 
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, CategoryDetails, CategoryAmenities
+from listings.models import Detail, Listing, Amenity, ListingCharacteristics, ListingDetails, ListingMap, CategoryDetails, CategoryAmenities, ListingFavorites
 from uploader.models import DropBox
-
+import json
 
 def listings(request):
     listing_data = Listing.objects.all()
     categories = Category.objects.all()
+    details = Detail.objects.all()
+    amenities = Amenity.objects.all()
 
     # Query Params
     query_city = request.GET.get('grad')
@@ -24,6 +26,7 @@ def listings(request):
     query_price = request.GET.get('cena')
     query_size = request.GET.get('povrsina')
     query_structure = request.GET.get('struktura')
+    query_details_amenities = request.GET.get('d-a')
     if query_city:
         listing_data = listing_data.filter(city__iexact=query_city)
     if query_location:
@@ -39,6 +42,13 @@ def listings(request):
     if query_structure:
         listing_data = listing_data.filter(
             listingcharacteristics__structure=query_structure)
+    if query_details_amenities:
+        detailsParam = query_details_amenities.split('_')[0]
+        amenitiesParam = query_details_amenities.split('_')[1]
+        if detailsParam:
+            listing_data = listing_data.filter(listingdetails__detail__in=detailsParam.split('-'))
+        if amenitiesParam:
+            listing_data = listing_data.filter(listingamenities__amenity__in=amenitiesParam.split('-'))
 
     # Sort Params
     sort = request.GET.get('sort')
@@ -57,6 +67,8 @@ def listings(request):
         context = {
             "listings": listing_data,
             "categories": categories,
+            "details": details,
+            "amenities": amenities
         }
         return render(request, 'listings_fullmap.html', context)
     
@@ -72,10 +84,13 @@ def listings(request):
             listings = paginator.page(1)
         except EmptyPage:
             listings = paginator.page(paginator.num_pages)
+ 
 
         context = {
             "listings": listings,
             "categories": categories,
+            "details": details,
+            "amenities": amenities
         }
 
         return render(request, 'listings.html', context)
@@ -122,4 +137,19 @@ def get_subcategories(request):
     categories = Category.objects.filter(parent=category_id).values('name', 'id')
 
     return JsonResponse(list(categories), safe=False)
+
+def add_remove_favorites(request):
+    post_data = json.loads(request.body.decode("utf-8"))
+    listing = Listing.objects.get(id=post_data['id'])
+    user = Account.objects.get(id=request.user.id)
+    
+    exists = ListingFavorites.objects.filter(listing=listing, user=user)
+    if exists:
+        response = False
+        ListingFavorites.objects.filter(listing=listing, user=user).delete()
+    else:
+        response = True
+        ListingFavorites.objects.create(listing=listing, user=user)
+    
+    return JsonResponse(response, safe=False)
 

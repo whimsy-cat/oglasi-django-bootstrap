@@ -36,40 +36,76 @@
 
         const contentString{{ l.id }} = `
         <div class="card shadow-sm border-0" id="listingCard">
-            <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:280px">
-                <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
-                <div class="col-12 mb-auto d-flex">
-                    <span class="bg-blue rounded m-2 p-1 color-white">Prodaja</span>
-                </div>
-                <div class="col-12 px-3 pb-2 text-white">
-                    <h6>{{ l.price }} eur</h6>
-                    <div class="d-flex flex-direction-column justify-content-between">
-                        <p class="card-text listing-description">{{ l.description }}</p>
-                        <div onclick="onListingClick('{{l.slug}}')"><img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-eye.svg' %}" alt="House item"></div>
-                    </div>
-                <div class="d-flex justify-content-between align-items-center border-top border-light pt-2" >
-                    <div class="item-amenity">
-                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-house.svg' %}" alt="House item">
-                    <small>{{ l.category.name }}</small>
-                    </div>
-                    <div class="item-amenity">
-                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-                    <small>{{ l.listingcharacteristics_set.first.size }}</small>
-                    </div>
-                    <div class="item-amenity">
-                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor map item">
-                    <small>{{ l.listingcharacteristics_set.first.floor }}</small>
-                    </div>
-                    {% if listing.listingcharacteristics_set.first.parking_slots %}
-                    <div class="item-amenity">
-                    <img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-parkingspace.svg' %}" alt="Parking space item">
-                    <small>{{ l.listingcharacteristics_set.first.parking }}</small>
-                    </div>
+          <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:330px">
+            <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
+              <div class="col-12 mb-auto d-flex">
+                <span class="rounded p-1 {% if l.status == '0' %} bg-danger {% elif l.status == '1' %} bg-secondary {% endif %} color-white m-2 px-2">
+                  {% if l.status == '0' %}
+                    Prodaja
+                  {% elif l.status == '1' %}
+                    Izdavanje
+                  {% endif %}
+                </span>
+              </div>
+              <div class="col-12 px-3 pb-2 text-white">
+                <h6>{{ l.price }} eur</h6>
+                  <div class="d-flex flex-direction-column justify-content-between">
+                  <p class="card-text listing-description">{{ l.title }}</p>
+                  <div onclick="onListingClick('{{l.slug}}')"><img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-eye.svg' %}" alt="House item"></div>
+              </div>
+              <div class="row d-flex justify-content-between align-items-center border-top border-light pt-2" >
+                <div class="col-3 text-nowrap">
+                  <img style="height: 18px;width: 18px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{l.category.name|cut:' '}}.svg" alt=" ">
+                  <small>
+                    {% if l.category.name == 'Poslovni prostor' %}
+                      Pos. Prostor
+                    {% elif l.category.name == 'Komercijalni prostor' %}
+                      Kom. Prostor
+                    {% elif l.category.name == 'Građevinska parcela' %}
+                      Građ. Zem.
+                    {% elif l.category.name == 'Poljoprivredna parcela' %}
+                      Poljo. Zem.
+                    {% elif l.category.name == 'Proizvodni prostor' %}
+                      Pro. Prostor
+                    {% elif l.category.name == 'Ugostiteljski prostor' %}
+                      Ugo. Prostor
+                    {% elif l.category.name == 'Stambene nekretnine' %}
+                      Ostalo
+                    {% elif l.category.name == 'Poslovni prostor - Lokal' %}
+                      Lokal
+                    {% elif l.category.name == 'Poslovni prostor - Kancelarija' %}
+                      Kancelarija
+                    {% else %}
+                      {{l.category.name}}
                     {% endif %}
-                    </div>
+                  </small>
                 </div>
+                <div class="col-3 text-nowrap">
+                  <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+                  <small>{{ l.listingcharacteristics_set.first.size }}m2</small>
                 </div>
+                    {% if l.category.name|cut:' ' == 'Poljoprivrednaparcela' or l.category.name|cut:' ' == 'Građevinskaparcela'%}
+                <div class="col-3">
+                  <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
+                  <small class="{% if 'Struja' in l.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
+                </div>
+                <div class="col-3">
+                  <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
+                  <small class="{% if 'Voda' in l.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
+                </div>
+                  {% else %}
+                <div class="col-3">
+                  <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
+                  <small>{{ l.listingcharacteristics_set.first.structure }}</small>
+                </div>
+                <div class="col-3 text-nowrap">
+                  <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
+                  <small class="{% if l.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
+                </div>
+                  {% endif %}
+              </div>
             </div>
+          </div>
         </div>`;
 
         const infowindow{{ l.id }} = new google.maps.InfoWindow({

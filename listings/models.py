@@ -23,6 +23,14 @@ class Listing(models.Model):
     video = models.ManyToManyField(DropBox, related_name="video")
     posted_by = models.ForeignKey(Account, on_delete=models.CASCADE)
 
+    @property
+    def likes(self):
+        return self.listingfavorites_set.filter(listing=self).values_list('user', flat=True)
+    
+    @property
+    def details(self):
+        return self.listingdetails_set.filter(listing=self).values_list('detail__name', flat=True) 
+
     def __str__(self):
         return self.title
 
@@ -88,3 +96,7 @@ class ListingMap(models.Model):
     lng = models.DecimalField(decimal_places=2, max_digits=4, null=False)
     zoom = models.IntegerField(null=False)
 
+class ListingFavorites(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)

@@ -1,74 +1,60 @@
 {% load static %}
+
+{% block content %}
+
 <div class="row mb-4 shadow rounded">
   <div class="col-7 p-0">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls{{listing.id}}" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner rounded-start w-100">
-        <div class="carousel-item active">
-          <div style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 290px;">
+        {% for listing in listing.images.all %}
+        <div class="carousel-item  {% if forloop.counter == 1 %} active {% endif %}">
+          <div style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');height: 290px;">
             <img src="{% static 'images/icons/star.svg' %}" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
           </div>
         </div>
-        <div class="carousel-item">
-          <div style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 290px;">
-            <img src="{% static 'images/icons/star.svg' %}"  class="m-2 position-absolute" alt="Star" style="z-index: 2;">
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 290px;">
-            <img src="{% static 'images/icons/star.svg' %}"  class="m-2 position-absolute" alt="Star" style="z-index: 2;">
-          </div>
-        </div>
+        {% endfor %}s
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{listing.id}}" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{listing.id}}" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
       </button>
     </div>
   </div>
-  <div class="col-5 d-flex  py-3 pe-4">
-    <div class="d-flex flex-column justify-content-between">
-      <h6 class="fw-bold mb-4">Novogradnja, New Minel, Tosin Bunar</h6>
-      <p class="text-black-50">Beograd, Novi Beograd, Blok 60</p>
-      <div class="text-small">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-          ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...
+  <div class="col-5 d-flex  py-3 pe-3">
+    <div class="d-flex flex-column justify-content-between w-75">
+      <h6 class="fw-bold">{{listing.title}}</h6>
+      <p class="text-black-50">{{listing.city}}, {{listing.municipality}}</p>
+      <div class="fs-6 mb-3" style="text-align: justify;">
+          {{listing.description|truncatechars:150}}
       </div>
-      <div class="d-flex justify-content-between">
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <img class="mb-1" src="{% static 'images/shared/item-apartment.svg' %}" alt="Compare item" width="24px">
-            Stan
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <img class="mb-1" src="{% static 'images/shared/item-area.svg' %}" alt="Compare item" width="24px">
-            80m2
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <img class="mb-1" src="{% static 'images/shared/item-floormap.svg' %}" alt="Compare item" width="24px">
-            3.0
-        </div>
-        <div class="d-flex flex-column justify-content-center align-items-center">
-          <img class="mb-1" src="{% static 'images/shared/item-parking.svg' %}" alt="Compare item" width="24px">
-            Parking
-        </div>
-      </div>
+      {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
     </div>
-    <div class="d-flex flex-column ms-3">
+    <div class="d-flex flex-column justify-content-between  ms-3 w-25">
       <div>
-        <div style="background: center / contain no-repeat url('/static/images/placeholders/zidart.jpg');height: 110px;">
+        <div style="background: center / contain no-repeat url('/static/images/placeholders/zidart.jpg');height: 110px;"></div>
       </div>
-      <div class="d-flex justify-content-end my-4"> 
-        <img class="me-2" src="{% static 'images/shared/actionitem-compare.svg' %}" alt="Compare item" width="21px">
-        <img src="{% static 'images/icons/hearth.svg' %}" alt="Compare item" width="25px">
-      </div>
-      <div class="text-nowrap fw-bold fs-6 mb-">10.300.000 eur</div>
-        <div class="d-flex justify-content-center align-items-center">
-          <div class="border border-info text-info p-2 rounded fs-6">
-            Detaljnije
-          </div>
+      {% include 'includes/listing_helpers/like_compare.html' %}
+      <div class="text-nowrap fw-bold fs-6 mb-2 d-flex justify-content-end"id="money{{listing.id}}" ></div>
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="border border-info text-info p-2 rounded fs-6" onclick="onListingClick('{{listing.slug}}')">
+          Detaljnije
         </div>
       </div>
     </div>
   </div>
 </div>
+{% endblock %}
+<script>
+
+  document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+  
+  function onListingClick(slug) {
+        {% if debug != None %}
+          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
+        {% else %}
+          console.error('Define real URL');
+        {% endif %}
+    }
+</script>

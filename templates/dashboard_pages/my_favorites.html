@@ -24,11 +24,10 @@
             pagination
           </div>
         </div>
-        <div class="px-2">
-          {% include 'includes/dashboard/my_favorites_card.html' %}
-          {% include 'includes/dashboard/my_favorites_card.html' %}
-          {% include 'includes/dashboard/my_favorites_card.html' %}
-          {% include 'includes/dashboard/my_favorites_card.html' %}
+        <div class="px-2 mt-3">
+            {% for listing in listings %}
+              {% include 'includes/dashboard/my_favorites_card.html' %}
+            {% endfor %}
         </div>
       </div>
     </div>

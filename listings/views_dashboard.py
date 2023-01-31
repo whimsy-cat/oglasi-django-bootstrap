@@ -8,7 +8,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap
+from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingFavorites
 from uploader.models import DropBox
 
 
@@ -39,7 +39,12 @@ def my_views(request):
     return render(request, 'dashboard_pages/my_views.html')
 
 def my_favorites(request):
-    return render(request, 'dashboard_pages/my_favorites.html')
+    user = Account.objects.get(id=request.user.id)
+    listings = Listing.objects.filter(listingfavorites__user=user)
+    context = {
+        'listings' : listings
+    }
+    return render(request, 'dashboard_pages/my_favorites.html', context)
 
 def promote_listing(request):
     return render(request, 'dashboard_pages/promote_listing.html')

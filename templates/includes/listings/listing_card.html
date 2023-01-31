@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="card shadow-sm featured-item" onclick="onListingClick('{{listing.slug}}')">
+<div class="card shadow-sm featured-item" >
     <div class="d-flex justify-content-between position-absolute w-100" >
       <span class="rounded {% if listing.status == '0' %} bg-danger {% elif listing.status == '1' %} bg-secondary {% endif %} color-white m-2 px-2">
         {% if listing.status == '0' %}
@@ -11,73 +11,27 @@
       </span>
       <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
     </div>
-    <img class="bd-placeholder-img card-img-top" src="{% get_media_prefix %}{{ listing.images.first.file }}" height="200" alt="">
+    <img class="bd-placeholder-img card-img-top" src="{% get_media_prefix %}{{ listing.images.first.file }}" height="200" alt="" onclick="onListingClick('{{listing.slug}}')">
   <div class="card-body">
     <div class="d-flex justify-content-between">
       <p class="card-text">{{ listing.title|truncatechars:30 }}</p>
-      <div class="meta-controls d-flex align-items-start">
-        <!-- TO DO UPOREDI DUGME<img class="me-2" src="{% static 'images/shared/actionitem-compare.svg' %}" alt="Compare item" width="21px"> -->
-        <img src="{% static 'images/icons/hearth.svg' %}" alt="Compare item" width="25px">
-      </div>
+      {% include 'includes/listing_helpers/like_compare.html' %}
     </div>
     <div class="d-flex justify-content-between align-items-center mb-3">
       <small class="item-location">{{ listing.city }}, {{ listing.municipality}}</small>
       <h5 id="money{{listing.id}}"></h5>
     </div>
-    <div class="d-flex justify-content-between align-items-center">
-      <div class="item-amenity">
-          <img style="height: 18px;width: 18px;" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
-          <small>
-            {% if listing.category.name == 'Poslovni prostor' %}
-            Pos. Prostor
-            {% elif listing.category.name == 'Komercijalni prostor' %}
-            Kom. Prostor
-            {% elif listing.category.name == 'Građevinska parcela' %}
-            Građ. Zem.
-            {% elif listing.category.name == 'Poljoprivredna parcela' %}
-            Poljo. Zem.
-            {% elif listing.category.name == 'Proizvodni prostor' %}
-            Pro. Prostor
-            {% elif listing.category.name == 'Ugostiteljski prostor' %}
-            Ugo. Prostor
-            {% elif listing.category.name == 'Stambene nekretnine' %}
-            Ostalo
-            {% elif listing.category.name == 'Poslovni prostor - Lokal' %}
-            Lokal
-            {% elif listing.category.name == 'Poslovni prostor - Kancelarija' %}
-            Kancelarija
-            {% else %}
-            {{listing.category.name}}
-            {% endif %}
-          </small>
-      </div>
-      <div class="item-amenity">
-        <img src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-        <small>{{ listing.listingcharacteristics_set.first.size }}m2</small>
-      </div>
-      {% if listing.category.name == 'Poljoprivredna parcela' or listing.category.name == 'Građevinska parcela'%}
-        <div class="item-amenity">
-          <img style="height: 18px;width: 18px;filter: brightness(0.8) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
-          <small>Struja</small>
-        </div>
-        <div class="item-amenity">
-          <img style="height: 18px;width: 18px;filter: brightness(0.8) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
-          <small class="">Voda</small>
-        </div>
-        {% else %}
-        <div class="item-amenity">
-          <img style="height: 18px;width: 18px" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
-          <small>{{ listing.listingcharacteristics_set.first.structure }}</small>
-        </div>
-        <div class="item-amenity text-nowrap">
-          <img style="height: 18px;width: 18px" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-          <small class="{% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
-        </div>
-        {% endif %}
-    </div>
+    {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
   </div>
 </div>
 <script>
+   function onListingClick(slug) {
+        {% if debug != None %}
+          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
+        {% else %}
+          console.error('Define real URL');
+        {% endif %}
+    }
+  
   document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
-
 </script>

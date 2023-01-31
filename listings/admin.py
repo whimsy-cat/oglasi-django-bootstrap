@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Listing, CategoryAmenities, ListingAmenities, Amenity, Detail, CategoryDetails, ListingDetails, ListingCharacteristics, ListingMap
+from .models import Listing, CategoryAmenities, ListingAmenities, Amenity, Detail, CategoryDetails, ListingDetails, ListingCharacteristics, ListingMap, ListingFavorites
 
 admin.site.register(Listing)
 admin.site.register(ListingCharacteristics)
@@ -11,6 +11,12 @@ admin.site.register(ListingAmenities)
 
 admin.site.register(Detail)
 admin.site.register(CategoryDetails)
-admin.site.register(ListingDetails)
+
+class ListingDetailsAdmin(admin.ModelAdmin):
+    list_display = ('listing', 'detail')
+
+admin.site.register(ListingDetails, ListingDetailsAdmin)
 
 admin.site.register(ListingMap)
+
+admin.site.register(ListingFavorites)

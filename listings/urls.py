@@ -9,6 +9,8 @@ urlpatterns = [
     # API Calls
     path('get-details/', views.get_details, name='get_details'),
     path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
+    path('oglas-omiljeni/', views.add_remove_favorites, name="listing_add_remove_favorites"),
+
 
 
     # TODO: Redefine pages to specific models 
