@@ -81,7 +81,7 @@
                     <div class="d-flex justify-content-between">
                       <div style="width: 280px;">
                         <label for="category" class="form-label">Kategorija</label>
-                        <select class="form-select" id="category" onchange="populateSubCategories(this)">
+                        <select class="form-select" id="category" required onchange="populateSubCategories(this)">
                           <option value="">Izaberite kategoriju</option>
                           {% for categ in categories %}
                             {% if categ.parent is None %}
@@ -91,7 +91,7 @@
                         </select>
                       </div>
                       <div style="width: 220px;">
-                        <select class="form-select" id="subcateg" name="subcateg" onchange="getDetails()">
+                        <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails()">
                             <option value="">Izaberite kategoriju</option>
                         </select>
                       </div>
@@ -551,6 +551,9 @@
     // Initialize and add the map
     function initMap() {
       const belgrade = { lat: 44.8125, lng: 20.4612 };
+      document.querySelector('#lat').value = 44.8125;
+      document.querySelector('#lng').value = 20.4612;
+
       // The map, centered at Uluru
       map = new google.maps.Map(document.querySelector(".map-holder"), {
         zoom: 10,
@@ -616,7 +619,7 @@
       data.details.forEach(detail => {
         detailsDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
             <div class="form-check form-check-inline mb-2">
-              <input type="checkbox" class="form-check-input" id="same-address" name="${detail.detail__name}" value="${detail.detail__id}">
+              <input type="checkbox" class="form-check-input" id="same-address" name="details_data" value="${detail.detail__id}">
               <label class="form-check-label" for="same-address">${detail.detail__name}</label>
             </div>
           </div>`
@@ -625,7 +628,7 @@
       data.amenities.forEach(detail => {
         amenitiesDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
             <div class="form-check form-check-inline mb-2">
-              <input type="checkbox" class="form-check-input" id="same-address" name="${detail.amenity__name}" value="${detail.amenity__id}">
+              <input type="checkbox" class="form-check-input" id="same-address" name="amenities_data" value="${detail.amenity__id}">
               <label class="form-check-label" for="same-address">${detail.amenity__name}</label>
             </div>
           </div>`

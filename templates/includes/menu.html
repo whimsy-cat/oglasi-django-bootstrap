@@ -8,11 +8,11 @@
   </div>
   <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
     <ul class="nav mb-3 mb-lg-0 me-lg-3">
-      <li class="px-2"><a href="#" class="nav-link px-2">Nekretnine</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2 link-secondary">Novogradnja</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2">Vesti</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2">Oglašavanje</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2">Info</a></li>
+      <li class="px-2"><a href="{% url 'listings' %}" class="nav-link px-2 {% if request.path == '/oglasi/' %}link-secondary{% endif %}">Nekretnine</a></li>
+      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li>
+      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Vesti</a></li>
+      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li>
+      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li>
       <li class="px-2">
         <a href="#" class="nav-link px-2">
           <img width="21" height="19" src="{% static 'images/shared/flag_serbia.png' %}" alt="language flag">

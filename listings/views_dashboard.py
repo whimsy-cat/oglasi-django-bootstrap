@@ -1,15 +1,13 @@
 import random
 
-from django.db import DataError
 from django.shortcuts import render, redirect
-from django.utils.text import slugify
 from django.utils.timezone import now
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingFavorites
+from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingFavorites, ListingAmenities
 from uploader.models import DropBox
+from .helpers import to_type_or_none
 
 
 def create(request, **kwargs):
@@ -21,46 +19,56 @@ def create(request, **kwargs):
     }
     return render(request, 'dashboard_pages/create_new_listing.html', context)
 
+
 def my_listings(request):
     user = Account.objects.get(id=request.user.id)
     listings = Listing.objects.filter(posted_by=user)
     context = {
-        'listings' : listings
+        'listings': listings
     }
     return render(request, 'dashboard_pages/my_listings.html', context)
+
 
 def saved_listings(request):
     return render(request, 'dashboard_pages/saved_listings.html')
 
+
 def messages(request):
     return render(request, 'dashboard_pages/messages.html')
 
+
 def my_views(request):
     return render(request, 'dashboard_pages/my_views.html')
+
 
 def my_favorites(request):
     user = Account.objects.get(id=request.user.id)
     listings = Listing.objects.filter(listingfavorites__user=user)
     context = {
-        'listings' : listings
+        'listings': listings
     }
     return render(request, 'dashboard_pages/my_favorites.html', context)
+
 
 def promote_listing(request):
     return render(request, 'dashboard_pages/promote_listing.html')
 
+
 def profile(request):
     return render(request, 'dashboard_pages/profile.html')
- 
+
+
 def subscription(request):
     return render(request, 'dashboard_pages/subscription.html')
+
 
 def settings(request):
     return render(request, 'dashboard_pages/settings.html')
 
+
 def submit(request):
     try:
-        listing_category = Category.objects.get(pk=3)
+        listing_category = Category.objects.get(pk=request.POST['subcateg'])
     except Category.DoesNotExist:
         # add error handling
         return redirect('home')
@@ -72,13 +80,7 @@ def submit(request):
         description=request.POST['description'],
         status=request.POST['status'],
         category=listing_category,
-        price=request.POST['price'],
-        slug=slugify(
-            request.POST['city'] + '-' +
-            request.POST['municipality'] + '-' +
-            request.POST['area'] + '-' +
-            request.POST['title']
-        ),
+        price=to_type_or_none(request.POST.get('price'), float, 0.0),
         country=request.POST['country'],
         city=request.POST['city'],
         municipality=request.POST['municipality'],
@@ -103,13 +105,13 @@ def submit(request):
     listing_chars = ListingCharacteristics.objects.create(
         listing=listing_instance,
         size=request.POST['size'],
-        structure=request.POST['structure'],
-        year_built=request.POST['year_built'],
-        floor=request.POST['floor'],
-        total_floors=request.POST['total_floors'],
-        bedrooms=request.POST['bedrooms'],
-        baths=request.POST['baths'],
-        half_baths=request.POST['half_baths'],
+        structure=to_type_or_none(request.POST.get('structure'), float, 0.0),
+        year_built=to_type_or_none(request.POST.get('year_built'), int),
+        floor=to_type_or_none(request.POST.get('floor'), int),
+        total_floors=to_type_or_none(request.POST.get('total_floors'), int),
+        bedrooms=to_type_or_none(request.POST.get('bedrooms'), int, 0),
+        baths=to_type_or_none(request.POST['baths'], int, 0),
+        half_baths=to_type_or_none(request.POST['half_baths'], int, 0),
         parking="garaža",
         parking_slots=1,
         balcony="terasa",
@@ -122,12 +124,25 @@ def submit(request):
     )
     listing_chars.save()
 
-    listing_details = ListingDetails.objects.create(
-        listing=listing_instance,
-        detail_id=1
-    )
-    listing_details.save()
+    # All Details
+    details_post = request.POST.getlist('details_data')
+    for d in details_post:
+        listing_details = ListingDetails.objects.create(
+            listing=listing_instance,
+            detail_id=d
+        )
+        listing_details.save()
 
+    # All Amenities
+    amenities_post = request.POST.getlist('amenities_data')
+    for a in amenities_post:
+        listing_amenities = ListingAmenities.objects.create(
+            listing=listing_instance,
+            amenity_id=a
+        )
+        listing_amenities.save()
+
+    # Add Map
     listing_map = ListingMap.objects.create(
         listing=listing_instance,
         lat=request.POST['lat'],
