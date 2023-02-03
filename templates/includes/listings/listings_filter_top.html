@@ -142,8 +142,8 @@ function applyFilters() {
 
 function getParams() {
   const value = new URL(window.location.href).searchParams.get("d-a");
-  const checkedDetails = value.split('_')[0].split('-')
-  const checkedAmenities = value.split('_')[1].split('-')
+  const checkedDetails = value?.split('_')[0].split('-') ?? []
+  const checkedAmenities = value?.split('_')[1].split('-') ?? []
 
   const getDetails = document.querySelectorAll(`#allDetails input`)
     getDetails.forEach(detail => {

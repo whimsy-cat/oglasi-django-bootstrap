@@ -13,7 +13,7 @@
       </div>
       <div class="d-flex align-items-end h-100" onclick="onListingClick('{{listing.slug}}')">
         <div class="col-12 px-3 pb-2 text-white">
-          <h6 id="money{{listing.id}}"></h6> 
+          <h6 id="money-loc{{listing.id}}"></h6> 
           <p class="card-text listing-description">{{ listing.title|truncatechars:30 }}</p> 
           <div class="row" >
             <div class="col-3 text-nowrap">
@@ -85,7 +85,7 @@
         {% endif %}
     }
 
-    document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+    document.getElementById("money-loc{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
 
 
 </script>

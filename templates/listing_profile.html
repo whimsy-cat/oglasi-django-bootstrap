@@ -45,7 +45,7 @@
       </div>
       <div class="col-3">
         <div class="d-flex justify-content-center ">
-          <h2 class="fw-bold" id="money{{listing.id}}"> eur</h2>
+          <h2 class="fw-bold" id="money-lp{{listing.id}}"> eur</h2>
         </div>
         {% if listing.status == '0' %}
         <div class="d-flex justify-content-center ">
@@ -292,6 +292,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly"
       defer
   ></script>
+
   <script>
 let infoPills = document.getElementById("infoPills");
 let info = infoPills.getElementsByClassName("info");
@@ -340,9 +341,8 @@ thumbnailItems.forEach((thumbnail, index) => {
   });
 });
 
-    // money parser //
-    document.getElementById("money{{listing.id}}").innerText = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
-
+  // money parser //
+  document.getElementById("money-lp{{listing.id}}").innerText = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
 
     // Initialize and add the map
     function initMap() {
