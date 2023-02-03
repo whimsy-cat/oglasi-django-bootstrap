@@ -1,8 +1,8 @@
 {% load static%}
 <div class="row d-flex flex-row justify-content-between">
-  <div class="col-3 d-flex {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  flex-column justify-content-between align-items-center {% endif %}">
+  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
-    <small class="text-nowrap {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  mt-1 {% else %} ms-1 {% endif %}">
+    <small class="text-nowrap {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">
       {% if listing.category.name == 'Poslovni prostor' %}
       Pos. Prostor
       {% elif listing.category.name == 'Komercijalni prostor' %}
@@ -26,27 +26,27 @@
       {% endif %}
     </small>
   </div>
-  <div class="col-3 text-nowrap d-flex {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  flex-column justify-content-between align-items-center {% endif %}">
+  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-    <small class="{% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.size }}m2</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.size }}m2</small>
   </div>
   {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
-  <div class="col-3 d-flex {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  flex-column justify-content-between align-items-center {% endif %}">
+  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px;filter: brightness(0.7) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
-    <small class="{% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  mt-1 {% else %} ms-1 {% endif %} {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
   </div>
-  <div class="col-3 d-flex {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  flex-column justify-content-between align-items-center {% endif %}">
+  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px;filter: brightness(0.7) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
-    <small class="{% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  mt-1 {% else %} ms-1 {% endif %} {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
   </div>
   {% else %}
-  <div class="col-3 d-flex {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  flex-column justify-content-between align-items-center {% endif %}">
+  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
-    <small class="{% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.structure }}</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.structure }}</small>
   </div>
-  <div class="col-3 text-nowrap d-flex {% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  flex-column justify-content-between align-items-center {% endif %}">
+  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-    <small class="{% if request.path != '/oglasi/pregled/{{listing.slug}}' %}  mt-1 {% else %} ms-1 {% endif %} {% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
   </div>
   {% endif %}
 </div>

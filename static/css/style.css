@@ -161,6 +161,9 @@ input::placeholder {
 .listing-item-overlayed {
   background-color: #00000070
 }
+.shadow-caroseul-controls {
+  background-color: #00000020;
+}
 
 .listing-description {
   overflow: hidden;
@@ -192,9 +195,6 @@ ul.pagination {
   background-color: #E57374;
 }
 
-.min-height-40vh{
-  min-height: 40vh;
-}
 
 .min-height-50vh{
   min-height: 50vh;
@@ -232,6 +232,40 @@ ul.pagination {
 .bg-gray {
   background-color: #617E8C
 }
-.min-height-60vh {
-  min-height: 60vh;
+.fullscreen {
+  background-size: contain !important;
+  margin: 50px;
+  width: 92%!important;
+  height: 90%!important;
+  transition: all 0.1s ease-in-out;
+
+}
+.fullscreenBG {
+  background-color: #4848488a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%!important;
+  height: 100%!important;
+  z-index: 100;
+}
+
+.contain-img {
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.infoTabStyle, .mapLocationStyle, .imageVideoFlooplanStyle, .canvasStyle {
+  border-bottom: 2px #F66C6C solid;
+  color: #F66C6C;
+}
+@media print {
+  .non-printable-area {
+    display: none;
+  }
+  .printable-area {
+    width: 100%!important;
+  }
 }

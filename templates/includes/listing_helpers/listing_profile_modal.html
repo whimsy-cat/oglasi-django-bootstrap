@@ -1,0 +1,103 @@
+{% load static %}
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
+<div class="modal fade" id="galeryModal" tabindex="-1" aria-labelledby="galeryModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="row modal-header">
+        <div class="col-11 modal-title d-flex justify-content-center" id="galeryModalLabel"> 
+          <div class="nav" id="nav-tab" role="tablist" style="margin-left: 100px;">
+            <button class="mx-2 btn btn-dark active" id="nav-slike-tab" data-bs-toggle="tab" data-bs-target="#nav-slike" type="button" role="tab" aria-controls="nav-slike" aria-selected="true">Slike</button>
+            <button class="mx-2 btn btn-dark" id="nav-tlocrt-tab" data-bs-toggle="tab" data-bs-target="#nav-tlocrt" type="button" role="tab" aria-controls="nav-tlocrt" aria-selected="false">Tlocrt</button>
+            <button class="mx-2 btn btn-dark" id="nav-video-tab" data-bs-toggle="tab" data-bs-target="#nav-video" type="button" role="tab" aria-controls="nav-video" aria-selected="false">Video</button>
+            <button class="mx-2 btn btn-dark" id="nav-tura-tab" data-bs-toggle="tab" data-bs-target="#nav-tura" type="button" role="tab" aria-controls="nav-tura" aria-selected="false">Virtuelna Tura</button>
+            <button class="mx-2 btn btn-dark" id="nav-googleMap-tab" data-bs-toggle="tab" data-bs-target="#nav-googleMap" type="button" role="tab" aria-controls="nav-googleMap" aria-selected="false" onclick="loadMap()">Mapa</button>
+          </div>
+        </div>
+        <div class="col-1 d-flex justify-content-end">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-slike" role="tabpanel" aria-labelledby="nav-slike-tab">
+            <div class="row">
+            {% for image in listing.images.all %}
+            <div class="col-4 my-3" onclick="fullScreenImg('{{image.id}}')">
+              <div id="fullscreenBG{{image.id}}">
+                <div id="image{{image.id}}" class="d-block w-100 rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ image.file }}');height: 380px;"></div>
+              </div>
+            </div>
+            {% endfor %}
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-tlocrt" role="tabpanel" aria-labelledby="nav-tlocrt-tab">
+            <div class="row">
+              {% for tlocrt in listing.floor_plan.all %}
+              <div class="col-4 my-3" onclick="fullScreenTlocrt('{{tlocrt.id}}')">
+                <div id="tlocrtBG{{tlocrt.id}}">
+                  <div id="tlocrt{{tlocrt.id}}" class="d-block w-100 rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ tlocrt.file }}');height: 380px;"></div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="tab-pane fade mt-3" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab">
+            <div class="d-flex justify-content-center">
+            {% with listing.video.all|first as video %}
+              <video class="border" controls style="max-height: 80vh; width: 80%;">
+                <source src="{{ video.file.url }}" type="video/mp4">
+              </video>
+              {% endwith %}
+            </div>
+          </div>
+          <div class="tab-pane fade" id="nav-tura" role="tabpanel" aria-labelledby="nav-tura-tab">...</div>
+          <div class="tab-pane fade full_map_area" id="nav-googleMap" role="tabpanel" aria-labelledby="nav-googleMap-tab">
+              <div class="full_map style2">
+                <div class="map-canvas skin2" style="height: 80vh;" id="google-mapa"
+                  data-icon-path="{% static 'images/logo/1.png' %}" data-map-title="Awesome Place"
+                  data-map-zoom="14">
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function fullScreenImg(id) {
+    const image = document.getElementById(`image${id}`);
+    const fullScreen = document.getElementById(`fullscreenBG${id}`);
+    image.classList.toggle("fullscreen");
+    fullScreen.classList.toggle("fullscreenBG");
+
+};
+
+ function fullScreenTlocrt(id) {
+  const tlocrt = document.getElementById(`tlocrt${id}`)
+  const fullScreen = document.getElementById(`tlocrtBG${id}`);
+    tlocrt.classList.toggle("fullscreen");
+    fullScreen.classList.toggle("fullscreenBG");
+ }
+
+ function loadMap() {
+      const belgrade = { lat: 44.8125, lng: 20.4612 };
+      const map = new google.maps.Map(document.getElementById("google-mapa"), {
+        zoom: 10,
+        center: belgrade,
+      });
+      const marker{{ listing.id }} = new google.maps.Marker({
+        position: {
+        lat: Number("{{listing.listingmap_set.first.lat }}"),
+        lng: Number("{{listing.listingmap_set.first.lng }}"),
+        },
+        map: map,
+        listing_id: {{ listing.id }},
+      });
+    }
+
+
+</script>

@@ -7,7 +7,7 @@
 {% endblock %}
 {% block content %}
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+<div id="carouselExampleIndicators" class="carousel slide non-printable-area" data-bs-ride="true">
   <div class="d-flex justify-content-center position-absolute align-items-end w-100 h-100" style="z-index: 2;">
     <div class="overflow-hidden mb-4 w-75 d-flex">
       <div class="d-flex justify-content-center carousel-indicators m-0" id="caroseulIndicatorFrame" style="width: fit-content;position: inherit">
@@ -18,6 +18,14 @@
     </div>
   </div>
   <div class="carousel-inner w-100">
+    
+    <div class="d-flex justify-content-end position-absolute w-100" style="z-index: 2;" >
+        <img class="m-4" src="{% static 'images/icons/galery.svg' %}" alt="Hearth" data-bs-toggle="modal" data-bs-target="#galeryModal" >
+    </div>
+    <!-- Modal -->
+    {% include 'includes/listing_helpers/listing_profile_modal.html' %}
+
+    
     {% for i in listing.images.all %}
     <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
       <div class="d-block w-100 rounded w-100 me-2" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 666px;"></div>
@@ -26,8 +34,8 @@
   </div>
 </div>
 
-<section class="agencies-break p-5">
-  <div class="container-fluid">
+<section>
+  <div class="container-fluid p-5">
 
     <!-- Top Info View -->
     <div class="row">
@@ -37,7 +45,7 @@
       </div>
       <div class="col-3">
         <div class="d-flex justify-content-center ">
-          <h2 class="fw-bold" id="money{{listing.id}}"></h2>
+          <h2 class="fw-bold" id="money{{listing.id}}"> eur</h2>
         </div>
         {% if listing.status == '0' %}
         <div class="d-flex justify-content-center ">
@@ -48,14 +56,14 @@
         </div>
         {% endif %}
       </div>
-      <div class="col-3 d-flex justify-content-end">
+      <div class="col-3 d-flex justify-content-end ">
         <!-- TODO:  <img class="shadow rounded p-2 mx-2 " src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
-        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
           {% include 'includes/share_listing.html' %}
             {% if user.id in listing.likes %}
-              <img src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" width="44px">
+              <img class="non-printable-area" src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" width="44px">
             {% else %}
-              <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
+              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
             {% endif %}
         <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
@@ -64,23 +72,26 @@
     <!-- Listing Featured Icons -->
     <div class="col d-flex mb-4 icons-black">
       {% include 'includes/listings/listing_details_icons.html' %}
-      
     </div>
 
     <div class="row mb-4">
-
-      <!-- Left "Main" Side -->
-      <div class="col-8">
-
+      <!-- First "Main" Part -->
+      <div class="col-8 printable-area">
         <!-- 1. Info Pills -->
-        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-60vh mb-4">
-          <div class="row nav-tabs  my-3" id="myTab" role="tablist">
-            <h5 class="active col" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Opis</h5>
-            <h5 class="col" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">Detalji</h5>
-            <h5 class="col"  id="properties-tab" data-bs-toggle="tab" data-bs-target="#properties-tab-pane" type="button" role="tab" aria-controls="properties-tab-pane" aria-selected="false">Karakteristike</h5>
-            {% if listing.status == '1' %}
-            <h5 class="col" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment-tab-pane" type="button" role="tab" aria-controls="equipment-tab-pane" aria-selected="false">Opremljenost</h5>
-            {% endif %}
+        <div class="shadow card-body px-5 py-3 rounded" style="min-height: 480px;">
+          <div class="row border-bottom mx-0 fs-5 my-3" id="infoPills" role="tablist">
+            <div class="col-3 px-0 d-flex">
+              <div class="d-flex active info pb-2 infoTabStyle" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Opis</div>
+            </div>
+            <div class="col-3 px-0 d-flex">
+              <div class="d-flex info ms-4 pb-2" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">Detalji</div>
+            </div>
+            <div class="col-3 px-0 d-flex ">
+              <div class="d-flex info ms-4 pb-2" id="properties-tab" data-bs-toggle="tab" data-bs-target="#properties-tab-pane" type="button" role="tab" aria-controls="properties-tab-pane" aria-selected="false">Karakteristike</div>
+            </div>
+            <div class="col-3 px-0 d-flex justify-content-end">
+              <div class="d-flex info pb-2" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment-tab-pane" type="button" role="tab" aria-controls="equipment-tab-pane" aria-selected="false">Opremljenost</div>
+            </div>
           </div>
           <div class="tab-content " id="myTabContent">
             <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
@@ -128,38 +139,49 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-4 non-printable-area">
+        {% include 'includes/agencies/agency_card.html' %}
+      </div>
+    </div>
 
         <!-- 2. Images/Videos/Floorplan Pills -->
+      <div class="row">
+        <div class="col-8 printable-area">
         {% if listing.floor_plan.all != '0' and listing.video.all != '0' %}
-        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-60vh mb-4">
-          <div class="row nav-tabs  my-3" id="myTab" role="tablist">
-            {% if listing.floor_plan.all != '0'%}
-            <h5 class="active col-3" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</h5>
-            {% endif %}
-            <h5 class="col-3" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="false">Video</h5>
-            <h5 class="col-3"  id="virtuelnatura-tab" data-bs-toggle="tab" data-bs-target="#virtuelnatura-tab-pane" type="button" role="tab" aria-controls="virtuelnatura-tab-pane" aria-selected="false">Virtuelna tura</h5>
+        <div class="shadow card-body px-5 py-3 rounded mb-4" style="height:688px;">
+          <div class="row border-bottom mx-0 fs-5 my-3" id="imagesVideosFloorplanPills" role="tablist">
+            <div class="col-3 px-0 d-flex">
+              <div class="d-flex active pb-2 media imageVideoFlooplanStyle" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</div>
+            </div>
+            <div class="col-3 d-flex">
+              <div class="d-flex ms-4 pb-2 media" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</div>
+            </div>
+            <div class="col-3 d-flex">
+              <div class="d-flex ms-4 pb-2 media" id="virtuelnatura-tab" data-bs-toggle="tab" data-bs-target="#virtuelnatura-tab-pane" type="button" role="tab" aria-controls="virtuelnatura-tab-pane" aria-selected="true">Virtuelna tura</div>
+            </div>
           </div>
           <div class="tab-content " id="myTabContent">
             <div class="tab-pane fade show active" id="tlocrt-tab-pane" role="tabpanel" aria-labelledby="tlocrt-tab" tabindex="0">
               <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                   {% for i in listing.floor_plan.all %}
-                  <div class="{% if forloop.counter == 1 %} active {% endif %} carousel-item ">
-                    <img src="{% get_media_prefix %}{{ i.file }}" class="d-block w-100" alt="...">
+                  <div class="{% if forloop.counter == 1 %} active {% endif %} carousel-item">
+                    <div class="d-block w-100 rounded" style="background: center / contain no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 555px;"></div>
                   </div>
                   {% endfor %}
                 </div>
-                <button class="carousel-control-prev " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <button class="carousel-control-prev shadow-caroseul-controls rounded" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon rounded-circle p-4" aria-hidden="true"></span>
                 </button>
-                <button class="carousel-control-next " type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <button class="carousel-control-next shadow-caroseul-controls rounded" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                   <span class="carousel-control-next-icon rounded-circle p-4" aria-hidden="true"></span>
                 </button>
               </div>
             </div>
             <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
               {% with listing.video.all|first as video %}
-              <video controls style="max-height: 666px; width: 100%;">
+              <video controls style="height: 550px; width: 100%;">
                 <source src="{{ video.file.url }}" type="video/mp4">
               </video>
               {% endwith %}
@@ -168,66 +190,89 @@
               Virtuelna Tura
             </div>
           </div>
-        </div>
-        {% endif %}
-        <!-- 3. Map & Locations -->
-        <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-60vh mb-4">
-          <div class="row nav-tabs  my-3" id="myTab" role="tablist">
-            <h5 class="active col-3" id="map-tab" data-bs-toggle="tab" data-bs-target="#map-tab-pane" type="button" role="tab" aria-controls="map-tab-pane" aria-selected="true">Mapa</h5>
-            <!--TO DO: LOKACIJA <h5 class="col-3" id="location-tab" data-bs-toggle="tab" data-bs-target="#location-tab-pane" type="button" role="tab" aria-controls="location-tab-pane" aria-selected="false">Lokacija</h5> -->
           </div>
-          <div class="tab-content " id="myTabContent">
-                <div class="full_map_area tab-pane fade show active" id="map-tab-pane" role="tabpanel" aria-labelledby="map-tab" tabindex="0">
-                  <div class="full_map style2">
-                    <div class="map-canvas skin2 min-height-50vh" id="contact-google-map"
-                      data-icon-path="{% static 'images/logo/1.png' %}" data-map-title="Awesome Place"
-                      data-map-zoom="14">
-                    </div>
+        </div>
+        <div class="col-4 mb-4 non-printable-area">
+          <div class="col shadow card-body rounded p-4 h-100">
+            <div class="mb-4">
+              {% include 'includes/blog/blog_card.html' %}
+            </div>
+            {% for promoted in promoted_listings|slice:":1" %}
+              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+        {% endif %}
+        
+        <!-- 3. Map & Locations -->
+      <div class="row non-printable-area">
+        <div class="col-8 printable-area" >
+          <div class="shadow card-body px-5 py-3 rounded mb-4" style="height:688px;">
+            <div class="row border-bottom mx-0 fs-5 my-3" id="mapAndLocation" role="tablist">
+              <div class="col-3 px-0 d-flex">
+                <div class="d-flex active pb-2 place mapLocationStyle" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-tab-pane" type="button" role="tab" aria-controls="mapa-tab-pane" aria-selected="true">Mapa</div>
+              </div>
+              <div class="col-3 d-flex">
+                <div class="d-flex ms-4 pb-2 place" id="locate-tab" data-bs-toggle="tab" data-bs-target="#locate-tab-pane" type="button" role="tab" aria-controls="locate-tab-pane" aria-selected="true">Lokacija</div>
+              </div>
+            </div>
+            <div class="tab-content" id="myTabContent">
+              <div class="full_map_area tab-pane fade show active" id="mapa-tab-pane" role="tabpanel" aria-labelledby="mapa-tab" tabindex="0">
+                <div class="full_map style2">
+                  <div class="map-canvas skin2" style="height: 578px;" id="google-maps"
+                    data-icon-path="{% static 'images/logo/1.png' %}" data-map-title="Awesome Place"
+                    data-map-zoom="14">
                   </div>
                 </div>
-            <div class="tab-pane fade" id="location-tab-pane" role="tabpanel" aria-labelledby="location-tab" tabindex="0">
-              Lokacija
+              </div>
+               <div class="tab-pane fade" id="locate-tab-pane" role="tabpanel" aria-labelledby="locate-tab" tabindex="0">
+            Lokacija
+              </div>
             </div>
           </div>
         </div>
+        <div class="col-4 mb-4">
+          <div class="col shadow card-body rounded p-4 h-100">
+            <div class="mb-4">
+              {% include 'includes/blog/blog_card.html' %}
+            </div>
+            {% for promoted in promoted_listings|slice:":1" %}
+              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
 
         <!-- TODO: Define data for aprox listing price per location -->
-        <!-- <div class="col-md-12 shadow card-body px-5 py-3 rounded min-height-40vh mb-4">
-          <div class="row nav-tabs  my-3" id="myTab" role="tablist">
-            <h5 class="active col" id="averageprice-tab" data-bs-toggle="tab" data-bs-target="#averageprice-tab-pane" type="button" role="tab" aria-controls="averageprice-tab-pane" aria-selected="true">Prosecna cena na lokaciji</h5>
-          </div>
-          <div class="tab-content " id="myTabContent">
-            <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0" style="background: center / cover no-repeat url('/static/images/listing_detail/tlocrt.svg');height: 600px;">
-              Prosecna cena na lokaciji
+      <div class="row non-printable-area">
+        <div class="col-8">
+          <div class="shadow card-body px-5 py-3 rounded mb-4" style="height: 688px;">
+            <div class="row border-bottom mx-0 fs-5 my-3" id="chart" role="tablist">
+              <div class="col-6 d-flex px-0">
+                <div class="d-flex active pb-2 canvasStyle" id="averageprice-tab" data-bs-toggle="tab" data-bs-target="#averageprice-tab-pane" type="button" role="tab" aria-controls="averageprice-tab-pane" aria-selected="true">Prosecna cena na lokaciji</div>
+              </div>
+            </div>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0" style="background: center / cover no-repeat url('/static/images/listing_detail/tlocrt.svg');height: 600px;"></div>
             </div>
           </div>
-        </div> -->
-      </div>
-
-      <!-- Right Side -->
-      <div class="col">
-        <div class="col shadow card-body rounded  p-4 mb-4">
-          {% include 'includes/agencies/agency_card.html' %}
         </div>
-
-        {% for promoted in promoted_listings|slice:":2" %}
-        <div class="col shadow card-body rounded  p-4 mb-4">
-
-          <!-- TODO: Define blog data
-          {% include 'includes/blog/blog_card.html' %} -->
-          <!-- TODO: Image from listing or to remove
-          <div class="rounded" style="background: center / cover no-repeat url('/static/images/placeholders/apt2.jpg');height: 250px;"></div> -->
-          <div class="col mt-4">
-            {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+        <div class="col-4 mb-4">
+          <div class="col shadow card-body rounded p-4 h-100">
+            <div class="mb-4">
+              {% include 'includes/blog/blog_card.html' %}
+            </div>
+            {% for promoted in promoted_listings|slice:":1" %}
+              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+            {% endfor %}
           </div>
         </div>
-        {% endfor %}
       </div>
 
-    </div>
 
     <!-- Suggested Listings -->
-    <div class="row mb-3">
+    <div class="row mb-3 non-printable-area" >
       <div class="row">
         <h3 class="col my-4  text-center">Preporuceni Oglasi</h3>
       </div>
@@ -248,6 +293,36 @@
       defer
   ></script>
   <script>
+let infoPills = document.getElementById("infoPills");
+let info = infoPills.getElementsByClassName("info");
+for (let i = 0; i < info.length; i++) {
+  info[i].addEventListener("click", function() {
+  let current = document.getElementsByClassName("infoTabStyle");
+  current[0].className = current[0].className.replace(" infoTabStyle", "");
+  this.className += " infoTabStyle";
+  });
+}
+
+let imagesVideosFloorplanPills = document.getElementById("imagesVideosFloorplanPills");
+let media = imagesVideosFloorplanPills.getElementsByClassName("media");
+for (let i = 0; i < media.length; i++) {
+  media[i].addEventListener("click", function() {
+  let current = document.getElementsByClassName("imageVideoFlooplanStyle");
+  current[0].className = current[0].className.replace(" imageVideoFlooplanStyle", "");
+  this.className += " imageVideoFlooplanStyle";
+  });
+}
+
+let mapAndLocation = document.getElementById("mapAndLocation");
+let place = mapAndLocation.getElementsByClassName("place");
+for (let i = 0; i < place.length; i++) {
+  place[i].addEventListener("click", function() {
+  let current = document.getElementsByClassName("mapLocationStyle");
+  current[0].className = current[0].className.replace(" mapLocationStyle", "");
+  this.className += " mapLocationStyle";
+  });
+}
+
 function caroseulIndicatorFrame() {
   const caroseul = document.getElementById('caroseulIndicatorFrame')
   if(caroseul.childElementCount < 7)
@@ -266,13 +341,13 @@ thumbnailItems.forEach((thumbnail, index) => {
 });
 
     // money parser //
-    document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+    document.getElementById("money{{listing.id}}").innerText = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
 
 
     // Initialize and add the map
     function initMap() {
       const belgrade = { lat: 44.8125, lng: 20.4612 };
-      const map = new google.maps.Map(document.getElementById("contact-google-map"), {
+      const map = new google.maps.Map(document.getElementById("google-maps"), {
         zoom: 10,
         center: belgrade,
       });
@@ -286,7 +361,7 @@ thumbnailItems.forEach((thumbnail, index) => {
       });
     }
 
-    window.initMap = initMap;
+    initMap()
 </script>
 
 

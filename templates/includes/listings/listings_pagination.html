@@ -11,7 +11,7 @@
       
     <!-- Render 3 before and 3 after - Pages -->
     {% for num in listings.paginator.page_range %}
-      {% if num <= listings.number|add:3 and num >= listings.number|add:-3 %}
+      {% if num <= listings.number|add:1 and num >= listings.number|add:-1 %}
         {% if listings.number == num %}
         <li><a class="page-link text-white bg-blue rounded-circle active m-1">{{ num }}</a></li>
         {% else %}
