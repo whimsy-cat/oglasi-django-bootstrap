@@ -104,7 +104,7 @@ def submit(request):
 
     listing_chars = ListingCharacteristics.objects.create(
         listing=listing_instance,
-        size=request.POST['size'],
+        size=to_type_or_none(request.POST['size'], float, 0.0),
         structure=to_type_or_none(request.POST.get('structure'), float, 0.0),
         year_built=to_type_or_none(request.POST.get('year_built'), int),
         floor=to_type_or_none(request.POST.get('floor'), int),

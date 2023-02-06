@@ -8,7 +8,7 @@ from django.utils.text import slugify
 
 class Listing(models.Model):
     title = models.CharField(max_length=150, null=False)
-    description = models.CharField(max_length=255, null=True)
+    description = models.TextField(max_length=1000, null=True)
     status = models.CharField(max_length=25)
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, default=1)
@@ -51,7 +51,7 @@ class Listing(models.Model):
 
 class ListingCharacteristics(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    size = models.IntegerField(null=False)
+    size = models.DecimalField(decimal_places=2, max_digits=4, null=False)
     structure = models.DecimalField(decimal_places=1, max_digits=4, null=False)
     year_built = models.IntegerField(null=True, default=None)
     floor = models.IntegerField(null=True, default=None)
