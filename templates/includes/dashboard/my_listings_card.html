@@ -13,7 +13,7 @@
     <div class="ps-3">
       <p class="fw-bold">{{listing.title|truncatechars:25}}</p>
       <p class="d-flex">{{listing.city}}, {{listing.municipality}}</p>
-      <h6 class="fw-bold " id="money{{listing.id}}"> </h6>
+      <h6 class="fw-bold">{% include 'includes/listing_helpers/price_parser.html' %}</h6>
     </div>
   </div>
   <div class="col-2 d-flex justify-content-center align-items-center fw-light" >
@@ -40,9 +40,6 @@
           console.error('Define real URL');
         {% endif %}
     }
-
-// price parser //
-document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
 
     function editHandler() {
       console.log('edit')

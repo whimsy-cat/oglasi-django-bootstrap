@@ -45,12 +45,12 @@
       </div>
       <div class="col-3">
         <div class="d-flex justify-content-center ">
-          <h2 class="fw-bold" id="money-lp{{listing.id}}"> eur</h2>
+          <h2 class="fw-bold">{% include 'includes/listing_helpers/price_parser.html' %}</h2>
         </div>
         {% if listing.status == '0' %}
         <div class="d-flex justify-content-center ">
           <div class="shadow d-flex justify-content-center">
-              <div class="bg-blue text-white p-1 rounded-start" >{% widthratio listing.price listing.listingcharacteristics_set.first.size 1 %}</div>          
+              <div class="bg-blue text-white p-1 rounded-start" id="price_per_square"></div>          
             <div class="bg-blue text-white p-1 rounded-end">eur/m2</div>
           </div>
         </div>
@@ -59,7 +59,7 @@
       <div class="col-3 d-flex justify-content-end ">
         <!-- TODO:  <img class="shadow rounded p-2 mx-2 " src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
         <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          {% include 'includes/share_listing.html' %}
+          {% include 'includes/listing_helpers/share_listing.html' %}
             {% if user.id in listing.likes %}
               <img class="non-printable-area" src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" width="44px">
             {% else %}
@@ -89,9 +89,11 @@
             <div class="col-3 px-0 d-flex ">
               <div class="d-flex info ms-4 pb-2" id="properties-tab" data-bs-toggle="tab" data-bs-target="#properties-tab-pane" type="button" role="tab" aria-controls="properties-tab-pane" aria-selected="false">Karakteristike</div>
             </div>
+            {% if listing.status == '1' %}
             <div class="col-3 px-0 d-flex justify-content-end">
               <div class="d-flex info pb-2" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment-tab-pane" type="button" role="tab" aria-controls="equipment-tab-pane" aria-selected="false">Opremljenost</div>
             </div>
+            {% endif %}
           </div>
           <div class="tab-content " id="myTabContent">
             <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
@@ -288,49 +290,40 @@
 {% endblock %}
 
 {% block page_specific_scripts %}
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly"
-      defer
-  ></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly" defer></script>
+<script>
 
-  <script>
-let infoPills = document.getElementById("infoPills");
-let info = infoPills.getElementsByClassName("info");
-for (let i = 0; i < info.length; i++) {
-  info[i].addEventListener("click", function() {
-  let current = document.getElementsByClassName("infoTabStyle");
-  current[0].className = current[0].className.replace(" infoTabStyle", "");
-  this.className += " infoTabStyle";
-  });
+    // Price per square
+function pricePerSquare() {
+  document.getElementById('price_per_square').innerHTML = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format({{listing.price}} / {{listing.listingcharacteristics_set.first.size}});
+};
+pricePerSquare()
+
+
+  // Tab modals styles
+function tabStyleHandler(elementId, className, styleClass) {
+  let element = document.getElementById(elementId);
+  let items = element.getElementsByClassName(className);
+    for (let i = 0; i < items.length; i++) {
+    items[i].addEventListener("click", function() {
+    let current = document.getElementsByClassName(styleClass);
+    current[0].className = current[0].className.replace(" " + styleClass, "");
+    this.className += " " + styleClass;
+    });
+  }
 }
+tabStyleHandler("infoPills", "info", "infoTabStyle");
+tabStyleHandler("imagesVideosFloorplanPills", "media", "imageVideoFlooplanStyle");
+tabStyleHandler("mapAndLocation", "place", "mapLocationStyle");
 
-let imagesVideosFloorplanPills = document.getElementById("imagesVideosFloorplanPills");
-let media = imagesVideosFloorplanPills.getElementsByClassName("media");
-for (let i = 0; i < media.length; i++) {
-  media[i].addEventListener("click", function() {
-  let current = document.getElementsByClassName("imageVideoFlooplanStyle");
-  current[0].className = current[0].className.replace(" imageVideoFlooplanStyle", "");
-  this.className += " imageVideoFlooplanStyle";
-  });
-}
 
-let mapAndLocation = document.getElementById("mapAndLocation");
-let place = mapAndLocation.getElementsByClassName("place");
-for (let i = 0; i < place.length; i++) {
-  place[i].addEventListener("click", function() {
-  let current = document.getElementsByClassName("mapLocationStyle");
-  current[0].className = current[0].className.replace(" mapLocationStyle", "");
-  this.className += " mapLocationStyle";
-  });
-}
-
+  // Thumbnail alingment and scroll
 function caroseulIndicatorFrame() {
   const caroseul = document.getElementById('caroseulIndicatorFrame')
   if(caroseul.childElementCount < 7)
   caroseul.style.width = '100%'
 }
 caroseulIndicatorFrame()
-
 
 const thumbnailItems = document.querySelectorAll('.thumbnail-item');
 const carouselItems = document.querySelectorAll('.thumbnail-target');
@@ -341,29 +334,25 @@ thumbnailItems.forEach((thumbnail, index) => {
   });
 });
 
-  // money parser //
-  document.getElementById("money-lp{{listing.id}}").innerText = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
 
-    // Initialize and add the map
-    function initMap() {
-      const belgrade = { lat: 44.8125, lng: 20.4612 };
-      const map = new google.maps.Map(document.getElementById("google-maps"), {
-        zoom: 10,
-        center: belgrade,
-      });
-      const marker{{ listing.id }} = new google.maps.Marker({
-        position: {
-        lat: Number("{{listing.listingmap_set.first.lat }}"),
-        lng: Number("{{listing.listingmap_set.first.lng }}"),
-        },
-        map: map,
-        listing_id: {{ listing.id }},
-      });
-    }
+  // Initialize and add the map
+function initMap() {
+  const belgrade = { lat: 44.8125, lng: 20.4612 };
+  const map = new google.maps.Map(document.getElementById("google-maps"), {
+    zoom: 10,
+    center: belgrade,
+  });
+  const marker{{ listing.id }} = new google.maps.Marker({
+    position: {
+    lat: Number("{{listing.listingmap_set.first.lat }}"),
+    lng: Number("{{listing.listingmap_set.first.lng }}"),
+    },
+    map: map,
+    listing_id: {{ listing.id }},
+  });
+}
+initMap()
 
-    initMap()
 </script>
-
-
 {% endblock %}
 

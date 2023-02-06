@@ -91,6 +91,7 @@
                         </select>
                       </div>
                       <div style="width: 220px;">
+                        <label for="tip" class="form-label">Tip</label>
                         <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails()">
                             <option value="">Izaberite kategoriju</option>
                         </select>
@@ -619,17 +620,17 @@
       data.details.forEach(detail => {
         detailsDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
             <div class="form-check form-check-inline mb-2">
-              <input type="checkbox" class="form-check-input" id="same-address" name="details_data" value="${detail.detail__id}">
-              <label class="form-check-label" for="same-address">${detail.detail__name}</label>
+              <input type="checkbox" class="form-check-input" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
+              <label class="form-check-label" for="detail-data${detail.detail__id}">${detail.detail__name}</label>
             </div>
           </div>`
       })
 
-      data.amenities.forEach(detail => {
+      data.amenities.forEach(amenity => {
         amenitiesDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
             <div class="form-check form-check-inline mb-2">
-              <input type="checkbox" class="form-check-input" id="same-address" name="amenities_data" value="${detail.amenity__id}">
-              <label class="form-check-label" for="same-address">${detail.amenity__name}</label>
+              <input type="checkbox" class="form-check-input" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
+              <label class="form-check-label" for="amenity-data${amenity.amenity__id}">${amenity.amenity__name}</label>
             </div>
           </div>`
       })

@@ -19,7 +19,7 @@
     </div>
     <div class="d-flex justify-content-between align-items-center mb-3">
       <small class="item-location">{{ listing.city }}, {{ listing.municipality}}</small>
-      <h5 id="money-lc{{listing.id}}"></h5>
+      <h5>{% include 'includes/listing_helpers/price_parser.html' %}</h5>
     </div>
     {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
   </div>
@@ -32,6 +32,4 @@
           console.error('Define real URL');
         {% endif %}
     }
-  
-  document.getElementById("money-lc{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
 </script>

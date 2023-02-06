@@ -1,0 +1,14 @@
+<div class="price_parser{{listing.id}}"></div>
+
+
+<script>
+
+function priceParser() {
+  const elements = document.getElementsByClassName("price_parser{{listing.id}}")
+  for (let i = 0; i < elements.length; i++) {
+    const cost = elements[i].innerHTML = new Intl.NumberFormat('de-DE', { minimumFractionDigits: 2 }).format({{listing.price}}) + ' eur';
+  }
+};
+priceParser()
+
+</script>
