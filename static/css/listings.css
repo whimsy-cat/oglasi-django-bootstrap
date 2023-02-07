@@ -51,9 +51,8 @@
   border-radius: 5px;
   border: 1px solid rgba(31, 56, 54, 0.1);
 }
-.creation-steps .col a {
-  text-decoration: none;
-  color: inherit;
+.creation-steps .col:hover {
+  cursor: pointer;
 }
 .creation-steps .col:last-child {
   margin-right: 0;

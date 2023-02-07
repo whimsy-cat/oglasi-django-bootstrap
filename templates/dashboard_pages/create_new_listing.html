@@ -15,21 +15,11 @@
 
         <div class="col-10 main-area">
           <div class="creation-steps d-flex justify-content-center mb-3">
-            <div id="tab1" class="col shadow-sm active">
-              <a href="#" onclick="changeActive(1)">1. Opis</a>
-            </div>
-            <div id="tab2" class="col shadow-sm">
-              <a href="#" onclick="changeActive(2)">2. Multimedija</a>
-            </div>
-            <div id="tab3" class="col shadow-sm">
-              <a href="#" onclick="changeActive(3)">3. Lokacija</a>
-            </div>
-            <div id="tab4" class="col shadow-sm">
-              <a href="#" onclick="changeActive(4)">4. Karakteristike</a>
-            </div>
-            <div id="tab5" class="col shadow-sm">
-              <a href="#" onclick="changeActive(5)">5. Detalji</a>
-            </div>
+            <div id="tab1" class="col shadow-sm active" onclick="changeActive(1)">1. Opis</div>
+            <div id="tab2" class="col shadow-sm" onclick="changeActive(2)">2. Multimedija</div>
+            <div id="tab3" class="col shadow-sm" onclick="changeActive(3)">3. Lokacija</div>
+            <div id="tab4" class="col shadow-sm" onclick="changeActive(4)">4. Karakteristike</div>
+            <div id="tab5" class="col shadow-sm" onclick="changeActive(5)">5. Detalji</div>
           </div>
 
           <form id="create-listing-form" class="needs-validation" method="POST" action="{% url 'listing_submit' %}" novalidate>
@@ -76,12 +66,12 @@
                   <div class="step-section ">
                     <div class="d-flex justify-content-start mb-4 step-heading">
                       <h5 class="align-self-end me-4">Tip</h5>
-                      <small class="align-self-end">Izaberite kategoriju i tip vaše nekretnine</small>
+                      <small class="align-self-end">Izaberite kategoriju i tip vaše nekretnine </small>
                     </div>
                     <div class="d-flex justify-content-between">
                       <div style="width: 280px;">
                         <label for="category" class="form-label">Kategorija</label>
-                        <select class="form-select" id="category" required onchange="populateSubCategories(this)">
+                        <select class="form-select" id="category" required onchange="populateSubCategories(this); selectCategory()">
                           <option value="">Izaberite kategoriju</option>
                           {% for categ in categories %}
                             {% if categ.parent is None %}
@@ -92,8 +82,7 @@
                       </div>
                       <div style="width: 220px;">
                         <label for="tip" class="form-label">Tip</label>
-                        <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails()">
-                            <option value="">Izaberite kategoriju</option>
+                        <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails(); selectCategory()">Izaberite Tip
                         </select>
                       </div>
                     </div>
@@ -272,10 +261,12 @@
                           <label for="half_baths" class="form-label">Toaleta (brojevima)</label>
                           <input type="text" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
                         </div>
-                        <div class="mb-3">
+
+                        <div class="mb-3" id='parcel-input'>
                           <label for="parcel_size" class="form-label">Površina parcele (u kvm)</label>
                           <input type="text" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
                         </div>
+                        
                         <div class="mb-3">
                           <label for="additional" class="form-label">Ostalo/dodatno</label>
                           <input type="text" class="form-control" id="additional" name="additional" aria-describedby="titleHelp">
@@ -285,9 +276,14 @@
                         <div class="mb-3">
                           <label for="parking" class="form-label">Parking (izaberite vrstu)</label>
                           <select class="form-select" aria-label="Default select example" id="parking" name="parking">
-                            <option value="1" selected>Prodaja</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="">Izaberite...</option>
+                            <option value="garaža">Garaža</option>
+                            <option value="parking mesto">Parking mesto</option>
+                            <option value="parking klackalica">Parking klackalica</option>
+                            <option value="parking van zone">Parking van zone</option>
+                            <option value="parking u zoni">Parking u zoni</option>
+                            <option value="garažno mesto">Garažno mesto</option>
+                            <option value="parking platforma">Parking platforma</option>
                           </select>
                         </div>
                         <div class="mb-3">
@@ -300,11 +296,17 @@
                         </div>
                         <div class="mb-3">
                           <label for="basement" class="form-label">Podrum</label>
-                          <input type="text" class="form-control" id="basement" name="basement" aria-describedby="titleHelp">
+                          <select class="form-select" aria-label="Default select example" id="basement" name="basement">
+                            <option value="false" selected>Nema</option>
+                            <option value="true">Ima</option>
+                          </select>
                         </div>
                         <div class="mb-3">
                           <label for="storage" class="form-label">Ostava</label>
-                          <input type="text" class="form-control" id="storage" name="storage" aria-describedby="titleHelp">
+                          <select class="form-select" aria-label="Default select example" id="storage" name="storage">
+                            <option value="false" selected>Nema</option>
+                            <option value="true">Ima</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-3 col-lg-3">
@@ -602,6 +604,19 @@
       getDetails();
       
     }
+
+
+    
+function selectCategory() {
+  const subCatValue = document.getElementById('subcateg').value
+  if (subCatValue == 4 || subCatValue == 6 || subCatValue == 8 ) {
+    document.getElementById('parcel-input').style.display = 'none'
+  } else {
+    document.getElementById('parcel-input').style.display = 'block'
+  }
+}
+  
+
 
     // Get corresponding details and amenities based on selected category and status
     async function getDetails() {
