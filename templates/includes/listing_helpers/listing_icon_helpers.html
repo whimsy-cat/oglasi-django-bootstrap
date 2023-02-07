@@ -46,7 +46,7 @@
   </div>
   <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if listing.listingcharacteristics_set.first.parking %}  {% else %} text-decoration-line-through {% endif %}">Parking</small>
   </div>
   {% endif %}
 </div>

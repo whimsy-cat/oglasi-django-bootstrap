@@ -17,26 +17,28 @@
   </select>
   <select class="form-select mx-1" onchange="queryParam('cena', this.value)" aria-label="Default select example">
     <option value="">Cena</option>
-    <option  {% if request.GET.cena == '20000' %} selected {% endif %} value="20000">do 20.000 e</option>
-    <option  {% if request.GET.cena == '40000' %} selected {% endif %} value="40000">do 40.000 e</option>
-    <option  {% if request.GET.cena == '60000' %} selected {% endif %} value="60000">do 60.000 e</option>
-    <option  {% if request.GET.cena == '80000' %} selected {% endif %} value="80000">do 80.000 e</option>
-    <option  {% if request.GET.cena == '100000' %} selected {% endif %} value="100000">do 100.000 e</option>
-    <option  {% if request.GET.cena == '150000' %} selected {% endif %} value="150000">do 150.000 e</option>
-    <option  {% if request.GET.cena == '200000' %} selected {% endif %} value="200000">do 200.000 e</option>
-    <option  {% if request.GET.cena == '300000' %} selected {% endif %} value="300000">do 300.000 e</option>
-    <option  {% if request.GET.cena == '500000' %} selected {% endif %} value="500000">do 500.000 e</option>
+    <option  {% if request.GET.cena == '_20000' %} selected {% endif %} value="_20000">do 20.000 e</option>
+    <option  {% if request.GET.cena == '20000_40.000' %} selected {% endif %} value="20000_40000">20.000 - 40.000 e</option>
+    <option  {% if request.GET.cena == '40000_60000' %} selected {% endif %} value="40000_60000">40.000 - 60.000 e</option>
+    <option  {% if request.GET.cena == '60000_80000' %} selected {% endif %} value="60000_80000">60.000 - 80.000 e</option>
+    <option  {% if request.GET.cena == '80000_100000' %} selected {% endif %} value="80000_100000">80.000 - 100.000 e</option>
+    <option  {% if request.GET.cena == '100000_150000' %} selected {% endif %} value="100000_150000">100.000 - 150.000 e</option>
+    <option  {% if request.GET.cena == '150000_200000' %} selected {% endif %} value="150000_200000">150.000 - 200.000 e</option>
+    <option  {% if request.GET.cena == '200000_300000' %} selected {% endif %} value="200000_300000">200.000 - 300.000 e</option>
+    <option  {% if request.GET.cena == '300000_500000' %} selected {% endif %} value="300000_500000">300.000 - 500.000 e</option>
+    <option  {% if request.GET.cena == '500000_' %} selected {% endif %} value="500000_">500.000 i više</option>
   </select>
   <select class="form-select mx-1" onchange="queryParam('povrsina', this.value)" aria-label="Default select example">
     <option value="">Površina</option>
-    <option  {% if request.GET.povrsina == '35' %} selected {% endif %} value="35">do 35 km2</option>
-    <option  {% if request.GET.povrsina == '45' %} selected {% endif %} value="45">do 45 km2</option>
-    <option  {% if request.GET.povrsina == '55' %} selected {% endif %} value="55">do 55 km2</option>
-    <option  {% if request.GET.povrsina == '75' %} selected {% endif %} value="75">do 75 km2</option>
-    <option  {% if request.GET.povrsina == '100' %} selected {% endif %} value="100">do 100 km2</option>
-    <option  {% if request.GET.povrsina == '150' %} selected {% endif %} value="150">do 150 km2</option>
-    <option  {% if request.GET.povrsina == '200' %} selected {% endif %} value="200">do 200 km2</option>
-    <option  {% if request.GET.povrsina == '300' %} selected {% endif %} value="300">do 300 km2</option>
+    <option  {% if request.GET.povrsina == '_35' %} selected {% endif %} value="_35">do 35 km2</option>
+    <option  {% if request.GET.povrsina == '35_45' %} selected {% endif %} value="35_45">35 - 45 km2</option>
+    <option  {% if request.GET.povrsina == '45_55' %} selected {% endif %} value="45_55">45 - 55 km2</option>
+    <option  {% if request.GET.povrsina == '55_75' %} selected {% endif %} value="55_75">55 - 75 km2</option>
+    <option  {% if request.GET.povrsina == '75_100' %} selected {% endif %} value="75_100">75 - 100 km2</option>
+    <option  {% if request.GET.povrsina == '100_150' %} selected {% endif %} value="100_150">100 - 150 km2</option>
+    <option  {% if request.GET.povrsina == '150_200' %} selected {% endif %} value="150_200">150 - 200 km2</option>
+    <option  {% if request.GET.povrsina == '200_300' %} selected {% endif %} value="200_300">200 - 300 km2</option>
+    <option  {% if request.GET.povrsina == '300_' %} selected {% endif %} value="300_">300 i više</option>
   </select>
 
   <select class="form-select mx-1" onchange="queryParam('struktura', this.value)" aria-label="Default select example">
@@ -44,10 +46,10 @@
     <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
     <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
     <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">2 Prostorija</option>
-    <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>   
-    <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 Prostorija</option>
-    <option  {% if request.GET.struktura == '5' %} selected {% endif %} value="5">5 Prostorija</option>
-
+    <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">2.5 Prostorija</option>   
+    <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>
+    <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">3.5 Prostorija</option>
+    <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 i više</option>
   </select>
 
 </div>

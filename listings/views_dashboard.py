@@ -112,15 +112,16 @@ def submit(request):
         bedrooms=to_type_or_none(request.POST.get('bedrooms'), int, 0),
         baths=to_type_or_none(request.POST['baths'], int, 0),
         half_baths=to_type_or_none(request.POST['half_baths'], int, 0),
-        parking="garaža",
-        parking_slots=1,
-        balcony="terasa",
-        basement=True,
-        storage=False,
-        legal_status="uknjizen",
-        condition="renoviran",
-        efficiency="",
-        efficiency_index=""
+        parking=request.POST.get('parking'),
+        parking_slots=to_type_or_none(request.POST['baths'], int, 0),
+        balcony=to_type_or_none(request.POST['balcony'], int, 0),
+        basement=request.POST.get("basement") == "true",
+        storage=request.POST.get("storage") == "true",
+        legal_status=request.POST.get('legal_status'),
+        condition=request.POST.get('condition'),
+        efficiency=request.POST.get('efficiency'),
+        efficiency_index=request.POST.get('efficiency_index'),
+        additional=request.POST.get('additional')
     )
     listing_chars.save()
 

@@ -62,7 +62,7 @@
             </div>
             <div class="col-3 text-nowrap">
               <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-              <small class="{% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
+              <small class="{% if listing.listingcharacteristics_set.first.parking %}  {% else %} text-decoration-line-through {% endif %}" >Parking</small>
             </div>
             {% endif %}
           </div>

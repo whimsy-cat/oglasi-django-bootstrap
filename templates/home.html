@@ -11,23 +11,20 @@
       {% include 'includes/menu.html' %}
     </div>
   </header>
-
   <section class="home-search">
     <div class="container-fluid">
       <div class="home-content">
         <div class="text-center home-text">
           <h1>Pronadjite dom vaših snova</h1>
         </div>
-
         <div class="home-search-form p-3">
-          <form method="post" action="">
-            {% csrf_token %}
+          <form id="search-listing-form">
             <div class="row justify-content-sm-center">
               <div class="col col-md-auto">
                 <div class="input-group mb-3">
-                  <button id="btnBuy" class="btn btn-blue" type="button">Prodaja</button>
-                  <button id="btnRent" class="btn btn-transparent" type="button">Izdavanje</button>
-                  <input type="hidden" name="search_type" value="buy" id="search_type">
+                  <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue" type="button">Prodaja</button>
+                  <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent" type="button">Izdavanje</button>
+                  <input type="hidden" name="search_type" value="0" id="search_type">
                 </div>
               </div>
             </div>
@@ -35,17 +32,19 @@
               <div class="row">
                 <div class="col mx-auto">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control input-location" name="location" id="location" aria-label="Lokacija" placeholder="Lokacija">
-                    <select class="form-select select-listing-type" name="type" id="type">
-                      <option selected>Tip...</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <input type="text" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Lokacija">
+                    <select for="type" class="form-select select-listing-type" name="tip" id="type">
+                      <option selected value="">Tip...</option>
+                      {% for categ in categories %}
+                        {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
+                          <option value="{{ categ.id }}">{{ categ.name }}</option>
+                        {% endif %}
+                      {% endfor %}
                     </select>
-                    <input type="text" class="form-control input-area" name="neighbourhood" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
+                    <input for="neighbourhood" type="text" class="form-control input-area" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
                     <button class="btn btn-outline btn-white btn-details" type="button" id="btnFormDetails">Detaljnije
                     </button>
-                    <button class="btn btn-blue btn-search" type="submit" id="inputGroupFileAddon04">
+                    <button class="btn btn-blue btn-search" type="button" onclick="getFilters()" id="inputGroupFileAddon04">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                            class="bi bi-search" viewBox="0 0 16 16">
                         <path
@@ -57,81 +56,103 @@
                 </div>
                 </div>
             </div>
-
             <div id="detailsForm" class="mx-auto detail-form hide">
               <div class="row mb-3">
-              <div class="col-lg-4">
-                <label for="price" class="form-label">Cena</label>
-                <div class="row">
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" id="price" name="price_from" placeholder="od">
-                  </div>
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" id="price" name="price_to" placeholder="do">
-                  </div>
+                <div class="col-3">
+                  <label for="price" class="form-label">Cena</label>
+                  <select class="form-select" id="price-min" name="cena" placeholder="od" aria-label="Default select example">
+                    <option value="">Cena</option>
+                    <option  {% if request.GET.cena == '_20000' %} selected {% endif %} value="_20000">do 20.000 e</option>
+                    <option  {% if request.GET.cena == '20000_40.000' %} selected {% endif %} value="20000_40000">20.000 - 40.000 e</option>
+                    <option  {% if request.GET.cena == '40000_60000' %} selected {% endif %} value="40000_60000">40.000 - 60.000 e</option>
+                    <option  {% if request.GET.cena == '60000_80000' %} selected {% endif %} value="60000_80000">60.000 - 80.000 e</option>
+                    <option  {% if request.GET.cena == '80000_100000' %} selected {% endif %} value="80000_100000">80.000 - 100.000 e</option>
+                    <option  {% if request.GET.cena == '100000_150000' %} selected {% endif %} value="100000_150000">100.000 - 150.000 e</option>
+                    <option  {% if request.GET.cena == '150000_200000' %} selected {% endif %} value="150000_200000">150.000 - 200.000 e</option>
+                    <option  {% if request.GET.cena == '200000_300000' %} selected {% endif %} value="200000_300000">200.000 - 300.000 e</option>
+                    <option  {% if request.GET.cena == '300000_500000' %} selected {% endif %} value="300000_500000">300.000 - 500.000 e</option>
+                    <option  {% if request.GET.cena == '500000_' %} selected {% endif %} value="500000_">500.000 i više</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label for="size" class="form-label">Površina</label>
+                  <select class="form-select" id="size-from" name="povrsina" placeholder="od" aria-label="Default select example">
+                    <option value="">Površina</option>
+                    <option  {% if request.GET.povrsina == '_35' %} selected {% endif %} value="_35">do 35 km2</option>
+                    <option  {% if request.GET.povrsina == '35_45' %} selected {% endif %} value="35_45">35 - 45 km2</option>
+                    <option  {% if request.GET.povrsina == '45_55' %} selected {% endif %} value="45_55">45 - 55 km2</option>
+                    <option  {% if request.GET.povrsina == '55_75' %} selected {% endif %} value="55_75">55 - 75 km2</option>
+                    <option  {% if request.GET.povrsina == '75_100' %} selected {% endif %} value="75_100">75 - 100 km2</option>
+                    <option  {% if request.GET.povrsina == '100_150' %} selected {% endif %} value="100_150">100 - 150 km2</option>
+                    <option  {% if request.GET.povrsina == '150_200' %} selected {% endif %} value="150_200">150 - 200 km2</option>
+                    <option  {% if request.GET.povrsina == '200_300' %} selected {% endif %} value="200_300">200 - 300 km2</option>
+                    <option  {% if request.GET.povrsina == '300_' %} selected {% endif %} value="300_">300 i više</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">Struktura</label>
+                    <select class="form-select" id="structure" name="struktura" aria-label="Default select example">
+                      <option value="">Struktura</option>
+                      <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
+                      <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
+                      <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">2 Prostorija</option>
+                      <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">2.5 Prostorija</option>   
+                      <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>
+                      <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">3.5 Prostorija</option>
+                      <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 i više</option>
+                    </select>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">Stanje</label>
+                  <select class="form-select" id="condition" name="condition" >
+                    <option value="">Izaberite...</option>
+                    <option {% if request.GET.condition == 'novogradnja' %} selected {% endif %} value="novogradnja">Novogradnja</option>
+                    <option {% if request.GET.condition == 'renovirano' %} selected {% endif %} value="renovirano">Renovirano</option>
+                    <option {% if request.GET.condition == 'izvorno' %} selected {% endif %} value="izvorno">Izvorno</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">Spratnost</label>
+                  <select class="form-select" id="structure" name="spratnost" aria-label="Default select example">
+                    <option value="">Spratnost</option>
+                    <option  {% if request.GET.total_floors == '0' %} selected {% endif %} value="0">Prizemlje</option>
+                    <option  {% if request.GET.total_floors == '1' %} selected {% endif %} value="1">1 Sprat</option>
+                    <option  {% if request.GET.total_floors == '2' %} selected {% endif %} value="2">2 Sprata</option>
+                    <option  {% if request.GET.total_floors == '3' %} selected {% endif %} value="3">3 Sprata</option>   
+                    <option  {% if request.GET.total_floors == '4' %} selected {% endif %} value="4">4 Sprata</option>
+                    <option  {% if request.GET.total_floors == '5' %} selected {% endif %} value="5">5 I više</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label class="form-label">Garažni prostor</label>
+                  <select class="form-select" id="garage" name="parking">
+                    <option value="">Izaberite...</option>
+                    <option {% if request.GET.parking == 'garaža' %} selected {% endif %} value="garaža">Garaža</option>
+                    <option {% if request.GET.parking == 'parking mesto' %} selected {% endif %} value="parking mesto">Parking mesto</option>
+                    <option {% if request.GET.parking == 'parking klackalica' %} selected {% endif %} value="parking klackalica">Parking klackalica</option>
+                    <option {% if request.GET.parking == 'parking van zone' %} selected {% endif %} value="parking van zone">Parking van zone</option>
+                    <option {% if request.GET.parking == 'parking u zoni' %} selected {% endif %} value="parking u zoni">Parking u zoni</option>
+                    <option {% if request.GET.parking == 'garažno mesto' %} selected {% endif %} value="garažno mesto">Garažno mesto</option>
+                    <option {% if request.GET.parking == 'parking platforma' %} selected {% endif %} value="parking platforma">Parking platforma</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label for="heating"  class="form-label">Grejanje</label>
+                  <select class="form-select" id="heating" name="grejanje">
+                    <option value="">Izaberite...</option>
+                    <option value="Grejanje na struju">Grejanje na struju</option>
+                    <option value="Centralno grejanje">Centralno grejanje</option>
+                    <option value="Grejanje na gas">Grejanje na gas</option>
+                    <option value="Čvrsta goriva">Čvrsta goriva</option>
+                    <option value="Grejanje ostalo">Grejanje ostalo</option>
+                  </select>
+                </div>
+                <div class="col-3 mt-2 text-center">
+                  <h5>Broj oglasa:</h5>
+                  <h5>{{total_listings}}</h5>
                 </div>
               </div>
-              <div class="col">
-                <label for="size" class="form-label">Površina</label>
-                <div class="row">
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" id="size_to" name="size_from" placeholder="od">
-                  </div>
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" id="size_from" name="size_to" placeholder="do">
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <label for="structure" class="form-label">Struktura</label>
-                <select class="form-select" id="structure" name="structure" required="">
-                  <option value="">Izaberite...</option>
-                  <option>0.5</option>
-                  <option>1</option>
-                  <option>1.5</option>
-                  <option>2.0</option>
-                  <option>2.5</option>
-                </select>
-              </div>
-              <div class="col">
-                <label for="condition" class="form-label">Stanje</label>
-                <select class="form-select" id="condition" name="condition" required="">
-                  <option value="">Izaberite...</option>
-                  <option>United States</option>
-                </select>
-              </div>
-            </div>
-              <div class="row">
-              <div class="col-lg-4">
-                <label for="levels" class="form-label">Spratnost</label>
-                <div class="row">
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" id="levels" name="levels_from" placeholder="od">
-                  </div>
-                  <div class="col-md-6">
-                    <input type="text" class="form-control" id="levels" name="levels_to" placeholder="do">
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <label for="garage" class="form-label">Garažni prostor</label>
-                <select class="form-select" id="garage" name="garage" required="">
-                  <option value="">Izaberite...</option>
-                  <option>United States</option>
-                </select>
-              </div>
-              <div class="col">
-                <label for="heating" class="form-label">Grejanje</label>
-                <select class="form-select" id="heating" name="heating" required="">
-                  <option value="">Izaberite...</option>
-                  <option>United States</option>
-                </select>
-              </div>
-              <div class="col text-center">
-                <h5>Broj oglasa:</h5>
-                <h5>1.083</h5>
-              </div>
-            </div>
             </div>
           </form>
         </div>
@@ -343,6 +364,7 @@
     const btnRent = document.getElementById('btnRent');
     const searchType = document.getElementById('search_type');
     const toggleBtnClasses = function(value) {
+      console.log(value)
       btnBuy.classList.toggle('btn-blue');
       btnBuy.classList.toggle('btn-transparent');
       btnRent.classList.toggle('btn-transparent');
@@ -350,11 +372,20 @@
       searchType.value = value;
     }
     btnRent.onclick = function() {
-      toggleBtnClasses('rent');
+      toggleBtnClasses('1');
     }
     btnBuy.onclick = function() {
-      toggleBtnClasses('buy');
+      toggleBtnClasses('0');
     }
+
+
+function getFilters() {
+  const form = document.getElementById('search-listing-form');
+  const filters = new URLSearchParams(new FormData(form)).toString()
+  console.log(filters)
+  window.location.href = `oglasi?${filters}`
+
+}
 
   </script>
 {% endblock %}

@@ -48,7 +48,7 @@
     {{listing.listingcharacteristics_set.first.structure}}
   </div>
   {% endif %}
-  <div class="d-flex flex-column text-center align-items-center me-5 {% if listing.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">
+  <div class="d-flex flex-column text-center align-items-center me-5 {% if listing.listingcharacteristics_set.first.parking %}  {% else %} text-decoration-line-through {% endif %}">
     <img class="p-2 " src="{% static 'images/items/Parking.svg' %}" alt="Parking" width="44px" height="44px">
     Parking
   </div>
@@ -73,10 +73,3 @@
     {{listing.listingcharacteristics_set.first.year_built}}
   </div>
       {% endif %}
-
-  <!-- {% for listing_detail in listing.listingdetails_set.all %}
-      <div class="d-flex flex-column text-center align-items-center me-5">
-        <img class=" p-2" src="{% static 'images/items/Voda.svg' %}" alt="Hearth" width="44px" height="44px">
-        {{ listing_detail.detail.name }}
-      </div>
-  {% endfor %} -->

@@ -51,7 +51,7 @@ class Listing(models.Model):
 
 class ListingCharacteristics(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
-    size = models.DecimalField(decimal_places=2, max_digits=4, null=False)
+    size = models.DecimalField(decimal_places=2, max_digits=6, null=False)
     structure = models.DecimalField(decimal_places=1, max_digits=4, null=False)
     year_built = models.IntegerField(null=True, default=None)
     floor = models.IntegerField(null=True, default=None)
@@ -61,13 +61,14 @@ class ListingCharacteristics(models.Model):
     half_baths = models.IntegerField(null=False, default=0)
     parking = models.CharField(null=False, max_length=50)
     parking_slots = models.IntegerField(null=False, default=0)
-    balcony = models.CharField(null=False, max_length=50)
+    balcony = models.IntegerField(null=False, default=0)
     basement = models.BooleanField(null=False, default=False)
     storage = models.BooleanField(null=False, default=False)
     legal_status = models.CharField(null=False, max_length=50)
     condition = models.CharField(null=False, max_length=50)
     efficiency = models.CharField(null=False, max_length=50)
     efficiency_index = models.CharField(null=False, max_length=50)
+    additional = models.CharField(default=None, null=False, max_length=50)
 
 
 class Detail(models.Model):

@@ -291,15 +291,18 @@
 
 {% block page_specific_scripts %}
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly" defer></script>
+{% if listing.status == '0' %}
+{% comment %} Price per square {% endcomment %}
 <script>
-
-    // Price per square
 function pricePerSquare() {
   document.getElementById('price_per_square').innerHTML = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format({{listing.price}} / {{listing.listingcharacteristics_set.first.size}});
 };
 pricePerSquare()
+</script>
+{% endif %}
 
 
+<script>
   // Tab modals styles
 function tabStyleHandler(elementId, className, styleClass) {
   let element = document.getElementById(elementId);
