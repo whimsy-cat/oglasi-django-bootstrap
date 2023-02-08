@@ -42,7 +42,7 @@ def query_params_helper(request, listing_data):
     query_garage = request.GET.get('parking')
     query_total_floors = request.GET.get('spratnost')
     query_grejanje = request.GET.get('grejanje')
-    query_location = request.GET.get('location')
+
 
     if query_grejanje:
         listing_data = listing_data.filter(listingdetails__detail__name=query_grejanje)

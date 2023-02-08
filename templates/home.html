@@ -37,7 +37,7 @@
                       <option selected value="">Tip...</option>
                       {% for categ in categories %}
                         {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
-                          <option value="{{ categ.id }}">{{ categ.name }}</option>
+                          <option value="{{ categ.name }}">{{ categ.name }}</option>
                         {% endif %}
                       {% endfor %}
                     </select>
@@ -171,10 +171,10 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                   aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner pb-5" style="height: 780px;">
+        <div class="carousel-inner pb-5" >
           <div class=" carousel-item active">
             <div class="row">
-              {% for listing in listings %}
+              {% for listing in listings1 %}
               <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
@@ -182,10 +182,22 @@
             </div>
           </div>
           <div class="carousel-item">
-            <img src="{% static 'images/property/2.jpg' %}" class="d-block w-100" alt="...">
+            <div class="row">
+              {% for listing in listings2 %}
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
+                {% include 'includes/listings/listing_card.html' with listing=listing %}
+              </div>
+              {% endfor %}
+            </div>
           </div>
           <div class="carousel-item">
-            <img src="{% static 'images/property/3.jpg' %}" class="d-block w-100" alt="...">
+            <div class="row">
+              {% for listing in listings3 %}
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
+                {% include 'includes/listings/listing_card.html' with listing=listing %}
+              </div>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>
