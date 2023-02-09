@@ -1,35 +1,35 @@
 
 {% load static %}
+{% block page_specific_styles %}
+  <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet" />
+{% endblock %}
 
 {% block content %}
 
 <div
-    class="map-canvas h-100"
-    id="contact-google-map"
-    data-icon-path="{% static 'images/logo/1.png' %}"
-    data-map-title="Awesome Place"
-    data-map-zoom="14">
+    class="map-canvas h-100 w-100"
+    id="map">
 </div>
 
 {% endblock %}
 
 {% block page_specific_scripts %}
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly"defer></script>
+<script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script><script>
 
-<script>
-const markers = {};
-const infoWindows = {};
-let prevInfoWindow = false;
-
-let map = null;
+const allMarkers = new Map()
+let globalMap = null;
 
 function initMap() {
+  const key = 'VmRKj3ewutGzwLJmPdKS';
   const belgrade = { lat: 44.8125, lng: 20.4612 };
-  map = new google.maps.Map(document.getElementById("contact-google-map"), {
-  zoom: 10,
-  center: belgrade,
-  });
+  const style = `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`
+  const map = new maplibregl.Map({
+    container: 'map',
+    style: style ,
+    center: belgrade,
+    zoom: 12
+  }).addControl(new maplibregl.NavigationControl(), 'top-right');
 
   {% for l in listings %}
   {% if l.listingmap_set.first.lat != None %}
@@ -108,51 +108,40 @@ function initMap() {
     </div>
   </div>`;
 
-  const infowindow{{ l.id }} = new google.maps.InfoWindow({
-      content: contentString{{ l.id }},
-  });
+  
+  // Popup definition before binding it to a marker
+  let markerPopup{{l.id}} = new maplibregl.Popup({
+      closeOnClick: true
+    })
+    .setMaxWidth("400px")
+    .setHTML(contentString{{ l.id }});
 
-  const marker{{ l.id }} = new google.maps.Marker({
-      position: {
-      lat: Number("{{l.listingmap_set.first.lat }}"),
-      lng: Number("{{l.listingmap_set.first.lng }}"),
-      },
-      map: map,
-      listing_id: {{ l.id }},
-  });
+    // Connect the popup to a new marker
+  let marker{{l.id}} = new maplibregl.Marker({color: 'red'})
+    .setLngLat([Number("{{l.listingmap_set.first.lng }}"), Number("{{l.listingmap_set.first.lat }}")])
+    .setPopup(markerPopup{{l.id}})
+    .addTo(map);
 
-  marker{{ l.id }}.addListener("click", () => {
-      if(prevInfoWindow) {
-          prevInfoWindow.close();
-      }
-
-      prevInfoWindow = infowindow{{ l.id }};
-
-      infowindow{{ l.id }}.open({
-      anchor: marker{{ l.id }},
-      map: map
-      })
-  });
-
-  markers[{{ l.id }}] = marker{{ l.id }};
-  infoWindows[{{ l.id }}] = infowindow{{ l.id }};
+  allMarkers.set(String({{l.id}}), marker{{l.id}})
 
   {% endif %}
   {% endfor %}
-
+  
+  globalMap = map;
 }
+
+initMap()
 
 
 function onListingHover(id) {
-  const infoModal = infoWindows[id];
-  infoModal && infoModal.open({ anchor: markers[id], map });
-  }
-  
-function onListingUnhover(id) {
-  const infoModal = infoWindows[id];
-  infoModal && infoModal.close();
-  }
-
+  const marker = allMarkers.get(id)
+  globalMap.flyTo({
+    center: [marker._lngLat.lng ,marker._lngLat.lat ],
+    essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+    zoom: 13
+  });
+marker.togglePopup() 
+}
 
 function onListingClick(slug) {
   {% if debug != None %}

@@ -4,6 +4,7 @@
 {% block page_specific_styles %}
   <link rel="stylesheet" href="{% static 'css/listing_detail.css' %}">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet" />
 {% endblock %}
 {% block content %}
 
@@ -155,12 +156,12 @@
           <div class="row border-bottom mx-0 fs-5 my-3" id="imagesVideosFloorplanPills" role="tablist">
             {% if listing.floor_plan.exists %}
             <div class="col-3 px-0 d-flex">
-              <div class="d-flex active pb-2 media imageVideoFlooplanStyle" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</div>
+              <div class="d-flex active pb-2 media  imageVideoFlooplanStyle" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</div>
             </div>
             {% endif %}
             {% if listing.video.exists %}
-            <div class="col-3 d-flex">
-              <div class="d-flex ms-4 pb-2 media" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</div>
+            <div class="col-3 d-flex px-0">
+              <div class="d-flex  pb-2 media {% if not listing.floor_plan.exists %} imageVideoFlooplanStyle {% else %} ms-4 {% endif %}"  id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</div>
             </div>
             {% endif %}
             <div class="col-3 d-flex">
@@ -226,9 +227,7 @@
             <div class="tab-content" id="myTabContent">
               <div class="full_map_area tab-pane fade show active" id="mapa-tab-pane" role="tabpanel" aria-labelledby="mapa-tab" tabindex="0">
                 <div class="full_map style2">
-                  <div class="map-canvas skin2" style="height: 578px;" id="google-maps"
-                    data-icon-path="{% static 'images/logo/1.png' %}" data-map-title="Awesome Place"
-                    data-map-zoom="14">
+                  <div class="map-canvas skin2" style="height: 578px" id="map">
                   </div>
                 </div>
               </div>
@@ -294,8 +293,7 @@
 {% endblock %}
 
 {% block page_specific_scripts %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly" defer></script>
-
+<script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
 
 
 <script>
@@ -337,20 +335,25 @@ thumbnailItems.forEach((thumbnail, index) => {
 });
 
 
-  // Initialize and add the map
-function initMap() {
-  const city = { lat: Number("{{listing.listingmap_set.first.lat }}"), 
-                 lng: Number("{{listing.listingmap_set.first.lng }}") };
-  const map = new google.maps.Map(document.getElementById("google-maps"), {
-    zoom: 10,
-    center: city,
-  });
-  const marker = new google.maps.Marker({
-    position: city,
-    map: map,
-    listing_id: {{ listing.id }},
-  });
-}
+const key = 'VmRKj3ewutGzwLJmPdKS';
+const style = `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`
+const userPin = [Number("{{listing.listingmap_set.first.lng }}"), Number("{{listing.listingmap_set.first.lat }}")]
+const zoom = {{listing.listingmap_set.first.zoom}}
+const map = new maplibregl.Map({
+  container: 'map',
+  style: style ,
+  center: userPin,
+  zoom: zoom
+})
+const marker = new maplibregl.Marker({
+  color: "red",
+}).setLngLat(userPin).addTo(map);
+
+map.addControl(new maplibregl.NavigationControl(), 'top-right');
+map.on('error', function(err) {
+  throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
+});
+
 
 </script>
 
