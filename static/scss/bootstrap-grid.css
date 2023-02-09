@@ -233,7 +233,7 @@
     width: 16.6666666667%;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1537px) {
   .col-xxl {
     flex: 1 0 0%;
   }
@@ -3567,7 +3567,7 @@
     padding-left: 3rem !important;
   }
 }
-@media (min-width: 1400px) {
+@media (min-width: 1537px) {
   .d-xxl-inline {
     display: inline !important;
   }

@@ -72,7 +72,7 @@
                     <div class="d-flex justify-content-between">
                       <div style="width: 280px;">
                         <label for="category" class="form-label">Kategorija</label>
-                        <select class="form-select" id="category" required onchange="populateSubCategories(this); selectCategory()">
+                        <select class="form-select" id="category" required onchange="populateSubCategories(this);">
                           <option value="">Izaberite kategoriju</option>
                           {% for categ in categories %}
                             {% if categ.parent is None %}
@@ -83,7 +83,7 @@
                       </div>
                       <div style="width: 220px;">
                         <label for="tip" class="form-label">Tip</label>
-                        <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails(); selectCategory()">Izaberite Tip
+                        <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails(); selectCategory()">
                         </select>
                       </div>
                     </div>
@@ -203,7 +203,7 @@
                   <input type="hidden" id="zoom" name="zoom" required>
                 </div>
 
-                <div class="d-flex justify-content-end next-step">
+                <div class="d-flex justify-content-end mt-3 next-step">
                   <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(3, 4)">
                     Dalje
                     <i class="bi bi-chevron-double-right"></i>
@@ -577,23 +577,27 @@ function add_marker (event) {
 initMap()
  
 
-    async function populateSubCategories(data) {
-      const category = data.value;
-      const response = await fetch(`/oglasi/get-subcategories?category=${category}`);
-      const json = await response.json();
-      const subcategorySelect = document.getElementById('subcateg');
-      subcategorySelect.innerHTML = "";
+async function populateSubCategories(data) {
+  try {
+    const category = data.value;
+    const response = await fetch(`/oglasi/get-subcategories?category=${category}`);
+    const json = await response.json();
+    const subcategorySelect = document.getElementById('subcateg');
+    subcategorySelect.innerHTML = `<option value="0">Izaberite tip</option>`;
 
-      json.forEach(subCat => {
-        const option = document.createElement("option");
-        option.value = subCat.id;
-        option.text = subCat.name;
-        subcategorySelect.appendChild(option);
-      })
+    json.forEach(subCat => {
+      const option = document.createElement("option");
+      option.value = subCat.id;
+      option.text = subCat.name;
+      subcategorySelect.appendChild(option);
+    })
 
-      getDetails();
-      
-    }
+    getDetails();
+  } catch (error) {
+    console.error(error);
+  }
+  
+}
 
 
     
@@ -608,37 +612,37 @@ function selectCategory() {
   
 
 
-    // Get corresponding details and amenities based on selected category and status
-    async function getDetails() {
-      const subcategorySelect = document.getElementById('subcateg').value;
-      const status = document.getElementById('status').value;
+// Get corresponding details and amenities based on selected category and status
+async function getDetails() {
+  const subcategorySelect = document.getElementById('subcateg').value;
+  const status = document.getElementById('status').value;
 
-      const response = await fetch(`/oglasi/get-details?category=${subcategorySelect}&status=${status}`);
-      const data = await response.json();
+  const response = await fetch(`/oglasi/get-details?category=${subcategorySelect}&status=${status}`);
+  const data = await response.json();
 
-      const detailsDiv = document.getElementById('details');
-      const amenitiesDiv = document.getElementById('amenities');
+  const detailsDiv = document.getElementById('details');
+  const amenitiesDiv = document.getElementById('amenities');
 
-      detailsDiv.innerHTML = "";
-      amenitiesDiv.innerHTML = "";
+  detailsDiv.innerHTML = "";
+  amenitiesDiv.innerHTML = "";
 
-      data.details.forEach(detail => {
-        detailsDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="form-check form-check-inline mb-2">
-              <input type="checkbox" class="form-check-input" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
-              <label class="form-check-label" for="detail-data${detail.detail__id}">${detail.detail__name}</label>
-            </div>
-          </div>`
-      })
+  data.details.forEach(detail => {
+    detailsDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
+        <div class="form-check form-check-inline mb-2">
+          <input type="checkbox" class="form-check-input" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
+          <label class="form-check-label" for="detail-data${detail.detail__id}">${detail.detail__name}</label>
+        </div>
+      </div>`
+  })
 
-      data.amenities.forEach(amenity => {
-        amenitiesDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="form-check form-check-inline mb-2">
-              <input type="checkbox" class="form-check-input" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
-              <label class="form-check-label" for="amenity-data${amenity.amenity__id}">${amenity.amenity__name}</label>
-            </div>
-          </div>`
-      })
-    }
+  data.amenities.forEach(amenity => {
+    amenitiesDiv.innerHTML += `<div class="col-lg-3 col-md-4 col-sm-12">
+        <div class="form-check form-check-inline mb-2">
+          <input type="checkbox" class="form-check-input" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
+          <label class="form-check-label" for="amenity-data${amenity.amenity__id}">${amenity.amenity__name}</label>
+        </div>
+      </div>`
+  })
+}
   </script>
 {% endblock %}

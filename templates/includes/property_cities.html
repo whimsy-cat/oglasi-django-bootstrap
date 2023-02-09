@@ -1,8 +1,8 @@
 {% load static %}
 
 <!-- Property Cities -->
-<form action="/oglasi" method="GET" class="property-city p-3">
-  <div class="container-fluid">
+<div>
+<form action="/oglasi" method="GET" class="property-city">
     <h2 class="mb-3 text-center">Pronadji nekretninu u gradu</h2>
 
     <div class="row">
@@ -56,9 +56,8 @@
 </form>
 
 <form action="/oglasi" method="GET">
-  <div class="container-fluid popular-location">
     <h5 class="mb-3">Pogledaj popularne lokacije</h5>
-    <div class="row">
+    <div class="row popular-location">
       <div class="col-md-3 mb-3">
         <div class="ablock-cover d-flex flex-column">
           <button type="submit" name="lokacija" class="overlay details border-0 h-100 " value="A blok" style="background: none">
@@ -115,6 +114,5 @@
           </button>
         </div>
       </div>
-    </div>
-  </div>
 </form>
+</div>

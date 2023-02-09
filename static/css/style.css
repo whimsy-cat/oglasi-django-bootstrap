@@ -277,3 +277,8 @@ ul.pagination {
 .mapboxgl-popup-close-button, .maplibregl-popup-close-button {
   color: white !important
 }
+@media (min-width:1537px) {
+  .padding-large {
+    padding:0px 150px!important
+  }
+}
