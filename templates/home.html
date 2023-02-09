@@ -23,7 +23,7 @@
               <div class="col col-md-auto">
                 <div class="input-group mb-3">
                   <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue" type="button">Prodaja</button>
-                  <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent" type="button">Izdavanje</button>
+                  <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end" type="button">Izdavanje</button>
                   <input type="hidden" name="search_type" value="0" id="search_type">
                 </div>
               </div>
@@ -159,8 +159,8 @@
       </div>
     </div>
   </section>
-  <section class="featured-properties p-4 px-3">
-    <div class="container-fluid">
+  <section class="featured-properties p-4 px-5">
+    <div class="container-fluid padding-large">
       <h2 class="text-center mb-4">Preporučeni oglasi</h2>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -175,7 +175,7 @@
           <div class=" carousel-item active">
             <div class="row">
               {% for listing in listings1 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
               {% endfor %}
@@ -201,10 +201,10 @@
           </div>
         </div>
       </div>
+      {% include 'includes/property_cities.html' %}
     </div>
   </section>
 
-  {% include 'includes/property_cities.html' %}
 
   <div class="break-bg mb-3"></div>
 

@@ -1,8 +1,8 @@
 {% load static%}
-<div class="row d-flex flex-row justify-content-between">
-  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
+<div class="row d-flex flex-row justify-content-between " style="height:39px">
+  <div class="col-3  d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
-    <small class="text-nowrap {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">
+    <small class="text-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">
       {% if listing.category.name == 'Poslovni prostor' %}
       Pos. Prostor
       {% elif listing.category.name == 'Komercijalni prostor' %}
