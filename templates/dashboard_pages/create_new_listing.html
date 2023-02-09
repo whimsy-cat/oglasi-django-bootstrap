@@ -4,6 +4,7 @@
 {% block page_specific_styles %}
   <link rel="stylesheet" href="{% static 'css/uppy.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+  <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
@@ -157,9 +158,8 @@
                 </div>
               </div>
             </div>
-
-            <div class="creation-content justify-content-center" id="step3">
-              <div class="col me-4">
+            <div class="row creation-content justify-content-center" id="step3">
+              <div class="col-6">
                 <div class="creation-step step-section mb-4">
                   <div class="mb-4 step-heading">
                     <h5  class="mb-2">Lokacija</h5>
@@ -191,16 +191,16 @@
                 </div>
               </div>
 
-              <div class="col">
-                <div class="creation-step step-section mb-4">
-                  <div class="mb-4 step-heading">
-                    <h5 class="mb-2">Postavite pin na mapu</h5>
-                    <small>Postavite pin što preciznije možete kako biste bolje odredili lokaciju vaše nekretnine</small>
-                  </div>
-                  <div class="map-holder" style="height: 400px"></div>
-                  <input type="hidden" id="lat" name="lat">
-                  <input type="hidden" id="lng" name="lng">
-                  <input type="hidden" id="zoom" name="zoom">
+              <div class="col-6 d-flex flex-column">
+                <div class="mb-4 step-heading">
+                  <h5 class="mb-2">Postavite pin na mapu</h5>
+                  <small>Postavite pin što preciznije možete kako biste bolje odredili lokaciju vaše nekretnine</small>
+                </div>
+                <div class="creation-step step-section h-100">
+                  <div class="map-canvas h-100 " id="map"></div>
+                  <input type="hidden" id="lat" name="lat" required>
+                  <input type="hidden" id="lng" name="lng" required>
+                  <input type="hidden" id="zoom" name="zoom" required>
                 </div>
 
                 <div class="d-flex justify-content-end next-step">
@@ -393,6 +393,8 @@
 {% block page_specific_scripts %}
   <script src="{% static 'js/uppy.min.js' %}"></script>
   <script src="{% static 'js/uppy-rs.min.js' %}"></script>
+  <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
+
 
   <script>
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -544,48 +546,36 @@
       }
     });
   </script>
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANV7e30hUL2JeDq04EtUqwHvVevqNDGUM&callback=initMap&v=weekly"
-      defer
-  ></script>
   <script>
-    let map;
-    let marker;
-    // Initialize and add the map
-    function initMap() {
-      const belgrade = { lat: 44.8125, lng: 20.4612 };
-      document.querySelector('#lat').value = 44.8125;
-      document.querySelector('#lng').value = 20.4612;
+function initMap() {
+  const key = 'VmRKj3ewutGzwLJmPdKS';
+  const style = `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`
+  const belgrade = { lat: 44.8125, lng: 20.4612 };
+  const map = new maplibregl.Map({
+  container: 'map',
+  style: style ,
+  center: belgrade,
+  zoom: 12
+})
+const marker = new maplibregl.Marker({
+  color: "red",
+})
+function add_marker (event) {
+  let coordinates = event.lngLat;
+    marker.setLngLat(coordinates).addTo(map);
+  document.getElementById('lng').value = coordinates.lng;
+  document.getElementById('lat').value = coordinates.lat;
+  document.getElementById('zoom').value = map.getZoom()
+}
+  map.addControl(new maplibregl.NavigationControl(), 'top-right');
+  map.on('click', add_marker);
+  map.on('error', function(err) {
+  throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
+  });
+}
 
-      // The map, centered at Uluru
-      map = new google.maps.Map(document.querySelector(".map-holder"), {
-        zoom: 10,
-        center: belgrade,
-      });
-      // The marker, positioned at Belgrade
-      marker = new google.maps.Marker({
-        position: belgrade,
-        map: map,
-        draggable: true,
-      });
-
-      map.addListener("click", (e) => {
-        placeMarkerAndPanTo(e.latLng, map);
-      });
-      marker.addListener("dragend", (e) => {
-        placeMarkerAndPanTo(e.latLng, map);
-      });
-    }
-
-    function placeMarkerAndPanTo(latLng, map) {
-      marker.setPosition(latLng);
-      map.panTo(latLng);
-      document.querySelector('#lat').value = latLng.lat();
-      document.querySelector('#lng').value = latLng.lng();
-      document.querySelector('#zoom').value = map.getZoom();
-    }
-
-    window.initMap = initMap;
+initMap()
+ 
 
     async function populateSubCategories(data) {
       const category = data.value;

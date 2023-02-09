@@ -56,9 +56,7 @@
           <div class="tab-pane fade" id="nav-tura" role="tabpanel" aria-labelledby="nav-tura-tab">...</div>
           <div class="tab-pane fade full_map_area" id="nav-googleMap" role="tabpanel" aria-labelledby="nav-googleMap-tab">
               <div class="full_map style2">
-                <div class="map-canvas skin2" style="height: 80vh;" id="google-mapa"
-                  data-icon-path="{% static 'images/logo/1.png' %}" data-map-title="Awesome Place"
-                  data-map-zoom="14">
+                <div class="map-canvas skin2" style="height: 80vh;" id="maps">
                 </div>
               </div>
           </div>
@@ -67,6 +65,7 @@
     </div>
   </div>
 </div>
+<script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
 <script>
   function fullScreenImg(id) {
     const image = document.getElementById(`image${id}`);
@@ -82,22 +81,24 @@
     tlocrt.classList.toggle("fullscreen");
     fullScreen.classList.toggle("fullscreenBG");
  }
-
- function loadMap() {
-      const belgrade = { lat: 44.8125, lng: 20.4612 };
-      const map = new google.maps.Map(document.getElementById("google-mapa"), {
-        zoom: 10,
-        center: belgrade,
-      });
-      const marker{{ listing.id }} = new google.maps.Marker({
-        position: {
-        lat: Number("{{listing.listingmap_set.first.lat }}"),
-        lng: Number("{{listing.listingmap_set.first.lng }}"),
-        },
-        map: map,
-        listing_id: {{ listing.id }},
-      });
-    }
-
+function loadMap() {
+ const keys = 'VmRKj3ewutGzwLJmPdKS';
+ const styles = `https://api.maptiler.com/maps/streets-v2/style.json?key=${keys}`
+ const userPins = [Number("{{listing.listingmap_set.first.lng }}"), Number("{{listing.listingmap_set.first.lat }}")]
+ const maps = new maplibregl.Map({
+   container: 'maps',
+   style: styles ,
+   center: userPins,
+   zoom: 14
+ })
+ const markers = new maplibregl.Marker({
+   color: "red",
+ }).setLngLat(userPins).addTo(maps);
+ 
+ maps.addControl(new maplibregl.NavigationControl(), 'top-right');
+ maps.on('error', function(err) {
+   throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
+ });
+}
 
 </script>

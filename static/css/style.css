@@ -269,3 +269,11 @@ ul.pagination {
     width: 100%!important;
   }
 }
+
+.mapboxgl-popup-content, .maplibregl-popup-content {
+  padding: 0px !important
+}
+
+.mapboxgl-popup-close-button, .maplibregl-popup-close-button {
+  color: white !important
+}

@@ -18,7 +18,7 @@
           <h1>Pronadjite dom vaših snova</h1>
         </div>
         <div class="home-search-form p-3">
-          <form id="search-listing-form">
+          <form action="/oglasi" id="search-listing-form">
             <div class="row justify-content-sm-center">
               <div class="col col-md-auto">
                 <div class="input-group mb-3">
@@ -44,7 +44,7 @@
                     <input for="neighbourhood" type="text" class="form-control input-area" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
                     <button class="btn btn-outline btn-white btn-details" type="button" id="btnFormDetails">Detaljnije
                     </button>
-                    <button class="btn btn-blue btn-search" type="button" onclick="getFilters()" id="inputGroupFileAddon04">
+                    <button class="btn btn-blue btn-search" type="submit"  id="inputGroupFileAddon04">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                            class="bi bi-search" viewBox="0 0 16 16">
                         <path
@@ -389,15 +389,6 @@
     btnBuy.onclick = function() {
       toggleBtnClasses('0');
     }
-
-
-function getFilters() {
-  const form = document.getElementById('search-listing-form');
-  const filters = new URLSearchParams(new FormData(form)).toString()
-  console.log(filters)
-  window.location.href = `oglasi?${filters}`
-
-}
 
   </script>
 {% endblock %}
