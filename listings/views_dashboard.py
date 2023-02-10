@@ -148,7 +148,7 @@ def submit(request):
         listing=listing_instance,
         lat=request.POST['lat'],
         lng=request.POST['lng'],
-        zoom=request.POST['zoom'],
+        zoom=to_type_or_none(request.POST['zoom'], float, 0.0),
     )
     listing_map.save()
 

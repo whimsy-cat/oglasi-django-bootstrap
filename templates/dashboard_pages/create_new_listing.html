@@ -23,7 +23,10 @@
             <div id="tab5" class="col shadow-sm" onclick="changeActive(5)">5. Detalji</div>
           </div>
 
-          <form id="create-listing-form" class="needs-validation" method="POST" action="{% url 'listing_submit' %}" novalidate>
+          <!-- Alert -->
+          <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
+
+          <form id="create-listing-form" class="needs-validation"  onsubmit="return validateForm()" method="POST" action="{% url 'listing_submit' %}" novalidate>
             {% csrf_token %}
             <div class="creation-content justify-content-center show" id="step1">
               <div class="col creation-step me-4">
@@ -397,6 +400,23 @@
 
 
   <script>
+
+    function validateForm() {
+      const alert = document.getElementById('error-alert');
+      const mapPin = document.getElementById('lng').value;
+
+      if (!mapPin) {
+        alert.innerHTML = 'Molimo popunite sva polja. Nedostaje pin na mapi.'
+        alert.hidden = false
+        return false
+      }
+
+      alert.hidden = true
+      return true;
+    }
+
+    let mapInited = false;
+
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
@@ -412,6 +432,11 @@
         document.querySelector('.footer').classList.remove('sticky');
       } else {
         document.querySelector('.footer').classList.add('sticky');
+      }
+
+      if (nextStep === 3 && !mapInited) { 
+        initMap() 
+        mapInited = true;
       }
     }
 
@@ -573,8 +598,6 @@ function add_marker (event) {
   throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
   });
 }
-
-initMap()
  
 
 async function populateSubCategories(data) {

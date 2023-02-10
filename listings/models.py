@@ -73,6 +73,7 @@ class ListingCharacteristics(models.Model):
     def __str__(self):
         return self.listing.title
 
+
 class Detail(models.Model):
     name = models.CharField(max_length=100, unique=True, null=True)
     description = models.CharField(max_length=255, null=True)
@@ -85,12 +86,13 @@ class Detail(models.Model):
 class CategoryDetails(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     detail = models.ForeignKey(Detail, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.category.name
 
     class Meta:
         verbose_name_plural = "Category Details"
+
 
 class ListingDetails(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
@@ -102,6 +104,7 @@ class ListingDetails(models.Model):
     class Meta:
         verbose_name_plural = "Listing Details"
 
+
 class Amenity(models.Model):
     name = models.CharField(max_length=100, unique=True, null=False)
     description = models.CharField(max_length=255, null=True)
@@ -112,45 +115,49 @@ class Amenity(models.Model):
     class Meta:
         verbose_name_plural = "Amenities"
 
+
 class CategoryAmenities(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     amenity = models.ForeignKey(Amenity, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.category.name
 
     class Meta:
         verbose_name_plural = "Category Amenities"
 
+
 class ListingAmenities(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     amenity = models.ForeignKey(Amenity, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return self.amenity.name
 
     class Meta:
         verbose_name_plural = "Listing Amenities"
 
+
 class ListingMap(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     lat = models.DecimalField(decimal_places=6, max_digits=14, null=False)
     lng = models.DecimalField(decimal_places=6, max_digits=14, null=False)
-    zoom = models.IntegerField(null=False)
-    
+    zoom = models.DecimalField(decimal_places=6, max_digits=14, null=False)
+
     def __str__(self):
         return self.listing.title
 
     class Meta:
         verbose_name_plural = "Listing Map"
 
+
 class ListingFavorites(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self): 
+    def __str__(self):
         return self.user.email + ' - ' + self.listing.title
-    
+
     class Meta:
         verbose_name_plural = "Favorites"
