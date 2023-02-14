@@ -11,7 +11,7 @@
       </span>
       <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
     </div>
-    <img class="bd-placeholder-img card-img-top" src="{% get_media_prefix %}{{ listing.images.first.file }}" height="200" alt="" onclick="onListingClick('{{listing.slug}}')">
+    <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 250px" alt="" onclick="onListingClick('{{listing.slug}}')"></div>
   <div class="px-3 pt-3 ">
     <div class="d-flex justify-content-between ">
       <p class="card-text">{{ listing.title|truncatechars:30 }}</p>

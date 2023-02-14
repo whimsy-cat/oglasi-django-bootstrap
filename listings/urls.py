@@ -11,7 +11,12 @@ urlpatterns = [
     path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
     path('oglas-omiljeni/', views.add_remove_favorites, name="listing_add_remove_favorites"),
 
+    # Delete lilisting
+    path('delete/<int:id>/', views_dashboard.delete, name='delete'),
 
+    # Edit listings
+
+    path('edit/', views_dashboard.edit, name='edit'),
 
     # TODO: Redefine pages to specific models 
     path('postavi/', views_dashboard.create, name="listing_create", kwargs={'footer': 'create_listing'}),

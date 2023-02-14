@@ -14,6 +14,20 @@ def sort_helper(request, listing_data):
 
 
 # Paginate listings
+def pagination_helper_favorits(request, listing_data):
+    paginator = Paginator(listing_data, 4)
+    page = request.GET.get('page')
+
+    try:
+        listings = paginator.page(page)
+    except PageNotAnInteger:
+        listings = paginator.page(1)
+    except EmptyPage:
+        listings = paginator.page(paginator.num_pages)
+
+    return listings
+
+
 def pagination_helper(request, listing_data):
     paginator = Paginator(listing_data, 12)
     page = request.GET.get('page')

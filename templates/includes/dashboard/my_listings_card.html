@@ -28,25 +28,43 @@
       2321
   </div>
   <div class="col-2 d-flex justify-content-evenly align-items-center">
-    <img class="" onclick="editHandler()" src="{% static 'images/icons/edit.svg' %}" alt="Hearth" width="30px" height="30px">
-    <img class="" onclick="deleteHandler()" src="{% static 'images/icons/bin.svg' %}" alt="Hearth" width="28px" height="28px">
+    <form method='POST' action="{% url 'edit' %}">
+      {% csrf_token %}
+      <button type="submit" class="border-0 bg-white">
+        <input type="hidden" name="_method" value="EDIT">
+        <img src="{% static 'images/icons/edit.svg' %}" alt="Hearth" width="30px" height="30px">
+      </button>
+    </form>
+    <form method='POST' action="{% url 'delete' listing.id %}">
+      {% csrf_token %}
+      <button type="submit" class="border-0 bg-white">
+        <input type="hidden" name="_method" value="DELETE">
+        <img src="{% static 'images/icons/bin.svg' %}" alt="Hearth" width="28px" height="28px"/>
+      </button>
+      </form>
   </div>
 </div>
 <script>
-  function onListingClick(slug) {
-        {% if debug != None %}
-          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
-        {% else %}
-          console.error('Define real URL');
-        {% endif %}
-    }
 
-    function editHandler() {
-      console.log('edit')
-    }
+// save scroll position before refresh page
+  window.addEventListener('beforeunload', function () {
+    localStorage.setItem('scrollTop', window.pageYOffset);
+});
 
-    function deleteHandler() {
-      console.log('delete')
-    }
+// show saved   position before after page
 
+window.addEventListener('load', function () {
+  const scrollTop = localStorage.getItem('scrollTop');
+  if (scrollTop) {
+      window.scrollTo(0, scrollTop);
+  }
+});
+
+function onListingClick(slug) {
+      {% if debug != None %}
+        window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
+      {% else %}
+        console.error('Define real URL');
+      {% endif %}
+  }
 </script>

@@ -259,7 +259,7 @@
               </div>
             </div>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0" style="background: center / cover no-repeat url('/static/images/listing_detail/tlocrt.svg');height: 600px;"></div>
+              <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0"><canvas id="myChart" class="border" style="width:100%;height:570px"></canvas></div>
             </div>
           </div>
         </div>
@@ -294,6 +294,7 @@
 
 {% block page_specific_scripts %}
 <script src="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 
 <script>
@@ -354,7 +355,55 @@ map.on('error', function(err) {
   throw new Error("To load the map, you must replace YOUR_MAPTILER_API_KEY_HERE first, see README");
 });
 
+// Chart
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
+let xValues = [];
+var yValues = [
+  {x: new Date("2021-06-06"), y: 800},
+  {x: new Date("2022-09-09"), y: 500},
+  {x: new Date("2023-03-01"), y: 200}
+];
+
+function generateData(i1, i2, step = 1) {
+  let currentDate = new Date();
+  let currentMonth = currentDate.getMonth();
+  for (let x = i1; x <= i2; x += step) {
+    xValues.push(months[(currentMonth - x + 12) % 12]);
+  }
+}
+generateData( 0, 11, 1);
+
+var sortedYValues = Array(xValues.length).fill({x: null, y: null});
+for (let i = 0; i < yValues.length; i++) {
+  let monthIndex = months.indexOf(yValues[i].x.toLocaleString('default', {month: 'short'}));
+  sortedYValues[xValues.indexOf(months[monthIndex])] = yValues[i];
+}
+
+new Chart("myChart", {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      pointRadius: 4,
+      borderColor: "red",
+      data: sortedYValues
+    }]
+  },    
+  options: {
+    legend: {display: false},
+    scales: {
+      type: 'time', 
+      xAxes: [{
+        ticks: {
+          maxRotation: 0,
+          reverse: true,
+        },
+      }],
+    },
+  }
+});
 </script>
 
 {% if listing.status == '0' %}

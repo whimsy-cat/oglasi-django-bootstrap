@@ -12,19 +12,18 @@
     <div class="row">
         {% include 'includes/profile_sidebar.html' %}
       <div class="col-10">
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between align-items-center mb-2">
           <div class="col">
             {% include 'includes/listings/listings_sorting.html' %}
           </div>
           <div class="col-5 px-5">
             <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
           </div>
-          <div class="col">
+          <div class="col d-flex justify-content-end me-2" >
             {% include 'includes/listings/listings_pagination.html' %}
-            pagination
           </div>
-       </div>
-       <div class="col shadow p-3">
+        </div>
+        <div class="col shadow p-3">
           <div class="col d-flex justify-content-between border-bottom  border-secondary">
             <h6 class="col-4">Naslov Oglasa</h6>
             <h6 class="col-2 d-flex justify-content-center">Datum</h6>
@@ -33,16 +32,15 @@
             <h6 class="col-2 d-flex justify-content-center">Uredi</h6>
           </div>
           {% for listing in listings %}
-            {% include 'includes/dashboard/my_listings_card.html' %}
+            {% include 'includes/dashboard/my_listings_card.html'  %}
           {% endfor %}
           
         </div>
       </div>
     </div>
     <div class="col d-flex justify-content-center my-3">
-        {% include 'includes/listings/listings_pagination.html' %}
-        pagination
-      </div>
+      {% include 'includes/listings/listings_pagination.html' %}
+    </div>
   </div>
 </section>
 {% endblock %}
