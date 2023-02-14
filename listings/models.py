@@ -161,3 +161,10 @@ class ListingFavorites(models.Model):
 
     class Meta:
         verbose_name_plural = "Favorites"
+
+
+class Location(models.Model):
+    country = models.CharField(max_length=150, null=False, default="Serbia")
+    city = models.CharField(max_length=150, null=False, default=None)
+    municipality = models.CharField(max_length=250, null=False, default=None)
+    area = models.CharField(max_length=250, null=False, default=None)

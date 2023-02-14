@@ -7,7 +7,7 @@ from accounts.models import Account
 from category.models import Category
 from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingFavorites, ListingAmenities
 from uploader.models import DropBox
-from .helpers import to_type_or_none, pagination_helper, pagination_helper_favorits
+from .helpers import to_type_or_none, pagination_helper
 
 
 def create(request, **kwargs):
@@ -30,6 +30,7 @@ def delete(request, id):
 
 def edit(request):
     return render(request, 'dashboard_pages/create_new_listing.html')
+
 
 def my_listings(request):
     user = Account.objects.get(id=request.user.id)
@@ -57,7 +58,7 @@ def my_views(request):
 def my_favorites(request):
     user = Account.objects.get(id=request.user.id)
     listings = Listing.objects.filter(listingfavorites__user=user)
-    listings_paginated = pagination_helper_favorits(request, listings)
+    listings_paginated = pagination_helper(request, listings, 4)
     context = {
         'listings': listings_paginated
     }

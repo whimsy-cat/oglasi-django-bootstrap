@@ -13,23 +13,8 @@ def sort_helper(request, listing_data):
     return listing_data
 
 
-# Paginate listings
-def pagination_helper_favorits(request, listing_data):
-    paginator = Paginator(listing_data, 4)
-    page = request.GET.get('page')
-
-    try:
-        listings = paginator.page(page)
-    except PageNotAnInteger:
-        listings = paginator.page(1)
-    except EmptyPage:
-        listings = paginator.page(paginator.num_pages)
-
-    return listings
-
-
-def pagination_helper(request, listing_data):
-    paginator = Paginator(listing_data, 12)
+def pagination_helper(request, listing_data, offset=12):
+    paginator = Paginator(listing_data, offset)
     page = request.GET.get('page')
 
     try:
@@ -57,21 +42,25 @@ def query_params_helper(request, listing_data):
     query_total_floors = request.GET.get('spratnost')
     query_grejanje = request.GET.get('grejanje')
 
-
     if query_grejanje:
-        listing_data = listing_data.filter(listingdetails__detail__name=query_grejanje)
+        listing_data = listing_data.filter(
+            listingdetails__detail__name=query_grejanje)
 
     if query_total_floors:
         if query_total_floors == '5':
-            listing_data = listing_data.filter(listingcharacteristics__total_floors__gte=5)
+            listing_data = listing_data.filter(
+                listingcharacteristics__total_floors__gte=5)
         else:
-            listing_data = listing_data.filter(listingcharacteristics__total_floors__iexact=query_total_floors)
-            
+            listing_data = listing_data.filter(
+                listingcharacteristics__total_floors__iexact=query_total_floors)
+
     if query_garage:
-        listing_data = listing_data.filter(listingcharacteristics__parking__iexact=query_garage)
+        listing_data = listing_data.filter(
+            listingcharacteristics__parking__iexact=query_garage)
 
     if query_condition:
-        listing_data = listing_data.filter(listingcharacteristics__condition__iexact=query_condition)
+        listing_data = listing_data.filter(
+            listingcharacteristics__condition__iexact=query_condition)
 
     if query_type:
         listing_data = listing_data.filter(status__iexact=query_type)
@@ -85,7 +74,7 @@ def query_params_helper(request, listing_data):
     if query_category:
         listing_data = listing_data.filter(
             category__name__iexact=query_category)
-    
+
     if query_price:
         price_range = query_price.split('_')
         start = int(price_range[0]) if price_range[0] else None
@@ -102,17 +91,22 @@ def query_params_helper(request, listing_data):
         start = float(size_range[0]) if size_range[0] else None
         end = float(size_range[1]) if size_range[1] else None
         if start and end:
-            listing_data = listing_data.filter(listingcharacteristics__size__range=(start, end))
+            listing_data = listing_data.filter(
+                listingcharacteristics__size__range=(start, end))
         elif start:
-            listing_data = listing_data.filter(listingcharacteristics__size__gte=start)
+            listing_data = listing_data.filter(
+                listingcharacteristics__size__gte=start)
         elif end:
-            listing_data = listing_data.filter(listingcharacteristics__size__lte=end)
+            listing_data = listing_data.filter(
+                listingcharacteristics__size__lte=end)
 
     if query_structure:
         if query_structure == '4':
-            listing_data = listing_data.filter(listingcharacteristics__structure__gte=4)
+            listing_data = listing_data.filter(
+                listingcharacteristics__structure__gte=4)
         else:
-            listing_data = listing_data.filter(listingcharacteristics__structure__exact=float(query_structure))
+            listing_data = listing_data.filter(
+                listingcharacteristics__structure__exact=float(query_structure))
 
     if query_details_amenities:
         detailsParam = query_details_amenities.split('_')[0]
@@ -129,6 +123,8 @@ def query_params_helper(request, listing_data):
     return listing_data
 
 # Parsers
+
+
 def to_type_or_none(string, target_type, default=None):
     try:
         return target_type(string)

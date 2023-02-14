@@ -4,7 +4,7 @@ from django.http import JsonResponse
 
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, Amenity, CategoryDetails, CategoryAmenities, ListingFavorites
+from listings.models import Detail, Listing, Amenity, CategoryDetails, CategoryAmenities, ListingFavorites, Location
 import json
 
 from .helpers import sort_helper, pagination_helper, query_params_helper
@@ -112,3 +112,11 @@ def add_remove_favorites(request):
         ListingFavorites.objects.create(listing=listing, user=user)
 
     return JsonResponse(response, safe=False)
+
+
+def get_areas(request):
+    areas = Location.objects.values('area').filter(city=request.GET.get('city')).distinct()
+
+    data = {'areas': list(areas)}
+
+    return JsonResponse(data, safe=False);

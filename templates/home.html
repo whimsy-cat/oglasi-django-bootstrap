@@ -32,7 +32,12 @@
               <div class="row">
                 <div class="col mx-auto">
                   <div class="input-group mb-3">
-                    <input type="text" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Lokacija">
+                      <input type="text" list="country" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Lokacija" onchange="showNeighbourhoods()">
+                      <datalist id="country">
+                        {% for loc in all_cities %}
+                          <option value="{{ loc.city }}">
+                        {% endfor %}
+                      </datalist>
                     <select for="type" class="form-select select-listing-type" name="tip" id="type">
                       <option selected value="">Tip...</option>
                       {% for categ in categories %}
@@ -41,7 +46,10 @@
                         {% endif %}
                       {% endfor %}
                     </select>
-                    <input for="neighbourhood" type="text" class="form-control input-area" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
+                    <input for="neighbourhood" type="text" class="form-control input-area" list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
+                    <datalist id="neighbourhoods">
+                     
+                    </datalist>
                     <button class="btn btn-outline btn-white btn-details" type="button" id="btnFormDetails">Detaljnije
                     </button>
                     <button class="btn btn-blue btn-search" type="submit"  id="inputGroupFileAddon04">
@@ -390,5 +398,16 @@
       toggleBtnClasses('0');
     }
 
+    async function showNeighbourhoods() {
+      const city = document.getElementById('location').value;
+      document.getElementById('neighbourhoods').innerHTML = ''
+      
+      const response = await fetch(`/oglasi/get-areas?city=${city}`);
+      const data = await response.json();
+
+      data.areas.forEach(el => {
+        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el.area + '">'
+      })
+    }
   </script>
 {% endblock %}
