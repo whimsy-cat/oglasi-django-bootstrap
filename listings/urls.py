@@ -1,5 +1,5 @@
 from django.urls import path
-from listings import views, views_dashboard
+from listings import views, views_agencies, views_dashboard
 
 
 urlpatterns = [
@@ -18,6 +18,7 @@ urlpatterns = [
     # Edit listings
 
     path('edit/', views_dashboard.edit, name='edit'),
+    path('save-listing/<int:pk>', views_dashboard.confirm_edit, name='confirm_edit'),
 
     # TODO: Redefine pages to specific models 
     path('postavi/', views_dashboard.create, name="listing_create", kwargs={'footer': 'create_listing'}),
@@ -31,4 +32,19 @@ urlpatterns = [
     path('pretplate/', views_dashboard.subscription, name="listing_subscription"),
     path('promovisi-oglas/', views_dashboard.promote_listing, name="listing_promote_listing"),
     path('podesavanja/', views_dashboard.settings, name="listing_settings"),
+
+    # Agency pages
+    path('agencije/', views_agencies.agencies_page, name="agencies_page" ),
+    path('o-agenciji/', views_agencies.about_agency, name="about_agency" ),
+
+    # Investors pages
+
+    path('investitori/', views_agencies.investors_page, name="investors_page"),
+    path('o-investitoru/', views_agencies.about_investor, name="about_investor"),
+
+    # My blog pages
+
+    path('o-nama/', views_agencies.about_us, name="about_us")
+
+
 ]

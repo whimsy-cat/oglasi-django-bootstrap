@@ -116,7 +116,9 @@ def add_remove_favorites(request):
 
 def get_areas(request):
     areas = Location.objects.values('area').filter(city=request.GET.get('city')).distinct()
+    municipality = Location.objects.values('municipality').filter(city=request.GET.get('municipality')).distinct()
 
-    data = {'areas': list(areas)}
+    data = {'areas': list(areas),
+            'municipality': list(municipality)}
 
-    return JsonResponse(data, safe=False);
+    return JsonResponse(data, safe=False)

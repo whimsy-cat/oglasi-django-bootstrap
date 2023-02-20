@@ -100,7 +100,13 @@ function initMap() {
           </div>
           <div class="col-3 text-nowrap">
             <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-            <small class="{% if l.listingcharacteristics_set.first.parking == '0' %} text-decoration-line-through {% endif %}">Parking</small>
+            <small class="
+            {% if l.listingcharacteristics_set.first.parking %}
+              {% elif 'Garaža' in listing.details %}
+              {% elif 'Parking van zone' in listing.details %}
+              {% elif 'Parking u zoni' in listing.details %}
+              {% else %} text-decoration-line-through 
+            {% endif %}">Parking</small>
           </div>
             {% endif %}
         </div>
@@ -117,7 +123,7 @@ function initMap() {
     .setHTML(contentString{{ l.id }});
 
     // Connect the popup to a new marker
-  let marker{{l.id}} = new maplibregl.Marker({color: 'red'})
+  let marker{{l.id}} = new maplibregl.Marker({color: 'blue'})
     .setLngLat([Number("{{l.listingmap_set.first.lng }}"), Number("{{l.listingmap_set.first.lat }}")])
     .setPopup(markerPopup{{l.id}})
     .addTo(map);

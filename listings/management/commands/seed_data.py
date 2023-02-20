@@ -90,6 +90,12 @@ class Command(BaseCommand):
 
     # ADD DETAILS AND AMENITIES and APPEND THEM TO CATEGORIES
 
+
+    detailValues = ["Internet", "Kablovska", "Telefon", "Interfon", "Lift", "Garaža", "Parking u zoni", "Parking van zone", "Klima uređaj", "Lođa", "Vešernica", "Video nadzor", "Alarm", "Obezbeđenje", "Održavanje zgrade", "Prilaz za kolica", "Smart", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Solarni panel", "Kotlarnica", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm"]
+    amenityValues = ["Kuhinja", "Frižider", "Šporet", "Rerna", "Mikrotalasna", "Sudomašina", "Veš mašina", "Garnitura", "Trpezarijski sto", "Plakar", "Krevet", "Kanc. Oprema"]
+
+
+
     for detail in ["Internet", "Kablovska", "Telefon", "Struja", "Voda", "Put-ulica", "Ograda"]:
       try:
         d = Detail.objects.get(name=detail)
@@ -114,7 +120,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -126,7 +132,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -138,7 +144,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -150,7 +156,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -162,7 +168,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -174,7 +180,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -186,7 +192,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -198,7 +204,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -211,7 +217,7 @@ class Command(BaseCommand):
         print('exists')
 
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -223,7 +229,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -235,7 +241,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -247,7 +253,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -259,7 +265,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri", "Ostalo"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -271,7 +277,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Kanc. nameštaj"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -284,7 +290,7 @@ class Command(BaseCommand):
         print('exists')
 
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -296,7 +302,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -308,7 +314,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -320,7 +326,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -332,7 +338,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -344,7 +350,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -356,7 +362,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -368,7 +374,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -380,7 +386,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -392,7 +398,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -404,7 +410,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -416,7 +422,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:
@@ -428,7 +434,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for detail in ["Internet", "Kablovska", "Telefon", "Klima uređaj", "Terasa", "Lođa", "Ostava", "Podrum", "Garaža", "Parking u zoni", "Parking van zone", "Video nadzor", "Alarm", "Obezbeđenje", "Lift", "Energetski pasoš", "Smart", "Solarni panel", "Prilaz za kolica", "Održavanje zgrade", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Vešernica", "Kotlarnica", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri"]:
+    for detail in detailValues:
       try:
         d = Detail.objects.get(name=detail)
       except Detail.DoesNotExist:
@@ -440,7 +446,7 @@ class Command(BaseCommand):
       except:
         print('exists')
 
-    for amenity in ["Kuhinja", "Sudomašina", "Veš mašina", "Plakar", "TV", "Garnitura", "Trpezarijski set", "Krevet"]:
+    for amenity in amenityValues:
       try:
         a = Amenity.objects.get(name=amenity)
       except Amenity.DoesNotExist:

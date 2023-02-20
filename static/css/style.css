@@ -229,7 +229,7 @@ ul.pagination {
   font-size: 12px!important;
 }
 
-.bg-gray {
+.bg-grayish {
   background-color: #617E8C
 }
 .fullscreen {
@@ -281,4 +281,16 @@ ul.pagination {
   .padding-large {
     padding:0px 150px!important
   }
+}
+.bg-gray {
+  background-color: #455A64;
+}
+
+.active-blue-tab {
+  background-color: #00A6BD;
+  color: white;
+}
+.tab:hover,
+.infoTabs:hover {
+  cursor:pointer;
 }

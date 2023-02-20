@@ -1,0 +1,97 @@
+{% load static %}
+  <div class="d-flex flex-column text-center align-items-center me-5" >
+    <img class=" p-2" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt="Hearth" style="filter: brightness(0) invert(1)" width="44px" height="44px">
+    <small>
+      {% if listing.category.name == 'Poslovni prostor' %}
+      Pos. Prostor
+      {% elif listing.category.name == 'Komercijalni prostor' %}
+      Kom. Prostor
+      {% elif listing.category.name == 'Građevinska parcela' %}
+      Građ. Zem.
+      {% elif listing.category.name == 'Poljoprivredna parcela' %}
+      Poljo. Zem.
+      {% elif listing.category.name == 'Proizvodni prostor' %}
+      Pro. Prostor
+      {% elif listing.category.name == 'Ugostiteljski prostor' %}
+      Ugo. Prostor
+      {% elif listing.category.name == 'Stambene nekretnine' %}
+      Ostalo
+      {% elif listing.category.name == 'Poslovni prostor - Lokal' %}
+      Lokal
+      {% elif listing.category.name == 'Poslovni prostor - Kancelarija' %}
+      Kancelarija
+      {% else %}
+      {{listing.category.name}}
+      {% endif %}
+    </small>
+  </div>
+
+  <div class="d-flex flex-column text-center align-items-center me-5">
+    <img class=" p-2" src="{% static 'images/shared/item-area.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.size}}m2
+  </div>
+  {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
+  
+  <div class="d-flex flex-column text-center align-items-center me-5 {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">
+    <img class="p-2 " src="{% static 'images/items/Struja.svg' %}" alt="Hearth" width="44px" height="44px">
+    Struja
+  </div>
+  <div class="d-flex flex-column text-center align-items-center me-5  {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">
+    <img class=" p-2" src="{% static 'images/items/Voda.svg' %}" alt="Hearth" width="44px" height="44px">
+    Voda
+  </div>
+  {% else %}
+    {% if listing.category.name|cut:' ' != 'Soba'%}
+      {% if listing.category.name|cut:' ' != 'Proizvodniprostor' or listing.category.name|cut:' ' != 'Ostalo'%}
+  <div class="d-flex flex-column text-center align-items-center me-5">
+    <img class=" p-2" src="{% static 'images/shared/item-floormap.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.structure}}
+  </div>
+  {% endif %}
+  <div class="d-flex flex-column text-center align-items-center me-5 
+      {% if listing.listingcharacteristics_set.first.parking %}
+        {% elif 'Garaža' in listing.details %}
+        {% elif 'Parking van zone' in listing.details %}
+        {% elif 'Parking u zoni' in listing.details %}  
+        {% else %} text-decoration-line-through 
+      {% endif %}">
+    <img class="p-2 " src="
+      {% if listing.listingcharacteristics_set.first.parking == 'garažno mesto' and listing.category.name == 'Stan'  %} {% static 'images/items/Garažnomestostan.svg' %}
+        {% elif listing.listingcharacteristics_set.first.parking == 'garažno mesto' and listing.category.name == 'Kuća'  %} {% static 'images/items/Garažnomestokuća.svg' %}
+        {% elif listing.listingcharacteristics_set.first.parking == 'parking mesto' %}{% static 'images/items/Parkingmesto.svg' %}
+        {% elif listing.listingcharacteristics_set.first.parking == 'parking platforma' %}{% static 'images/items/Parkingplatforma.svg' %}
+        {% elif 'Garaža' in listing.details %}{% static 'images/items/Garaža2.svg' %}
+        {% elif 'Parking van zone' in listing.details %}{% static 'images/items/Parkingvanzone.svg' %}
+        {% elif 'Parking u zoni' in listing.details %}{% static 'images/items/Parkinguzoni.svg' %}
+        {% else %} {% static 'images/items/Parking.svg' %}
+      {% endif %}" alt="Parking" width="44px" height="44px">
+  {% if listing.listingcharacteristics_set.first.parking %}
+    {{listing.listingcharacteristics_set.first.parking|title}}
+  {% elif 'Garaža' in listing.details %}Garaža
+  {% elif 'Parking van zone' in listing.details %}Parking van zone
+  {% elif 'Parking u zoni' in listing.details %}Parking u zoni
+  {% else %}
+    Parking
+  {% endif %}
+  </div>
+    {% elif listing.category.name|cut:' ' == 'Soba' %}
+    <div class="d-flex flex-column text-center align-items-center me-5">
+      <img class=" p-2" src="{% static 'images/items/Lift.svg' %}" alt="Lift" width="44px" height="44px">
+      Lift
+    </div>
+    <div class="d-flex flex-column text-center align-items-center me-5">
+      <img class=" p-2" src="{% static 'images/items/Hlađenje.svg' %}" alt="Hlađenje" width="44px" height="44px">
+      Hlađenje
+    </div>
+    {% endif %}
+    {% if listing.category.name|cut:' ' != 'Stambenenekretnine'%}
+  <div class="d-flex flex-column text-center align-items-center me-5">
+    <img class=" p-2" src="{% static 'images/shared/item-up_and_down_arrows.svg' %}" alt="Hearth" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.floor}}/{{listing.listingcharacteristics_set.first.total_floors}}
+  </div>
+    {% endif %}
+  <div class="d-flex flex-column text-center align-items-center me-5">
+    <img class=" p-2" src="{% static 'images/shared/item-calender.svg' %}" alt="date" width="44px" height="44px">
+    {{listing.listingcharacteristics_set.first.year_built}}
+  </div>
+      {% endif %}

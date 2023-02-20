@@ -22,7 +22,7 @@
         <div class="col-7 h-100 overflow-y-scroll">
           <div class="container-fluid">
             <!-- Pagination and Sort -->
-            <div class="row pt-2 pb-2" >
+            <div class="row py-2" >
               <p class="col-4 m-auto">Rezultata: {{ listings.paginator.count }}</p>
               {% include 'includes/listings/listings_pagination.html' %}
               {% include 'includes/listings/listings_sorting.html' %}
@@ -31,7 +31,7 @@
             <!-- Listing Items -->
             <div class="row mb-3">
               {% for listing in listings %}
-              <div class="col-xxl-4 col-md-6 col-sm-12  mb-5">
+              <div class="col-xxl-4 col-md-6 col-sm-12">
                 {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
               </div>
               {% endfor %}

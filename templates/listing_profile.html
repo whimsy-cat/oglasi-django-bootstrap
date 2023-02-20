@@ -72,7 +72,7 @@
 
     <!-- Listing Featured Icons -->
     <div class="col d-flex mb-4 icons-black">
-      {% include 'includes/listings/listing_details_icons.html' %}
+      {% include 'includes/listings/listing_details_icons_profile.html' %}
     </div>
 
     <div class="row mb-4">
@@ -104,12 +104,13 @@
               <pre></pre>
               <div class="row">
                 {% for listing_detail in listing.listingdetails_set.all %}
-           
-                <div class="col-3">
-                  <img class="p-2 " style="filter: brightness(0.8) invert(0.6)" src="{% static 'images/items/' %}{{listing_detail.detail.name|cut:' '}}.svg" alt="..." width="44px" height="44px"  >
-                  {{ listing_detail.detail.name }}
-                </div>
-                {% endfor %}
+                {% if listing_detail.detail.name != 'Visina od 300cm' and listing_detail.detail.name != 'Visina do 260cm' and listing_detail.detail.name != 'Visina 260-300cm' %}
+                  <div class="col-3">
+                    <img class="p-2" style="filter: brightness(0.8) invert(0.6)" src="{% static 'images/items/' %}{{listing_detail.detail.name|cut:' '}}.svg" alt="..." width="44px" height="44px">
+                    {{ listing_detail.detail.name }}
+                  </div>
+                {% endif %}
+              {% endfor %}
               </div>
             </div>
             <div class="tab-pane fade row" id="properties-tab-pane" role="tabpanel" aria-labelledby="properties-tab" tabindex="0">
@@ -117,13 +118,31 @@
                 <div class="col-6 py-2 border-end" >
                   <h6>Površina: {{listing.listingcharacteristics_set.first.size}}m2</h6>
                   <h6>Struktura: {{listing.listingcharacteristics_set.first.structure}}</h6>
-                  <h6>Parking: {{listing.listingcharacteristics_set.first.parking}}</h6>
+                  <h6>Parking: 
+                  {% if listing.listingcharacteristics_set.first.parking %}
+                    {{listing.listingcharacteristics_set.first.parking}}
+                    {% elif 'Garaža' in listing.details %}Garaža
+                    {% elif 'Parking van zone' in listing.details %}Parking van zone
+                    {% elif 'Parking u zoni' in listing.details %}Parking u zoni
+                  {% endif %}
+                  </h6>
                   <h6>Spratnost: {{listing.listingcharacteristics_set.first.floor}} od {{listing.listingcharacteristics_set.first.total_floors}} spratova</h6>
                   <h6>Godina izgradnje: {{listing.listingcharacteristics_set.first.year_built}}. godina</h6>
-                  <h6>Spavaće sobe: {{listing.listingcharacteristics_set.first.bedrooms}} spavaće sobe</h6>
+                  <h6>Spavaće sobe: {{listing.listingcharacteristics_set.first.bedrooms|floatformat:0}} spavaće sobe</h6>
                   <h6>Kupatilo: {{listing.listingcharacteristics_set.first.baths}}</h6>
                   <h6>WC: {{listing.listingcharacteristics_set.first.half_baths}}</h6>
                   <h6>Terasa: {{listing.listingcharacteristics_set.first.balcony}}</h6>
+                  {% if 'Lift' in listing.details %}
+                  <h6>Lift</h6>
+                  {% endif %}
+                  <h6>Visina plafona:
+                    {% for detail in listing.details %}
+                      {% if 'Visina do 260cm' in detail %} Do 260cm 
+                        {% elif 'Visina 260-300cm' in detail %} 260-300cm
+                        {% elif 'Visina od 300cm' in detail %} Od 300cm
+                      {% endif %}
+                    {% endfor %}
+                  </h6>
                 </div>
                 <div class="col-6 py-2 justify-content-start align-items-center">
                   {{listing.description}}
@@ -144,7 +163,7 @@
         </div>
       </div>
       <div class="col-4 non-printable-area">
-        {% include 'includes/agencies/agency_card.html' %}
+        {% include 'agencies/agency_card.html' %}
       </div>
     </div>
 
@@ -201,12 +220,12 @@
         </div>
         <div class="col-4 mb-4 non-printable-area">
           <div class="col shadow card-body rounded p-4 h-100">
-            <div class="mb-4">
-              {% include 'includes/blog/blog_card.html' %}
-            </div>
             {% for promoted in promoted_listings|slice:":1" %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
             {% endfor %}
+            <div class="mb-4">
+              {% include 'includes/blog/blog_card.html' %}
+            </div>
           </div>
         </div>
       </div>
@@ -239,12 +258,10 @@
         </div>
         <div class="col-4 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
-            <div class="mb-4">
-              {% include 'includes/blog/blog_card.html' %}
-            </div>
             {% for promoted in promoted_listings|slice:":1" %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
             {% endfor %}
+              {% include 'includes/blog/blog_card.html' %}
           </div>
         </div>
       </div>
@@ -265,12 +282,10 @@
         </div>
         <div class="col-4 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
-            <div class="mb-4">
-              {% include 'includes/blog/blog_card.html' %}
-            </div>
             {% for promoted in promoted_listings|slice:":1" %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
             {% endfor %}
+              {% include 'includes/blog/blog_card.html' %}
           </div>
         </div>
       </div>
@@ -360,24 +375,36 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 
 let xValues = [];
 var yValues = [
-  {x: new Date("2021-06-06"), y: 800},
+  {x: new Date("2022-06-06"), y: 800},
   {x: new Date("2022-09-09"), y: 500},
-  {x: new Date("2023-03-01"), y: 200}
+  {x: new Date("2023-02-01"), y: 200},
+  {x: new Date("2023-01-01"), y: 900}
 ];
 
 function generateData(i1, i2, step = 1) {
   let currentDate = new Date();
+  let currentYear = currentDate.getFullYear();
   let currentMonth = currentDate.getMonth();
+  let lastYear = currentYear - 1;
+
   for (let x = i1; x <= i2; x += step) {
-    xValues.push(months[(currentMonth - x + 12) % 12]);
+    let year = currentMonth - x >= 0 ? currentYear : lastYear;
+    let month = months[(currentMonth - x + 12) % 12];
+    xValues.push(`${month} ${year}`);
   }
 }
-generateData( 0, 11, 1);
+
+generateData(0, 11, 1);
 
 var sortedYValues = Array(xValues.length).fill({x: null, y: null});
+
+yValues.sort((a, b) => a.x - b.x);
+
 for (let i = 0; i < yValues.length; i++) {
-  let monthIndex = months.indexOf(yValues[i].x.toLocaleString('default', {month: 'short'}));
-  sortedYValues[xValues.indexOf(months[monthIndex])] = yValues[i];
+  let year = yValues[i].x.getFullYear();
+  let month = months[yValues[i].x.getMonth()];
+  let index = xValues.indexOf(`${month} ${year}`);
+  sortedYValues[index] = yValues[i];
 }
 
 new Chart("myChart", {

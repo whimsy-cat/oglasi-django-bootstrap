@@ -26,7 +26,7 @@
           <!-- Alert -->
           <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
 
-          <form id="create-listing-form" class="needs-validation"  onsubmit="return validateForm()" method="POST" action="{% url 'listing_submit' %}" novalidate>
+          <form id="create-listing-form" class="needs-validation"  onsubmit="return validateForm()" method="POST" action="{% url 'confirm_edit' pk=listing.id %}" novalidate>
             {% csrf_token %}
             <div class="creation-content justify-content-center show" id="step1">
               <div class="col creation-step me-4">
@@ -38,14 +38,14 @@
                   </div>
                   <div class="mb-3">
                     <label for="title" class="form-label">Naslov oglasa (obavezno)</label>
-                    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp" required>
+                    <input type="text" value="{{listing.title}}" class="form-control" id="title" name="title" aria-describedby="titleHelp" required>
                   </div>
                   <div class="mb-3">
                     <div class="d-flex justify-content-start mb-4 step-heading">
-                      <p class="align-self-end me-4">Opis</p>
+                      <p class="align-self-end me-4">Opis </p>
                       <small class="align-self-end">Napišite par rečenica o vašoj nekretnini</small>
                     </div>
-                    <textarea class="form-control" style="resize: none;" name="description" id="description" cols="30" rows="16" required></textarea>
+                    <textarea class="form-control" style="resize: none;" name="description" id="description" cols="30" rows="16" required>{{listing.description}}</textarea>
                   </div>
                 </div>
               </div>
@@ -59,8 +59,8 @@
                   </div>
                   <div class="mb-3">
                     <select class="form-select" aria-label="Default select example" name="status" id="status" onchange="getDetails()">
-                      <option value="0" selected>Prodaja</option>
-                      <option value="1">Izdavanje</option>
+                      <option value="0" {% if listing.status == '0' %}selected{% endif %}>Prodaja</option>
+                      <option value="1" {% if listing.status == '1' %}selected{% endif %}>Izdavanje</option>
                     </select>
                   </div>
                   </div>
@@ -75,18 +75,18 @@
                     <div class="d-flex justify-content-between">
                       <div style="width: 280px;">
                         <label for="category" class="form-label">Kategorija</label>
-                        <select class="form-select" id="category" required onchange="populateSubCategories(this);">
-                          <option value="">Izaberite kategoriju</option>
+                        <select class="form-select" id="category" required onchange="populateSubCategories(this)">
+                          <option value="">Izaberite kategoriju </option>
                           {% for categ in categories %}
                             {% if categ.parent is None %}
-                              <option value="{{ categ.id }}">{{ categ.name }}</option>
+                              <option value="{{ categ.id }}" {% if listing.category.parent.id == categ.id %} selected {% endif %}>{{ categ.name }}</option>
                             {% endif %}
                           {% endfor %}
                         </select>
                       </div>
                       <div style="width: 220px;">
                         <label for="tip" class="form-label">Tip</label>
-                        <select required class="form-select" id="subcateg" name="subcateg" onchange="getDetails(); selectCategory()">
+                        <select required class="form-select" id="subcateg"  name="subcateg" onchange="getDetails(); selectCategory()">
                         </select>
                       </div>
                     </div>
@@ -100,7 +100,7 @@
                       <small class="align-self-end">Upišite cenu vaše nekretnine u EUR</small>
                     </div>
                     <div class="w100">
-                      <input type="text" class="form-control" id="price" name="price" required>
+                      <input type="text" class="form-control" value={{listing.price}} id="price" name="price" required>
                     </div>
                   </div>
                 </div>
@@ -170,15 +170,14 @@
                   </div>
                   <div class="location-input">
                     <label for="country" class="form-label">Država (obavezno)</label>
-                    <select class="form-select" id="country" name="country">
+                    <select class="form-select" id="country" name="country" value="{{listing.country}}">
                       <option selected value="srbija">Srbija</option>
                     </select>
                   </div>
                   <div class="location-input">
                     <label for="city" class="form-label">Grad (obavezno)</label>
-                    <input type="text" class="form-control" list="cityes" id="city" name="city" aria-describedby="titleHelp" onchange="showNeighbourhoods()" required>
+                    <input type="text" class="form-control" value="{{listing.city}}" list="cityes" id="city" name="city" aria-describedby="titleHelp" onchange="showNeighbourhoods()" required>
                     <datalist id="cityes">
-                      {{all_cities}}
                       {% for loc in all_cities %}
                         <option value="{{ loc.city }}">
                       {% endfor %}
@@ -186,21 +185,21 @@
                   </div>
                   <div class="location-input">
                     <label for="municipality" class="form-label">Opština (obavezno)</label>
-                    <input type="text" class="form-control" id="municipality" list="opstina" name="municipality" required>
+                    <input type="text" class="form-control" value="{{listing.area}}" id="municipality" list="opstina" name="municipality" required>
                     <datalist id="opstina">
                      
                     </datalist>
                   </div>
                   <div class="location-input">
                     <label for="area" class="form-label">Lokacija (obavezno)</label>
-                    <input type="text" class="form-control" list="location" id="area" name="area" aria-describedby="titleHelp" required>
+                    <input type="text" class="form-control" value="{{listing.municipality}}" list="location" id="area" name="area" aria-describedby="titleHelp" required>
                     <datalist id="location">
                      
                     </datalist>
                   </div>
                   <div class="location-input">
                     <label for="street" class="form-label">Ulica (obavezno)</label>
-                    <input type="text" class="form-control" id="street" name="street" aria-describedby="titleHelp" required>
+                    <input type="text" class="form-control" value="{{listing.address}}" id="street" name="street" aria-describedby="titleHelp" required>
                   </div>
                 </div>
               </div>
@@ -212,9 +211,9 @@
                 </div>
                 <div class="creation-step step-section h-100">
                   <div class="map-canvas h-100 " id="map"></div>
-                  <input type="hidden" id="lat" name="lat" required>
-                  <input type="hidden" id="lng" name="lng" required>
-                  <input type="hidden" id="zoom" name="zoom" required>
+                  <input type="hidden" id="lat" name="lat" value="{{listing.listingmap_set.first.lat }}" required>
+                  <input type="hidden" id="lng" name="lng" value="{{listing.listingmap_set.first.lng }}" required>
+                  <input type="hidden" id="zoom" name="zoom" value="{{listing.listingmap_set.first.zoom }}" required>
                 </div>
 
                 <div class="d-flex justify-content-end mt-3 next-step">
@@ -243,41 +242,42 @@
                       <div class="col-3 col-lg-3">
                         <div class="mb-3">
                           <label for="size" class="form-label">Površina (obavezno)</label>
-                          <input type="text" class="form-control" id="size" name="size" aria-describedby="titleHelp" placeholder="npr 80" required>
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.size}}" class="form-control" id="size" name="size" aria-describedby="titleHelp" placeholder="npr 80" required>
                         </div>
                         <div class="mb-3">
                           <label for="structure" class="form-label">Struktura (brojevima)</label>
-                          <input type="text" class="form-control" id="structure" name="structure" aria-describedby="titleHelp" placeholder="npr 2.5">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.structure}}" class="form-control" id="structure" name="structure" aria-describedby="titleHelp" placeholder="npr 2.5">
                         </div>
                         <div class="mb-3">
                           <label for="year_built" class="form-label">Godina Izgradnje</label>
-                          <input type="text" class="form-control" id="year_built" name="year_built" aria-describedby="titleHelp" placeholder="npr 1983">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.year_built}}" class="form-control" id="year_built" name="year_built" aria-describedby="titleHelp" placeholder="npr 1983">
                         </div>
                         <div class="mb-3">
                           <label for="floor" class="form-label">Sprat</label>
-                          <input type="text" class="form-control" id="floor" name="floor" aria-describedby="titleHelp" placeholder="npr 2">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.floor}}" class="form-control" id="floor" name="floor" aria-describedby="titleHelp" placeholder="npr 2">
                         </div>
                         <div class="mb-3">
                           <label for="total_floors" class="form-label">Od Spratova</label>
-                          <input type="text" class="form-control" id="total_floors" name="total_floors" aria-describedby="titleHelp" placeholder="5">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.total_floors}}" class="form-control" id="total_floors" name="total_floors" aria-describedby="titleHelp" placeholder="5">
                         </div>
                       </div>
                       <div class="col-3 col-lg-3">
                         <div class="mb-3">
                           <label for="bedrooms" class="form-label">Spavaćih soba (brojevima)</label>
-                          <input type="text" class="form-control" id="bedrooms" name="bedrooms" aria-describedby="titleHelp" placeholder="npr 2">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.bedrooms}}" class="form-control" id="bedrooms" name="bedrooms" aria-describedby="titleHelp" placeholder="npr 2">
                         </div>
                         <div class="mb-3">
                           <label for="baths" class="form-label">Kupatila (brojevima)</label>
-                          <input type="text" class="form-control" id="baths" name="baths" aria-describedby="titleHelp" placeholder="npr 1">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.baths}}" class="form-control" id="baths" name="baths" aria-describedby="titleHelp" placeholder="npr 1">
                         </div>
                         <div class="mb-3">
                           <label for="half_baths" class="form-label">Toaleta (brojevima)</label>
-                          <input type="text" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.half_baths}}" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
                         </div>
+
                         <div class="mb-3" id='parcel-input'>
                           <label for="parcel_size" class="form-label">Površina parcele (u kvm)</label>
-                          <input type="text" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
+                          <input type="text" value="" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
                         </div>
                         <div class="mb-3">
                           <label for="efficiency_index" class="form-label">Hipoteka (izaberite)</label>
@@ -290,35 +290,35 @@
                       </div>
                       <div class="col-3 col-lg-3">
                         <div class="mb-3">
-                          <label for="parking" class="form-label">Parking (izaberite vrstu)</label>
+                          <label for="parking" class="form-label">Parking (izaberite vrstu){{listing.listingcharacteristics_set.first.parking}}</label>
                           <select class="form-select" aria-label="Default select example" id="parking" name="parking">
                             <option value="">Izaberite...</option>
-                            <option value="parking mesto">Parking mesto</option>
-                            {% comment %} <option value="parking klackalica">Parking klackalica</option> {% endcomment %}
-                            <option value="garažno mesto">Garažno mesto</option>
-                            <option value="parking platforma">Parking platforma</option>
+                            <option value="parking mesto" {% if listing.listingcharacteristics_set.first.parking == 'parking mesto' %} selected {% endif %}>Parking mesto</option>
+                            {% comment %} <option value="parking klackalica" {% if listing.listingcharacteristics_set.first.parking == 'parking klackalica' %} selected {% endif %} >Parking klackalica</option> {% endcomment %}
+                            <option value="garažno mesto" {% if listing.listingcharacteristics_set.first.parking == 'garažno mesto' %} selected {% endif %}>Garažno mesto</option>
+                            <option value="parking platforma" {% if listing.listingcharacteristics_set.first.parking == 'parking platforma' %} selected {% endif %}>Parking platforma</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="parking_slots" class="form-label">Parking mesta (brojevima)</label>
-                          <input type="text" class="form-control" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.parking_slots}}" class="form-control" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
                         </div>
                         <div class="mb-3">
                           <label for="balcony" class="form-label">Terasa (brojevima)</label>
-                          <input type="text" class="form-control" id="balcony" name="balcony" aria-describedby="titleHelp">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.balcony}}" class="form-control" id="balcony" name="balcony" aria-describedby="titleHelp">
                         </div>
                         <div class="mb-3">
                           <label for="basement" class="form-label">Podrum</label>
                           <select class="form-select" aria-label="Default select example" id="basement" name="basement">
-                            <option value="false" selected>Nema</option>
-                            <option value="true">Ima</option>
+                            <option value="false" {% if listing.listingcharacteristics_set.first.basement == False %} selected {% endif %}>Nema</option>
+                            <option value="true" {% if listing.listingcharacteristics_set.first.basement == True %} selected {% endif %}>Ima</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="storage" class="form-label">Ostava</label>
                           <select class="form-select" aria-label="Default select example" id="storage" name="storage">
-                            <option value="false" selected>Nema</option>
-                            <option value="true">Ima</option>
+                            <option value="false" {% if listing.listingcharacteristics_set.first.storage == False %} selected {% endif %}>Nema</option>
+                            <option value="true" {% if listing.listingcharacteristics_set.first.storage == True %} selected {% endif %}>Ima</option>
                           </select>
                         </div>
                       </div>
@@ -326,39 +326,39 @@
                         <div class="mb-3">
                           <label for="legal_status" class="form-label">Katastarski status</label>
                           <select class="form-select" aria-label="Default select example" id="legal_status" name="legal_status">
-                            <option value="uknjizeno" selected>Uknjizeno</option>
-                            <option value="legalizacija">Legalizacija u toku</option>
-                            <option value="izgradnja" selected>U izgradnji</option>
-                            <option value="neuknjizeno">Neuknjizeno</option>
+                            <option value="uknjizeno" {% if listing.listingcharacteristics_set.first.legal_status == 'uknjizeno' %} selected {% endif %}>Uknjizeno</option>
+                            <option value="legalizacija" {% if listing.listingcharacteristics_set.first.legal_status == 'legalizacija' %} selected {% endif %}>Legalizacija u toku</option>
+                            <option value="izgradnja" {% if listing.listingcharacteristics_set.first.legal_status == 'izgradnja' %} selected {% endif %}>U izgradnji</option>
+                            <option value="neuknjizeno" {% if listing.listingcharacteristics_set.first.legal_status == 'neuknjizeno' %} selected {% endif %}>Neuknjizeno</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="condition" class="form-label">Stanje</label>
                           <select class="form-select" aria-label="Default select example" id="condition" name="condition">
-                            <option value="novogradnja" selected>Novogradnja</option>
-                            <option value="renovirano">Renovirano</option>
-                            <option value="izvorno">Izvorno</option>
+                            <option value="novogradnja" {% if listing.listingcharacteristics_set.first.condition == 'novogradnja' %} selected {% endif %}>Novogradnja</option>
+                            <option value="renovirano" {% if listing.listingcharacteristics_set.first.condition == 'renovirano' %} selected {% endif %}>Renovirano</option>
+                            <option value="izvorno" {% if listing.listingcharacteristics_set.first.condition == 'izvorno' %} selected {% endif %}>Izvorno</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="efficiency" class="form-label">Energetski pasoš</label>
                           <select class="form-select" aria-label="Default select example" id="efficiency" name="efficiency">
-                            <option value="1" selected>Prodaja</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="1" {% if listing.listingcharacteristics_set.first.efficiency == '1' %} selected {% endif %}>Prodaja</option>
+                            <option value="2"{% if listing.listingcharacteristics_set.first.efficiency == '2' %} selected {% endif %}>Two</option>
+                            <option value="3"{% if listing.listingcharacteristics_set.first.efficiency == '3' %} selected {% endif %}>Three</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="efficiency_index" class="form-label">Indeks u kWh/m2a (izaberite)</label>
                           <select class="form-select" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
-                            <option value="1" selected>Prodaja</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="1" {% if listing.listingcharacteristics_set.first.efficiency_index == '1' %} selected {% endif %}>Prodaja</option>
+                            <option value="2" {% if listing.listingcharacteristics_set.first.efficiency_index == '2' %} selected {% endif %}>Two</option>
+                            <option value="3" {% if listing.listingcharacteristics_set.first.efficiency_index == '3' %} selected {% endif %}>Three</option>
                           </select>
                         </div>
                         <div class="mb-3">
                           <label for="additional" class="form-label">Ostalo/dodatno</label>
-                          <input type="text" class="form-control" id="additional" name="additional" aria-describedby="titleHelp">
+                          <input type="text" value="{{listing.listingcharacteristics_set.first.additional}}" class="form-control" id="additional" name="additional" aria-describedby="titleHelp">
                         </div>
                       </div>
                     </div>
@@ -518,6 +518,19 @@
       uploadFiles('images[]', result);
     });
 
+    {% for img in listing.images.all %}
+      fetch('{% get_media_prefix %}{{img.file}}')
+      .then((response) => response.blob())
+      .then((blob) => {
+        uppy.addFile({
+          name: "{{img.file}}",
+          type: blob.type,
+          data: blob,
+          opts: { autoProceed: true }
+        });
+      });
+    {% endfor %}
+
     const uppyTlocrt = new Uppy.Uppy({
       debug: true,
       locale: Uppy.locales.sr_RS_Latin,
@@ -552,7 +565,20 @@
       uploadFiles('tlocrt[]', result);
     });
 
-    
+
+  {% for floor_plan in listing.floor_plan.all %}
+
+    fetch('{% get_media_prefix %}{{floor_plan.file}}')
+    .then((response) => response.blob())
+    .then((blob) => {
+      uppyTlocrt.addFile({
+        name: "{{floor_plan.file}}",
+        type: blob.type,
+        data: blob,
+        opts: { autoProceed: true }
+      });
+    });
+  {% endfor %}
 
     const uppyVideo = new Uppy.Uppy({
       debug: true,
@@ -594,15 +620,17 @@ function initMap() {
   const key = 'VmRKj3ewutGzwLJmPdKS';
   const style = `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`
   const belgrade = { lat: 44.8125, lng: 20.4612 };
+  const userPin = [Number("{{listing.listingmap_set.first.lng }}"), Number("{{listing.listingmap_set.first.lat }}")]
+  const zoom = {{listing.listingmap_set.first.zoom}}
   const map = new maplibregl.Map({
   container: 'map',
   style: style ,
-  center: belgrade,
-  zoom: 12
+  center: userPin,
+  zoom: zoom
 })
 const marker = new maplibregl.Marker({
   color: "red",
-})
+}).setLngLat(userPin).addTo(map)
 function add_marker (event) {
   let coordinates = event.lngLat;
     marker.setLngLat(coordinates).addTo(map);
@@ -635,11 +663,10 @@ async function populateSubCategories(data) {
     const subcategorySelect = document.getElementById('subcateg');
     subcategorySelect.innerHTML = `<option value="0">Izaberite tip</option>`;
 
+    const selectedCategoryId = '{{ listing.category.id }}';
     json.forEach(subCat => {
-      const option = document.createElement("option");
-      option.value = subCat.id;
-      option.text = subCat.name;
-      subcategorySelect.appendChild(option);
+      const selected = subCat.id == selectedCategoryId ? 'selected' : '';
+      subcategorySelect.innerHTML += `<option value="${subCat.id}" ${selected}>${subCat.name}</option>`;    
     })
 
     getDetails();
@@ -648,9 +675,16 @@ async function populateSubCategories(data) {
   }
   
 }
+window.onload = async function() {
+  const categorySelect = document.getElementById('category');
+  await populateSubCategories(categorySelect);
+  selectCategory()
+}
 
 
-    
+
+
+
 function selectCategory() {
   const subCatValue = document.getElementById('subcateg').value
   if (subCatValue == 4 || subCatValue == 6 || subCatValue == 8 ) {
@@ -672,11 +706,13 @@ async function getDetails() {
 
   const detailsDiv = document.getElementById('details');
   const amenitiesDiv = document.getElementById('amenities');
-
   detailsDiv.innerHTML = "";
   amenitiesDiv.innerHTML = "";
 
-  data.details.forEach(detail => {
+
+ 
+
+  await data.details.forEach(detail => {
     detailsDiv.innerHTML += `<div class="col-xxl-2 col-xl-3 col-sm-6 col-12">
         <div class="form-check form-check-inline mb-2 d-flex align-items-center">
           <input type="checkbox" style="height:25px;width:25px" class="form-check-input" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
@@ -685,7 +721,7 @@ async function getDetails() {
       </div>`
   })
 
-  data.amenities.forEach(amenity => {
+  await data.amenities.forEach(amenity => {
     amenitiesDiv.innerHTML += `<div class="col-xxl-2 col-xl-3 col-sm-6 col-12">
         <div class="form-check form-check-inline mb-2 d-flex align-items-center">
           <input type="checkbox" style="height:25px;width:25px" class="form-check-input" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
@@ -693,6 +729,13 @@ async function getDetails() {
         </div>
       </div>`
   })
+  {% for detail in listing.details.values %}
+    document.getElementById(`detail-data${'{{detail.detail_id}}'}`).checked = true
+  {% endfor %}
+
+  {% for amenity in listing.listingamenities_set.all.values %}
+    document.getElementById(`amenity-data${'{{amenity.amenity_id}}'}`).checked = true
+  {% endfor %}
 }
 async function showNeighbourhoods() {
   const city = document.getElementById('city').value;

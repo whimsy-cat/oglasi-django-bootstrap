@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="card something shadow border-0"   >
+<div class="card something shadow border-0 mb-4">
   <div class="rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 250px">
     <div class="rounded d-flex flex-column h-100 listing-item-overlayed">
       <div class="col-12 mb-auto d-flex justify-content-between">
@@ -45,7 +45,7 @@
           </div>
           <div class="col-3 text-nowrap">
             <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-            <small>{{ listing.listingcharacteristics_set.first.size }}m2</small>
+            <small>{{ listing.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
           </div>
           {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
           <div class="col-3">
@@ -63,7 +63,12 @@
           </div>
           <div class="col-3 text-nowrap">
             <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-            <small class="{% if listing.listingcharacteristics_set.first.parking %}  {% else %} text-decoration-line-through {% endif %}" >Parking</small>
+            <small class="
+            {% if listing.listingcharacteristics_set.first.parking %}
+              {% elif 'Garaža' in listing.details %}
+              {% elif 'Parking van zone' in listing.details %}
+              {% elif 'Parking u zoni' in listing.details %}
+            {% else %} text-decoration-line-through {% endif %}" >Parking</small>
           </div>
           {% endif %}
         </div>

@@ -28,7 +28,7 @@
   </div>
   <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.size }}m2</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
   </div>
   {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
   <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
@@ -46,7 +46,12 @@
   </div>
   <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
     <img style="height: 18px;width: 18px" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if listing.listingcharacteristics_set.first.parking %}  {% else %} text-decoration-line-through {% endif %}">Parking</small>
+    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} 
+    {% if listing.listingcharacteristics_set.first.parking %}
+      {% elif 'Garaža' in listing.details %}
+      {% elif 'Parking van zone' in listing.details %}
+      {% elif 'Parking u zoni' in listing.details %}
+    {% else %} text-decoration-line-through {% endif %}">Parking</small>
   </div>
   {% endif %}
 </div>

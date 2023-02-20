@@ -22,7 +22,7 @@
       </button>
     </div>
   </div>
-  <div class="col-5 d-flex  py-3 pe-3">
+  <div class="col-5 d-flex p-3">
     <div class="d-flex flex-column justify-content-between w-75">
       <h6 class="fw-bold">{{listing.title}}</h6>
       <p class="text-black-50">{{listing.city}}, {{listing.municipality}}</p>
@@ -31,17 +31,15 @@
       </div>
       {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
     </div>
-    <div class="d-flex flex-column justify-content-between  ms-3 w-25">
+    <div class="d-flex flex-column justify-content-between ms-2 w-25">
       <div>
         <div style="background: center / contain no-repeat url('/static/images/placeholders/zidart.jpg');height: 110px;"></div>
       </div>
       {% include 'includes/listing_helpers/like_compare.html' %}
       <div class="text-nowrap fw-bold fs-6 mb-2 d-flex justify-content-end" id="money{{listing.id}}" ></div>
-      <div class="d-flex justify-content-center align-items-center">
-        <div class="border border-info text-info p-2 rounded fs-6" onclick="onListingClick('{{listing.slug}}')">
+        <div class="border border-info text-center text-info p-2 rounded fs-6" onclick="onListingClick('{{listing.slug}}')">
           Detaljnije
         </div>
-      </div>
     </div>
   </div>
 </div>
