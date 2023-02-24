@@ -16,9 +16,9 @@
       <div class="col-12 px-3 pb-2 text-white">
         <h6>{% include 'includes/listing_helpers/price_parser.html' %}</h6> 
         <p class="card-text listing-description">{{ listing.title|truncatechars:30 }}</p> 
-        <div class="row" >
-          <div class="col-3 text-nowrap">
-            <img style="height: 18px;width: 18px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
+        <div class="row  align-items-center" >
+          <div class="col-3 d-flex align-items-center ">
+            <img  class="me-1" style="height: 20px;width: 20px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
             <small>
               {% if listing.category.name == 'Poslovni prostor' %}
               Pos. Prostor
@@ -44,25 +44,25 @@
             </small>
           </div>
           <div class="col-3 text-nowrap">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
             <small>{{ listing.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
           </div>
           {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
           <div class="col-3">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
             <small class="{% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
           </div>
           <div class="col-3">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
             <small class="{% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
           </div>
           {% else %}
           <div class="col-3">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
             <small>{{ listing.listingcharacteristics_set.first.structure }}</small>
           </div>
           <div class="col-3 text-nowrap">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
             <small class="
             {% if listing.listingcharacteristics_set.first.parking %}
               {% elif 'Garaža' in listing.details %}

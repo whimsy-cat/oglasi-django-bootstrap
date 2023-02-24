@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Listing, CategoryAmenities, ListingAmenities, Amenity, Detail, CategoryDetails, ListingDetails, ListingCharacteristics, ListingMap, ListingFavorites, Location
+from .models import Listing, CategoryAmenities, ListingAmenities, Amenity, Detail, CategoryDetails, ListingDetails, ListingCharacteristics, ListingMap, ListingFavorites, Location, ListingPrice
 
 
 class ListingMapInline(admin.StackedInline):
@@ -21,6 +21,8 @@ class ListingCharacteristicsInline(admin.StackedInline):
     extra = 0
     max_num = 1
 
+class ListingPricesInline(admin.StackedInline):
+    model = ListingPrice
 
 class ListingAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'date_listed', 'posted_by')
@@ -29,6 +31,7 @@ class ListingAdmin(admin.ModelAdmin):
     inlines = [
         ListingCharacteristicsInline,
         ListingDetailsInline,
+        ListingPricesInline,
         ListingAmenitiesInline,
         ListingMapInline
     ]

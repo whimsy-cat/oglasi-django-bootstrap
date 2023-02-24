@@ -1,7 +1,6 @@
 <!-- Pagination -->
 {% if listings.has_other_pages %}
-<div class="col-4 d-flex justify-content-center">
-  <ul class="pagination">
+  <ul class="pagination d-flex justify-content-center ">
     <!-- Render Previous Button -->
     {% if listings.has_previous %}
       <li><a onclick="queryParam('page', '{{ listings.previous_page_number }}')" class="page-link color-blue rounded-circle m-1"><</a></li>
@@ -27,6 +26,5 @@
       <li><a class="disabled rounded-circle page-link color-blue m-1">></a></li>
     {% endif %}
   </ul>
-</div>
 {% endif %}
 <!-- END Pagination -->

@@ -7,23 +7,26 @@
 
 {% block content %}
 
-<section class="create-listing p-3 pt-4 flex-shrink-0">
-  <div class="container-fluid">
+<section class="create-listing p-2 flex-shrink-0">
+  <div class="container-fluid margin-container">
+    <div class="row">
+      <h5 class="col-2 d-flex align-items-center justify-content-center fw-bold">
+        Dobrodošao/la/
+      </h5>
+      <div class="col">
+        {% include 'includes/listings/listings_sorting.html' %}
+      </div>
+      <div class="col-5 px-5">
+        <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
+      </div>
+      <div class="col d-flex justify-content-end" >
+        {% include 'includes/listings/listings_pagination.html' %}
+      </div>
+    </div>
     <div class="row">
         {% include 'includes/profile_sidebar.html' %}
       <div class="col-10 d-flex flex-column">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <div class="col">
-            {% include 'includes/listings/listings_sorting.html' %}
-          </div>
-          <div class="col-5 px-5">
-            <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
-          </div>
-          <div class="col d-flex justify-content-end me-4" >
-            {% include 'includes/listings/listings_pagination.html' %}
-          </div>
-        </div>
-        <div class="px-2 mt-3">
+        <div class="px-2">
             {% for listing in listings %}
               {% include 'includes/dashboard/my_favorites_card.html' %}
             {% endfor %}

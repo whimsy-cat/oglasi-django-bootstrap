@@ -62,7 +62,7 @@
                     </button>
                   </div>
                 </div>
-                </div>
+              </div>
             </div>
             <div id="detailsForm" class="mx-auto detail-form hide">
               <div class="row mb-3">
@@ -167,8 +167,8 @@
       </div>
     </div>
   </section>
-  <section class="featured-properties p-4 px-5">
-    <div class="container-fluid padding-large">
+  <section class="featured-properties py-4">
+    <div class="container-fluid margin-container">
       <h2 class="text-center mb-4">Preporučeni oglasi</h2>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -179,9 +179,9 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
                   aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner pb-5" >
+        <div class="carousel-inner pb-5">
           <div class=" carousel-item active">
-            <div class="row me-3">
+            <div class="row px-1">
               {% for listing in listings1 %}
               <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
@@ -190,7 +190,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <div class="row me-3">
+            <div class="row px-1">
               {% for listing in listings2 %}
               <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
@@ -199,7 +199,7 @@
             </div>
           </div>
           <div class="carousel-item">
-            <div class="row">
+            <div class="row px-1">
               {% for listing in listings3 %}
               <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
@@ -215,7 +215,6 @@
 
 
   <div class="break-bg mb-3"></div>
-
   <section class="p-3">
     <div class="container-fluid">
       <div class="row">

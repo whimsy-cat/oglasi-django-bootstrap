@@ -36,7 +36,7 @@
 </div>
 
 <section>
-  <div class="container-fluid p-5">
+  <div class="container-fluid py-5 margin-container">
     <div class="padding-large">
     <!-- Top Info View -->
     <div class="row">
@@ -197,12 +197,14 @@
                   </div>
                   {% endfor %}
                 </div>
+                {% if listing.floor_plan.count != 1 %}
                 <button class="carousel-control-prev shadow-caroseul-controls rounded" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon rounded-circle p-4" aria-hidden="true"></span>
                 </button>
                 <button class="carousel-control-next shadow-caroseul-controls rounded" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                   <span class="carousel-control-next-icon rounded-circle p-4" aria-hidden="true"></span>
                 </button>
+                {% endif %}
               </div>
             </div>
             <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
@@ -223,9 +225,7 @@
             {% for promoted in promoted_listings|slice:":1" %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
             {% endfor %}
-            <div class="mb-4">
               {% include 'includes/blog/blog_card.html' %}
-            </div>
           </div>
         </div>
       </div>
@@ -270,13 +270,13 @@
       <div class="row non-printable-area">
         <div class="col-8">
           <div class="shadow card-body px-5 py-3 rounded mb-4" style="height: 688px;">
-            <div class="row border-bottom mx-0 fs-5 my-3" id="chart" role="tablist">
+            <div class="row border-bottom mx-0 fs-5 mt-3 mb-1" id="chart" role="tablist">
               <div class="col-6 d-flex px-0">
                 <div class="d-flex active pb-2 canvasStyle" id="averageprice-tab" data-bs-toggle="tab" data-bs-target="#averageprice-tab-pane" type="button" role="tab" aria-controls="averageprice-tab-pane" aria-selected="true">Prosecna cena na lokaciji</div>
               </div>
             </div>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0"><canvas id="myChart" class="border" style="width:100%;height:570px"></canvas></div>
+              <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0"><canvas id="myChart" class="" style="width:100%;height:570px"></canvas></div>
             </div>
           </div>
         </div>
@@ -371,66 +371,58 @@ map.on('error', function(err) {
 });
 
 // Chart
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-let xValues = [];
-var yValues = [
-  {x: new Date("2022-06-06"), y: 800},
-  {x: new Date("2022-09-09"), y: 500},
-  {x: new Date("2023-02-01"), y: 200},
-  {x: new Date("2023-01-01"), y: 900}
-];
+let labels = [];
+let data = [];
 
-function generateData(i1, i2, step = 1) {
-  let currentDate = new Date();
-  let currentYear = currentDate.getFullYear();
-  let currentMonth = currentDate.getMonth();
-  let lastYear = currentYear - 1;
-
-  for (let x = i1; x <= i2; x += step) {
-    let year = currentMonth - x >= 0 ? currentYear : lastYear;
-    let month = months[(currentMonth - x + 12) % 12];
-    xValues.push(`${month} ${year}`);
-  }
+function generateData() {
+  {% for cd in chart_data %} 
+    labels.push('{{cd.quarter|date:'M-Y'}}')
+    data.push('{{cd.avg_price}}')
+  {% endfor %}
 }
 
-generateData(0, 11, 1);
-
-var sortedYValues = Array(xValues.length).fill({x: null, y: null});
-
-yValues.sort((a, b) => a.x - b.x);
-
-for (let i = 0; i < yValues.length; i++) {
-  let year = yValues[i].x.getFullYear();
-  let month = months[yValues[i].x.getMonth()];
-  let index = xValues.indexOf(`${month} ${year}`);
-  sortedYValues[index] = yValues[i];
-}
+generateData();
 
 new Chart("myChart", {
   type: "line",
   data: {
-    labels: xValues,
+    labels: labels,
     datasets: [{
-      fill: false,
+      fill: true, // Set fill to true to fill area under line
       pointRadius: 4,
-      borderColor: "red",
-      data: sortedYValues
+      borderColor: "#dd557b",
+      backgroundColor: "#dd557b", // Set desired background color
+      data: data
     }]
   },    
   options: {
+    title: {
+      display: true,
+      text: '{{listing.city}}',
+      fontSize: 18,
+      fontColor: 'black',
+      fontStyle: 'bold',
+    },
     legend: {display: false},
     scales: {
       type: 'time', 
       xAxes: [{
         ticks: {
           maxRotation: 0,
-          reverse: true,
+          reverse: false,
+          fontSize: 16
         },
       }],
+      yAxes: [{
+        ticks: {
+          fontSize: 16,
+        },
+      }]
     },
   }
 });
+
 </script>
 
 {% if listing.status == '0' %}

@@ -7,28 +7,24 @@
 
 {% block content %}
 
-<section class="create-listing p-3 pt-4 flex-shrink-0">
-  <div class="container-fluid">
+<section class="create-listing p-2 flex-shrink-0">
+  <div class="container-fluid margin-container">
     <div class="row">
-      <div class="row mb-1">
-        <div class="d-flex justify-content-between align-items-center">
-          <h6 class="col-2 fw-bold text-center">
-            Dobrodošao/la
-          </h6>
-          <div class="col">
-            {% include 'includes/listings/listings_sorting.html' %}
-          </div>
-          <div class="col-5 px-5">
-            <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
-          </div>
-          <div class="col">
-            {% include 'includes/listings/listings_pagination.html' %}
-            pagination
-          </div>
-        </div>
+      <h5 class="col-2 d-flex align-items-center justify-content-center fw-bold">
+        Dobrodošao/la/
+      </h5>
+      <div class="col">
+        {% include 'includes/listings/listings_sorting.html' %}
       </div>
+      <div class="col-5 px-5">
+        <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
+      </div>
+      <div class="col d-flex justify-content-end" >
+        {% include 'includes/listings/listings_pagination.html' %}
+      </div>
+    </div>
+    <div class="row">
         {% include 'includes/profile_sidebar.html' %}
-        
       <div class="col-8 d-flex flex-column px-4">
           {% include 'includes/dashboard/my_favorites_card.html' %}
           {% include 'includes/dashboard/my_favorites_card.html' %}

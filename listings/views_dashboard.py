@@ -5,7 +5,7 @@ from django.utils.timezone import now
 
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingAmenities, Location
+from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingAmenities, Location, ListingPrice
 from uploader.models import DropBox
 from .helpers import to_type_or_none, pagination_helper
 
@@ -58,13 +58,18 @@ def confirm_edit(request, pk):
         listing_instance.description = request.POST.get('description', listing_instance.description)
         listing_instance.status = request.POST.get('status', listing_instance.status)
         listing_instance.category = listing_category
-        listing_instance.price = to_type_or_none(request.POST.get('price'), float, 0.0)
         listing_instance.country = request.POST.get('country', listing_instance.country)
         listing_instance.city = request.POST.get('city', listing_instance.city)
         listing_instance.municipality = request.POST.get('municipality', listing_instance.municipality)
         listing_instance.area = request.POST.get('area', listing_instance.area)
         listing_instance.address = request.POST.get('street', listing_instance.address)
-        listing_instance.date_listed = now()
+
+        if listing_instance.price != to_type_or_none(request.POST.get('price'), float, 0.0):
+            listing_price = ListingPrice.objects.create(
+                listing=listing_instance,
+                price=to_type_or_none(request.POST.get('price'), float, 0.0),
+            )
+            listing_price.save()
 
 
         if request.POST.get('tlocrt[]'):
@@ -215,7 +220,6 @@ def submit(request):
         description=request.POST['description'],
         status=request.POST['status'],
         category=listing_category,
-        price=to_type_or_none(request.POST.get('price'), float, 0.0),
         country=request.POST['country'],
         city=request.POST['city'],
         municipality=request.POST['municipality'],
@@ -223,6 +227,13 @@ def submit(request):
         address=request.POST['street'],
         date_listed=now()
     )
+
+    listing_price = ListingPrice.objects.create(
+        listing=listing_instance,
+        price=to_type_or_none(request.POST.get('price'), float, 0.0),
+    )
+    listing_price.save()
+
 
     for floor_plans in request.POST.getlist('tlocrt[]'):
         dropbox = DropBox.objects.get(pk=floor_plans)

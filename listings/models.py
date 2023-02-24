@@ -4,6 +4,7 @@ from accounts.models import Account
 from category.models import Category
 from uploader.models import DropBox
 from django.utils.text import slugify
+from django.db.models import Max
 
 
 class Listing(models.Model):
@@ -12,7 +13,6 @@ class Listing(models.Model):
     status = models.CharField(max_length=25)
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, default=1)
-    price = models.DecimalField(decimal_places=2, max_digits=15, null=False)
     slug = models.SlugField(max_length=150, unique=True, default="")
     country = models.CharField(max_length=150, null=False, default="Serbia")
     city = models.CharField(max_length=150, null=False, default=None)
@@ -44,6 +44,14 @@ class Listing(models.Model):
     @property
     def details(self):
         return self.listingdetails_set.filter(listing=self).values_list('detail__name', flat=True)
+
+    @property
+    def price(self):
+        latest_price = ListingPrice.objects.filter(listing=self).aggregate(Max('timestamp'))['timestamp__max']
+        if latest_price:
+            return ListingPrice.objects.get(listing=self, timestamp=latest_price).price
+        else:
+            return 0
 
     def __str__(self):
         return self.title
@@ -168,3 +176,14 @@ class Location(models.Model):
     city = models.CharField(max_length=150, null=False, default=None)
     municipality = models.CharField(max_length=250, null=False, default=None)
     area = models.CharField(max_length=250, null=False, default=None)
+
+class ListingPrice(models.Model):
+    listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
+    price = models.DecimalField(decimal_places=2, max_digits=15, null=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.listing.title
+
+    class Meta:
+        verbose_name_plural = "Prices"

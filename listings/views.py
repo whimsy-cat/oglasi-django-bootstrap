@@ -2,9 +2,13 @@ from django.shortcuts import render, redirect
 
 from django.http import JsonResponse
 
+from django.db.models.functions import TruncQuarter
+from django.db.models import Avg
+import datetime
+
 from accounts.models import Account
 from category.models import Category
-from listings.models import Detail, Listing, Amenity, CategoryDetails, CategoryAmenities, ListingFavorites, Location
+from listings.models import Detail, Listing, Amenity, CategoryDetails, CategoryAmenities, ListingFavorites, Location, ListingPrice
 import json
 
 from .helpers import sort_helper, pagination_helper, query_params_helper
@@ -54,6 +58,18 @@ def listing(request, slug):
     try:
         listing = Listing.objects.get(slug=slug)
 
+        quarterly_prices = ListingPrice.objects.annotate(
+            quarter=TruncQuarter('timestamp')
+        ).filter(
+            timestamp__gte=datetime.datetime.now() - datetime.timedelta(days=365), listing__city=listing.city
+        ).values(
+            'quarter'
+        ).annotate(
+            avg_price=Avg('price')
+        ).order_by(
+            'quarter'
+        )
+        
         # TODO: no promoted for now, implement when it comes
         promoted_listings = Listing.objects.all().order_by('?')[:4]
         # TODO: find similar listings based on what?
@@ -66,7 +82,8 @@ def listing(request, slug):
     context = {
         "listing": listing,
         "promoted_listings": promoted_listings,
-        "similar_listings": similar_listings
+        "similar_listings": similar_listings,
+        "chart_data": quarterly_prices
     }
 
     return render(request, 'listing_profile.html', context)

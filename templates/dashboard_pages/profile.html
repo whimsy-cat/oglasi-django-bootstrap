@@ -7,13 +7,17 @@
 
 {% block content %}
 
-<section class="create-listing p-3 pt-4 flex-shrink-0">
-  <div class="container-fluid">
+<section class="create-listing p-2 flex-shrink-0">
+  <div class="container-fluid margin-container">
+    <div class="row">
+      <h5 class="col-2 d-flex align-items-center justify-content-center fw-bold">
+        Dobrodošao/la/
+      </h5>
     <div class="row ">
         {% include 'includes/profile_sidebar.html' %}
-      <div class="col">
-        <div class="row">
-          <div class="col-10">
+      <div class="col m-0 p-0">
+        <div class="row m-0">
+          <div class="col-9">
                 {% include 'includes/dashboard/profile_card.html' %}
             <div class="row mt-4">
               <div class="col">
@@ -65,7 +69,7 @@
               </div>
             </div>
           </div>
-          <div class="col-2 d-flex flex-column">
+          <div class="col-3 d-flex flex-column justify-content-between">
             {% include 'includes/dashboard/listing_profile_views.html' %}
           </div>
           <div class="col">

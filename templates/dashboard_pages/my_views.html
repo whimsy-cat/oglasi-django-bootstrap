@@ -8,10 +8,10 @@
 {% block content %}
 
 <section class="create-listing p-3 pt-4 flex-shrink-0">
-  <div class="container-fluid">
+  <div class="container-fluid margin-container">
     <div class="row">
         {% include 'includes/profile_sidebar.html' %}
-      <div class="col-8 d-flex flex-column">
+      <div class="col-7 d-flex flex-column">
         <div class="col shadow rounded">
           <div class="row d-flex justify-content-around px-4">
             <div class="col-5">
@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="col-2 d-flex flex-column">
+      <div class="col-3 d-flex flex-column justify-content-between">
         {% include 'includes/dashboard/listing_profile_views.html' %}
       </div>
     </div>

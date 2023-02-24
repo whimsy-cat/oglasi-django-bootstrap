@@ -81,9 +81,9 @@
         <div class="row m-3 border border-primary border-opacity-25 rounded" id="allDetails">
           {% for detail in details %}
           <div class="col-3">
-            <div class="form-checks my-2">
-              <input class="form-check-input" type="checkbox" value="{{detail.id}}" id="d{{detail}}">
-              <label class="form-check-label" for="d{{detail}}">
+            <div class="form-checks my-2 d-flex align-items-center">
+              <input class="form-check-input" type="checkbox" value="{{detail.id}}" id="d{{detail}}" style="height:25px;width:25px">
+              <label class="form-check-label ms-2 fs-6" for="d{{detail}}">
                 {{detail}}
               </label>
             </div>
@@ -94,9 +94,9 @@
         <div class="row m-3 border border-primary border-opacity-25 rounded" id="allAmenities">
           {% for amenity in amenities %}
           <div class="col-3">
-            <div class="form-checks my-2">
-              <input class="form-check-input" type="checkbox" value="{{amenity.id}}" id="a{{amenity}}">
-              <label class="form-check-label" for="a{{amenity}}">
+            <div class="form-checks my-2 d-flex align-items-center">
+              <input class="form-check-input" type="checkbox" value="{{amenity.id}}" id="a{{amenity}}" style="height:25px;width:25px">
+              <label class="form-check-label ms-2 fs-6" for="a{{amenity}}">
                 {{amenity}}
               </label>
             </div>
