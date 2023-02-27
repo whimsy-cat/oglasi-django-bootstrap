@@ -36,8 +36,8 @@ jobs:
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
       with:
-        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+        aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET }}
         application_name: oglasi
         environment_name: oglasi-dev
         version_label: 1
