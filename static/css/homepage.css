@@ -197,19 +197,19 @@
   background-position: center center;
 }
 .background-beograd {
-  background-image: url("/static/images/homepage/bg_bg.jpg");
+  background-image: url("/staticfiles/images/homepage/bg_bg.jpg");
 }
 .background-kg {
-  background-image: url("/static/images/homepage/kg_bg.jpg");
+  background-image: url("/staticfiles/images/homepage/kg_bg.jpg");
 }
 .background-nis {
-  background-image: url("/static/images/homepage/nis_bg.jpg");
+  background-image: url("/staticfiles/images/homepage/nis_bg.jpg");
 }
 .background-ns {
-  background-image: url("/static/images/homepage/ns_bg.jpg");
+  background-image: url("/staticfiles/images/homepage/ns_bg.jpg");
 }
 .background-subotica {
-  background-image: url("/static/images/homepage/su_bg.jpg");
+  background-image: url("/staticfiles/images/homepage/su_bg.jpg");
 }
 .property-city .property-item .overlay {
   position: absolute;
@@ -250,35 +250,35 @@
   margin-left: 31px;
 }
 .popular-location .ablock-cover {
-  background-image: url("/static/images/homepage/nbg_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/nbg_cover.jpg")
 }
 .popular-location .kosancicev-cover {
-  background-image: url("/static/images/homepage/kosancicev_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/kosancicev_cover.jpg")
 }
 .popular-location .waterfront-cover {
-  background-image: url("/static/images/homepage/waterfront_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/waterfront_cover.jpg")
 }
 .popular-location .residencies-cover {
-  background-image: url("/static/images/homepage/residencies_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/residencies_cover.jpg")
 }
 .popular-location .dorcol-cover {
-  background-image: url("/static/images/homepage/dorcol_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/dorcol_cover.jpg")
 }
 .popular-location .kalemegdan-cover {
-  background-image: url("/static/images/homepage/kalemegdan_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/kalemegdan_cover.jpg")
 }
 .popular-location .usce-cover {
-  background-image: url("/static/images/homepage/usce_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/usce_cover.jpg")
 }
 .popular-location .hram-cover {
-  background-image: url("/static/images/homepage/hram_cover.jpg")
+  background-image: url("/staticfiles/images/homepage/hram_cover.jpg")
 }
 
 /* Agencies break */
 .break-bg {
   height: 480px;
   width: 100%;
-  background: url("/static/images/homepage/hram_bg.jpg") center;
+  background: url("/staticfiles/images/homepage/hram_bg.jpg") center;
   background-size: cover;
 }
 
