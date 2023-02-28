@@ -15,6 +15,7 @@ from pathlib import Path
 
 from django.contrib import messages
 from environs import Env
+import os
 
 env = Env()
 env.read_env()
@@ -31,7 +32,7 @@ SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG", default=False)
-ALLOWED_HOSTS = [".moj-dom.me", "localhost", "127.0.0.1", "oglasi-dev.eu-central-1.elasticbeanstalk.com"]
+ALLOWED_HOSTS = [".moj-dom.me", "localhost", "127.0.0.1", "oglasi-app-dev.eba-igddbfv2.eu-central-1.elasticbeanstalk.com"]
 
 
 # Application definition
@@ -92,9 +93,21 @@ WSGI_APPLICATION = 'oglasi_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@db/postgres")
-}
+if 'RDS_DB_NAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
+else:
+    DATABASES = {
+        "default": env.dj_db_url("DATABASE_URL", default="postgres://postgres@db/postgres")
+    }
 
 
 # Password validation
