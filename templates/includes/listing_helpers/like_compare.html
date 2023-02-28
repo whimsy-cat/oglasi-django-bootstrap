@@ -11,12 +11,12 @@
 </div>
 <script>
   function addRemoveFavorites(id) {
-    let url = 'http://localhost:8000'
+    let url = "{% url 'listing_add_remove_favorites' %}"
     let csrftoken =  document.getElementById('token').value;
     let headers = new Headers();
     headers.append("Content-Type", "application/json");
     headers.append("X-CSRFToken", csrftoken);
-    fetch(`${url}/oglasi/oglas-omiljeni/`, {
+    fetch(`${url}`, {
         method: "POST",
         headers: headers,
         body: JSON.stringify({

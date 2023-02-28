@@ -11,7 +11,9 @@
       </span>
       <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
     </div>
-    <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 250px" alt="" onclick="onListingClick('{{listing.slug}}')"></div>
+    <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
+      <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 250px" alt=""></div>
+    </a>
   <div class="px-3 pt-3 ">
     <div class="d-flex justify-content-between ">
       <p class="card-text">{{ listing.title|truncatechars:30 }}</p>
@@ -24,12 +26,3 @@
     {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
   </div>
 </div>
-<script>  
-   function onListingClick(slug) {
-        {% if debug != None %}
-          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
-        {% else %}
-          console.error('Define real URL');
-        {% endif %}
-    }
-</script>

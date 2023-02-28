@@ -25,8 +25,7 @@ def register(request):
             phone_number = form.cleaned_data['phone_number']
             password = form.cleaned_data['password']
 
-            user = Account.objects.create_user(first_name, last_name, email, email, password)
-            user.phone_number = phone_number
+            user = Account.objects.create_user(first_name, last_name, email, email, password, phone_number)
             user.save()
 
             # User activation

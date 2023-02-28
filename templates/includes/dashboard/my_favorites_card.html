@@ -37,9 +37,11 @@
       </div>
       {% include 'includes/listing_helpers/like_compare.html' %}
       <div class="text-nowrap fw-bold fs-6 mb-2 d-flex justify-content-end" id="money{{listing.id}}" ></div>
-        <div class="border border-info text-center text-info p-2 rounded fs-6" onclick="onListingClick('{{listing.slug}}')">
+      <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
+        <div class="border border-info text-center text-info p-2 rounded fs-6">
           Detaljnije
         </div>
+      </a>
     </div>
   </div>
 </div>
@@ -47,12 +49,5 @@
 <script>
 
   document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
-  
-  function onListingClick(slug) {
-        {% if debug != None %}
-          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
-        {% else %}
-          console.error('Define real URL');
-        {% endif %}
-    }
+
 </script>

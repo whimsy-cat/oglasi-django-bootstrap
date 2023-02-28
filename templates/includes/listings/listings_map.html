@@ -51,7 +51,9 @@ function initMap() {
           <h6>{{ l.price }} eur</h6>
             <div class="d-flex flex-direction-column justify-content-between">
             <p class="card-text listing-description">{{ l.title }}</p>
-            <div onclick="onListingClick('{{l.slug}}')"><img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-eye.svg' %}" alt="House item"></div>
+            <a style="text-decoration:none" href="{% url 'listing_profile' slug=l.slug %}">
+              <div><img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-eye.svg' %}" alt="House item"></div>
+            </a>
         </div>
         <div class="row d-flex justify-content-between align-items-center border-top border-light pt-2" >
           <div class="col-3 text-nowrap">
@@ -147,14 +149,6 @@ function onListingHover(id) {
     zoom: 13
   });
 marker.togglePopup() 
-}
-
-function onListingClick(slug) {
-  {% if debug != None %}
-    window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
-  {% else %}
-    console.error('Define real URL');
-  {% endif %}
 }
 </script>
 

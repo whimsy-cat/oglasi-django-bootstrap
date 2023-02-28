@@ -9,7 +9,9 @@
         Izdavanje
       {% endif %}
     </div>
-    <img class="rounded" src='{% get_media_prefix %}{{ listing.images.first.file }}' alt="Hearth" width="180px" height="102px" onclick="onListingClick('{{listing.slug}}')">
+    <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
+      <img class="rounded" src='{% get_media_prefix %}{{ listing.images.first.file }}' alt="Hearth" width="180px" height="102px">
+    </a>
     <div class="ps-3">
       <p class="fw-bold">{{listing.title|truncatechars:25}}</p>
       <p class="d-flex">{{listing.city}}, {{listing.municipality}}</p>
@@ -95,11 +97,4 @@ window.addEventListener('load', function () {
   }
 });
 
-function onListingClick(slug) {
-      {% if debug != None %}
-        window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
-      {% else %}
-        console.error('Define real URL');
-      {% endif %}
-  }
 </script>

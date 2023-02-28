@@ -3,7 +3,7 @@ from django.db import models
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, first_name, last_name, username, email, password=None):
+    def create_user(self, first_name, last_name, username, email, password=None, phone_number=None):
         if not email:
             raise ValueError('Email must be provided')
         if not username:
@@ -13,7 +13,8 @@ class MyAccountManager(BaseUserManager):
             email = self.normalize_email(email),
             username = username,
             first_name = first_name,
-            last_name = last_name
+            last_name = last_name,
+            phone_number = phone_number
         )
 
         user.set_password(password)

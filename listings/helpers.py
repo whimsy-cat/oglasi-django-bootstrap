@@ -1,4 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from listings.models import ListingPrice
+from django.db.models import Max, Subquery, OuterRef
 
 
 # Sort listings
@@ -76,15 +78,17 @@ def query_params_helper(request, listing_data):
             category__name__iexact=query_category)
 
     if query_price:
+        latest_listing_prices = ListingPrice.objects.filter(listing=OuterRef('pk')).order_by('-timestamp')[:1]
+
         price_range = query_price.split('_')
         start = int(price_range[0]) if price_range[0] else None
         end = int(price_range[1]) if price_range[1] else None
         if start and end:
-            listing_data = listing_data.filter(price__range=(start, end))
+            listing_data = listing_data.annotate(latest_price=Subquery(latest_listing_prices.values('price'))).filter(latest_price__range=(start, end))
         elif start:
-            listing_data = listing_data.filter(price__gte=start)
+            listing_data = listing_data.annotate(latest_price=Subquery(latest_listing_prices.values('price'))).filter(latest_price__gte=start)
         elif end:
-            listing_data = listing_data.filter(price__lte=end)
+            listing_data = listing_data.annotate(latest_price=Subquery(latest_listing_prices.values('price'))).filter(latest_price__lte=end)
 
     if query_size:
         size_range = query_size.split('_')

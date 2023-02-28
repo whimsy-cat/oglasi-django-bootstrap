@@ -11,8 +11,10 @@
           {% include 'includes/listing_helpers/like_compare.html' %}
         </div>
       </div>
-      <div class="position-absolute w-100" style="height:215px;margin-top:35px;z-index:4" onclick="onListingClick('{{listing.slug}}')" {% if request.path == '/oglasi/' %} onmouseover="onListingHover('{{ listing.id }}')" onmouseleave="onListingHover('{{ listing.id }}')" {% endif %}>
-      </div>
+        <a class="position-absolute w-100" style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}" {% if request.path == '/oglasi/' %} onmouseover="onListingHover('{{ listing.id }}')" onmouseleave="onListingHover('{{ listing.id }}')" {% endif %}>
+          <div class="position-absolute w-100" style="height:215px;margin-top:35px;z-index:4">
+          </div>
+        </a>
       <div class="col-12 px-3 pb-2 text-white">
         <h6>{% include 'includes/listing_helpers/price_parser.html' %}</h6> 
         <p class="card-text listing-description">{{ listing.title|truncatechars:30 }}</p> 
@@ -77,19 +79,5 @@
   </div>
 </div>
 
-{% endblock %}
-
-{% block page_specific_scripts %}
-<script>
-
-    function onListingClick(slug) {
-        {% if debug != None %}
-          window.location.href=`http://localhost:8000/oglasi/pregled/${slug}`
-        {% else %}
-          console.error('Define real URL');
-        {% endif %}
-    }
-
-</script>
 {% endblock %}
 
