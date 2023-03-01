@@ -8,7 +8,7 @@ def generate_random_code():
 # Create your models here.
 class DropBox(models.Model):
     id = models.CharField(max_length=16, default=generate_random_code, db_index=True, primary_key=True)
-    file = models.FileField(max_length=100)
+    file = models.FileField(max_length=100, upload_to='listings')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

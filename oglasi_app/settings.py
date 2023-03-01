@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Third-party
     # "allauth",
     # "allauth.account",
+    'storages',
     "debug_toolbar",
     "rest_framework",
     # local
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'listings',
     'blog',
     'uploader',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +147,7 @@ STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://oglasi-raw-images.s3.eu-central-1.amazonaws.com/media/'
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
@@ -165,14 +167,14 @@ MESSAGE_TAGS = {
 
 
 #SMTP configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'bogdan.gavrilovic@gmail.com'
-EMAIL_HOST_PASSWORD = 'zfdpakaamkfzhlun'
-EMAIL_USE_TLS = True
+if 'SENDGRID_API_KEY' in os.environ:
+    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+    EMAIL_HOST_PASSWORD = os.environ['SENDGRID_API_KEY']
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = 'bogdan.gavrilovic@gmail.com'
+DEFAULT_FROM_EMAIL = 'bogdan@codefactory.me'
 
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (
@@ -199,7 +201,51 @@ CSRF_COOKIE_SECURE = env.bool("DJANGO_CSRF_COOKIE_SECURE", default=True)
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
+TINYMCE_DEFAULT_CONFIG = {
+    "height": "450px",
+    "width": "100%",
+    "menubar": "file edit view insert format tools table help",
+    "plugins": "advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code "
+    "fullscreen insertdatetime media table paste code help wordcount spellchecker",
+    "toolbar": "undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft "
+    "aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor "
+    "backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | "
+    "fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | "
+    "a11ycheck ltr rtl | showcomments addcomment code",
+    "custom_undo_redo_levels": 10,
+    "language": "en_EN",  # To force a specific language instead of the Django current language.
+}
+
+# AWS S3 config
+AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID", "")
+AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY", "")
+AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME", "oglasi-raw-images")
+AWS_STORAGE_REGION = env.str("AWS_STORAGE_REGION", "eu-central-1")
+
+USE_S3 = (
+    AWS_ACCESS_KEY_ID and
+    AWS_SECRET_ACCESS_KEY and
+    AWS_STORAGE_BUCKET_NAME and
+    AWS_STORAGE_REGION
+)
+
+if USE_S3:
+    AWS_S3_CUSTOM_DOMAIN = env.str("AWS_S3_CUSTOM_DOMAIN", "")
+    AWS_S3_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+    AWS_DEFAULT_ACL = env.str("AWS_DEFAULT_ACL", "public-read")
+    AWS_MEDIA_LOCATION = env.str("AWS_MEDIA_LOCATION", "media")
+    AWS_AUTO_CREATE_BUCKET = env.bool("AWS_AUTO_CREATE_BUCKET", False)
+    DEFAULT_FILE_STORAGE = env.str(
+        "DEFAULT_FILE_STORAGE", "oglasi_app.storage_backends.MediaStorage"
+    )
+
 if DEBUG:
+    # in debug mode just console log emails
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+    # Do not use S3 in local debug mode
+    MEDIA_URL = '/media/'
+
     import socket  # only if you haven't already imported this
     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
     INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]

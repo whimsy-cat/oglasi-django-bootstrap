@@ -28,5 +28,6 @@ urlpatterns = [
     path('nalog/', include('accounts.urls')),
     path('oglasi/', include('listings.urls')),
     path('files/', include('uploader.urls')),
+    path('tinymce/', include('tinymce.urls')),
     path('', views.home, name="home"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
