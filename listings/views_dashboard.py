@@ -160,7 +160,7 @@ def confirm_edit(request, pk):
 def my_listings(request):
     user = Account.objects.get(id=request.user.id)
     listings = Listing.objects.filter(posted_by=user)
-    listings_paginated = pagination_helper(request, listings)
+    listings_paginated = pagination_helper(request, listings, 9)
 
     context = {
         'listings': listings_paginated

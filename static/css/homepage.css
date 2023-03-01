@@ -1,27 +1,13 @@
 /* primary button color */
 /* #00A6BD */
 
-.header {
-  display: none;
-}
-.header .logo-text {
-  color: #f8f9fa;
-}
+
 .header .nav a {
   color: #f8f9fa;
 }
-.header .nav a:hover {
-  color: #f8f9fa;
-  filter: brightness(0.85);
-}
-.header-homepage {
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-  border-bottom: none !important;
+.nav-hover:hover {
+  color: #f8f9fa!important;
+  filter: brightness(0.85)!important 
 }
 
 /*homepage*/
@@ -33,22 +19,12 @@
   height: 770px;
   /*margin-top: -76px;*/
   padding: 0;
-  position: relative;
 }
-.home-search:before {
-  content: "";
-  background-color: rgb(29, 41, 62);
-  opacity: 0.6;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
+.background-shadow {
+  background-color: rgb(29, 41, 62, 0.6);
 }
 
 .home-search .home-content {
-  position: relative;
   padding: 280px 0 0;
 }
 
@@ -86,7 +62,7 @@
 
 .search-form-row,
 .detail-form {
-  width: 900px;
+  max-width: 900px;
 }
 
 .detail-form {
@@ -303,4 +279,8 @@
 }
 .blog-user {
   margin-bottom: 0;
+}
+
+hovers:hover {
+  cursor: pointer!important ;
 }

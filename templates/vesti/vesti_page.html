@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center">
+  <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
+    <h1 class="col-4 fw-bolder">Moj Dom Vesti</h1>
+    <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
+  </div>
+  <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
+    <div class="w-100 h-100 listing-item-overlayed"></div>
+  </div>
+</div>
+<div class="row m-0 bg-grayish" style="height: 64px; padding: 0px 168px;">
+    <div class="col d-flex justify-content-between align-items-center text-white fw-bold">
+      <div>xxxxx</div>
+      <div>xxxxx</div>
+      <div>xxxxx</div>
+      <div>xxxxx</div>
+      <div>xxxxx</div>
+    </div>
+</div>
+
+<div class="container-fluid pt-4 " style="padding: 0px 180px;">
+  <div class="row">
+    <div class="col-8 mb-4">
+      <div class="m-0 shadow rounded h-100 p-3 px-4 d-flex flex-column justify-content-between" style="text-align: justify;">
+        <div>
+          <div class="d-flex justify-content-between align-items-center">
+            <h6 class="fw-bold">Kako spremiti vasu sobu za jesen</h6>
+            <div class=" d-flex justify-content-end ">
+              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                {% include 'includes/listing_helpers/share_listing.html' %}
+              <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
+            </div>
+          </div>
+          <div class="d-flex">22. oktobar.2022.<div class="text-info ms-1">Dizajn</div></div>
+          <div class="w-100 border my-3" style="height: 320px; background: center / cover no-repeat url('{% static 'images/agenciespage/primer2.jpg'%}')"></div>
+          <p>
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+            greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the
+            text influencing the design. In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+            greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the
+            text influencing the design.
+          </p>
+          <p>
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+          </p>
+          <div class="w-100 border my-3" style="height: 320px; background: center / cover no-repeat url('{% static 'images/agenciespage/primer3.jpg'%}')"></div>
+          <p>
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+          </p>
+          <p>
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+          </p>
+          <p>
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+            In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate
+            the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as
+            a placeholder before final copy is available. It is also used to temporarily replace text in a process called
+          </p>
+        </div>
+        <div>Autor teksta: Dusan Tajsic / Zmaj sa Djerma</div>
+      </div>
+    </div>
+    <div class="col-4">
+      {% for promoted in promoted_listings|slice:":6" %}
+      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+    {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
+  {% include 'includes/listings/listings_pagination.html' %}
+</div>
+{% endblock %}

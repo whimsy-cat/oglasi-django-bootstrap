@@ -83,3 +83,63 @@ def about_us(request):
         'listings4': listings4
     }
     return render(request, 'about_us_pages/about_us_carier.html', context)
+
+
+def blog_list(request):
+    promoted_listings = Listing.objects.all().order_by('?')[:6]
+
+    context = {
+        "promoted_listings": promoted_listings,
+    }
+
+    return render(request, 'blog/blog_list.html', context)
+
+
+def open_blog(request):
+    promoted_listings = Listing.objects.all().order_by('?')[:6]
+
+    context = {
+        "promoted_listings": promoted_listings,
+    }
+
+    return render(request, 'blog/blog_page.html', context)
+
+
+def news_list(request):
+    promoted_listings = Listing.objects.all().order_by('?')[:6]
+
+    context = {
+        "promoted_listings": promoted_listings,
+    }
+
+    return render(request, 'vesti/lista_vesti.html', context)
+
+
+def open_news(request):
+    promoted_listings = Listing.objects.all().order_by('?')[:6]
+
+    context = {
+        "promoted_listings": promoted_listings,
+    }
+
+    return render(request, 'vesti/vesti_page.html', context)
+
+
+def project_list(request):
+    promoted_listings = Listing.objects.all().order_by('?')[:6]
+
+    context = {
+        "promoted_listings": promoted_listings,
+    }
+
+    return render(request, 'project_pages/project_list.html', context)
+
+
+def project_info(request):
+    promoted_listings = Listing.objects.all().order_by('?')[:6]
+
+    context = {
+        "promoted_listings": promoted_listings,
+    }
+
+    return render(request, 'project_pages/info_about_project.html', context)

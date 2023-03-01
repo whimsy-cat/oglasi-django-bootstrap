@@ -2,16 +2,12 @@
 {% load static %}
 
 {% block page_specific_styles %}
-  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/homepage.css' %}">  
 {% endblock %}
 
 {% block content %}
-  <header class="border-bottom header header-homepage px-3">
-    <div class="container-fluid text-center text-light">
-      {% include 'includes/menu.html' %}
-    </div>
-  </header>
   <section class="home-search">
+    <div class="w-100 h-100 background-shadow">
     <div class="container-fluid">
       <div class="home-content">
         <div class="text-center home-text">
@@ -19,8 +15,8 @@
         </div>
         <div class="home-search-form p-3">
           <form action="/oglasi" id="search-listing-form">
-            <div class="row justify-content-sm-center">
-              <div class="col col-md-auto">
+            <div class="row justify-content-center ">
+              <div class="col col-auto">
                 <div class="input-group mb-3">
                   <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue" type="button">Prodaja</button>
                   <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end" type="button">Izdavanje</button>
@@ -28,10 +24,8 @@
                 </div>
               </div>
             </div>
-            <div class="mx-auto search-form-row">
-              <div class="row">
-                <div class="col mx-auto">
-                  <div class="input-group mb-3">
+              <div class="row mx-auto" style="max-width: 900px;">
+                  <div class="col input-group mb-3 p-0">
                       <input type="text" list="country" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Lokacija" onchange="showNeighbourhoods()">
                       <datalist id="country">
                         {% for loc in all_cities %}
@@ -61,11 +55,8 @@
                       Pretrazi
                     </button>
                   </div>
-                </div>
               </div>
-            </div>
-            <div id="detailsForm" class="mx-auto detail-form hide">
-              <div class="row mb-3">
+              <div id="detailsForm" class="row mx-auto detail-form hide">
                 <div class="col-3">
                   <label for="price" class="form-label">Cena</label>
                   <select class="form-select" id="price-min" name="cena" placeholder="od" aria-label="Default select example">
@@ -156,12 +147,38 @@
                     <option value="Grejanje ostalo">Grejanje ostalo</option>
                   </select>
                 </div>
-                <div class="col-3 mt-2 text-center">
+                <div class="col-3 mt-2 justify-content-center d-flex align-items-end">
                   <h5>Broj oglasa:</h5>
+                </div>
+                <div class="col-3">
+                  <label for="namestenost"  class="form-label">Namestenost</label>
+                  <select class="form-select" id="namestenost" name="namestenost">
+                    <option value="">Izaberite...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label for="parking"  class="form-label">Parking</label>
+                  <select class="form-select" id="parking" name="parking">
+                    <option value="">Izaberite...</option>
+                    <option value="parking mesto">Parking mesto</option>
+                    <option value="garažno mesto">Garažno mesto</option>
+                    <option value="parking platforma">Parking platforma</option>
+                  </select>
+                </div>
+                <div class="col-3">
+                  <label for="oglasivac"  class="form-label">Oglasivac</label>
+                  <select class="form-select" id="oglasivac" name="oglasivac">
+                    <option value="">Izaberite...</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div class="col-3 text-center" >
                   <h5>{{total_listings}}</h5>
                 </div>
               </div>
-            </div>
           </form>
         </div>
       </div>
@@ -211,6 +228,7 @@
       </div>
       {% include 'includes/property_cities.html' %}
     </div>
+  </div>
   </section>
 
 

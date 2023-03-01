@@ -1,0 +1,38 @@
+{% load static %}
+<div class="row">
+  <div class="col-8" style="height: 250px;">
+    <div class="row mx-0 h-100 shadow rounded">
+      <div class="col-5">
+        <div class="w-100 rounded h-100" style="background: center / contain no-repeat url('{% static 'images/agenciespage/primer_agencije.jpg'%}')"></div>
+      </div>
+      <div class="col-7">
+        <div class="row p-2 justify-content-between h-100">
+          <div class="col-12 d-flex justify-content-between">
+            <div class="text-info">Dizajn</div>
+            <div> 20.Oktobar.2022.</div>
+         </div>
+          <h6 class="col-12 fw-bold my-2">Spavaca soba uz koju san postaje java</h6>
+          <p class="col-12" style="text-align: justify;min-height: 112px;">
+            Uz pomoc ovih saveta ce te uspesno sami naci inspiraciju za redizajniranje vase dnevne sobe kao.  
+            Uz pomoc ovih saveta ce te uspesno sami naci inspiraciju za redizajniranje vase dnevne sobe kao.
+            Uz pomoc ovih saveta ce te uspesno dnevne sobe kao...
+          </p>
+          <div class="col-12 border-top d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <div style="height: 30px; width: 30px; background: center / contain no-repeat url('{% static 'images/agenciespage/primer_agencije.jpg'%}')"></div>
+              <div class="ms-1">Dusan Tajsic</div>
+            </div>
+            <div class="text-info">
+              Opsirnije >>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    {% for promoted in promoted_listings|slice:":1" %}
+      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+    {% endfor %}
+  </div>
+</div>

@@ -1,49 +1,57 @@
 {% load static %}
-<div class="row" >
-  <div class="col d-flex justify-content-start">
-    <a href="/"> 
-      <img class="logo" src="{% static 'images/shared/logos.svg' %}" height="72px" alt="logo">
-    </a>
-  </div>
-  <div class="col-8 py-3 d-flex flex-wrap align-items-center justify-content-center">
-    <ul class="nav mb-3 mb-lg-0 me-lg-3">
-      <li class="px-2"><a href="{% url 'listings' %}" class="nav-link px-2 {% if request.path == '/oglasi/' %}link-secondary{% endif %}">Nekretnine</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Vesti</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li>
-      <li class="px-2"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li>
-      <li class="px-2">
-        <a href="#" class="nav-link px-2">
-          <img width="21" height="19" src="{% static 'images/shared/flag_serbia.png' %}" alt="language flag">
-          Jezik
-        </a>
-      </li>
-      <li class="vr"></li>
-    </ul>
-    {% if user.id is not None %}
-      <div class="dropdown text-end">
-        <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
-           data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
-               class="rounded-circle">
-        </a>
-        <ul class="dropdown-menu text-small" style="">
-          <li><a class="dropdown-item" href="{% url 'listing_create' %}">Postavi oglas</a></li>
-          <li><a class="dropdown-item" href="#">Подешавања</a></li>
-          <li>
-            <hr class="dropdown-divider">
-          </li>
-          <li><a class="dropdown-item" href="{% url 'logout' %}">Odjava</a></li>
-        </ul>
+<header class="" >
+  <div class="row px-3 m-0 header non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" >
+    <div class="col-2 d-flex justify-content-start">
+      <a href="/"> 
+        <img class="logo" {% if request.path == '/' %} style="filter: brightness(0) invert(1)" {% endif %} src="{% static 'images/shared/logos.svg' %}" height="72px" alt="logo">
+      </a>
+    </div>
+    <div class="col-8 py-3 d-flex flex-wrap align-items-center justify-content-center">
+      <ul class="nav">
+        <li class="px-2 nav-hover"><a href="{% url 'listings' %}" class="nav-link px-2 {% if request.path == '/oglasi/' %}link-secondary{% endif %}">Nekretnine</a></li>
+        <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li>
+        <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Vesti</a></li>
+        <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li>
+        <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li>
+        <li class="px-2 nav-hover">
+          <a href="#" class="nav-link border-end {% if request.path == '/'%} border-white {% else %} border-dark-50 {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
+            Jezik
+              <ul class="dropdown-menu">
+                <li class="d-flex flex-row align-items-center">
+                  <img class="mx-1" width="21" height="19" src="{% static 'images/shared/flag_serbia.png' %}" alt="language flag">Srpski(lat)
+                </li>
+                <li>
+                  <img class="mx-1" width="21" height="19" src="{% static 'images/shared/flag_serbia.png' %}" alt="language flag">Српски(Ћир)
+                </li>
+                <li>
+                  <img class="mx-1" width="20" height="18" src="{% static 'images/shared/flag_bosnia.png' %}" alt="language flag">Bosanski(lat)
+                </li>
+              </ul>
+          </a>
+        </li>
+      </ul>
+      {% if user.id is not None %}
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
+                class="rounded-circle ms-2">
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="{% url 'listing_create' %}">Postavi oglas</a></li>
+            <li><a class="dropdown-item" href="{% url 'listing_settings' %}">Podesavanja</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Odjava</a></li>
+          </ul>
+        </div>
+        {% else %}
+          {% include 'account_pages/login_register_modal.html' %}
+        {% endif %}
       </div>
-    {% else %}
-      <div class="d-flex text-end">
-        <a class="nav-link px-2" href="{% url 'login' %}">Prijava</a>
-        <a class="nav-link px-2" href="{% url 'register' %}">Registracija</a>
-      </div>
-    {% endif %}
+    <div class="col-2 py-3">
+      <a {% if user.id is not None %} href="{% url 'listing_create' %}" {% else %} data-bs-toggle="modal" data-bs-target="#accountModal" {% endif %}  class="btn create-listing-btn">+ Postavi Oglas</a>
+    </div>
   </div>
-  <div class="col py-3">
-    <a href="{% url 'listing_create' %}" class="btn create-listing-btn">+ Postavi Oglas</a>
-  </div>
-</div>
+</header>

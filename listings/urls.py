@@ -38,13 +38,27 @@ urlpatterns = [
     path('o-agenciji/', views_agencies.about_agency, name="about_agency" ),
 
     # Investors pages
-
     path('investitori/', views_agencies.investors_page, name="investors_page"),
     path('o-investitoru/', views_agencies.about_investor, name="about_investor"),
 
-    # My blog pages
 
-    path('o-nama/', views_agencies.about_us, name="about_us")
+    # Blog pages 
+    path('lista-blogova/', views_agencies.blog_list, name='blog_list'),
+    path('otvoren-blog/', views_agencies.open_blog, name='open_blog'),
+
+
+    # News pages 
+    path('lista-vesti/', views_agencies.news_list, name='news_list'),
+    path('otvorene-vesti/', views_agencies.open_news, name='open_news'),
+    
+
+    # About us pages
+    path('o-nama/', views_agencies.about_us, name="about_us"),
+
+
+    # Projects pages
+    path('projekti-lista/', views_agencies.project_list, name='project_list'),
+    path('info-o-projektu/', views_agencies.project_info, name='project_info'),
 
 
 ]

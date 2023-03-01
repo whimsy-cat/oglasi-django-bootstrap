@@ -40,7 +40,7 @@ def register(request):
             mail_to = email
             send_mail(mail_subject, mail_body, settings.EMAIL_HOST_USER, [mail_to])
             messages.success(request, 'Thank you for registering, please confirm your email')
-            return redirect('register')
+            return redirect('home')
     else:
         form = RegistrationForm()
 
@@ -72,7 +72,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You are logged out.')
-    return redirect('login')
+    return redirect('home')
 
 
 def activate(request, uidb64, token):

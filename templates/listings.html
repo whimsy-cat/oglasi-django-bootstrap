@@ -21,8 +21,8 @@
           <div class="container-fluid">
             <!-- Pagination and Sort -->
             <div class="row py-2" >
-              <div class="col-4 m-auto">Rezultata: {{ listings.paginator.count }}</div>
-              <div class="col-4">{% include 'includes/listings/listings_pagination.html' %}</div>
+              <div class="col m-auto">Rezultata: {{ listings.paginator.count }}</div>
+              <div class="col-5">{% include 'includes/listings/listings_pagination.html' %}</div>
               {% include 'includes/listings/listings_sorting.html' %}
             </div>
         

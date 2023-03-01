@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center">
+  <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
+    <h1 class="col-4 fw-bolder">Moj Dom Blog</h1>
+    <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
+  </div>
+  <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
+    <div class="w-100 h-100 listing-item-overlayed"></div>
+  </div>
+</div>
+<div class="row m-0 bg-grayish" style="height: 64px; padding: 0px 168px;">
+    <div class="col d-flex justify-content-between align-items-center text-white fw-bold">
+      <div>Sve</div>
+      <div>Arhitektura</div>
+      <div>Dizajn</div>
+      <div>Intervjui</div>
+      <div>Ostalo</div>
+      <div>Saveti</div>
+      <div>Urbanizam</div>
+      <div>Zanimljivosti</div>
+    </div>
+</div>
+
+<div class="container-fluid pt-4 " style="padding: 0px 180px;">
+  {% include 'blog/blog_page_card.html' %}
+  {% include 'blog/blog_page_card.html' %}  
+  {% include 'blog/blog_page_card.html' %}
+  {% include 'blog/blog_page_card.html' %}
+</div>
+<div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
+  {% include 'includes/listings/listings_pagination.html' %}
+</div>
+{% endblock %}

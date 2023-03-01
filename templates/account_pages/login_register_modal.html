@@ -1,0 +1,206 @@
+{% load static %}
+
+{% block page_specific_styles %}
+{% endblock %}
+
+<div class="nav-link px-2 hover {% if request.path == '/' %} nav-hover text-white {% endif %} hovers"  data-bs-toggle="modal" data-bs-target="#accountModal" onclick="signInModal()">Prijava</div>
+  <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="tab-content" id="myTabContents">
+            <!--SING IN MODAL-->
+            <div class="d-flex justify-content-end">
+              {% include 'includes/alerts.html' %}
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="signin-tab">
+              <div class="text-center form-signin w-100 m-auto">
+                <form action="{% url 'login' %}" method="post" class="needs-validation" novalidate>
+                  {% csrf_token %}
+                  <h2 class="mb-4 fw-bold">Sign in</h2>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
+                    <label for="floatingInput">Email address</label>
+                    <div class="invalid-feedback">
+                      Please enter email address
+                    </div>  
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
+                    <label for="floatingPassword">Password</label>
+                    <div class="invalid-feedback">
+                      Please enter your password
+                    </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!--REGISTER MODAL-->
+            <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
+              <div class="text-center w-100" style="padding: 60px 15px 60px;">
+                <form action="{% url 'register' %}" method="POST">
+                  {% csrf_token %}
+                  <h2 class="mb-4 fw-bold">Sign up</h2>
+                  <div class="row mb-3">
+                    <div class="col-12 form-floating my-3">
+                      <input type="text" class="form-control" id="floatingregisteremail" name="email" placeholder="Enter your email" required>
+                      <label for="floatingregisteremail" class="ms-2">Enter your email</label>
+                      <!-- {{ form.email }} -->
+                      <div class="invalid-feedback">
+                        Please enter your email
+                      </div>  
+                      <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="col-6 form-floating">
+                      <input type="password" class="form-control" id="floatingpassword" name="password" placeholder="Create password" required>
+                      <label for="floatingpassword" class="ms-2">Create password</label>
+                      <!-- {{ form.password }} -->
+                      <div class="invalid-feedback">
+                        Your passwords dont match
+                      </div>  
+                    </div>
+                    <div class=" col-6 form-floating mb-3">
+                      <input type="password" class="form-control" id="floatingconfirmpassword" name="confirm_password" placeholder="Confirm password" required>
+                      <label for="floatingconfirmpassword" class="ms-2">Confirm password</label>
+                      <!-- {{ form.confirm_password }} -->
+                      <div class="invalid-feedback">
+                        Your passwords dont match
+                      </div>
+                    </div>
+                    <div class="col-6 form-floating mb-3">
+                      <input type="text" class="form-control" id="floatingfirstname" name="first_name" placeholder="Enter first name" required>
+                      <label for="floatingfirstname" class="ms-2">Enter first name</label>
+                      <!-- {{ form.first_name }} -->
+                      <div class="invalid-feedback">
+                        Please enter your name
+                      </div>  
+                    </div>
+                    <div class=" col-6 form-floating">
+                      <input type="text" class="form-control" id="floatinglastname" name="last_name" placeholder="Enter last name" required>
+                      <label for="floatinglastname" class="ms-2">Enter last name</label>
+                      <!-- {{ form.last_name }} -->
+                      <div class="invalid-feedback">
+                        Please enter your last name
+                      </div>
+                    </div>
+                    <div class=" col-6 form-floating">
+                      <input type="text" class="form-control" id="floatingphone" name="phone_number" placeholder="Enter your phone number" required>
+                      <label for="floatingphone" class="ms-2">Enter your phone number</label>
+                      <!-- {{ form.phone_number }} -->
+                      <div class="invalid-feedback">
+                        Please enter your phone number
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <select class="form-select h-100" onchange="agencyModal(this.value)" aria-label="Default select example">
+                        <option selected value="fizicko-lice">Fizicko lice</option>
+                        <option value="agency">Agencija</option>
+                      </select>
+                    </div>
+                    <div id="agencyPart" class="row m-0 p-0 mt-3 border-top border-dark-50" style="display: none;">
+                      <h4 class="col-12 my-3">Agencies Only</h4>
+                      <div class="col-6 form-floating" >
+                        <input type="text" class="form-control" id="floatingPIB" name="last_name" placeholder="Enter agency PIB">
+                        <label for="floatingPIB" class="ms-2">Enter agency PIB</label>
+                        <!-- {{ form.last_name }} -->
+                        <div class="invalid-feedback">
+                          Please enter your agency PIB
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-floating mb-3">
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
+                  </div>
+                  {{ form.email.errors|add:"Please enter a valid email address. " }}
+                  {{ form.password.errors|add:"Enter password correctly" }}
+                  {{ form.confirm_password.errors }}
+                  {{ form.non_field_errors }}
+                </form>
+              </div>
+            </div>
+            <!--FORGOT PASSWORD MODAL-->
+            <div class="tab-pane fade" id="forgotpassword" role="tabpanel" aria-labelledby="forgotpassword-tab">
+              <div class="text-center form-signin w-100 m-auto">
+                <form action="{% url 'forgot_password' %}" method="post">
+                  {% csrf_token %}
+                  <h2 class="mb-4 fw-bold">Forgot password?</h2>
+                  <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="forgot-password-label" name="email" placeholder="Email Address" >
+                    <label for="forgot-password-label">Email address</label>
+                    <div class="invalid-feedback">
+                      Please enter email address
+                    </div>  
+                  </div>
+                  <div class="form-floating mb-3">
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">Send</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="form-floating">
+              <ul class="d-flex flex-column align-items-center p-0" id="myTabas" role="tablist">
+                <div id="log_in" style="display: none;">Have account?
+                  <a class="active" id="signin-tab" data-bs-toggle="tab" data-bs-target="#signin" type="button" role="tab" aria-controls="signin" aria-selected="true"  onclick="singin()">Sign in</a>
+                </div>
+                <div id="dont_have_acc">Dont have account?
+                  <a class="" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab" aria-controls="register" aria-selected="false"  onclick="register()">Register</a>
+                </div>
+                <div id="forgot_pass">Retrive password
+                  <a class="" id="forgotpassword-tab" data-bs-toggle="tab" data-bs-target="#forgotpassword" type="button" role="tab" aria-controls="forgotpassword" aria-selected="false" onclick="forgotpassword()">Forgot password?</a>
+                </div>
+              </ul>
+            </div> 
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="nav-link px-2 hovers hover {% if request.path == '/' %} nav-hover  text-white {% endif %}" data-bs-toggle="modal" data-bs-target="#accountModal" onclick="registerModal()">Registracija</div>
+<script>
+
+function singin() {
+  document.getElementById('dont_have_acc').setAttribute('style', 'display: block;')
+  document.getElementById('forgot_pass').setAttribute('style', 'display: block;')
+  document.getElementById('log_in').setAttribute('style', 'display: none;')
+}
+function register() {
+  document.getElementById('dont_have_acc').setAttribute('style', 'display: none;')
+  document.getElementById('forgot_pass').setAttribute('style', 'display: block;')
+  document.getElementById('log_in').setAttribute('style', 'display: block;')
+}
+
+function forgotpassword() {
+  document.getElementById('dont_have_acc').setAttribute('style', 'display: block;')
+  document.getElementById('forgot_pass').setAttribute('style', 'display: none;')
+  document.getElementById('log_in').setAttribute('style', 'display: block;')
+}
+
+function registerModal() {
+  document.getElementById('register-tab').click()
+}
+function signInModal() {
+  document.getElementById('signin-tab').click()
+}
+
+function agencyModal(show) {
+  console.log(show)
+  if (show === 'agency') {
+    document.getElementById('agencyPart').setAttribute('style', 'display: block;')
+    document.getElementById('floatingPIB').setAttribute('required', true);
+  } else if (show === 'fizicko-lice') {
+    document.getElementById('agencyPart').setAttribute('style', 'display: none;')
+    document.getElementById('floatingPIB').setAttribute('required', false);
+
+  }
+}
+</script>

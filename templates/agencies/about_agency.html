@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center">
+  <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
+    <h1 class="col-4 fw-bolder">Moj Dom Agencije</h1>
+    <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
+  </div>
+  <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
+    <div class="w-100 h-100 listing-item-overlayed"></div>
+  </div>
+</div>
+<div class="container-fluid " style="padding: 0px 180px;">
+  <div class="row shadow rounded mt-4" style="height:290px">
+    <div class="col-5 border-end border-2 d-flex justify-content-center align-items-center">
+      <div class="rounded" style="height: 170px;width: 260px;background: center / cover no-repeat url('{% static 'images/agenciespage/primer_agencije.jpg'%}')"></div>
+    </div>
+    <div class="col-7 ">
+      <div class="row h-100 pt-3 p-2">
+        <h4 class="col-12 fw-bold">Art Nekretnine</h4>
+        <div class="col-12 fs-6 d-flex">
+          <div class="fw-bold me-1">Adresa:</div><div>Krunska 38, Vracar, Beograd, Srbija</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Telefon 1:</div><div>011/xxxx-xxx</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Ukupno oglasa:</div><div>344</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Telefon 2:</div><div>064/xxxx-xxx</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Broj u registru:</div><div>025</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Telefon 3:</div><div>011/xxxx-xxx</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">PIB:</div><div>105364718</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Website:</div><div>www.gigant.rs</div>
+        </div>
+        <div class="col-6 fs-6 d-flex">
+          <div class="fw-bold me-1">Maticni broj:</div><div>20365471</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-center align-items-center" style="height: 88px;">
+    <div class="col-7 d-flex justify-content-evenly fs-5 text-black-50 fw-bold">
+     <div class="w-25 px-3 py-1 rounded text-center tab" onclick="handleClick(this)">Sve(344)</div>
+     <div class="w-25 px-3 py-1 rounded text-center tab" onclick="handleClick(this)">Prodaja(37)</div>
+     <div class="w-25 px-3 py-1 rounded text-center tab active-blue-tab" onclick="handleClick(this)">Izdavanje(307)</div>
+    </div>
+  </div>
+  <div class="" id="listings">
+  {% for listing in listings %}
+      {% include 'includes/dashboard/my_favorites_card.html' %}
+  {% endfor %}
+  </div>
+</div>
+<div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
+  {% include 'includes/listings/listings_pagination.html' %}
+</div>
+
+<script>
+function handleClick(tab) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach((btn) => btn.classList.remove('active-blue-tab'));
+
+  tab.classList.add('active-blue-tab');
+}   
+
+</script>
+{% endblock %}
