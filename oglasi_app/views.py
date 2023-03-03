@@ -14,12 +14,6 @@ def home(request):
 
     all_cities = Location.objects.values('city').distinct()
 
-    try:
-        send_mail('test', 'test', settings.DEFAULT_FROM_EMAIL, ['stevic01@gmail.com'])
-    except Exception as e:
-        print('GRESKA')
-        print(e)
-
     context = {
         'listings1':listings1,
         'listings2': listings2,
