@@ -41,12 +41,6 @@ urlpatterns = [
     path('investitori/', views_agencies.investors_page, name="investors_page"),
     path('o-investitoru/', views_agencies.about_investor, name="about_investor"),
 
-
-    # Blog pages 
-    path('lista-blogova/', views_agencies.blog_list, name='blog_list'),
-    path('otvoren-blog/', views_agencies.open_blog, name='open_blog'),
-
-
     # News pages 
     path('lista-vesti/', views_agencies.news_list, name='news_list'),
     path('otvorene-vesti/', views_agencies.open_news, name='open_news'),

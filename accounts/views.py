@@ -38,7 +38,7 @@ def register(request):
                 'token': default_token_generator.make_token(user),
             })
             mail_to = email
-            send_mail(mail_subject, mail_body, settings.EMAIL_HOST_USER, [mail_to])
+            send_mail(mail_subject, mail_body, settings.DEFAULT_FROM_EMAIL, [mail_to])
             messages.success(request, 'Thank you for registering, please confirm your email')
             return redirect('home')
     else:

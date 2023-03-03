@@ -2,12 +2,3 @@
   max-width: 330px;
   padding: 60px 15px 60px;
 }
-
-@media only screen and (min-width: 768px) and (min-height: 760px) {
-  .footer.sticky {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-}

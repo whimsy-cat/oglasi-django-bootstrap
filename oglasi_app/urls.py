@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/', include('category.urls')),
     path('nalog/', include('accounts.urls')),
     path('oglasi/', include('listings.urls')),
+    path('blog/', include('blog.urls')),
     path('files/', include('uploader.urls')),
     path('tinymce/', include('tinymce.urls')),
     path('', views.home, name="home"),

@@ -63,6 +63,8 @@ def confirm_edit(request, pk):
         listing_instance.municipality = request.POST.get('municipality', listing_instance.municipality)
         listing_instance.area = request.POST.get('area', listing_instance.area)
         listing_instance.address = request.POST.get('street', listing_instance.address)
+        listing_instance.video = request.POST.get('video', listing_instance.video)
+        listing_instance.virtual_tour = request.POST.get('virtual_tour', listing_instance.virtual_tour)
 
         if listing_instance.price != to_type_or_none(request.POST.get('price'), float, 0.0):
             listing_price = ListingPrice.objects.create(
@@ -91,14 +93,6 @@ def confirm_edit(request, pk):
             for image in request.POST.getlist('images[]'):
                 dropbox = DropBox.objects.get(pk=image)
                 listing_instance.images.add(dropbox)
-
-
-        
-
-
-        if request.POST.get('video'):
-            dropbox = DropBox.objects.get(pk=request.POST['video'])
-            listing_instance.video.add(dropbox)
 
         listing_instance.save()
         
@@ -225,6 +219,8 @@ def submit(request):
         municipality=request.POST['municipality'],
         area=request.POST['area'],
         address=request.POST['street'],
+        video=request.POST['video'],
+        virtual_tour=request.POST['virtual_tour'],
         date_listed=now()
     )
 
@@ -244,10 +240,6 @@ def submit(request):
         dropbox = DropBox.objects.get(pk=image)
         listing_instance.images.add(dropbox)
         
-
-    if request.POST['video']:
-        dropbox = DropBox.objects.get(pk=request.POST['video'])
-        listing_instance.video.add(dropbox)
 
     listing_instance.save()
 

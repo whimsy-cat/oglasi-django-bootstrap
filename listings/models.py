@@ -22,7 +22,8 @@ class Listing(models.Model):
     date_listed = models.DateTimeField(auto_now_add=True)
     images = models.ManyToManyField(DropBox, related_name="images")
     floor_plan = models.ManyToManyField(DropBox, related_name="floor_plan")
-    video = models.ManyToManyField(DropBox, related_name="video")
+    video = models.TextField(max_length=1000, null=True)
+    virtual_tour = models.TextField(max_length=1000, null=True)
     posted_by = models.ForeignKey(Account, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):

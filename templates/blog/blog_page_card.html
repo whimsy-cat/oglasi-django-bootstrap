@@ -2,29 +2,28 @@
 <div class="row">
   <div class="col-8" style="height: 250px;">
     <div class="row mx-0 h-100 shadow rounded">
-      <div class="col-5">
-        <div class="w-100 rounded h-100" style="background: center / contain no-repeat url('{% static 'images/agenciespage/primer_agencije.jpg'%}')"></div>
+      <div class="col-5 m-0 p-0">
+        <div class="w-100 h-100" style="background: center / cover no-repeat url('{{ article.cover.url }}')"></div>
       </div>
       <div class="col-7">
         <div class="row p-2 justify-content-between h-100">
           <div class="col-12 d-flex justify-content-between">
-            <div class="text-info">Dizajn</div>
-            <div> 20.Oktobar.2022.</div>
+            <div class="text-info">{{ article.category.name }}</div>
+            <div>{{ article.timestamp|date:"F j, Y" }}</div>
          </div>
-          <h6 class="col-12 fw-bold my-2">Spavaca soba uz koju san postaje java</h6>
+          <h6 class="col-12 fw-bold my-2">{{ article.title }}</h6>
           <p class="col-12" style="text-align: justify;min-height: 112px;">
-            Uz pomoc ovih saveta ce te uspesno sami naci inspiraciju za redizajniranje vase dnevne sobe kao.  
-            Uz pomoc ovih saveta ce te uspesno sami naci inspiraciju za redizajniranje vase dnevne sobe kao.
-            Uz pomoc ovih saveta ce te uspesno dnevne sobe kao...
+            {{ article.description|striptags|slice:":320" }}...
           </p>
           <div class="col-12 border-top d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-              <div style="height: 30px; width: 30px; background: center / contain no-repeat url('{% static 'images/agenciespage/primer_agencije.jpg'%}')"></div>
-              <div class="ms-1">Dusan Tajsic</div>
+              <div class="ms-1">{{ article.user.first_name }}</div>
             </div>
-            <div class="text-info">
-              Opsirnije >>
-            </div>
+            <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+              <div class="text-info">
+                  Opsirnije >>
+              </div>
+            </a>
           </div>
         </div>
       </div>

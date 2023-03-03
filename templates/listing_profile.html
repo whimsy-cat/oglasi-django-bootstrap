@@ -168,7 +168,7 @@
     </div>
 
         <!-- 2. Images/Videos/Floorplan Pills -->
-        {% if  listing.floor_plan.exists or listing.video.exists %}
+        {% if  listing.floor_plan.exists or listing.video %}
       <div class="row">
         <div class="col-8 printable-area">
         <div class="shadow card-body px-5 py-3 rounded mb-4" style="height:688px;">
@@ -178,7 +178,7 @@
               <div class="d-flex active pb-2 media  imageVideoFlooplanStyle" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</div>
             </div>
             {% endif %}
-            {% if listing.video.exists %}
+            {% if listing.video %}
             <div class="col-3 d-flex px-0">
               <div class="d-flex  pb-2 media {% if not listing.floor_plan.exists %} imageVideoFlooplanStyle {% else %} ms-4 {% endif %}"  id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</div>
             </div>
@@ -208,14 +208,10 @@
               </div>
             </div>
             <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
-              {% with listing.video.all|first as video %}
-              <video controls style="height: 550px; width: 100%;">
-                <source src="{{ video.file.url }}" type="video/mp4">
-              </video>
-              {% endwith %}
+              <iframe width="100%" height="550" src="{{ listing.video }}"> </iframe>
             </div>
             <div class="tab-pane fade row" id="virtuelnatura-tab-pane" role="tabpanel" aria-labelledby="virtuelnatura-tab" tabindex="0">
-              Virtuelna Tura
+              <iframe width='100%' height='550' src='{{ listing.virtual_tour }}' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe>
             </div>
           </div>
           </div>

@@ -10,7 +10,7 @@
       <ul class="nav">
         <li class="px-2 nav-hover"><a href="{% url 'listings' %}" class="nav-link px-2 {% if request.path == '/oglasi/' %}link-secondary{% endif %}">Nekretnine</a></li>
         <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li>
-        <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Vesti</a></li>
+        <li class="px-2 nav-hover"><a href="{% url 'blog_list' %}" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Vesti</a></li>
         <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li>
         <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li>
         <li class="px-2 nav-hover">

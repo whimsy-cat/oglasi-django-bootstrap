@@ -174,7 +174,7 @@ if 'SENDGRID_API_KEY' in os.environ:
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 
-DEFAULT_FROM_EMAIL = 'bogdan@codefactory.me'
+DEFAULT_FROM_EMAIL = "podrska@moj-dom.me"
 
 SITE_ID = 1
 AUTHENTICATION_BACKENDS = (

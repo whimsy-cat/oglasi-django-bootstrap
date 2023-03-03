@@ -1,6 +1,10 @@
 from django.contrib import admin
 
-from blog.models import Article
+from blog.models import Article, ArticleCategory
 
 
-admin.site.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    save_as = True
+
+admin.site.register(Article, ArticleAdmin)
+admin.site.register(ArticleCategory)

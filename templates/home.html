@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block content %}
-  <section class="home-search">
+  <section class="home-search"  style="min-height: 100vh;">
     <div class="w-100 h-100 background-shadow">
     <div class="container-fluid">
-      <div class="home-content">
+      <div class="home-content justify-content-center">
         <div class="text-center home-text">
           <h1>Pronadjite dom vaših snova</h1>
         </div>
@@ -185,7 +185,7 @@
     </div>
   </section>
   <section class="featured-properties py-4">
-    <div class="container-fluid margin-container">
+    <div class="container">
       <h2 class="text-center mb-4">Preporučeni oglasi</h2>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -234,7 +234,7 @@
 
   <div class="break-bg mb-3"></div>
   <section class="p-3">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <div id="carouselAgencies" class="carousel carousel-dark slide pb-4" data-bs-ride="true">
           <div class="carousel-indicators mb-0">
@@ -291,94 +291,30 @@
 
   <section class="blog-news p-3">
     <h2 class="text-center mb-4">Blog i Vesti</h2>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
-        <div class="col-lg-6">
-          <div class="card shadow">
-            <img src="{% static 'images/placeholders/blog_cover.jpg' %}" height="212" alt="Blog cover" />
-
-            <div class="card-body">
-              <h5>Kako do stambenog kredita?</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="blog-user">Admin</p>
-                <small class="text-muted">30.10.2022.</small>
+        {% for article in articles %}
+          <div class="text-dark {% if forloop.first%}col-lg-6{% elif forloop.last %}col-lg-6{% else %}col-lg-3{% endif %}">
+            <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+              <div class="card shadow">
+                <div class="w-100" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
+            
+                <div class="card-body">
+                  <div style="min-height:48px" class="d-flex justify-content-between"><h5>{{ article.title }}</h5> <div class="text-info ps-2">{{ article.category.name }}</div></div>
+                  {% if forloop.first or forloop.last %}
+                    <p class="card-text" style="min-height: 84px;">{{ article.description|striptags|slice:":320" }}...</p>
+                  {% else %}
+                    <p class="card-text">{{ article.description|striptags|slice:":140" }}...</p>
+                  {% endif %}
+                  <div class="d-flex justify-content-between align-items-center">
+                    <p class="blog-user">{{ article.user.first_name }}</p>
+                    <small class="text-muted">{{ article.timestamp|date:"F j, Y" }}</small>
+                  </div>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="card shadow">
-            <img src="{% static 'images/property/pc3.jpg' %}" height="212" alt="Blog cover" />
-
-            <div class="card-body">
-              <h5>Kako do stambenog kredita?</h5>
-              <p class="card-text clip-text">This is a wider card with supporting text below as a natural lead-inThis content is a little bit longer. </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="blog-user">Admin</p>
-                <small class="text-muted">30.10.2022.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3">
-          <div class="card shadow">
-            <img src="{% static 'images/property/pc3.jpg' %}" height="212" alt="Blog cover" />
-
-            <div class="card-body">
-              <h5>Kako do stambenog kredita?</h5>
-              <p class="card-text clip-text">This is a wider card with supporting text below as a natural lead-inThis content is a little bit longer. </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="blog-user">Admin</p>
-                <small class="text-muted">30.10.2022.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
-        <div class="col-lg-4">
-          <div class="card shadow">
-            <img src="{% static 'images/property/pc3.jpg' %}" height="212" alt="Blog cover" />
-
-            <div class="card-body">
-              <h5>Kako do stambenog kredita?</h5>
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="blog-user">Admin</p>
-                <small class="text-muted">30.10.2022.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card shadow">
-            <img src="{% static 'images/property/pc3.jpg' %}" height="212" alt="Blog cover" />
-
-            <div class="card-body">
-              <h5>Kako do stambenog kredita?</h5>
-              <p class="card-text clip-text">This is a wider card with supporting text below as a natural lead-inThis content is a little bit longer. </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="blog-user">Admin</p>
-                <small class="text-muted">30.10.2022.</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card shadow">
-            <img src="{% static 'images/property/pc3.jpg' %}" height="212" alt="Blog cover" />
-
-            <div class="card-body">
-              <h5>Kako do stambenog kredita?</h5>
-              <p class="card-text clip-text">This is a wider card with supporting text below as a natural lead-inThis content is a little bit longer. </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <p class="blog-user">Admin</p>
-                <small class="text-muted">30.10.2022.</small>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>

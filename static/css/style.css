@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
 
@@ -26,6 +26,13 @@ input::placeholder {
   font-size: 13px;
   font-style: italic;
   opacity: 0.8;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 
@@ -299,4 +306,13 @@ ul.pagination {
 }
 .row-span {
   grid-row: span 2;
+}
+
+.blog-content {
+  overflow: hidden; /* hide any content that overflows the parent div */
+}
+
+.blog-content img {
+  max-width: 100%; /* set the maximum width of the image to 100% of the parent div */
+  height: auto; /* maintain the aspect ratio of the image */
 }

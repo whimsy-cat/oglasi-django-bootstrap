@@ -128,9 +128,9 @@
                 <div class="creation-step step-section mb-4">
                   {# Step main heading #}
                   <div class="text-center mb-4 step-heading">
-                    <h5>Učitajte tlocrt</h5>
+                    <h5>Dodajte link youtube videa</h5>
                   </div>
-                  <div id="tlocrt-area"></div>
+                  <input type="text" placeholder="https://youtube.com..." class="form-control" id="video" name="video" value="{{ listing.video }}">
                 </div>
               </div>
 
@@ -138,19 +138,17 @@
                 <div class="creation-step step-section mb-4">
                   {# Step main heading #}
                   <div class="text-center mb-4 step-heading">
-                    <h5>Učitajte video</h5>
+                    <h5>Učitajte tlocrt</h5>
                   </div>
-                  <div id="video-area"></div>
+                  <div id="tlocrt-area"></div>
                 </div>
 
                 <div class="creation-step step-section mb-4">
                   {# Step main heading #}
                   <div class="text-center mb-4 step-heading">
-                    <h5>Učitajte virtuelnu turu</h5>
-                    <div>
-                      Image loader
-                    </div>
+                    <h5>Dodajte link virtuelne ture</h5>
                   </div>
+                  <input placeholder="https:///www..." type="text" class="form-control" id="virtual_tour" name="virtual_tour" value="{{ listing.virtual_tour }}">
                 </div>
 
                 <div class="d-flex justify-content-end next-step">
@@ -400,8 +398,6 @@
                   </button>
                 </div>
               </div>
-              <input type="hidden" id="video" name="video">
-              <input type="hidden" id="tlocrt" name="tlocrt">
             </div>
           </form>
         </div>
@@ -579,43 +575,9 @@
       });
     });
   {% endfor %}
-
-    const uppyVideo = new Uppy.Uppy({
-      debug: true,
-      locale: Uppy.locales.sr_RS_Latin,
-      restrictions: {
-        maxFiles: 1,
-        maxFileSize: 6000000,
-        minFileSize: 50000,
-        minNumberOfFiles: 1,
-        allowedFileTypes: ['video/*'],
-      },
-    });
-    uppyVideo.use(Uppy.Dashboard, {
-      width: '100%',
-      height: 450,
-      inline: true,
-      target: '#video-area',
-      closeAfterFinish: false,
-      note: 'Video fajlovi su jedino dozvoljeni, 1 fajl, do 5MB veličine',
-    });
-    uppyVideo.use(Uppy.XHRUpload, {
-      endpoint: '/files/upload/',
-      method: 'POST',
-      formData: true,
-      fieldName: 'file',
-      headers: {
-        'X-CSRFToken': csrfToken
-      }
-    });
-    uppyVideo.on('complete', (result) => {
-      console.log('Upload complete! We’ve uploaded these files:', result.successful);
-      for (const item of result.successful) {
-        document.querySelector('#video').value = item.response.body.id;
-      }
-    });
   </script>
-  <script>
+
+<script>
 function initMap() {
   const key = 'VmRKj3ewutGzwLJmPdKS';
   const style = `https://api.maptiler.com/maps/streets-v2/style.json?key=${key}`

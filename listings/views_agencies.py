@@ -84,27 +84,6 @@ def about_us(request):
     }
     return render(request, 'about_us_pages/about_us_carier.html', context)
 
-
-def blog_list(request):
-    promoted_listings = Listing.objects.all().order_by('?')[:6]
-
-    context = {
-        "promoted_listings": promoted_listings,
-    }
-
-    return render(request, 'blog/blog_list.html', context)
-
-
-def open_blog(request):
-    promoted_listings = Listing.objects.all().order_by('?')[:6]
-
-    context = {
-        "promoted_listings": promoted_listings,
-    }
-
-    return render(request, 'blog/blog_page.html', context)
-
-
 def news_list(request):
     promoted_listings = Listing.objects.all().order_by('?')[:6]
 
