@@ -17,7 +17,7 @@
         {% include 'includes/listings/listings_sorting.html' %}
       </div>
       <div class="col-5 px-5">
-        <input class="form-control rounded-pill" type="search" placeholder="Pretraži" id="example-search-input">
+        <input class="form-control rounded-pill" type="search" id="search" placeholder="Pretraži" id="example-search-input" value="{{ request.GET.search }}">
       </div>
       <div class="col d-flex justify-content-end" >
         {% include 'includes/listings/listings_pagination.html' %}
@@ -37,13 +37,22 @@
     <div class="col d-flex justify-content-center my-3">
         {% include 'includes/listings/listings_pagination.html' %}
     </div>
-  </div>
 </section>
 <script>
 
-  function favoriteHandler() {
-    console.log('Favorite')
+ // Get the input field
+var input = document.getElementById("search");
+
+// Execute a function when the user presses a key on the keyboard
+input.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+
+    queryParam('search', input.value)
   }
+});
 
 </script>
 {% endblock %}

@@ -8,7 +8,7 @@
 {% block content %}
 <div class="d-flex align-items-center">
   <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
-    <h1 class="col-4 fw-bolder">Moj Dom Blog</h1>
+    <h1 class="col-4 fw-bolder">Moj Dom {% if request.path == '/blog/' %} Blog {% else %} Vesti {% endif %}</h1>
     <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
   </div>
   <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
@@ -32,7 +32,24 @@
 
 <div class="container pt-4 ">
   {% for article in articles %}
-    {% include 'blog/blog_page_card.html' %}
+  <div class="row">
+    <div class="col-8" style="height: 250px;">
+      {% include 'blog/blog_page_card.html' %}
+    </div>
+    <div class="col-4">
+      {% if forloop.counter0|divisibleby:2 %}
+        {% for promoted in promoted_listings|slice:":1" %}
+          {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
+        {% endfor %}
+      {% else %}
+      {% for article in articles_different|slice:":1" %}
+        <div class="mb-4">
+          {% include 'blog/blog_card.html' with article=article smaller=1 %}
+        </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
   {% endfor %}
 </div>
 <div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">

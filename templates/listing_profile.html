@@ -218,10 +218,12 @@
         </div>
         <div class="col-4 mb-4 non-printable-area">
           <div class="col shadow card-body rounded p-4 h-100">
-            {% for promoted in promoted_listings|slice:":1" %}
-              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
-            {% endfor %}
-              {% include 'blog/blog_card.html' %}
+            {% if promoted_listings.0 %}
+              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.0 %}
+            {% endif %}
+            {% if articles.0 %}
+              {% include 'blog/blog_card.html' with article=articles.0 %}
+            {% endif %}
           </div>
         </div>
       </div>
@@ -247,17 +249,19 @@
                 </div>
               </div>
                <div class="tab-pane fade" id="locate-tab-pane" role="tabpanel" aria-labelledby="locate-tab" tabindex="0">
-            Lokacija
+                Lokacija
               </div>
             </div>
           </div>
         </div>
         <div class="col-4 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
-            {% for promoted in promoted_listings|slice:":1" %}
-              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
-            {% endfor %}
-              {% include 'blog/blog_card.html' %}
+            {% if promoted_listings.1 %}
+              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.1 %}
+            {% endif %}
+            {% if articles.1 %}
+              {% include 'blog/blog_card.html' with article=articles.1 %}
+            {% endif %}
           </div>
         </div>
       </div>
@@ -278,10 +282,12 @@
         </div>
         <div class="col-4 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
-            {% for promoted in promoted_listings|slice:":1" %}
-              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
-            {% endfor %}
-              {% include 'blog/blog_card.html' %}
+            {% if promoted_listings.2 %}
+              {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.2 %}
+            {% endif %}
+            {% if articles.2 %}
+              {% include 'blog/blog_card.html' with article=articles.2 %}
+            {% endif %}
           </div>
         </div>
       </div>

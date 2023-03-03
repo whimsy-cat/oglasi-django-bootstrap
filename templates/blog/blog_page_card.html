@@ -1,6 +1,4 @@
 {% load static %}
-<div class="row">
-  <div class="col-8" style="height: 250px;">
     <div class="row mx-0 h-100 shadow rounded">
       <div class="col-5 m-0 p-0">
         <div class="w-100 h-100" style="background: center / cover no-repeat url('{{ article.cover.url }}')"></div>
@@ -19,19 +17,16 @@
             <div class="d-flex align-items-center">
               <div class="ms-1">{{ article.user.first_name }}</div>
             </div>
-            <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
-              <div class="text-info">
-                  Opsirnije >>
-              </div>
-            </a>
+              {% if article.article_type == 'Blog' %}
+                <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+              {% else %} 
+                <a href="{% url 'news_detail' pk=article.id %}" style="text-decoration: none; color: black">
+              {% endif %}
+                <div class="text-info">
+                    Opsirnije >>
+                </div>
+              </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="col-4">
-    {% for promoted in promoted_listings|slice:":1" %}
-      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
-    {% endfor %}
-  </div>
-</div>

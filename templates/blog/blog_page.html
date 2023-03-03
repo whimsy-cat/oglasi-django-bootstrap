@@ -8,7 +8,7 @@
 {% block content %}
 <div class="d-flex align-items-center">
   <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
-    <h1 class="col-4 fw-bolder">Moj Dom Blog</h1>
+    <h1 class="col-4 fw-bolder">Moj Dom {% if '/blog/' in request.path %} Blog {% else %} Vesti {% endif %}</h1>
     <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
   </div>
   <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
@@ -20,9 +20,9 @@
   <div class="container">
     <div class="row align-items-center ">
       <div class="col h-100 d-flex justify-content-between">
-        <a role="button" style="text-decoration: none;" href="{% url 'blog_list' %}" class="text-white fw-bold">Sve</a>
+        <a role="button" style="text-decoration: none;" href="{% if '/blog/' in request.path %} {% url 'blog_list' %} {% else %} {% url 'news_list' %} {% endif %}" class="text-white fw-bold">Sve</a>
         {% for category in categories %}
-          <a style="text-decoration: none;" class="text-white fw-bold" href="{% url 'blog_list' %}?category={{category.id}}">{{ category.name }}</a>
+          <a style="text-decoration: none;" class="text-white fw-bold" href="{% if '/blog/' in request.path %} {% url 'blog_list' %} {% else %} {% url 'news_list' %} {% endif %}?category={{category.id}}">{{ category.name }}</a>
         {% endfor %}
       </div>
     </div>
@@ -52,9 +52,30 @@
       </div>
     </div>
     <div class="col-4">
-      {% for promoted in promoted_listings|slice:":6" %}
-      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}
-    {% endfor %}
+      {% if promoted_listings.0 %}
+        {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.0 %}
+      {% endif %}
+      {% if articles_different.0 %}
+       <div class="mb-4">
+          {% include 'blog/blog_card.html' with article=articles_different.0 smaller=1%}
+        </div>
+      {% endif %}
+      {% if promoted_listings.1 %}
+        {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.1 %}
+      {% endif %}
+      {% if articles_different.1 %}
+        <div class="mb-4">
+          {% include 'blog/blog_card.html' with article=articles_different.1 smaller=1%}
+        </div>
+      {% endif %}
+      {% if promoted_listings.2 %}
+        {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.2 %}
+      {% endif %}
+      {% if articles_different.2 %}
+        <div class="mb-4">
+          {% include 'blog/blog_card.html' with article=articles_different.2 smaller=1 %}
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>

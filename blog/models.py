@@ -6,11 +6,18 @@ from django.utils import timezone
 
 
 class ArticleCategory(models.Model):
+    ARTICLE_TYPE_CHOICES = (
+        ('Blog', 'Blog'),
+        ('News', 'News'),
+    )
+        
     name = models.CharField(max_length=255)
     description = models.CharField(max_length=255)
+    for_article_type = models.CharField(max_length=4, choices=ARTICLE_TYPE_CHOICES, default='Blog')
 
     def __str__(self):
         return self.name
+    
     class Meta:
         verbose_name_plural = "Article Categories"
 

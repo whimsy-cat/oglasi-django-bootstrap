@@ -1,23 +1,29 @@
 {% load static %}
 
 <div class="w-100 shadow rounded">
-  <div class="rounded-top" style="background: center / cover no-repeat url('{% static 'images/placeholders/apt1.jpg' %}');height: 250px"></div>
-  <div class="h-100 px-3 pb-2 pt-3">
-    <div class="d-flex justify-content-between">
-      <h6 class="fw-bold">Jesen u vasem domu</h6>
-      <div class="text-info">Gradska kuca</div>
-    </div>
-    <div>
-      Najlaksi nacin da dodjete do doma uz promo...
-    </div>
-    <div class="d-flex justify-content-between align-items-center mt-2">
-      <div class="d-flex align-items-center">
-        <div class="rounded-circle me-2" style="background: center / cover no-repeat url('{% static 'images/placeholders/apt1.jpg' %}');height:32px;width:32px"></div>
-        Admin
+  {% if article.article_type == 'Blog' %}
+  <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+  {% else %} 
+    <a href="{% url 'news_detail' pk=article.id %}" style="text-decoration: none; color: black">
+  {% endif %}
+    <div class="rounded-top" style="background: center / cover no-repeat url('{{ article.cover.url }}');height: {% if smaller %}139px {% else %} 250px {% endif %}"></div>
+    <div class="h-100 px-3 pb-2 pt-3">
+      <div class="d-flex justify-content-between">
+        <h6 class="fw-bold">{{ article.title }}</h6>
+        <div class="text-info">{{ article.category.name }}</div>
       </div>
       <div>
-        30. Oktobar. 2022.
+        {{ article.description|striptags|slice:":50" }}...
+      </div>
+      <div class="d-flex justify-content-between align-items-center mt-2">
+        <div class="d-flex align-items-center">
+          <div class="rounded-circle me-2" style="background: center / cover no-repeat url('{% static 'images/placeholders/apt1.jpg' %}');height:32px;width:32px"></div>
+          {{ article.user.first_name }}
+        </div>
+        <div>
+          {{ article.timestamp|date:"F j, Y" }}
+        </div>
       </div>
     </div>
-  </div>
+  </a>
 </div>

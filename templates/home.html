@@ -295,7 +295,11 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
         {% for article in articles %}
           <div class="text-dark {% if forloop.first%}col-lg-6{% elif forloop.last %}col-lg-6{% else %}col-lg-3{% endif %}">
-            <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+            {% if article.article_type == 'Blog' %}
+              <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+            {% else %} 
+              <a href="{% url 'news_detail' pk=article.id %}" style="text-decoration: none; color: black">
+            {% endif %}
               <div class="card shadow">
                 <div class="w-100" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
             

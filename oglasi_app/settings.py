@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     # Third-party
     # "allauth",
     # "allauth.account",
-    'storages',
     "debug_toolbar",
     "rest_framework",
     # local
@@ -55,6 +54,7 @@ INSTALLED_APPS = [
     'blog',
     'uploader',
     'tinymce',
+    'storages',
 ]
 
 MIDDLEWARE = [

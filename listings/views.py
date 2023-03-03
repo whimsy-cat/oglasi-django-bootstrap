@@ -9,6 +9,7 @@ import datetime
 from accounts.models import Account
 from category.models import Category
 from listings.models import Detail, Listing, Amenity, CategoryDetails, CategoryAmenities, ListingFavorites, Location, ListingPrice
+from blog.models import Article
 import json
 
 from .helpers import sort_helper, pagination_helper, query_params_helper
@@ -75,6 +76,8 @@ def listing(request, slug):
         # TODO: find similar listings based on what?
         similar_listings = Listing.objects.all().order_by('?')[:4]
 
+        articles = Article.objects.all().order_by('-timestamp')[:4]
+
     except Listing.DoesNotExist:
         # add error handling
         return redirect('home')
@@ -83,7 +86,8 @@ def listing(request, slug):
         "listing": listing,
         "promoted_listings": promoted_listings,
         "similar_listings": similar_listings,
-        "chart_data": quarterly_prices
+        "chart_data": quarterly_prices,
+        "articles": articles
     }
 
     return render(request, 'listing_profile.html', context)

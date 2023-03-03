@@ -10,7 +10,10 @@ def sort_helper(request, listing_data):
         sort_by_name = sort.split('-')[1]
         sort_by_sign = sort.split('-')[0]
         sort_by_sign = '' if sort_by_sign == 'asc' else '-'
-        listing_data = listing_data.order_by(sort_by_sign + sort_by_name)
+
+        if sort_by_name == 'price':
+            latest_listing_prices = ListingPrice.objects.filter(listing=OuterRef('pk')).order_by('-timestamp')[:1]
+            listing_data = listing_data.annotate(latest_price=Subquery(latest_listing_prices.values('price'))).order_by(sort_by_sign + 'latest_price')
 
     return listing_data
 
@@ -31,6 +34,8 @@ def pagination_helper(request, listing_data, offset=12):
 
 # Query listings
 def query_params_helper(request, listing_data):
+    query_search = request.GET.get('search')
+
     query_city = request.GET.get('grad')
     query_location = request.GET.get('lokacija')
     query_category = request.GET.get('tip')
@@ -43,6 +48,9 @@ def query_params_helper(request, listing_data):
     query_garage = request.GET.get('parking')
     query_total_floors = request.GET.get('spratnost')
     query_grejanje = request.GET.get('grejanje')
+
+    if query_search:
+        listing_data = listing_data.filter(title=query_search)
 
     if query_grejanje:
         listing_data = listing_data.filter(

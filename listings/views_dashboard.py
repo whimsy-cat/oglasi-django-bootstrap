@@ -7,7 +7,7 @@ from accounts.models import Account
 from category.models import Category
 from listings.models import Detail, Listing, ListingCharacteristics, ListingDetails, ListingMap, ListingAmenities, Location, ListingPrice
 from uploader.models import DropBox
-from .helpers import to_type_or_none, pagination_helper
+from .helpers import to_type_or_none, pagination_helper, query_params_helper, sort_helper
 
 
 def create(request, **kwargs):
@@ -153,9 +153,12 @@ def confirm_edit(request, pk):
 
 def my_listings(request):
     user = Account.objects.get(id=request.user.id)
-    listings = Listing.objects.filter(posted_by=user)
-    listings_paginated = pagination_helper(request, listings, 9)
+    listing_data = Listing.objects.filter(posted_by=user)
+    listing_data = query_params_helper(request, listing_data)
+    listing_data = sort_helper(request, listing_data)
 
+    listings_paginated = pagination_helper(request, listing_data, 9)
+    
     context = {
         'listings': listings_paginated
     }
@@ -176,8 +179,11 @@ def my_views(request):
 
 def my_favorites(request):
     user = Account.objects.get(id=request.user.id)
-    listings = Listing.objects.filter(listingfavorites__user=user)
-    listings_paginated = pagination_helper(request, listings, 4)
+    listing_data = Listing.objects.filter(listingfavorites__user=user)
+    listing_data = query_params_helper(request, listing_data)
+    listing_data = sort_helper(request, listing_data)
+
+    listings_paginated = pagination_helper(request, listing_data, 4)
     context = {
         'listings': listings_paginated
     }
