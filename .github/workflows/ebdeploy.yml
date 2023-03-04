@@ -40,6 +40,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_ACCESS_SECRET }}
         application_name: oglasi-app
         environment_name: oglasi-app-dev
-        version_label: 29
+        version_label: 30
         region: "eu-central-1"
         deployment_package: deploy.zip
