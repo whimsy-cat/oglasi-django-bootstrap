@@ -21,8 +21,7 @@
   <div class="carousel-inner w-100">
     
     <div class="d-flex justify-content-end position-absolute w-100" style="z-index: 2;" >
-        <img class="m-4" src="{% static 'images/icons/galery.svg' %}" alt="Hearth" data-bs-toggle="modal" data-bs-target="#galeryModal" >
-    </div>
+      <img class="m-5" src="{% static 'images/icons/galery.svg' %}" alt="Hearth" data-bs-toggle="modal" data-bs-target="#galeryModal" >    </div>
     <!-- Modal -->
     {% include 'includes/listing_helpers/listing_profile_modal.html' %}
 
@@ -35,90 +34,93 @@
   </div>
 </div>
 
-<section>
-  <div class="container-fluid py-5 margin-container">
+  <div class="margin-container" style="padding: 40px 80px!important">
     <div class="padding-large">
     <!-- Top Info View -->
     <div class="row">
-      <div class="col">
+      <div class="col px-0">
         <h4 class="fw-bold">{{ listing.title }}</h4>
-        <h6 class="py-4">{{ listing.city }}, {{ listing.area }}</h6>
+        <h6 class="py-3 city-location">{{ listing.city }}, {{ listing.area }}</h6>
       </div>
       <div class="col-3">
         <div class="d-flex justify-content-center ">
-          <h2 class="fw-bold">{% include 'includes/listing_helpers/price_parser.html' %}</h2>
+          <h2 class="fw-bold text-black">{% include 'includes/listing_helpers/price_parser.html' %}</h2>
         </div>
-        {% if listing.status == '0' %}
+        {% if listing.type == '0' %}
         <div class="d-flex justify-content-center ">
-          <div class="shadow d-flex justify-content-center">
-              <div class="bg-blue text-white p-1 rounded-start" id="price_per_square"></div>          
-            <div class="bg-blue text-white p-1 rounded-end">eur/m2</div>
+          <div class="shadow d-flex justify-content-center city-location">
+              <div class="bg-blue text-white p-1 rounded-start ps-2" id="price_per_square"></div>          
+            <div class="bg-blue text-white rounded-end p-1 pe-2">eur/m2</div>
           </div>
         </div>
         {% endif %}
       </div>
-      <div class="col-3 d-flex justify-content-end ">
+      <div class="col-3 d-flex justify-content-end px-0">
         <!-- TODO:  <img class="shadow rounded p-2 mx-2 " src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
         <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
           {% include 'includes/listing_helpers/share_listing.html' %}
             {% if user.id in listing.likes %}
-              <img class="non-printable-area" src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" width="44px">
+              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/items/blue_hearth.svg' %}" alt="Liked" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}')">
             {% else %}
-              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px">
+              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}')">
             {% endif %}
-        <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
+        <img class="shadow rounded p-2 ms-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
     </div>
 
     <!-- Listing Featured Icons -->
-    <div class="col d-flex mb-4 icons-black">
+    <div class=" d-flex justify-content-between icons-black" style="max-width: 700px;margin-bottom: 32px;">
       {% include 'includes/listings/listing_details_icons_profile.html' %}
     </div>
 
     <div class="row mb-4">
       <!-- First "Main" Part -->
-      <div class="col-8 printable-area">
+      <div class="col-8 printable-area ps-0 pe-3">
         <!-- 1. Info Pills -->
-        <div class="shadow card-body px-5 py-3 rounded" style="min-height: 480px;">
-          <div class="row border-bottom mx-0 fs-5 my-3" id="infoPills" role="tablist">
+        <div class="shadow card-body px-32px rounded py-4" style="min-height: 480px;">
+          <div class="row border-bottom mx-0 fs-5 mb-4" id="infoPills" role="tablist">
             <div class="col-3 px-0 d-flex">
-              <div class="d-flex active info pb-2 infoTabStyle" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Opis</div>
+              <div class="d-flex profile-card-tab active info pb-2 infoTabStyle" id="description-tab" data-bs-toggle="tab" data-bs-target="#description-tab-pane" type="button" role="tab" aria-controls="description-tab-pane" aria-selected="true">Opis</div>
             </div>
             <div class="col-3 px-0 d-flex">
-              <div class="d-flex info ms-4 pb-2" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">Detalji</div>
+              <div class="d-flex profile-card-tab info ms-4 pb-2" id="details-tab" data-bs-toggle="tab" data-bs-target="#details-tab-pane" type="button" role="tab" aria-controls="details-tab-pane" aria-selected="false">Detalji</div>
             </div>
             <div class="col-3 px-0 d-flex ">
-              <div class="d-flex info ms-4 pb-2" id="properties-tab" data-bs-toggle="tab" data-bs-target="#properties-tab-pane" type="button" role="tab" aria-controls="properties-tab-pane" aria-selected="false">Karakteristike</div>
+              <div class="d-flex profile-card-tab info ms-4 pb-2" id="properties-tab" data-bs-toggle="tab" data-bs-target="#properties-tab-pane" type="button" role="tab" aria-controls="properties-tab-pane" aria-selected="false">Karakteristike</div>
             </div>
-            {% if listing.status == '1' %}
-            <div class="col-3 px-0 d-flex justify-content-end">
+            {% if listing.type == '1' %}
+            <div class="col-3 profile-card-tab px-0 d-flex justify-content-end">
               <div class="d-flex info pb-2" id="equipment-tab" data-bs-toggle="tab" data-bs-target="#equipment-tab-pane" type="button" role="tab" aria-controls="equipment-tab-pane" aria-selected="false">Opremljenost</div>
             </div>
             {% endif %}
           </div>
           <div class="tab-content " id="myTabContent">
-            <div class="tab-pane fade show active" id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
+            <div class="tab-pane fade show active text-justify profile-description-text"  id="description-tab-pane" role="tabpanel" aria-labelledby="description-tab" tabindex="0">
              {{listing.description}}
             </div>
-            <div class="tab-pane fade" id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
-              <pre></pre>
-              <div class="row">
-                {% for listing_detail in listing.listingdetails_set.all %}
-                {% if listing_detail.detail.name != 'Visina od 300cm' and listing_detail.detail.name != 'Visina do 260cm' and listing_detail.detail.name != 'Visina 260-300cm' %}
-                  <div class="col-3">
-                    <img class="p-2" style="filter: brightness(0.8) invert(0.6)" src="{% static 'images/items/' %}{{listing_detail.detail.name|cut:' '}}.svg" alt="..." width="44px" height="44px">
-                    {{ listing_detail.detail.name }}
-                  </div>
-                {% endif %}
-              {% endfor %}
+            <div class="tab-pane fade " id="details-tab-pane" role="tabpanel" aria-labelledby="details-tab" tabindex="0">
+              <div class="d-flex flex-column justify-content-between" style="height: 367px;">
+                <div class="row">
+                  {% for listing_detail in listing.listingdetails_set.all %}
+                  {% if listing_detail.detail.name != 'Visina od 300cm' and listing_detail.detail.name != 'Visina do 260cm' and listing_detail.detail.name != 'Visina 260-300cm' %}
+                    <div class="col-3 px-0 city-location mb-3">
+                      <img class="me-3" style="filter: invert(27%) sepia(1%) saturate(0%) hue-rotate(231deg) brightness(94%) contrast(90%);" src="{% static 'images/items/' %}{{listing_detail.detail.name|cut:' '}}.svg" alt="..." width="24px" height="24px">
+                      {{ listing_detail.detail.name }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+                </div>
+              {% if listing.listingcharacteristics_set.first.efficiency == '1' %}
+                {% include 'includes/listings/efficiency_bar.html' %}
+              {% endif %}
               </div>
             </div>
             <div class="tab-pane fade row" id="properties-tab-pane" role="tabpanel" aria-labelledby="properties-tab" tabindex="0">
-              <div class="row">
-                <div class="col-6 py-2 border-end" >
-                  <h6>Površina: {{listing.listingcharacteristics_set.first.size}}m2</h6>
-                  <h6>Struktura: {{listing.listingcharacteristics_set.first.structure}}</h6>
-                  <h6>Parking: 
+              <div class="row p-0">
+                <div class="col-6  border-end p-0 text-black" >
+                  <h6 class="mb-3">Površina: {{listing.listingcharacteristics_set.first.size}}m2</h6>
+                  <h6 class="mb-3">Struktura: {{listing.listingcharacteristics_set.first.structure}}</h6>
+                  <h6 class="mb-3">Parking: 
                   {% if listing.listingcharacteristics_set.first.parking %}
                     {{listing.listingcharacteristics_set.first.parking}}
                     {% elif 'Garaža' in listing.details %}Garaža
@@ -126,16 +128,16 @@
                     {% elif 'Parking u zoni' in listing.details %}Parking u zoni
                   {% endif %}
                   </h6>
-                  <h6>Spratnost: {{listing.listingcharacteristics_set.first.floor}} od {{listing.listingcharacteristics_set.first.total_floors}} spratova</h6>
-                  <h6>Godina izgradnje: {{listing.listingcharacteristics_set.first.year_built}}. godina</h6>
-                  <h6>Spavaće sobe: {{listing.listingcharacteristics_set.first.bedrooms|floatformat:0}} spavaće sobe</h6>
-                  <h6>Kupatilo: {{listing.listingcharacteristics_set.first.baths}}</h6>
-                  <h6>WC: {{listing.listingcharacteristics_set.first.half_baths}}</h6>
-                  <h6>Terasa: {{listing.listingcharacteristics_set.first.balcony}}</h6>
+                  <h6 class="mb-3">Spratnost: {{listing.listingcharacteristics_set.first.floor}} od {{listing.listingcharacteristics_set.first.total_floors}} spratova</h6>
+                  <h6 class="mb-3">Godina izgradnje: {{listing.listingcharacteristics_set.first.year_built}}. godina</h6>
+                  <h6 class="mb-3">Spavaće sobe: {{listing.listingcharacteristics_set.first.bedrooms|floatformat:0}} spavaće sobe</h6>
+                  <h6 class="mb-3">Kupatilo: {{listing.listingcharacteristics_set.first.baths}}</h6>
+                  <h6 class="mb-3">WC: {{listing.listingcharacteristics_set.first.half_baths}}</h6>
+                  <h6 class="mb-3">Terasa: {{listing.listingcharacteristics_set.first.balcony}}</h6>
                   {% if 'Lift' in listing.details %}
-                  <h6>Lift</h6>
+                  <h6 class="mb-3">Lift</h6>
                   {% endif %}
-                  <h6>Visina plafona:
+                  <h6 class="mb-3">Visina plafona:
                     {% for detail in listing.details %}
                       {% if 'Visina do 260cm' in detail %} Do 260cm 
                         {% elif 'Visina 260-300cm' in detail %} 260-300cm
@@ -144,7 +146,7 @@
                     {% endfor %}
                   </h6>
                 </div>
-                <div class="col-6 py-2 justify-content-start align-items-center">
+                <div class="col-6 ps-4 pe-0 text-justify">
                   {{listing.description}}
                 </div>
               </div>
@@ -152,17 +154,17 @@
             <div class="tab-pane fade" id="equipment-tab-pane" role="tabpanel" aria-labelledby="equipment-tab" tabindex="0">
               <div class="row">
               {% for listing_amenity in listing.listingamenities_set.all %}
-              <div class="col-3">
-                <img class="p-2 " style="filter: brightness(0.8) invert(0.6)" src="{% static 'images/items/' %}{{listing_amenity.amenity.name|cut:' '}}.svg" alt="..." width="44px" height="44px"  >
+              <div class="col-3 px-0 city-location mb-3">
+                <img class="me-3" style="filter: invert(27%) sepia(1%) saturate(0%) hue-rotate(231deg) brightness(94%) contrast(90%);" src="{% static 'images/items/' %}{{listing_amenity.amenity.name|cut:' '}}.svg" alt="..." width="24px" height="24px"  >
                 {{ listing_amenity.amenity.name }}
               </div>
               {% endfor %}
               </div>
             </div>
-          </div>
         </div>
       </div>
-      <div class="col-4 non-printable-area">
+      </div>
+      <div class="col-4 ps-3 pe-0 non-printable-area">
         {% include 'agencies/agency_card.html' %}
       </div>
     </div>
@@ -170,21 +172,21 @@
         <!-- 2. Images/Videos/Floorplan Pills -->
         {% if  listing.floor_plan.exists or listing.video %}
       <div class="row">
-        <div class="col-8 printable-area">
-        <div class="shadow card-body px-5 py-3 rounded mb-4" style="height:688px;">
+        <div class="col-8 printable-area ps-0 pe-3">
+        <div class="shadow card-body px-32px rounded py-4 mb-4" style="height:690px;">
           <div class="row border-bottom mx-0 fs-5 my-3" id="imagesVideosFloorplanPills" role="tablist">
             {% if listing.floor_plan.exists %}
             <div class="col-3 px-0 d-flex">
-              <div class="d-flex active pb-2 media  imageVideoFlooplanStyle" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</div>
+              <div class="d-flex active pb-2 media profile-card-tab imageVideoFlooplanStyle" id="tlocrt-tab" data-bs-toggle="tab" data-bs-target="#tlocrt-tab-pane" type="button" role="tab" aria-controls="tlocrt-tab-pane" aria-selected="true">Tlocrt</div>
             </div>
             {% endif %}
             {% if listing.video %}
             <div class="col-3 d-flex px-0">
-              <div class="d-flex  pb-2 media {% if not listing.floor_plan.exists %} imageVideoFlooplanStyle {% else %} ms-4 {% endif %}"  id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</div>
+              <div class="d-flex profile-card-tab pb-2 media {% if not listing.floor_plan.exists %} imageVideoFlooplanStyle {% else %} ms-4 {% endif %}"  id="video-tab" data-bs-toggle="tab" data-bs-target="#video-tab-pane" type="button" role="tab" aria-controls="video-tab-pane" aria-selected="true">Video</div>
             </div>
             {% endif %}
             <div class="col-3 d-flex">
-              <div class="d-flex ms-4 pb-2 media" id="virtuelnatura-tab" data-bs-toggle="tab" data-bs-target="#virtuelnatura-tab-pane" type="button" role="tab" aria-controls="virtuelnatura-tab-pane" aria-selected="true">Virtuelna tura</div>
+              <div class="d-flex ms-4 pb-2 profile-card-tab media" id="virtuelnatura-tab" data-bs-toggle="tab" data-bs-target="#virtuelnatura-tab-pane" type="button" role="tab" aria-controls="virtuelnatura-tab-pane" aria-selected="true">Virtuelna tura</div>
             </div>
           </div>
           <div class="tab-content " id="myTabContent">
@@ -193,7 +195,7 @@
                 <div class="carousel-inner">
                   {% for i in listing.floor_plan.all %}
                   <div class="{% if forloop.counter == 1 %} active {% endif %} carousel-item">
-                    <div class="d-block w-100 rounded" style="background: center / contain no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 555px;"></div>
+                    <div class="d-block w-100 rounded" style="background: center / contain no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 560px;"></div>
                   </div>
                   {% endfor %}
                 </div>
@@ -208,15 +210,15 @@
               </div>
             </div>
             <div class="tab-pane fade" id="video-tab-pane" role="tabpanel" aria-labelledby="video-tab" tabindex="0">
-              <iframe width="100%" height="550" src="{{ listing.video }}"> </iframe>
+              <iframe class="p-0" width="100%" height="560" src="{{ listing.video }}"> </iframe>
             </div>
             <div class="tab-pane fade row" id="virtuelnatura-tab-pane" role="tabpanel" aria-labelledby="virtuelnatura-tab" tabindex="0">
-              <iframe width='100%' height='550' src='{{ listing.virtual_tour }}' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe>
+              <iframe class="p-0" width='100%' height='560' src='{{ listing.virtual_tour }}' frameborder='0' allowfullscreen allow='xr-spatial-tracking'></iframe>
             </div>
           </div>
           </div>
         </div>
-        <div class="col-4 mb-4 non-printable-area">
+        <div class="col-4 ps-3 pe-0 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
             {% if promoted_listings.0 %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.0 %}
@@ -231,30 +233,30 @@
         
         <!-- 3. Map & Locations -->
       <div class="row non-printable-area">
-        <div class="col-8 printable-area" >
-          <div class="shadow card-body px-5 py-3 rounded mb-4" style="height:688px;">
+        <div class="col-8 printable-area ps-0 pe-3" >
+          <div class="shadow card-body px-32px rounded py-4 mb-4" style="height:690px;">
             <div class="row border-bottom mx-0 fs-5 my-3" id="mapAndLocation" role="tablist">
               <div class="col-3 px-0 d-flex">
-                <div class="d-flex active pb-2 place mapLocationStyle" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-tab-pane" type="button" role="tab" aria-controls="mapa-tab-pane" aria-selected="true">Mapa</div>
+                <div class="d-flex active profile-card-tab pb-2 place mapLocationStyle" id="mapa-tab" data-bs-toggle="tab" data-bs-target="#mapa-tab-pane" type="button" role="tab" aria-controls="mapa-tab-pane" aria-selected="true">Mapa</div>
               </div>
               <div class="col-3 d-flex">
-                <div class="d-flex ms-4 pb-2 place" id="locate-tab" data-bs-toggle="tab" data-bs-target="#locate-tab-pane" type="button" role="tab" aria-controls="locate-tab-pane" aria-selected="true">Lokacija</div>
+                <div class="d-flex ms-4 profile-card-tab pb-2 place" id="locate-tab" data-bs-toggle="tab" data-bs-target="#locate-tab-pane" type="button" role="tab" aria-controls="locate-tab-pane" aria-selected="true">Lokacija</div>
               </div>
             </div>
             <div class="tab-content" id="myTabContent">
               <div class="full_map_area tab-pane fade show active" id="mapa-tab-pane" role="tabpanel" aria-labelledby="mapa-tab" tabindex="0">
                 <div class="full_map style2">
-                  <div class="map-canvas skin2" style="height: 578px" id="map">
+                  <div class="map-canvas skin2" style="height: 565px" id="map">
                   </div>
                 </div>
               </div>
                <div class="tab-pane fade" id="locate-tab-pane" role="tabpanel" aria-labelledby="locate-tab" tabindex="0">
-                Lokacija
+            Lokacija
               </div>
             </div>
           </div>
         </div>
-        <div class="col-4 mb-4">
+        <div class="col-4 ps-3 pe-0 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
             {% if promoted_listings.1 %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.1 %}
@@ -268,19 +270,25 @@
 
         <!-- TODO: Define data for aprox listing price per location -->
       <div class="row non-printable-area">
-        <div class="col-8">
-          <div class="shadow card-body px-5 py-3 rounded mb-4" style="height: 688px;">
-            <div class="row border-bottom mx-0 fs-5 mt-3 mb-1" id="chart" role="tablist">
+        <div class="col-8 pe-3 ps-0">
+          <div class="shadow card-body py-4 px-3 rounded mb-4" style="height: 690px;">
+            <div class="row">
+              {% for promoted in promoted_listings|slice:":2" %}
+                {% include 'includes/listings/listing_card_insted_chart.html' with listing=promoted %}
+              {% endfor %}
+              </div>
+             <!---TODO: CHART WHEN WE GET DATA-->
+            <!-- <div class="row border-bottom mx-0 fs-5 mt-3 mb-1" id="chart" role="tablist">
               <div class="col-6 d-flex px-0">
                 <div class="d-flex active pb-2 canvasStyle" id="averageprice-tab" data-bs-toggle="tab" data-bs-target="#averageprice-tab-pane" type="button" role="tab" aria-controls="averageprice-tab-pane" aria-selected="true">Prosecna cena na lokaciji</div>
               </div>
             </div>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="averageprice-tab-pane" role="tabpanel" aria-labelledby="averageprice-tab" tabindex="0"><canvas id="myChart" class="" style="width:100%;height:570px"></canvas></div>
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="col-4 mb-4">
+        <div class="col-4 ps-3 pe-0 mb-4">
           <div class="col shadow card-body rounded p-4 h-100">
             {% if promoted_listings.2 %}
               {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.2 %}
@@ -294,19 +302,22 @@
 
 
     <!-- Suggested Listings -->
-    <div class="row mb-3 non-printable-area" >
-      <div class="row">
-        <h3 class="col my-4  text-center">Preporuceni Oglasi</h3>
-      </div>
+    <div class="row mb-4 non-printable-area" style="margin: 0px -52px;" >
+        <h3 class="col-12 mt-5 section-title text-center" style="margin-bottom: 32px;">Preporučeni Oglasi</h3>
       {% for similar in similar_listings %}
-      <div class="col-xxl-3 col-xl-3 col-sm-12  pb-5">
+      <div class="col-xxl-3 col-xl-3 col-sm-12">
         {% include 'includes/listings/listing_card.html' with listing=similar%}
       </div>
       {% endfor %}
     </div>
   </div>
+</div>
+<section class="loyalty-program text-center">
+  <div class="margin-container">
+    <h3 class="mb-4 section-subtitle">Loyalty program</h3>
+    <p class="section-text">S obzirom da smo novi na tržištu nekretnina kao portal, spremili smo za naše korisnike tkzv “loyalty program”. Program kao što sam naziv kaže, lojalnost za sve naše korisnike koji startuju sa nama na ovom putovanju imaće povoljnije uslove i veće mogućnosti u upravljanju i promovisanju svojih oglasa. Više na stranici cenovnik o detaljima.</p>
   </div>
-</section>
+ </section>
 {% endblock %}
 
 {% block page_specific_scripts %}
@@ -425,15 +436,17 @@ new Chart("myChart", {
   }
 });
 
+
 </script>
 
-{% if listing.status == '0' %}
+{% if listing.type == '0' %}
 {% comment %} Price per square {% endcomment %}
 <script>
 function pricePerSquare() {
   document.getElementById('price_per_square').innerHTML = new Intl.NumberFormat('de-DE', { maximumFractionDigits: 2 }).format({{listing.price}} / {{listing.listingcharacteristics_set.first.size}});
 };
 pricePerSquare()
+
 </script>
 {% endif %}
 

@@ -3,7 +3,10 @@
 {% block page_specific_styles %}
 {% endblock %}
 
-<div class="nav-link px-2 hover {% if request.path == '/' %} nav-hover text-white {% endif %} hovers"  data-bs-toggle="modal" data-bs-target="#accountModal" onclick="signInModal()">Prijava</div>
+<i class="bi bi-person ms-2 me-1 hover {% if request.path == '/' %} text-white {% else %} menu-user-icon-dark {% endif %} rounded-circle menu-user-icon"></i>
+<a class="nav-link pe-0 hover ps-1 d-flex align-items-center justify-content-center {% if request.path == '/' %} nav-hover text-white {% endif %} hovers"  data-bs-toggle="modal" data-bs-target="#accountModal" onclick="signInModal()">
+  Prijava
+</a>
   <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -165,7 +168,8 @@
       </div>
     </div>
   </div>
-<div class="nav-link px-2 hovers hover {% if request.path == '/' %} nav-hover  text-white {% endif %}" data-bs-toggle="modal" data-bs-target="#accountModal" onclick="registerModal()">Registracija</div>
+  <div class="{% if request.path == '/' %} text-white {% endif %}">&nbsp;  / &nbsp; </div>
+  <a class="ps-0 nav-link  {% if request.path == '/' %} nav-hover  text-white {% endif %}" data-bs-toggle="modal" data-bs-target="#accountModal" onclick="registerModal()">Registracija</a>
 <script>
 
 function singin() {

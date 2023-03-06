@@ -1,0 +1,126 @@
+{% load static %}
+<div class="col-5 d-flex my-2 justify-content-between pe-0">
+  
+  <div class="d-flex justify-content-around">
+    <button onclick="resetQueryParams()" type="button" class="btn btn-sm mx-2 border-0 d-flex align-items-center" >
+      Poništi
+      <img class="ms-2" src="{% static 'images/icons/cancel.svg' %}" alt="Sort" width="17px"/>
+    </button>
+    <button type="button" class="btn btn-sm border-0 d-flex align-items-center mx-2">
+      Sačuvaj
+      <img class="ms-2" src="{% static 'images/icons/save.svg' %}" alt="Sort" width="17px" />
+    </button>
+  </div>
+
+  <!-- More filters modal -->
+    <button class="btn btn-bg btn-blue border-0" style="width: 144px;" type="button" aria-label="Default select example" onclick="openModal()" >
+      <img src="{% static 'images/icons/main_filter.svg' %}" alt="Sort" width="16px" height="16px" />
+      Više Filtera
+      <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" height="13px"/>
+    </button> 
+    <div class="fixed-top align-items-center justify-content-center w-100 h-100 z-1" id="filter"  style="display: none;">
+      <div class="position-absolute listing-item-overlayed w-100 h-100" onclick="closeModal()">
+      </div>
+      <div class="h-75 w-75 bg-blue position-absolute z-2 bg-white rounded overflow-y-scroll">
+        <h3 class="text-center my-2">Detalji</h3>
+        <div class="row m-3 border border-primary border-opacity-25 rounded" id="allDetails">
+          {% for detail in details %}
+          <div class="col-3">
+            <div class="form-checks my-2 d-flex align-items-center">
+              <input class="form-check-input" type="checkbox" value="{{detail.id}}" id="d{{detail}}" style="height:25px;width:25px">
+              <label class="form-check-label ms-2 fs-6" for="d{{detail}}">
+                {{detail}}
+              </label>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <h3 class="text-center my-2">Opremljenost</h3>
+        <div class="row m-3 border border-primary border-opacity-25 rounded" id="allAmenities">
+          {% for amenity in amenities %}
+          <div class="col-3">
+            <div class="form-checks my-2 d-flex align-items-center">
+              <input class="form-check-input" type="checkbox" value="{{amenity.id}}" id="a{{amenity}}" style="height:25px;width:25px">
+              <label class="form-check-label ms-2 fs-6" for="a{{amenity}}">
+                {{amenity}}
+              </label>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="d-flex justify-content-center">
+          <button type="button" class="btn btn-blue px-5 mb-4" onclick="applyFilters()">Primeni</button>
+        </div>
+      </div>
+    </div>
+    <!-- Change page view -->
+  <button class="btn btn-bg btn-blue border-0" style="width: 144px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <img src="{% static 'images/icons/map.svg' %}" alt="Sort" width="16px"  height="16px"/>
+    {% if request.GET.prikaz == 'mapa2' %} Mapa 2
+    {% elif request.GET.prikaz == 'mreža' %} Mreža
+    {% elif request.GET.prikaz == 'lista' %} Lista
+    {% else %} Mapa 1
+    {% endif %}
+    <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" height="13px"/>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa1')">Mapa 1</a></li>
+    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa2')">Mapa 2</a></li>
+    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'lista')">Lista</a></li>
+    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mreža')">Mreža</a></li>
+  </ul>
+</div>
+<script>
+
+  function applyFilters() {
+    const selectedDetailsValues = []
+    const selectedDetails = document.querySelectorAll('#allDetails input:checked');
+    for (const input of selectedDetails) {
+      selectedDetailsValues.push(input.value)
+    }
+    
+    const selectedAmenitiesValues = []
+    const selectedAmenities = document.querySelectorAll('#allAmenities input:checked');
+    for (const input of selectedAmenities) {
+      selectedAmenitiesValues.push(input.value)
+    }
+  
+    queryParam('d-a', selectedDetailsValues.join('-') + '_' + selectedAmenitiesValues.join('-'))
+  }
+  
+  function getParams() {
+    const value = new URL(window.location.href).searchParams.get("d-a");
+    const checkedDetails = value?.split('_')[0].split('-') ?? []
+    const checkedAmenities = value?.split('_')[1].split('-') ?? []
+  
+    const getDetails = document.querySelectorAll(`#allDetails input`)
+      getDetails.forEach(detail => {
+      const detailValue = detail.value;
+      if (checkedDetails.includes(detailValue)) {
+         detail.setAttribute('checked','checked')
+      }
+    });
+   const getAmenities = document.querySelectorAll(`#allAmenities input`)
+      getAmenities.forEach(amenity => {
+      const amenityValue = amenity.value;
+      if (checkedAmenities.includes(amenityValue)) {
+        amenity.setAttribute('checked','checked')
+      }
+    });
+  }
+  
+  getParams()
+  
+  function openModal() {
+    let modal = document.getElementById('filter')
+    if (modal.style.display === 'none') {
+      modal.style.display = 'flex'
+    }
+  }
+  
+  function closeModal() {
+    let modal = document.getElementById('filter')
+    modal.style.display = 'none'
+  }
+  
+  </script>

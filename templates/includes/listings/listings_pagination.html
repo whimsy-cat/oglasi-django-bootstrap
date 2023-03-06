@@ -23,7 +23,7 @@
         {% if listings.number == num %}
         <li><a class="page-link text-white bg-blue rounded-circle pagination-hover active m-1">{{ num }}</a></li>
         {% else %}
-        <li><a onclick="queryParam('page', '{{ num }}')" class="page-link color-blue rounded-circle pagination-hover m-1">{{ num }}</a></li>
+        <li><a onclick="queryParam('page', '{{ num }}')" class="d-flex page-link color-blue rounded-circle pagination-hover m-1">{{ num }}</a></li>
         {% endif %}
       {% endif %}
     {% endfor %}

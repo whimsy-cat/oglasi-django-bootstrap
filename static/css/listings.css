@@ -44,18 +44,13 @@
 
 .creation-steps .col {
   height: 44px;
-  font-size: 18px;
-  line-height: 44px;
-  text-align: center;
-  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 600;
   border-radius: 5px;
   border: 1px solid rgba(31, 56, 54, 0.1);
 }
 .creation-steps .col:hover {
   cursor: pointer;
-}
-.creation-steps .col:last-child {
-  margin-right: 0;
 }
 .creation-steps .col.active {
   color: white;
@@ -66,11 +61,6 @@
 }
 .creation-content.show {
   display: flex;
-}
-.creation-step {
-  padding: 12px;
-  border-radius: 5px;
-  border: 1px solid rgba(31, 56, 54, 0.1);
 }
 .step-heading h3,
 .step-heading p,
@@ -83,12 +73,6 @@
   font-weight: 700;
 }
 
-#step1 .next-step {
-  padding-top: 100px;
-}
-#step4 .next-step {
-  padding-top: 18px;
-}
 .next-step button {
   width: 145px;
   height: 45px;
@@ -96,7 +80,10 @@
 }
 
 .location-input {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
+}
+.margin-start-12 {
+  margin-left: 12px;
 }
 
 

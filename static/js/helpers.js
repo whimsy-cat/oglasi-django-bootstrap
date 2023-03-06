@@ -1,3 +1,17 @@
+function resetQueryParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const prikaz = urlParams.get('prikaz');
+
+  if (location.href.includes('?')) { 
+    window.history.pushState({}, document.title, window.location.pathname);
+  }
+
+  if (prikaz) {
+    document.location.search = 'prikaz=' + prikaz;
+  } else {
+    location.reload()
+  }
+}
 /**
  * Adding URL Query Params based on key and value for listings:
  * - sort params
@@ -26,6 +40,20 @@ function queryParam(key, value) {
 
     if(i >= kvp.length){
         kvp[kvp.length] = [key,value].join('=');
+    }
+    // To do: Find other solution
+    // If filter cena remove max-min price
+    if (kvp && key === 'cena') {
+      kvp = kvp.filter(k => !k.includes('max-price='))
+      kvp = kvp.filter(k => !k.includes('min-price='))
+    }
+    if (kvp && key === 'povrsina') {
+      kvp = kvp.filter(k => !k.includes('max-size='))
+      kvp = kvp.filter(k => !k.includes('min-size='))
+    }
+    if (kvp && key === 'spratnost') {
+      kvp = kvp.filter(k => !k.includes('max-spratnost='))
+      kvp = kvp.filter(k => !k.includes('min-spratnost='))
     }
 
     // Reseting pagination when sort / filter changed

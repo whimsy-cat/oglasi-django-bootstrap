@@ -6,10 +6,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="d-flex align-items-center">
-  <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
-    <h1 class="col-4 fw-bolder">Moj Dom {% if request.path == '/blog/' %} Blog {% else %} Vesti {% endif %}</h1>
-    <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
+<div class="d-flex align-items-center justify-content-center">
+  <div class="row w-100 container-blog-news position-absolute align-items-center  text-white">
+    <h1 class="col-4 fw-bolder p-0 ">Moj Dom {% if request.path == '/blog/' %} Blog {% else %} Vesti {% endif %}</h1>
+    <h5 class="col fw-bold pe-0">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
   </div>
   <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
     <div class="w-100 h-100 listing-item-overlayed"></div>
@@ -18,9 +18,9 @@
 
 <!-- Categories filter -->
 <div class="bg-grayish d-flex align-items-center" style="height: 64px;">
-  <div class="container">
+  <div class="container-blog-news w-100 p-0">
     <div class="row align-items-center ">
-      <div class="col h-100 d-flex justify-content-between text-white fw-bold">
+      <div class="col h-100 d-flex justify-content-between text-white fw-bold p-0">
         <span role="button"onclick="queryParam('category', '')">Sve</span>
         {% for category in categories %}
           <span role="button"onclick="queryParam('category', '{{category.id}}')">{{ category.name }}</span>
@@ -30,13 +30,13 @@
   </div>
 </div>
 
-<div class="container pt-4 ">
+<div class="container-blog-news pt-4  px-0 ">
   {% for article in articles %}
   <div class="row">
-    <div class="col-8" style="height: 250px;">
+    <div class="col-8 ps-0" style="height: 250px;">
       {% include 'blog/blog_page_card.html' %}
     </div>
-    <div class="col-4">
+    <div class="col-4 pe-0">
       {% if forloop.counter0|divisibleby:2 %}
         {% for promoted in promoted_listings|slice:":1" %}
           {% include 'includes/listings/listing_overlay_card.html' with listing=promoted %}

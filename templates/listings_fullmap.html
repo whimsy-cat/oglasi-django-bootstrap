@@ -6,19 +6,18 @@
 {% endblock %}
 
 {% block content %}
+<div class="row m-0 px-5 py-1 border-bottom" style="height: 64px;">
+  {% include 'includes/listings/listings_filter_top.html' %}
+  {% include 'includes/listings/change_page_view.html' %}
+</div>
   <section class="full-map-listing-section">
     
-    <div class="container-fluid h-100">
+    <div class="container-fluid h-100 m-0 p-0 h-100 margin-container-half-map">
       <!-- Filters -->
-      <div class="row">
-        <div class="col-lg-12 d-flex border-top border-bottom">
-          {% include 'includes/listings/listings_filter_top.html' %}
-        </div>
-      </div>
       
       <!-- Map -->
-      <div style="height:86vh" class="full-screen-row">
-        <div class="col h-100">
+      <div class="full-screen-row h-100">
+        <div class="col h-100 px-5">
           {% include 'includes/listings/listings_map.html' with listing=listing %}
         </div>
       </div>

@@ -56,7 +56,7 @@ def confirm_edit(request, pk):
 
         listing_instance.title = request.POST.get('title', listing_instance.title)
         listing_instance.description = request.POST.get('description', listing_instance.description)
-        listing_instance.status = request.POST.get('status', listing_instance.status)
+        listing_instance.type = request.POST.get('type', listing_instance.type)
         listing_instance.category = listing_category
         listing_instance.country = request.POST.get('country', listing_instance.country)
         listing_instance.city = request.POST.get('city', listing_instance.city)
@@ -218,7 +218,7 @@ def submit(request):
         posted_by=user,
         title=request.POST['title'],
         description=request.POST['description'],
-        status=request.POST['status'],
+        type=request.POST['type'],
         category=listing_category,
         country=request.POST['country'],
         city=request.POST['city'],

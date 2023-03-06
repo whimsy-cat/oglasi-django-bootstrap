@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 
 from django.http import JsonResponse
 
-from django.db.models.functions import TruncQuarter
-from django.db.models import Avg
+from django.db.models.functions import TruncQuarter, Concat, Coalesce
+from django.db.models import Avg, F, Value, CharField, Case, When, Q
+from django.db import models, connection
 import datetime
 
 from accounts.models import Account
@@ -30,15 +31,44 @@ def listings(request):
     # View Query Param
     view = request.GET.get('prikaz')
 
+    locations = Location.objects.all()
+    cities = locations.distinct('city')
+
     # Full Map View
     if view == 'mapa2':
         context = {
             "listings": listing_data,
             "categories": categories,
             "details": details,
-            "amenities": amenities
+            "amenities": amenities,
+            "cities": cities
         }
         return render(request, 'listings_fullmap.html', context)
+    
+    listings = pagination_helper(request, listing_data , 2)
+
+    if view == 'lista':
+        context = {
+            "listings": listings,
+            "categories": categories,
+            "details": details,
+            "amenities": amenities,
+            "cities": cities
+        }
+        return render(request, 'listings_list_view.html', context)
+    
+    listings = pagination_helper(request, listing_data, 6)
+
+    if view == 'mreža':
+        context = {
+            "listings": listings,
+            "categories": categories,
+            "details": details,
+            "amenities": amenities,
+            "cities": cities
+        }
+        return render(request, 'listings_network.html', context)
+
 
     # Half Map View
     else:
@@ -49,7 +79,8 @@ def listings(request):
             "listings": listings,
             "categories": categories,
             "details": details,
-            "amenities": amenities
+            "amenities": amenities,
+            "cities": cities
         }
 
         return render(request, 'listings.html', context)
@@ -102,8 +133,8 @@ def get_details(request):
         details = details.filter(category=category_id).values(
             'detail__name', 'detail__id')
 
-    status = request.GET.get('status')
-    if status == "1":
+    type = request.GET.get('type')
+    if type == "1":
         amenities = CategoryAmenities.objects.filter(
             category=category_id).values('amenity__name', 'amenity__id')
 
@@ -137,9 +168,18 @@ def add_remove_favorites(request):
 
 def get_areas(request):
     areas = Location.objects.values('area').filter(city=request.GET.get('city')).distinct()
-    municipality = Location.objects.values('municipality').filter(city=request.GET.get('municipality')).distinct()
+    municipality = Location.objects.values('municipality').filter(city=request.GET.get('city')).distinct()
 
     data = {'areas': list(areas),
             'municipality': list(municipality)}
 
+    return JsonResponse(data, safe=False)
+
+
+def get_areas_distinct(request):
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT area, CASE WHEN municipality <> area THEN CONCAT_WS(' - ', municipality, area) ELSE area END AS area_distinct FROM listings_location WHERE city = %s", [request.GET.get('city')])
+        areas = cursor.fetchall()
+
+    data = {'areas': areas}
     return JsonResponse(data, safe=False)

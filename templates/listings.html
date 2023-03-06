@@ -6,34 +6,31 @@
 {% endblock %}
 
 {% block content %}
-  <section class="half-map-listing-section" style="height: 91vh">
-
-    <div class="container-fluid m-0 p-0 h-100 margin-container-half-map">
-      <!-- Filters -->
-      <div class="row m-0 border-bottom">
-        {% include 'includes/listings/listings_filter_top.html' %}
-      </div>
+<!-- Filters -->
+<div class="row m-0 px-5 py-1 border-bottom" style="height: 64px;">
+  {% include 'includes/listings/listings_filter_top.html' %}
+  {% include 'includes/listings/change_page_view.html' %}
+</div>
+    <div class="margin-container-half-map ps-5" >
 
       <!-- Listings and Map -->
       <div class="d-flex justify-content-center full-screen-row">
 
-        <div class="col-7 h-100 overflow-y-scroll">
-          <div class="container-fluid">
-            <!-- Pagination and Sort -->
-            <div class="row py-2" >
-              <div class="col m-auto">Rezultata: {{ listings.paginator.count }}</div>
-              <div class="col-5">{% include 'includes/listings/listings_pagination.html' %}</div>
-              {% include 'includes/listings/listings_sorting.html' %}
+        <div class="col-7 overflow-y-scroll pe-3" style="height: 85vh;margin-left: -12px!important;">
+          <!-- Pagination and Sort -->
+          <div class="row py-2 align-items-center" >
+            <div class="col m-auto">Rezultata: {{ listings.paginator.count }}</div>
+            <div class="col-5">{% include 'includes/listings/listings_pagination.html' %}</div>
+            <div class="col">{% include 'includes/listings/listings_sorting.html' %}</div> 
+          </div>
+      
+          <!-- Listing Items -->
+          <div class="row" >
+            {% for listing in listings %}
+            <div class="col-xxl-4 col-md-6 col-sm-12" >
+              {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
             </div>
-        
-            <!-- Listing Items -->
-            <div class="row mb-3">
-              {% for listing in listings %}
-              <div class="col-xxl-4 col-md-6 col-sm-12">
-                {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
-              </div>
-              {% endfor %}
-            </div>
+            {% endfor %}
           </div>
         </div>
 
@@ -43,7 +40,5 @@
         </div>
 
       </div>
-
     </div>
-  </section>
 {% endblock %}

@@ -1,8 +1,8 @@
 {% load static%}
-<div class="row d-flex flex-row justify-content-between " style="height:39px">
-  <div class="col-3  d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
-    <img style="height: 18px;width: 18px" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
-    <small class=" {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">
+<div class="d-flex justify-content-between " style="min-height:39px">
+  <div class=" d-flex align-items-center  {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} flex-column {% endif %}">
+    <img class="{% if 'oglasi/pregled/' in request.path or '/oglasi/omiljeni-oglasi/' in request.path %} icon24px {% else %} icon18px {% endif %}" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
+    <small class="listing-icons-text {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} agency-inputs text-center mt-1 {% elif 'oglasi/pregled/' in request.path %} icon-text {% else %} ms-1 {% endif %}">
       {% if listing.category.name == 'Poslovni prostor' %}
       Pos. Prostor
       {% elif listing.category.name == 'Komercijalni prostor' %}
@@ -26,27 +26,27 @@
       {% endif %}
     </small>
   </div>
-  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
-    <img style="height: 18px;width: 18px" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
+  <div class=" text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} flex-column {% endif %}">
+    <img class="{% if 'oglasi/pregled/' in request.path or '/oglasi/omiljeni-oglasi/' in request.path %} icon24px {% else %} icon18px {% endif %}" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+    <small class="listing-icons-text {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} agency-inputs text-center mt-1 {% elif 'oglasi/pregled/' in request.path %} icon-text {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
   </div>
   {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
-  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
-    <img style="height: 18px;width: 18px;filter: brightness(0.7) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
+  <div class=" text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} flex-column {% endif %}">
+    <img class="{% if 'oglasi/pregled/' in request.path or '/oglasi/omiljeni-oglasi/' in request.path %} icon24px {% else %} icon18px {% endif %}" style="filter: brightness(0.7) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
+    <small class="listing-icons-text {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} agency-inputs mt-1 text-center {% elif 'oglasi/pregled/' in request.path %} icon-text {% elif 'oglasi/pregled/' in request.path %} icon-text {% else %} ms-1 {% endif %} {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
   </div>
-  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
-    <img style="height: 18px;width: 18px;filter: brightness(0.7) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
+  <div class=" text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} flex-column {% endif %}">
+    <img class="{% if 'oglasi/pregled/' in request.path or '/oglasi/omiljeni-oglasi/' in request.path %} icon24px {% else %} icon18px {% endif %}" style="filter: brightness(0.7) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
+    <small class="listing-icons-text {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} agency-inputs mt-1 text-center {% elif 'oglasi/pregled/' in request.path %} icon-text {% else %} ms-1 {% endif %} {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
   </div>
   {% else %}
-  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
-    <img style="height: 18px;width: 18px" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.structure }}</small>
+  <div class=" text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} flex-column {% endif %}">
+    <img class="{% if 'oglasi/pregled/' in request.path or '/oglasi/omiljeni-oglasi/' in request.path %} icon24px {% else %} icon18px {% endif %}" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
+    <small class="listing-icons-text {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} agency-inputs mt-1 text-center {% elif 'oglasi/pregled/' in request.path %} icon-text {% else %} ms-1 {% endif %}">{{ listing.listingcharacteristics_set.first.structure }}</small>
   </div>
-  <div class="col-3 text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' %} flex-column {% endif %}">
-    <img style="height: 18px;width: 18px" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-    <small class="ms-1 {% if request.path == '/oglasi/omiljeni-oglasi/' %} mt-1 {% else %} ms-1 {% endif %} 
+  <div class="text-nowrap d-flex align-items-center justify-content-center {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} flex-column {% endif %}">
+    <img class="{% if 'oglasi/pregled/' in request.path or '/oglasi/omiljeni-oglasi/' in request.path %} icon24px {% else %} icon18px {% endif %}" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
+    <small class="listing-icons-text  {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' %} agency-inputs mt-1 text-center {% elif 'oglasi/pregled/' in request.path %} icon-text {% elif 'oglasi/pregled/' in request.path %} icon-text {% else %} ms-1 {% endif %} 
     {% if listing.listingcharacteristics_set.first.parking %}
       {% elif 'Garaža' in listing.details %}
       {% elif 'Parking van zone' in listing.details %}

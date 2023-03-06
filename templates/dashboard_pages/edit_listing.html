@@ -8,402 +8,395 @@
 {% endblock %}
 
 {% block content %}
-  <section class="create-listing p-3 pt-4 flex-shrink-0">
-    <div class="container-fluid margin-container">
-      <div class="row">
+<div class="margin-container pb-4" style="padding-top: 44px;">
+  <div class="row">
 
-        {% include 'includes/profile_sidebar.html' %}
+    {% include 'includes/profile_sidebar.html' %}
 
-        <div class="col-10 main-area">
-          <div class="creation-steps d-flex justify-content-center mb-3">
-            <div id="tab1" class="col shadow-sm active" onclick="changeActive(1)">1. Opis</div>
-            <div id="tab2" class="col shadow-sm" onclick="changeActive(2)">2. Multimedija</div>
-            <div id="tab3" class="col shadow-sm getMap" onclick="changeActive(3)">3. Lokacija</div>
-            <div id="tab4" class="col shadow-sm" onclick="changeActive(4)">4. Karakteristike</div>
-            <div id="tab5" class="col shadow-sm" onclick="changeActive(5)">5. Detalji</div>
-          </div>
-
-          <!-- Alert -->
-          <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
-
-          <form id="create-listing-form" class="needs-validation"  onsubmit="return validateForm()" method="POST" action="{% url 'confirm_edit' pk=listing.id %}" novalidate>
-            {% csrf_token %}
-            <div class="creation-content justify-content-center show" id="step1">
-              <div class="col creation-step me-4">
-                <div class="step-section mb-4">
-                  {# Step main heading #}
-                  <div class="d-flex justify-content-start mb-4 step-heading">
-                    <h5 class="align-self-end me-4">Opis</h5>
-                    <small class="align-self-end">Opišite vašu nekretninu</small>
-                  </div>
-                  <div class="mb-3">
-                    <label for="title" class="form-label">Naslov oglasa (obavezno)</label>
-                    <input type="text" value="{{listing.title}}" class="form-control" id="title" name="title" aria-describedby="titleHelp" required>
-                  </div>
-                  <div class="mb-3">
-                    <div class="d-flex justify-content-start mb-4 step-heading">
-                      <p class="align-self-end me-4">Opis </p>
-                      <small class="align-self-end">Napišite par rečenica o vašoj nekretnini</small>
-                    </div>
-                    <textarea class="form-control" style="resize: none;" name="description" id="description" cols="30" rows="16" required>{{listing.description}}</textarea>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="creation-step mb-4">
-                  <div class="step-section mb-4">
-                    <div class="d-flex justify-content-start mb-4 step-heading">
-                    <h5 class="align-self-end me-4">Status</h5>
-                    <small class="align-self-end">Izaberite vrstu oglašavanja</small>
-                  </div>
-                  <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example" name="status" id="status" onchange="getDetails()">
-                      <option value="0" {% if listing.status == '0' %}selected{% endif %}>Prodaja</option>
-                      <option value="1" {% if listing.status == '1' %}selected{% endif %}>Izdavanje</option>
-                    </select>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="creation-step mb-4">
-                  <div class="step-section ">
-                    <div class="d-flex justify-content-start mb-4 step-heading">
-                      <h5 class="align-self-end me-4">Tip</h5>
-                      <small class="align-self-end">Izaberite kategoriju i tip vaše nekretnine </small>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <div style="width: 280px;">
-                        <label for="category" class="form-label">Kategorija</label>
-                        <select class="form-select" id="category" required onchange="populateSubCategories(this)">
-                          <option value="">Izaberite kategoriju </option>
-                          {% for categ in categories %}
-                            {% if categ.parent is None %}
-                              <option value="{{ categ.id }}" {% if listing.category.parent.id == categ.id %} selected {% endif %}>{{ categ.name }}</option>
-                            {% endif %}
-                          {% endfor %}
-                        </select>
-                      </div>
-                      <div style="width: 220px;">
-                        <label for="tip" class="form-label">Tip</label>
-                        <select required class="form-select" id="subcateg"  name="subcateg" onchange="getDetails(); selectCategory()">
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="creation-step">
-                  <div class="step-section">
-                    <div class="d-flex justify-content-start mb-4 step-heading">
-                      <h5 class="align-self-end me-4">Cena</h5>
-                      <small class="align-self-end">Upišite cenu vaše nekretnine u EUR</small>
-                    </div>
-                    <div class="w100">
-                      <input type="text" class="form-control" value={{listing.price}} id="price" name="price" required>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="d-flex justify-content-end next-step">
-                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(1, 2)">
-                    Dalje
-                    <i class="bi bi-chevron-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="creation-content justify-content-center" id="step2">
-              <div class="col me-4">
-                <div class="creation-step step-section mb-4">
-                  {# Step main heading #}
-                  <div class="text-center mb-4 step-heading">
-                    <h5>Učitajte slike</h5>
-                    {#                    <div id="drag-drop-area"></div>#}
-                  </div>
-                  <div id="browse-images"></div>
-                </div>
-
-                <div class="creation-step step-section mb-4">
-                  {# Step main heading #}
-                  <div class="text-center mb-4 step-heading">
-                    <h5>Dodajte link youtube videa</h5>
-                  </div>
-                  <input type="text" placeholder="https://youtube.com..." class="form-control" id="video" name="video" value="{{ listing.video }}">
-                </div>
-              </div>
-
-              <div class="col">
-                <div class="creation-step step-section mb-4">
-                  {# Step main heading #}
-                  <div class="text-center mb-4 step-heading">
-                    <h5>Učitajte tlocrt</h5>
-                  </div>
-                  <div id="tlocrt-area"></div>
-                </div>
-
-                <div class="creation-step step-section mb-4">
-                  {# Step main heading #}
-                  <div class="text-center mb-4 step-heading">
-                    <h5>Dodajte link virtuelne ture</h5>
-                  </div>
-                  <input placeholder="https:///www..." type="text" class="form-control" id="virtual_tour" name="virtual_tour" value="{{ listing.virtual_tour }}">
-                </div>
-
-                <div class="d-flex justify-content-end next-step">
-                  <button class="btn btn-blue btn-creation-step getMap" type="button" id="nextStep" onclick="switchStep(2, 3)">
-                    Dalje
-                    <i class="bi bi-chevron-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="row creation-content " id="step3">
-              <div class="col-6">
-                <div class="creation-step step-section mb-4">
-                  <div class="mb-4 step-heading">
-                    <h5  class="mb-2">Lokacija</h5>
-                    <small>Unesite informacije o lokaciji vaše nekretnine</small>
-                  </div>
-                  <div class="location-input">
-                    <label for="country" class="form-label">Država (obavezno)</label>
-                    <select class="form-select" id="country" name="country" value="{{listing.country}}">
-                      <option selected value="srbija">Srbija</option>
-                    </select>
-                  </div>
-                  <div class="location-input">
-                    <label for="city" class="form-label">Grad (obavezno)</label>
-                    <input type="text" class="form-control" value="{{listing.city}}" list="cityes" id="city" name="city" aria-describedby="titleHelp" onchange="showNeighbourhoods()" required>
-                    <datalist id="cityes">
-                      {% for loc in all_cities %}
-                        <option value="{{ loc.city }}">
-                      {% endfor %}
-                    </datalist>
-                  </div>
-                  <div class="location-input">
-                    <label for="municipality" class="form-label">Opština (obavezno)</label>
-                    <input type="text" class="form-control" value="{{listing.area}}" id="municipality" list="opstina" name="municipality" required>
-                    <datalist id="opstina">
-                     
-                    </datalist>
-                  </div>
-                  <div class="location-input">
-                    <label for="area" class="form-label">Lokacija (obavezno)</label>
-                    <input type="text" class="form-control" value="{{listing.municipality}}" list="location" id="area" name="area" aria-describedby="titleHelp" required>
-                    <datalist id="location">
-                     
-                    </datalist>
-                  </div>
-                  <div class="location-input">
-                    <label for="street" class="form-label">Ulica (obavezno)</label>
-                    <input type="text" class="form-control" value="{{listing.address}}" id="street" name="street" aria-describedby="titleHelp" required>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-6 d-flex flex-column">
-                <div class="mb-4 step-heading">
-                  <h5 class="mb-2">Postavite pin na mapu</h5>
-                  <small>Postavite pin što preciznije možete kako biste bolje odredili lokaciju vaše nekretnine</small>
-                </div>
-                <div class="creation-step step-section h-100">
-                  <div class="map-canvas h-100 " id="map"></div>
-                  <input type="hidden" id="lat" name="lat" value="{{listing.listingmap_set.first.lat }}" required>
-                  <input type="hidden" id="lng" name="lng" value="{{listing.listingmap_set.first.lng }}" required>
-                  <input type="hidden" id="zoom" name="zoom" value="{{listing.listingmap_set.first.zoom }}" required>
-                </div>
-
-                <div class="d-flex justify-content-end mt-3 next-step">
-                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(3, 4)">
-                    Dalje
-                    <i class="bi bi-chevron-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="creation-content" id="step4">
-              <div class="col flex-grow-1">
-                <div class="creation-step step-section mb-4">
-                  <div class="mb-4 d-flex step-heading justify-content-start">
-                    <h5 class="mb-2 flex-grow-1">
-                      Karakteristike
-                    </h5>
-                    <a href="#" class="text-dark" data-bs-toggle="popover" data-bs-title="Smernice" data-bs-content="Primer ispod je za dvoiposoban stan od 80kvadrata, sa 1 kupatilom i jednim toaletom, 2 spavaće sobe i jednim garažnim mestom u zajedničkoj garaži zgrade.">
-                        Potrebna pomoć?
-                        <i class="bi bi-info-circle-fill"></i>
-                      </a>
-                  </div>
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div class="col-3 col-lg-3">
-                        <div class="mb-3">
-                          <label for="size" class="form-label">Površina (obavezno)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.size}}" class="form-control" id="size" name="size" aria-describedby="titleHelp" placeholder="npr 80" required>
-                        </div>
-                        <div class="mb-3">
-                          <label for="structure" class="form-label">Struktura (brojevima)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.structure}}" class="form-control" id="structure" name="structure" aria-describedby="titleHelp" placeholder="npr 2.5">
-                        </div>
-                        <div class="mb-3">
-                          <label for="year_built" class="form-label">Godina Izgradnje</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.year_built}}" class="form-control" id="year_built" name="year_built" aria-describedby="titleHelp" placeholder="npr 1983">
-                        </div>
-                        <div class="mb-3">
-                          <label for="floor" class="form-label">Sprat</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.floor}}" class="form-control" id="floor" name="floor" aria-describedby="titleHelp" placeholder="npr 2">
-                        </div>
-                        <div class="mb-3">
-                          <label for="total_floors" class="form-label">Od Spratova</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.total_floors}}" class="form-control" id="total_floors" name="total_floors" aria-describedby="titleHelp" placeholder="5">
-                        </div>
-                      </div>
-                      <div class="col-3 col-lg-3">
-                        <div class="mb-3">
-                          <label for="bedrooms" class="form-label">Spavaćih soba (brojevima)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.bedrooms}}" class="form-control" id="bedrooms" name="bedrooms" aria-describedby="titleHelp" placeholder="npr 2">
-                        </div>
-                        <div class="mb-3">
-                          <label for="baths" class="form-label">Kupatila (brojevima)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.baths}}" class="form-control" id="baths" name="baths" aria-describedby="titleHelp" placeholder="npr 1">
-                        </div>
-                        <div class="mb-3">
-                          <label for="half_baths" class="form-label">Toaleta (brojevima)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.half_baths}}" class="form-control" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
-                        </div>
-
-                        <div class="mb-3" id='parcel-input'>
-                          <label for="parcel_size" class="form-label">Površina parcele (u kvm)</label>
-                          <input type="text" value="" class="form-control" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
-                        </div>
-                        <div class="mb-3">
-                          <label for="efficiency_index" class="form-label">Hipoteka (izaberite)</label>
-                          <select class="form-select" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
-                            <option value="1">Nema</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-3 col-lg-3">
-                        <div class="mb-3">
-                          <label for="parking" class="form-label">Parking (izaberite vrstu){{listing.listingcharacteristics_set.first.parking}}</label>
-                          <select class="form-select" aria-label="Default select example" id="parking" name="parking">
-                            <option value="">Izaberite...</option>
-                            <option value="parking mesto" {% if listing.listingcharacteristics_set.first.parking == 'parking mesto' %} selected {% endif %}>Parking mesto</option>
-                            {% comment %} <option value="parking klackalica" {% if listing.listingcharacteristics_set.first.parking == 'parking klackalica' %} selected {% endif %} >Parking klackalica</option> {% endcomment %}
-                            <option value="garažno mesto" {% if listing.listingcharacteristics_set.first.parking == 'garažno mesto' %} selected {% endif %}>Garažno mesto</option>
-                            <option value="parking platforma" {% if listing.listingcharacteristics_set.first.parking == 'parking platforma' %} selected {% endif %}>Parking platforma</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="parking_slots" class="form-label">Parking mesta (brojevima)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.parking_slots}}" class="form-control" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
-                        </div>
-                        <div class="mb-3">
-                          <label for="balcony" class="form-label">Terasa (brojevima)</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.balcony}}" class="form-control" id="balcony" name="balcony" aria-describedby="titleHelp">
-                        </div>
-                        <div class="mb-3">
-                          <label for="basement" class="form-label">Podrum</label>
-                          <select class="form-select" aria-label="Default select example" id="basement" name="basement">
-                            <option value="false" {% if listing.listingcharacteristics_set.first.basement == False %} selected {% endif %}>Nema</option>
-                            <option value="true" {% if listing.listingcharacteristics_set.first.basement == True %} selected {% endif %}>Ima</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="storage" class="form-label">Ostava</label>
-                          <select class="form-select" aria-label="Default select example" id="storage" name="storage">
-                            <option value="false" {% if listing.listingcharacteristics_set.first.storage == False %} selected {% endif %}>Nema</option>
-                            <option value="true" {% if listing.listingcharacteristics_set.first.storage == True %} selected {% endif %}>Ima</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-3 col-lg-3">
-                        <div class="mb-3">
-                          <label for="legal_status" class="form-label">Katastarski status</label>
-                          <select class="form-select" aria-label="Default select example" id="legal_status" name="legal_status">
-                            <option value="uknjizeno" {% if listing.listingcharacteristics_set.first.legal_status == 'uknjizeno' %} selected {% endif %}>Uknjizeno</option>
-                            <option value="legalizacija" {% if listing.listingcharacteristics_set.first.legal_status == 'legalizacija' %} selected {% endif %}>Legalizacija u toku</option>
-                            <option value="izgradnja" {% if listing.listingcharacteristics_set.first.legal_status == 'izgradnja' %} selected {% endif %}>U izgradnji</option>
-                            <option value="neuknjizeno" {% if listing.listingcharacteristics_set.first.legal_status == 'neuknjizeno' %} selected {% endif %}>Neuknjizeno</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="condition" class="form-label">Stanje</label>
-                          <select class="form-select" aria-label="Default select example" id="condition" name="condition">
-                            <option value="novogradnja" {% if listing.listingcharacteristics_set.first.condition == 'novogradnja' %} selected {% endif %}>Novogradnja</option>
-                            <option value="renovirano" {% if listing.listingcharacteristics_set.first.condition == 'renovirano' %} selected {% endif %}>Renovirano</option>
-                            <option value="izvorno" {% if listing.listingcharacteristics_set.first.condition == 'izvorno' %} selected {% endif %}>Izvorno</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="efficiency" class="form-label">Energetski pasoš</label>
-                          <select class="form-select" aria-label="Default select example" id="efficiency" name="efficiency">
-                            <option value="1" {% if listing.listingcharacteristics_set.first.efficiency == '1' %} selected {% endif %}>Prodaja</option>
-                            <option value="2"{% if listing.listingcharacteristics_set.first.efficiency == '2' %} selected {% endif %}>Two</option>
-                            <option value="3"{% if listing.listingcharacteristics_set.first.efficiency == '3' %} selected {% endif %}>Three</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="efficiency_index" class="form-label">Indeks u kWh/m2a (izaberite)</label>
-                          <select class="form-select" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
-                            <option value="1" {% if listing.listingcharacteristics_set.first.efficiency_index == '1' %} selected {% endif %}>Prodaja</option>
-                            <option value="2" {% if listing.listingcharacteristics_set.first.efficiency_index == '2' %} selected {% endif %}>Two</option>
-                            <option value="3" {% if listing.listingcharacteristics_set.first.efficiency_index == '3' %} selected {% endif %}>Three</option>
-                          </select>
-                        </div>
-                        <div class="mb-3">
-                          <label for="additional" class="form-label">Ostalo/dodatno</label>
-                          <input type="text" value="{{listing.listingcharacteristics_set.first.additional}}" class="form-control" id="additional" name="additional" aria-describedby="titleHelp">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="d-flex justify-content-end next-step">
-                  <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(4, 5)">
-                    Dalje
-                    <i class="bi bi-chevron-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div class="creation-content" id="step5">
-              <div class="col flex-grow-1">
-                <div class="creation-step step-section mb-4">
-                  <div class="mb-4 step-heading">
-                    <h5 class="mb-2">Prodaja</h5>
-                    <small>Čekirajte kvadratiće oglasa za prodaju</small>
-                  </div>
-                  <div class="row" id="details">
-                  
-                  </div>
-                  <div class="border-bottom w-100 me-2"></div>
-                  <div class="mb-4 mt-3 step-heading">
-                    <h5 class="mb-2">Izdavanje</h5>
-                    <small>Čekirajte kvadratiće oglasa za izdavanje</small>
-                  </div>
-                  <div class="row" id="amenities">
-                  
-                  </div>
-                </div>
-                <div class="d-flex justify-content-end next-step">
-                  <button class="btn btn-blue btn-creation-step" type="submit" id="nextStep">
-                    Sačuvaj
-                  <i class="bi bi-chevron-double-right"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
+    <div class="col-10 main-area pe-0 ps-4">
+      <div class="creation-steps d-flex justify-content-center mb-4">
+        <div id="tab1" class="col text-mid me-4 shadow active" onclick="changeActive(1)">1. Opis</div>
+        <div id="tab2" class="col text-mid me-4 shadow" onclick="changeActive(2)">2. Multimedija</div>
+        <div id="tab3" class="col text-mid me-4 shadow getMap" onclick="changeActive(3)">3. Lokacija</div>
+        <div id="tab4" class="col col text-mid me-4 shadow" onclick="changeActive(4)">4. Karakteristike</div>
+        <div id="tab5" class="col text-mid me-4 shadow" onclick="changeActive(5)">5. Detalji</div>
       </div>
+
+      <!-- Alert -->
+      <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
+
+      <form id="create-listing-form" class="needs-validation"  onsubmit="return validateForm()" method="POST" action="{% url 'confirm_edit' pk=listing.id %}" novalidate>
+        {% csrf_token %}
+
+        <!-- DESCRIPTION TAB -->
+        <div class="creation-content justify-content-center show" id="step1">
+          <div class="col creation-step rounded shadow me-4" style="padding: 16px 12px 8px 12px;">
+            <div class="step-section">
+              {# Step main heading #}
+              <div class="d-flex align-items-end mb-4 step-heading">
+                <h5 class="me-4">Opis</h5>
+                <small class="description-guide">Opišite vašu nekretninu</small>
+              </div>
+              <div class="mb-3">
+                <label for="title" class="form-label blog-type">Naslov oglasa (obavezno)</label>
+                <input type="text" value="{{listing.title}}" class="form-control border-radius-10 height-40px description-inputs" id="title" name="title" aria-describedby="titleHelp" required>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex align-items-end step-heading" style="margin-bottom: 12px;">
+                  <p class="me-4 blog-type">Opis </p>
+                  <small class="description-guide">Napišite par rečenica o vašoj nekretnini</small>
+                </div>
+                <textarea class="form-control border-radius-10 description-inputs" style="resize: none;" name="description" id="description" cols="30" rows="16" required>{{listing.description}}</textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col d-flex flex-column justify-content-between">
+            <div class="row">
+              <div class="col-12 mb-4 shadow rounded" style="padding: 16px 12px 24px 12px;">
+                <div class="d-flex align-items-end step-heading" style="margin-bottom: 12px;">
+                  <h5 class="align-self-end me-4">Status</h5>
+                  <small class="align-self-end">Izaberite vrstu oglašavanja</small>
+                </div>
+                <select class="form-select form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" name="type" id="type" onchange="getDetails()">
+                  <option value="0" {% if listing.type == '0' %}selected{% endif %}>Prodaja</option>
+                  <option value="1" {% if listing.type == '1' %}selected{% endif %}>Izdavanje</option>
+                </select>
+              </div>
+              <div class="col-12 creation-step rounded shadow mb-4" style="padding: 16px 12px 24px 12px;">
+                <div class="step-section ">
+                  <div class="d-flex align-items-end step-heading" style="margin-bottom: 12px;">
+                    <h5 class="me-4">Tip</h5>
+                    <small class="description-guide">Izaberite kategoriju i tip vaše nekretnine </small>
+                  </div>
+                  <div class="row">
+                    <div class="col ps-0 pe-4">
+                      <label for="category" class="form-label blog-type">Kategorija</label>
+                      <select class="form-select border-radius-10 height-40px description-inputs" id="category" required onchange="populateSubCategories(this)">
+                        <option value="">Izaberite kategoriju </option>
+                        {% for categ in categories %}
+                          {% if categ.parent is None %}
+                            <option value="{{ categ.id }}" {% if listing.category.parent.id == categ.id %} selected {% endif %}>{{ categ.name }}</option>
+                          {% endif %}
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col pe-0 ps-4">
+                      <label for="tip" class="form-label blog-type">Tip</label>
+                      <select required class="form-select border-radius-10 height-40px description-inputs" id="subcateg"  name="subcateg" onchange="getDetails(); selectCategory()">
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 creation-step rounded shadow" style="padding: 16px 12px 24px 12px;">
+                <div class="step-section">
+                  <div class="d-flex align-items-end step-heading" style="margin-bottom: 12px;">
+                    <h5 class="me-4">Cena</h5>
+                    <small class="description-guide">Upišite cenu vaše nekretnine u EUR</small>
+                  </div>
+                  <div class="w-100">
+                    <input type="text" tyle="text-align: center!important;" class="form-control border-radius-10 height-40px description-inputs" value={{listing.price}} id="price" name="price" onkeyup="addPeriods()" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-0 d-flex justify-content-end next-step">
+              <button class="btn btn-blue btn-creation-step create-edit-button" type="button" id="nextStep" onclick="switchStep(1, 2)">
+                Dalje
+                <i class="bi bi-chevron-double-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!--MEDIA TAB-->
+        <div class="creation-content justify-content-center" id="step2">
+          <div class="col me-4">
+            <div class="creation-step step-section mb-4">
+              {# Step main heading #}
+              <div class="text-center mb-4 step-heading">
+                <h5>Učitajte slike</h5>{#<div id="drag-drop-area"></div>#}
+              </div>
+              <div class="shadow rounded" id="browse-images"></div>
+            </div>
+            <div class="creation-step step-section mb-4">
+              {# Step main heading #}
+              <div class="text-center mb-4 step-heading">
+                <h5>Dodajte link youtube videa</h5>
+              </div>
+              <input type="text" placeholder="https://youtube.com..." class="form-control border-radius-10 height-40px description-inputs" id="video" name="video" value="{{ listing.video }}">
+            </div>
+          </div>
+          <div class="col">
+            <div class="creation-step step-section mb-4">
+              {# Step main heading #}
+              <div class="text-center mb-4 step-heading">
+                <h5>Učitajte tlocrt</h5>
+              </div>
+              <div class="shadow rounded" id="tlocrt-area"></div>
+            </div>
+            <div class="creation-step step-section mb-4">
+              {# Step main heading #}
+              <div class="text-center mb-4 step-heading">
+                <h5>Dodajte link virtuelne ture</h5>
+              </div>
+              <input placeholder="https:///www..." type="text" class="form-control border-radius-10 height-40px description-inputs" id="virtual_tour" name="virtual_tour" value="{{ listing.virtual_tour }}">
+            </div>
+            <div class="d-flex justify-content-end next-step">
+              <button class="btn btn-blue btn-creation-step create-edit-button getMap" type="button" id="nextStep" onclick="switchStep(2, 3)">
+                Dalje
+                <i class="bi bi-chevron-double-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!--LOCATION TAB-->
+        <div class="row creation-content " id="step3">
+          <div class="col-6 ps-0 h-100">
+            <div class="creation-step rounded shadow step-section" style="padding: 16px 12px 1px 12px;">
+              <div class="step-heading">
+                <h5  class="mb-3">Lokacija</h5>
+              </div>
+              <div class="location-input">
+                <label for="country" class="form-label blog-type margin-start-12 margin-bottom-12">Država</label>
+                <select class="form-select border-radius-10 height-40px description-inputs" id="country" name="country" value="{{listing.country}}">
+                  <option selected value="srbija">Srbija</option>
+                </select>
+              </div>
+              <div class="location-input">
+                <label for="city" class="form-label blog-type margin-start-12 margin-bottom-12">Grad</label>
+                <input type="text" class="form-control border-radius-10 height-40px description-inputs" value="{{listing.city}}" list="cityes" id="city" name="city" aria-describedby="titleHelp" onchange="showNeighbourhoods()" required>
+                <datalist id="cityes">
+                  {{all_cities}}
+                  {% for loc in all_cities %}
+                    <option value="{{ loc.city }}">
+                  {% endfor %}
+                </datalist>
+              </div>
+              <div class="location-input">
+                <label for="municipality" class="form-label blog-type margin-start-12 margin-bottom-12">Opština</label>
+                <input type="text" class="form-control border-radius-10 height-40px description-inputs" value="{{listing.area}}" id="municipality" list="opstina" name="municipality" required>
+                <datalist id="opstina">
+                </datalist>
+              </div>
+              <div class="location-input">
+                <label for="area" class="form-label blog-type margin-start-12 margin-bottom-12">Lokacija</label>
+                <input type="text" class="form-control border-radius-10 height-40px description-inputs" value="{{listing.municipality}}" list="location" id="area" name="area" aria-describedby="titleHelp" required>
+                <datalist id="location">
+                </datalist>
+              </div>
+              <div class="location-input">
+                <label for="street" class="form-label blog-type margin-start-12 margin-bottom-12">Ulica</label>
+                <input type="text" class="form-control border-radius-10 height-40px description-inputs" value="{{listing.address}}" id="street" name="street" aria-describedby="titleHelp" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-6 d-flex flex-column pe-0">
+            <div class="step-heading" style="margin-bottom: 20px;">
+              <h5 class="mb-3">Postavite pin na mapu</h5>
+              <div class="description-guide">Postavite pin što preciznije možete kako biste bolje odredili lokaciju vaše nekretnine</div>
+            </div>
+            <div class="creation-step step-section h-100">
+              <div class="map-canvas rounded" id="map" style="height: 405px;"></div>
+              <input type="hidden" id="lat" name="lat" value="{{listing.listingmap_set.first.lat }}" required>
+              <input type="hidden" id="lng" name="lng" value="{{listing.listingmap_set.first.lng }}" required>
+              <input type="hidden" id="zoom" name="zoom" value="{{listing.listingmap_set.first.zoom }}" required>
+            </div>
+            <div class="d-flex justify-content-end mt-4 next-step">
+              <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(3, 4)">
+                Dalje
+                <i class="bi bi-chevron-double-right create-edit-button"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!---CHARACTERISTICS-->
+        <div class="creation-content" id="step4">
+          <div class="col">
+            <div class="creation-step step-section mb-4 shadow rounded" style="padding: 16px 0px 0px 0px;">
+              <div class="mb-3 d-flex step-heading justify-content-start">
+                <h5 class="" style="padding-left: 12px;">
+                  Karakteristike
+                </h5>
+                <!-- <a href="#" class="text-dark" data-bs-toggle="popover" data-bs-title="Smernice" data-bs-content="Primer ispod je za dvoiposoban stan od 80kvadrata, sa 1 kupatilom i jednim toaletom, 2 spavaće sobe i jednim garažnim mestom u zajedničkoj garaži zgrade.">
+                    Potrebna pomoć?
+                    <i class="bi bi-info-circle-fill"></i>
+                  </a> -->
+              </div>
+              <div class="row">
+                <div class="col-3 col-lg-3">
+                  <div class="mb-3">
+                    <label for="size" class="form-label blog-type margin-start-12">Površina u m<sup>2</sup> <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.size}}" class="form-control border-radius-10 height-40px description-inputs" id="size" name="size" aria-describedby="titleHelp" placeholder="npr 80" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="structure" class="form-label blog-type margin-start-12">Struktura <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.structure}}" class="form-control border-radius-10 height-40px description-inputs" id="structure" name="structure" aria-describedby="titleHelp" placeholder="npr 2.5">
+                  </div>
+                  <div class="mb-3">
+                    <label for="year_built" class="form-label blog-type margin-start-12">Godina Izgradnje</label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.year_built}}" class="form-control border-radius-10 height-40px description-inputs" id="year_built" name="year_built" aria-describedby="titleHelp" placeholder="npr 1983">
+                  </div>
+                  <div class="mb-3">
+                    <label for="floor" class="form-label blog-type margin-start-12">Sprat</label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.floor}}" class="form-control border-radius-10 height-40px description-inputs" id="floor" name="floor" aria-describedby="titleHelp" placeholder="npr 2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="total_floors" class="form-label blog-type margin-start-12">Od Spratova</label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.total_floors}}" class="form-control border-radius-10 height-40px description-inputs" id="total_floors" name="total_floors" aria-describedby="titleHelp" placeholder="5">
+                  </div>
+                </div>
+                <div class="col-3 col-lg-3">
+                  <div class="mb-3">
+                    <label for="bedrooms" class="form-label blog-type margin-start-12">Spavaćih soba <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.bedrooms}}" class="form-control border-radius-10 height-40px description-inputs" id="bedrooms" name="bedrooms" aria-describedby="titleHelp" placeholder="npr 2">
+                  </div>
+                  <div class="mb-3">
+                    <label for="baths" class="form-label blog-type margin-start-12">Kupatilo <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.baths}}" class="form-control border-radius-10 height-40px description-inputs" id="baths" name="baths" aria-describedby="titleHelp" placeholder="npr 1">
+                  </div>
+                  <div class="mb-3">
+                    <label for="half_baths" class="form-label blog-type margin-start-12">Toalet/WC <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.half_baths}}" class="form-control border-radius-10 height-40px description-inputs" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
+                  </div>
+                  <div class="mb-3" id='parcel-input'>
+                    <label for="parcel_size" class="form-label blog-type margin-start-12">Površina parcele <span class="description-guide">(broj u m<sup>2</sup>)</span></label>
+                    <input type="text" onkeyup="addPeriods()" value="" class="form-control border-radius-10 height-40px description-inputs" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
+                  </div>
+                  <div class="mb-3">
+                    <label for="efficiency_index" class="form-label blog-type margin-start-12">Hipoteka</label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
+                      <option value="1">Nema</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-3 col-lg-3">
+                  <div class="mb-3">
+                    <label for="parking" class="form-label blog-type margin-start-12">Parking <span class="description-guide">(izaberite vrstu)</span></label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="parking" name="parking">
+                      <option value="" >Izaberite...</option>
+                      <option value="parking mesto" {% if listing.listingcharacteristics_set.first.parking == 'parking mesto' %} selected {% endif %}>Parking mesto</option>
+                      <option value="garažno mesto" {% if listing.listingcharacteristics_set.first.parking == 'garažno mesto' %} selected {% endif %}>Garažno mesto</option>
+                      <option value="parking platforma" {% if listing.listingcharacteristics_set.first.parking == 'parking platforma' %} selected {% endif %}>Parking platforma</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="parking_slots" class="form-label blog-type margin-start-12">Parking mesta <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.parking_slots}}" class="form-control border-radius-10 height-40px description-inputs" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="balcony" class="form-label blog-type margin-start-12">Terasa <span class="description-guide">(brojevima)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.balcony}}" class="form-control border-radius-10 height-40px description-inputs" id="balcony" name="balcony" aria-describedby="titleHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="basement" class="form-label blog-type margin-start-12">Podrum</label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="basement" name="basement">
+                      <option value="false" {% if listing.listingcharacteristics_set.first.basement == False %} selected {% endif %}>Nema</option>
+                      <option value="true" {% if listing.listingcharacteristics_set.first.basement == True %} selected {% endif %}>Ima</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="storage" class="form-label blog-type margin-start-12">Ostava</label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="storage" name="storage">
+                      <option value="false" {% if listing.listingcharacteristics_set.first.storage == False %} selected {% endif %}>Nema</option>
+                      <option value="true" {% if listing.listingcharacteristics_set.first.storage == True %} selected {% endif %}>Ima</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-3 col-lg-3">
+                  <div class="mb-3">
+                    <label for="legal_status" class="form-label blog-type margin-start-12">Katastarski status <span class="description-guide">(izaberite)</span></label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="legal_status" name="legal_status">
+                      <option value="uknjizeno" {% if listing.listingcharacteristics_set.first.legal_status == 'uknjizeno' %} selected {% endif %}>Uknjizeno</option>
+                      <option value="legalizacija" {% if listing.listingcharacteristics_set.first.legal_status == 'legalizacija' %} selected {% endif %}>Legalizacija u toku</option>
+                      <option value="izgradnja" {% if listing.listingcharacteristics_set.first.legal_status == 'izgradnja' %} selected {% endif %}>U izgradnji</option>
+                      <option value="neuknjizeno" {% if listing.listingcharacteristics_set.first.legal_status == 'neuknjizeno' %} selected {% endif %}>Neuknjizeno</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="condition" class="form-label blog-type margin-start-12">Stanje <span class="description-guide">(izaberite)</span></label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="condition" name="condition">
+                      <option value="starogradnja" {% if listing.listingcharacteristics_set.first.condition == 'starogradnja' %} selected {% endif %}>Starogradnja</option>
+                      <option value="novogradnja" {% if listing.listingcharacteristics_set.first.condition == 'novogradnja' %} selected {% endif %}>Novogradnja</option>
+                      <option value="u_izgradnji" {% if listing.listingcharacteristics_set.first.condition == 'u_izgradnji' %} selected {% endif %}>u izgradnji</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="efficiency" class="form-label blog-type margin-start-12">Energetski pasoš <span class="description-guide">(izaberite)</span></label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="efficiency" name="efficiency">
+                      <option value="">Izaberite...</option>
+                      <option value="1"{% if listing.listingcharacteristics_set.first.efficiency == '1' %} selected {% endif %}>Ima</option>
+                      <option value="2"{% if listing.listingcharacteristics_set.first.efficiency == '2' %} selected {% endif %}>Nema</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="efficiency_index" class="form-label blog-type margin-start-12">Energetski razred <span class="description-guide">(izaberite)</span></label>
+                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
+                      <option value="" selected>Izaberite...</option>
+                      <option value="1" {% if listing.listingcharacteristics_set.first.efficiency_index == '1' %} selected {% endif %}>A+</option>
+                      <option value="2" {% if listing.listingcharacteristics_set.first.efficiency_index == '2' %} selected {% endif %}>A</option>
+                      <option value="3" {% if listing.listingcharacteristics_set.first.efficiency_index == '3' %} selected {% endif %}>B</option>
+                      <option value="4" {% if listing.listingcharacteristics_set.first.efficiency_index == '4' %} selected {% endif %}>C</option>
+                      <option value="5" {% if listing.listingcharacteristics_set.first.efficiency_index == '5' %} selected {% endif %}>D</option>
+                      <option value="6" {% if listing.listingcharacteristics_set.first.efficiency_index == '6' %} selected {% endif %}>E</option>
+                      <option value="7" {% if listing.listingcharacteristics_set.first.efficiency_index == '7' %} selected {% endif %}>F</option>
+                      <option value="8" {% if listing.listingcharacteristics_set.first.efficiency_index == '8' %} selected {% endif %}>G</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="additional" class="form-label blog-type margin-start-12">Ostalo/dodatno <span class="description-guide">(upišite)</span></label>
+                    <input type="text" value="{{listing.listingcharacteristics_set.first.additional}}" class="form-control border-radius-10 height-40px description-inputs" id="additional" name="additional" aria-describedby="titleHelp">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end next-step">
+              <button class="btn btn-blue btn-creation-step" type="button" id="nextStep" onclick="switchStep(4, 5)">
+                Dalje
+                <i class="bi bi-chevron-double-right create-edit-button"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!---DETAILS AND AMENITIES-->
+        <div class="creation-content" id="step5">
+          <div class="col shadow rounded" style="padding: 16px 0px 0px 0px;">
+            <div class="creation-step step-section mb-4">
+              <div class="mb-4 step-heading">
+                <h5 style="margin-bottom: 12px;padding-left: 12px;">Prodaja</h5>
+                <small class="blog-type" style="padding-left: 12px;">Čekirajte kvadratiće oglasa za prodaju</small>
+              </div>
+              <div class="row" id="details">
+              </div>
+              <div class="border-bottom w-100 me-2"></div>
+              <div class="mb-4 mt-3 step-heading">
+                <h5 style="margin-bottom: 12px;padding-left: 12px;">Izdavanje</h5>
+                <small class="blog-type" style="padding-left: 12px;">Čekirajte kvadratiće oglasa za izdavanje</small>
+              </div>
+              <div class="row" id="amenities">
+              </div>
+            </div>
+            <div class="d-flex justify-content-end next-step">
+              <button class="btn btn-blue btn-creation-step" type="submit" id="nextStep">
+                Sačuvaj
+              <i class="bi bi-chevron-double-right create-edit-button"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
-  </section>
+  </div>
+</div>
 {% endblock %}
 
 {% block page_specific_scripts %}
@@ -466,6 +459,15 @@
     }
 
     function uploadFiles(type, result) {
+      var ele = document.getElementsByName(type);
+      len = ele.length;
+      if (len) {
+        parentNode = ele[0].parentNode;
+        for(var i=0; i<len; i++) {
+          parentNode.removeChild(ele[0]);
+        }
+      }
+
       for (const item of result.successful) {
         let elem = document.createElement("input");
         elem.setAttribute("type", "hidden");
@@ -477,15 +479,21 @@
     const csrfToken = document.querySelector('[name="csrfmiddlewaretoken"]').value;
 
     const uppy = new Uppy.Uppy({
-      debug: true,
+      allowMultipleUploadBatches: true,
+      debug: false,
       locale: Uppy.locales.sr_RS_Latin,
       restrictions: {
-        maxFiles: 5,
         maxFileSize: 1000000,
         minFileSize: 50000,
+        maxTotalFileSize: null,
+        maxNumberOfFiles: 5,
         minNumberOfFiles: 1,
         allowedFileTypes: ['image/*'],
+        requiredMetaFields: [],
       },
+      meta: {},
+      onBeforeFileAdded: (currentFile, files) => currentFile,
+      onBeforeUpload: (files) => {},
     });
     uppy.use(Uppy.Dashboard, {
       inline: true,
@@ -528,15 +536,21 @@
     {% endfor %}
 
     const uppyTlocrt = new Uppy.Uppy({
-      debug: true,
+      allowMultipleUploadBatches: true,
+      debug: false,
       locale: Uppy.locales.sr_RS_Latin,
       restrictions: {
-        maxFiles: 5,
         maxFileSize: 1000000,
         minFileSize: 50000,
+        maxTotalFileSize: null,
+        maxNumberOfFiles: 5,
         minNumberOfFiles: 1,
         allowedFileTypes: ['image/*'],
+        requiredMetaFields: [],
       },
+      meta: {},
+      onBeforeFileAdded: (currentFile, files) => currentFile,
+      onBeforeUpload: (files) => {},
     });
     uppyTlocrt.use(Uppy.Dashboard, {
       inline: true,
@@ -661,9 +675,9 @@ function selectCategory() {
 // Get corresponding details and amenities based on selected category and status
 async function getDetails() {
   const subcategorySelect = document.getElementById('subcateg').value;
-  const status = document.getElementById('status').value;
+  const type = document.getElementById('type').value;
 
-  const response = await fetch(`/oglasi/get-details?category=${subcategorySelect}&status=${status}`);
+  const response = await fetch(`/oglasi/get-details?category=${subcategorySelect}&type=${type}`);
   const data = await response.json();
 
   const detailsDiv = document.getElementById('details');
@@ -676,18 +690,18 @@ async function getDetails() {
 
   await data.details.forEach(detail => {
     detailsDiv.innerHTML += `<div class="col-xxl-2 col-xl-3 col-sm-6 col-12">
-        <div class="form-check form-check-inline mb-2 d-flex align-items-center">
-          <input type="checkbox" style="height:25px;width:25px" class="form-check-input" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
-          <label class="form-check-label ms-2 fs-6" for="detail-data${detail.detail__id}">${detail.detail__name}</label>
+      <div class="form-check form-check-inline mb-2 d-flex align-items-center">
+          <input type="checkbox" class="form-check-input icon24px" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
+          <label class="form-check-label margin-start-12 detail-amenity-text" for="detail-data${detail.detail__id}">${detail.detail__name}</label>
         </div>
       </div>`
   })
 
   await data.amenities.forEach(amenity => {
     amenitiesDiv.innerHTML += `<div class="col-xxl-2 col-xl-3 col-sm-6 col-12">
-        <div class="form-check form-check-inline mb-2 d-flex align-items-center">
-          <input type="checkbox" style="height:25px;width:25px" class="form-check-input" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
-          <label class="form-check-label ms-2 fs-6" for="amenity-data${amenity.amenity__id}">${amenity.amenity__name}</label>
+      <div class="form-check form-check-inline mb-2 d-flex align-items-center">
+          <input type="checkbox" class="form-check-input icon24px" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
+          <label class="form-check-label margin-start-12 detail-amenity-text" for="amenity-data${amenity.amenity__id}">${amenity.amenity__name}</label>
         </div>
       </div>`
   })
@@ -708,23 +722,25 @@ async function showNeighbourhoods() {
   const cityResponse = await fetch(`/oglasi/get-areas?city=${city}`);
   const cityData = await cityResponse.json();
 
-  const municipalityResponse = await fetch(`/oglasi/get-areas?municipality=${city}`);
-  const municipalityData = await municipalityResponse.json();
-  console.log(municipalityData)
-
-
   cityData.areas.forEach(el => {
     document.getElementById('location').innerHTML += '<option value="'+ el.area + '">'
   })
-  municipalityData.municipality.forEach(el => {
+
+  cityData.municipality.forEach(el => {
     document.getElementById('opstina').innerHTML += '<option value="'+ el.municipality + '">'
   })
 
 }
 
+function addPeriods() {
+    let input = event.target;
+    let value = input.value;
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, '');
+    // Add periods every three digits
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    input.value = value;
+  }
 
-
-
-
-  </script>
+</script>
 {% endblock %}

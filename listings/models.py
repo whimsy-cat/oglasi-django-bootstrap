@@ -8,9 +8,21 @@ from django.db.models import Max
 
 
 class Listing(models.Model):
+    LISTING_TYPE = (
+        (0, 'Prodaja'),
+        (1, 'Izdavanje'),
+    )
+
+    LISTING_STATUS = (
+        (0, 'Aktivan'),
+        (1, 'Na čekanju'),
+        (2, 'Istekao'),
+    )
+
     title = models.CharField(max_length=150, null=False)
     description = models.TextField(max_length=1000, null=True)
-    status = models.CharField(max_length=25)
+    type = models.CharField(max_length=25, choices=LISTING_TYPE, default=0)
+    status = models.CharField(max_length=25, choices=LISTING_STATUS, default=1)
     category = models.ForeignKey(
         Category, on_delete=models.DO_NOTHING, default=1)
     slug = models.SlugField(max_length=150, unique=True, default="")

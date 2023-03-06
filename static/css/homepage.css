@@ -6,8 +6,7 @@
   color: #f8f9fa;
 }
 .nav-hover:hover {
-  color: #f8f9fa!important;
-  filter: brightness(0.85)!important 
+  color: #00A6BD!important;
 }
 
 /*homepage*/
@@ -16,8 +15,7 @@
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center center;
-  height: 770px;
-  /*margin-top: -76px;*/
+  min-height: 100vh;
   padding: 0;
 }
 .background-shadow {
@@ -25,7 +23,7 @@
 }
 
 .home-search .home-content {
-  padding-top: 40vh
+  padding-top: 200px
 }
 
 .home-search .home-text {
@@ -33,7 +31,11 @@
   margin-top: 0;
 }
 .home-search .home-text h1 {
-  font-weight: bold;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  letter-spacing: 0.02em;
 }
 .home-search .home-text p {
   font-size: 18px;
@@ -68,7 +70,6 @@
 .detail-form {
   background: white;
   border-radius: 5px;
-  padding: 15px 30px;
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
@@ -118,7 +119,7 @@
   font-size:14px;
   font-weight: bold;
 }
-.featured-item .item-location {
+.featured-item {
   font-size: 12px;
   line-height: 20px;
 }
@@ -254,7 +255,10 @@
 .break-bg {
   height: 480px;
   width: 100%;
-  background: url("/staticfiles/images/homepage/hram_bg.jpg") center;
+  background: url("/staticfiles/images/homepage/hram_bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -267,12 +271,7 @@
   -webkit-box-orient: vertical;
 }
 
-.loyalty-program {
-  height: 195px;
-  background: #617E8C;
-  color: white;
-  font-size: 14px;
-}
+
 
 .blog-news {
   font-size: 14px;

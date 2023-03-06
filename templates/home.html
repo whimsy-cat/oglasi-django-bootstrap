@@ -6,126 +6,105 @@
 {% endblock %}
 
 {% block content %}
-  <section class="home-search"  style="min-height: 100vh;">
-    <div class="w-100 h-100 background-shadow">
+  <section class="home-search">
+    <div class="w-100 h-100 vh-100 background-shadow">
     <div class="container-fluid">
       <div class="home-content justify-content-center">
         <div class="text-center home-text">
-          <h1>Pronadjite dom vaših snova</h1>
+          <h1>Pronađite dom vaših snova</h1>
         </div>
         <div class="home-search-form p-3">
           <form action="/oglasi" id="search-listing-form">
             <div class="row justify-content-center ">
               <div class="col col-auto">
                 <div class="input-group mb-3">
-                  <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue" type="button">Prodaja</button>
-                  <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end" type="button">Izdavanje</button>
+                  <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue" type="button"  style="width: 132px;font-size: 18px;">Prodaja</button>
+                  <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end" style="width: 132px;font-size: 18px;" type="button">Izdavanje</button>
                   <input type="hidden" name="search_type" value="0" id="search_type">
                 </div>
               </div>
             </div>
-              <div class="row mx-auto" style="max-width: 900px;">
-                  <div class="col input-group mb-3 p-0">
-                      <input type="text" list="country" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Lokacija" onchange="showNeighbourhoods()">
-                      <datalist id="country">
-                        {% for loc in all_cities %}
-                          <option value="{{ loc.city }}">
-                        {% endfor %}
-                      </datalist>
-                    <select for="type" class="form-select select-listing-type" name="tip" id="type">
-                      <option selected value="">Tip...</option>
-                      {% for categ in categories %}
-                        {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
-                          <option value="{{ categ.name }}">{{ categ.name }}</option>
-                        {% endif %}
-                      {% endfor %}
-                    </select>
-                    <input for="neighbourhood" type="text" class="form-control input-area" list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Kraj">
-                    <datalist id="neighbourhoods">
-                     
-                    </datalist>
-                    <button class="btn btn-outline btn-white btn-details" type="button" id="btnFormDetails">Detaljnije
-                    </button>
-                    <button class="btn btn-blue btn-search" type="submit"  id="inputGroupFileAddon04">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                           class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                      </svg>
-                      Pretrazi
-                    </button>
-                  </div>
+            <div class="row mx-auto " style="max-width: 900px;">
+              <div class="col input-group p-0 mb-2">
+              <input type="text" list="country" style="width: 200px;font-size: 18px!important;" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+              <datalist id="country">
+                {% for loc in all_cities %}
+                <option value="{{ loc.city }}">
+                {% endfor %}
+              </datalist>
+              <select for="type" class="form-select select-listing-type text-black-50 fs-6" style="width: 200px;" name="tip" id="type">
+                <option selected value="">Tip</option>
+                {% for categ in categories %}
+                  {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
+                <option value="{{ categ.name }}">{{ categ.name }}</option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+              <input for="neighbourhood" type="text" class="form-control input-area" style="width: 240px;font-size: 18px!important;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+              <datalist id="neighbourhoods">
+              </datalist>
+                <button class="btn btn-outline border-start btn-white btn-details d-flex justify-content-center align-items-center" style="width: 120px;font-size: 18px!important;" type="button" id="btnFormDetails">Detaljnije
+                    <img class="ms-3" src="{% static 'images/icons/dots.svg' %}" alt="."/>
+                </button>
+                <button class="btn btn-blue btn-search ps-3 d-flex align-items-center" style="width: 120px;" type="submit"  id="inputGroupFileAddon04">
+                  Pretraži
+                  <img class="ms-1" src="{% static 'images/icons/search.svg' %}" alt="O"/>
+                </button>
               </div>
-              <div id="detailsForm" class="row mx-auto detail-form hide">
-                <div class="col-3">
-                  <label for="price" class="form-label">Cena</label>
-                  <select class="form-select" id="price-min" name="cena" placeholder="od" aria-label="Default select example">
-                    <option value="">Cena</option>
-                    <option  {% if request.GET.cena == '_20000' %} selected {% endif %} value="_20000">do 20.000 e</option>
-                    <option  {% if request.GET.cena == '20000_40.000' %} selected {% endif %} value="20000_40000">20.000 - 40.000 e</option>
-                    <option  {% if request.GET.cena == '40000_60000' %} selected {% endif %} value="40000_60000">40.000 - 60.000 e</option>
-                    <option  {% if request.GET.cena == '60000_80000' %} selected {% endif %} value="60000_80000">60.000 - 80.000 e</option>
-                    <option  {% if request.GET.cena == '80000_100000' %} selected {% endif %} value="80000_100000">80.000 - 100.000 e</option>
-                    <option  {% if request.GET.cena == '100000_150000' %} selected {% endif %} value="100000_150000">100.000 - 150.000 e</option>
-                    <option  {% if request.GET.cena == '150000_200000' %} selected {% endif %} value="150000_200000">150.000 - 200.000 e</option>
-                    <option  {% if request.GET.cena == '200000_300000' %} selected {% endif %} value="200000_300000">200.000 - 300.000 e</option>
-                    <option  {% if request.GET.cena == '300000_500000' %} selected {% endif %} value="300000_500000">300.000 - 500.000 e</option>
-                    <option  {% if request.GET.cena == '500000_' %} selected {% endif %} value="500000_">500.000 i više</option>
-                  </select>
+            </div>
+            <div id="detailsForm" class="row mx-auto p-2 m detail-form hide">
+              <div class="col-3">
+                <label for="price" class="form-label fw-600">Cena</label>
+                <div class="d-flex">
+                  <input type="text" class="form-control me-2" id="min-price" name="min-price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
+                  <input type="text" class="form-control" id="max-price" name="max-price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
                 </div>
-                <div class="col-3">
-                  <label for="size" class="form-label">Površina</label>
-                  <select class="form-select" id="size-from" name="povrsina" placeholder="od" aria-label="Default select example">
-                    <option value="">Površina</option>
-                    <option  {% if request.GET.povrsina == '_35' %} selected {% endif %} value="_35">do 35 km2</option>
-                    <option  {% if request.GET.povrsina == '35_45' %} selected {% endif %} value="35_45">35 - 45 km2</option>
-                    <option  {% if request.GET.povrsina == '45_55' %} selected {% endif %} value="45_55">45 - 55 km2</option>
-                    <option  {% if request.GET.povrsina == '55_75' %} selected {% endif %} value="55_75">55 - 75 km2</option>
-                    <option  {% if request.GET.povrsina == '75_100' %} selected {% endif %} value="75_100">75 - 100 km2</option>
-                    <option  {% if request.GET.povrsina == '100_150' %} selected {% endif %} value="100_150">100 - 150 km2</option>
-                    <option  {% if request.GET.povrsina == '150_200' %} selected {% endif %} value="150_200">150 - 200 km2</option>
-                    <option  {% if request.GET.povrsina == '200_300' %} selected {% endif %} value="200_300">200 - 300 km2</option>
-                    <option  {% if request.GET.povrsina == '300_' %} selected {% endif %} value="300_">300 i više</option>
-                  </select>
+              </div>
+              <div class="col-3">
+                <label for="size" class="form-label fw-600">Površina</label>
+                <div class="d-flex">
+                  <input type="text" class="form-control me-2" id="min-size" name="min-size" onkeyup="addPeriods()" placeholder="100" aria-describedby="titleHelp">
+                  <input type="text" class="form-control" id="max-size" name="max-size" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
                 </div>
-                <div class="col-3">
-                  <label class="form-label">Struktura</label>
-                    <select class="form-select" id="structure" name="struktura" aria-label="Default select example">
-                      <option value="">Struktura</option>
-                      <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
-                      <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
-                      <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">2 Prostorija</option>
-                      <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">2.5 Prostorija</option>   
-                      <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>
-                      <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">3.5 Prostorija</option>
-                      <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 i više</option>
-                    </select>
+              </div>
+              <div class="col-3">
+                <label class="form-label fw-600">Struktura</label>
+                  <select class="form-select text-black-50 fw-600" id="structure" name="struktura" aria-label="Default select example">
+                    <option value="">Struktura</option>
+                    <option  {% if request.GET.struktura == '0.5' %} selected {% endif %} value="0.5">Garsonjera 0.5</option>
+                    <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">Jednosoban 1.0 </option>
+                    <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">Jednoiposoban 1.5</option>
+                    <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">Dvosoban 2.0</option>
+                    <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">Dvoiposoban 2.5</option>   
+                    <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">Trosoban 3.0</option>
+                    <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">Troiposoban 3.5</option>
+                    <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">Četvorosoban 4.0</option>
+                    <option  {% if request.GET.struktura == '4.5' %} selected {% endif %} value="4.5">Četvoroiposoban 4.5</option>
+                    <option  {% if request.GET.struktura == '5' %} selected {% endif %} value="5">Petosoban i veći 5.0</option>
                   </select>
+                </select>
+              </div>
+              <div class="col-3">
+              </div>
+              <div class="col-3 my-2">
+                <label class="form-label fw-600">Stanje</label>
+                <select class="form-select text-black-50 fw-600" id="condition" name="condition" >
+                  <option value="">Izaberite...</option>
+                  <option {% if request.GET.condition == 'starogradnja' %} selected {% endif %} value="starogradnja">Starogradnja</option>
+                  <option {% if request.GET.condition == 'novogradnja' %} selected {% endif %} value="novogradnja">Novogradnja</option>
+                  <option {% if request.GET.condition == 'u_izgradnji' %} selected {% endif %} value="u_izgradnji">U izgradnji</option>
+                </select>
+              </div>
+              <div class="col-3 my-2">
+                <label class="form-label fw-600">Spratnost</label> 
+                  <div class="d-flex">
+                    <input type="text" onkeyup="addPeriods()" class="form-control me-2 " id="min-spratnost" name="min-spratnost" placeholder="od" aria-describedby="titleHelp">
+                    <input type="text" onkeyup="addPeriods()" class="form-control" id="max-spratnost" name="max-spratnost" placeholder="do" aria-describedby="titleHelp">
+                  </div>
                 </div>
-                <div class="col-3">
-                  <label class="form-label">Stanje</label>
-                  <select class="form-select" id="condition" name="condition" >
-                    <option value="">Izaberite...</option>
-                    <option {% if request.GET.condition == 'novogradnja' %} selected {% endif %} value="novogradnja">Novogradnja</option>
-                    <option {% if request.GET.condition == 'renovirano' %} selected {% endif %} value="renovirano">Renovirano</option>
-                    <option {% if request.GET.condition == 'izvorno' %} selected {% endif %} value="izvorno">Izvorno</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <label class="form-label">Spratnost</label>
-                  <select class="form-select" id="structure" name="spratnost" aria-label="Default select example">
-                    <option value="">Spratnost</option>
-                    <option  {% if request.GET.total_floors == '0' %} selected {% endif %} value="0">Prizemlje</option>
-                    <option  {% if request.GET.total_floors == '1' %} selected {% endif %} value="1">1 Sprat</option>
-                    <option  {% if request.GET.total_floors == '2' %} selected {% endif %} value="2">2 Sprata</option>
-                    <option  {% if request.GET.total_floors == '3' %} selected {% endif %} value="3">3 Sprata</option>   
-                    <option  {% if request.GET.total_floors == '4' %} selected {% endif %} value="4">4 Sprata</option>
-                    <option  {% if request.GET.total_floors == '5' %} selected {% endif %} value="5">5 I više</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <label class="form-label">Garažni prostor</label>
-                  <select class="form-select" id="garage" name="parking">
+                <div class="col-3 my-2">
+                  <label class="form-label fw-600">Parking</label>
+                  <select class="form-select text-black-50 fw-600" id="garage" name="parking">
                     <option value="">Izaberite...</option>
                     <option {% if request.GET.parking == 'garaža' %} selected {% endif %} value="garaža">Garaža</option>
                     <option {% if request.GET.parking == 'parking mesto' %} selected {% endif %} value="parking mesto">Parking mesto</option>
@@ -136,9 +115,13 @@
                     <option {% if request.GET.parking == 'parking platforma' %} selected {% endif %} value="parking platforma">Parking platforma</option>
                   </select>
                 </div>
+                <div class="col-3 justify-content-between d-flex flex-column align-items-center">
+                  <h3 class="fw-bold">Broj oglasa:</h3>
+                  <h3 class="fw-bold">{{total_listings}}</h3>
+                </div>
                 <div class="col-3">
-                  <label for="heating"  class="form-label">Grejanje</label>
-                  <select class="form-select" id="heating" name="grejanje">
+                  <label for="heating"  class="form-label fw-600">Grejanje</label>
+                  <select class="form-select text-black-50 fw-600" id="heating" name="grejanje">
                     <option value="">Izaberite...</option>
                     <option value="Grejanje na struju">Grejanje na struju</option>
                     <option value="Centralno grejanje">Centralno grejanje</option>
@@ -147,46 +130,35 @@
                     <option value="Grejanje ostalo">Grejanje ostalo</option>
                   </select>
                 </div>
-                <div class="col-3 mt-2 justify-content-center d-flex align-items-end">
-                  <h5>Broj oglasa:</h5>
-                </div>
-                <div class="col-3">
-                  <label for="namestenost"  class="form-label">Namestenost</label>
-                  <select class="form-select" id="namestenost" name="namestenost">
-                    <option value="">Izaberite...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <label for="parking"  class="form-label">Parking</label>
-                  <select class="form-select" id="parking" name="parking">
-                    <option value="">Izaberite...</option>
-                    <option value="parking mesto">Parking mesto</option>
-                    <option value="garažno mesto">Garažno mesto</option>
-                    <option value="parking platforma">Parking platforma</option>
-                  </select>
-                </div>
-                <div class="col-3">
-                  <label for="oglasivac"  class="form-label">Oglasivac</label>
-                  <select class="form-select" id="oglasivac" name="oglasivac">
-                    <option value="">Izaberite...</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                  </select>
-                </div>
-                <div class="col-3 text-center" >
-                  <h5>{{total_listings}}</h5>
-                </div>
+              <div class="col-3">
+                <label for="condition"  class="form-label fw-600">Nameštenost</label>
+                <select class="form-select text-black-50 fw-600" id="namestenost" name="condition">
+                  <option value="">Izaberite...</option>
+                  <option value="namešten">Namešten</option>
+                  <option value="polunamešten">Polunamešten</option>
+                  <option value="prazan">Prazan</option>
+                </select>
               </div>
+              <div class="col-3">
+                <label for="oglasivac" class="form-label fw-600">Oglašivač</label>
+                <select class="form-select text-black-50 fw-600" id="oglasivac" name="oglasivac">
+                  <option value="">Izaberite...</option>
+                  <option value="agencija">Agencija</option>
+                  <option value="vlasnik">Vlasnik</option>
+                  <option value="pravno_lice">Pravno lice</option>
+                </select>
+              </div>
+              <div class="col-3" >
+              </div>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </section>
-  <section class="featured-properties py-4">
-    <div class="container">
-      <h2 class="text-center mb-4">Preporučeni oglasi</h2>
+  <section class="featured-properties">
+    <div class="margin-container">
+      <h2 class="text-center py-4 m-0 section-title">Preporučeni oglasi</h2>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -198,27 +170,27 @@
         </div>
         <div class="carousel-inner pb-5">
           <div class=" carousel-item active">
-            <div class="row px-1">
+            <div class="row">
               {% for listing in listings1 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4 px-3">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
               {% endfor %}
             </div>
           </div>
           <div class="carousel-item">
-            <div class="row px-1">
+            <div class="row">
               {% for listing in listings2 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4 px-3">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
               {% endfor %}
             </div>
           </div>
           <div class="carousel-item">
-            <div class="row px-1">
+            <div class="row">
               {% for listing in listings3 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12  mb-4">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4 px-3">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
               {% endfor %}
@@ -232,11 +204,11 @@
   </section>
 
 
-  <div class="break-bg mb-3"></div>
-  <section class="p-3">
-    <div class="container">
+  <div class="break-bg my-5"></div>
+  <section>
+    <div class="margin-container">
       <div class="row">
-        <div id="carouselAgencies" class="carousel carousel-dark slide pb-4" data-bs-ride="true">
+        <div id="carouselAgencies" class="carousel carousel-dark slide pb-4 px-0" data-bs-ride="true">
           <div class="carousel-indicators mb-0">
             <button type="button" data-bs-target="#carouselAgencies" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselAgencies" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -245,7 +217,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row">
-                <div class="col">
+                <div class="col ps-1">
                   <div class="card shadow-sm">
                     <img src="{% static 'images/property/fp1.jpg' %}" class="d-block w-100" alt="...">
                   </div>
@@ -270,7 +242,7 @@
                     <img src="{% static 'images/property/fp1.jpg' %}" class="d-block w-100" alt="...">
                   </div>
                 </div>
-                <div class="col">
+                <div class="col pe-1">
                   <div class="card shadow-sm">
                     <img src="{% static 'images/property/fp1.jpg' %}" class="d-block w-100" alt="...">
                   </div>
@@ -290,29 +262,33 @@
   </section>
 
   <section class="blog-news p-3">
-    <h2 class="text-center mb-4">Blog i Vesti</h2>
-    <div class="container">
+    <h2 class="text-center section-title mb-4">Blog & Vesti</h2>
+    <div class="margin-container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
         {% for article in articles %}
           <div class="text-dark {% if forloop.first%}col-lg-6{% elif forloop.last %}col-lg-6{% else %}col-lg-3{% endif %}">
-            {% if article.article_type == 'Blog' %}
-              <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
-            {% else %} 
-              <a href="{% url 'news_detail' pk=article.id %}" style="text-decoration: none; color: black">
-            {% endif %}
+            <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
               <div class="card shadow">
                 <div class="w-100" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
             
-                <div class="card-body">
-                  <div style="min-height:48px" class="d-flex justify-content-between"><h5>{{ article.title }}</h5> <div class="text-info ps-2">{{ article.category.name }}</div></div>
+                <div class="card-body py-2 px-3">
+                  <div class="d-flex justify-content-between align-items-center mb-2">        
+                    <h6 class="blog-title mb-0" style="word-break: break-all;overflow: hidden;height: 24px;">{{ article.title }}</h6>
+                    <div class="blog-type text-primary ps-2 d-flex align-items-center" style="height: 24px;">{{ article.category.name }}</div>
+                  </div>
                   {% if forloop.first or forloop.last %}
-                    <p class="card-text" style="min-height: 84px;">{{ article.description|striptags|slice:":320" }}...</p>
+                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":170" }}...</p>
                   {% else %}
-                    <p class="card-text">{{ article.description|striptags|slice:":140" }}...</p>
+                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":80" }}...</p>
                   {% endif %}
-                  <div class="d-flex justify-content-between align-items-center">
-                    <p class="blog-user">{{ article.user.first_name }}</p>
-                    <small class="text-muted">{{ article.timestamp|date:"F j, Y" }}</small>
+                  <div class="d-flex justify-content-between align-items-center mt-2">
+                    <div class="d-flex align-items-center blog-description-date">
+                      <div class="rounded-circle me-2" style="background: center / cover no-repeat url('{% static 'images/placeholders/apt1.jpg' %}');height:32px;width:32px"></div>
+                      {{ article.user.first_name }}
+                    </div>
+                    <div >
+                      {{ article.timestamp|date:"F j, Y" }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -323,10 +299,12 @@
     </div>
   </section>
 
-  <section class="loyalty-program p-4 text-center">
-    <h3 class="mb-4">Loyalty program</h3>
-    <p>S obzirom da smo novi na tržištu nekretnina kao portal, spremili smo za naše korisnike tkzv “loyalty program”. Program kao što sam naziv kaže, lojalnost za sve naše korisnike koji startuju sa nama na ovom putovanju imaće povoljnije uslove i veće mogućnosti u upravljanju i promovisanju svojih oglasa. Više na stranici cenovnik o detaljima.</p>
-  </section>
+  <section class="loyalty-program text-center">
+    <div class="margin-container">
+      <h3 class="mb-4 section-subtitle">Loyalty program</h3>
+      <p class="section-text">S obzirom da smo novi na tržištu nekretnina kao portal, spremili smo za naše korisnike tkzv “loyalty program”. Program kao što sam naziv kaže, lojalnost za sve naše korisnike koji startuju sa nama na ovom putovanju imaće povoljnije uslove i veće mogućnosti u upravljanju i promovisanju svojih oglasa. Više na stranici cenovnik o detaljima.</p>
+    </div>
+   </section>
 {% endblock %}
 
 {% block page_specific_scripts %}
@@ -359,12 +337,22 @@
       const city = document.getElementById('location').value;
       document.getElementById('neighbourhoods').innerHTML = ''
       
-      const response = await fetch(`/oglasi/get-areas?city=${city}`);
+      const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
       const data = await response.json();
 
       data.areas.forEach(el => {
-        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el.area + '">'
+        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el[0] + '" label="'+ el[1]+'">'
       })
     }
+
+  function addPeriods() {
+    let input = event.target;
+    let value = input.value;
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, '');
+    // Add periods every three digits
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    input.value = value;
+  }
   </script>
 {% endblock %}

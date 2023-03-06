@@ -22,11 +22,11 @@
       </button>
     </div>
   </div>
-  <div class="col-5 d-flex p-3">
+  <div class="col-5 d-flex" style="padding: 12px 16px 8px 16px;">
     <div class="d-flex flex-column justify-content-between w-75">
-      <h6 class="fw-bold">{{listing.title}}</h6>
-      <p class="text-black-50">{{listing.city}}, {{listing.municipality}}</p>
-      <div class="fs-6 mb-3" style="text-align: justify;">
+      <h6 class="my-listing-price mb-4">{{listing.title}}</h6>
+      <p class="city-location">{{listing.city}}, {{listing.municipality}}</p>
+      <div class="fs-6 mb-3 blog-description-date" style="height: 121px;">
           {{listing.description|truncatechars:150}}
       </div>
       {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
@@ -36,9 +36,9 @@
         <div style="background: center / contain no-repeat url('/static/images/placeholders/zidart.jpg');height: 110px;"></div>
       </div>
       {% include 'includes/listing_helpers/like_compare.html' %}
-      <div class="text-nowrap fw-bold fs-6 mb-2 d-flex justify-content-end" id="money{{listing.id}}" ></div>
-      <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
-        <div class="border border-info text-center text-info p-2 rounded fs-6">
+      <div class="text-nowrap fw-bold fs-6 d-flex justify-content-end" id="money{{listing.id}}" ></div>
+      <a class="d-flex justify-content-end" style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
+        <div class="my-favorute-card-button rounded d-flex justify-content-center align-items-center" style="height: 40px;width: 100px;">
           Detaljnije
         </div>
       </a>

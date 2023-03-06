@@ -2,27 +2,27 @@
 
 <div class="card shadow-sm featured-item" >
     <div class="d-flex justify-content-between position-absolute w-100" >
-      <span class="rounded {% if listing.status == '0' %} bg-danger {% elif listing.status == '1' %} bg-secondary {% endif %} color-white m-2 px-2">
-        {% if listing.status == '0' %}
+      <span class="rounded d-flex align-items-center justify-content-center {% if listing.type == '0' %} bg-danger {% elif listing.type == '1' %} bg-secondary {% endif %} color-white m-2" style="width: 66px;font-size: 12px;height: 20px;">
+        {% if listing.type == '0' %}
         Prodaja
-        {% elif listing.status == '1' %}
+        {% elif listing.type == '1' %}
         Izdavanje
         {% endif %}
       </span>
       <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
     </div>
     <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
-      <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 250px" alt=""></div>
+      <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 204px" alt=""></div>
     </a>
-  <div class="px-3 pt-3 ">
-    <div class="d-flex justify-content-between ">
-      <p class="card-text">{{ listing.title|truncatechars:30 }}</p>
+  <div class="px-3 pt-2">
+    <div class="d-flex justify-content-between">
+      <p class="listing-card-title m-0">{{ listing.title|truncatechars:30 }}</p>
       {% include 'includes/listing_helpers/like_compare.html' %}
     </div>
-    <div class="d-flex justify-content-between align-items-center ">
-      <small class="item-location">{{ listing.city }}, {{ listing.municipality}}</small>
-      <h5>{% include 'includes/listing_helpers/price_parser.html' %}</h5>
+    <div class="d-flex justify-content-between align-items-center mb-3 mt-2 listing-card-price-location-div">
+      <small class="text-wrap listing-card-location-text">{{ listing.city }}, {{ listing.municipality}}</small>
+      <h5 class="text-end text-nowrap listing-card-price-text" style="font-size: 18px!important;">{% include 'includes/listing_helpers/price_parser.html' %}</h5>
     </div>
-    {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
+      {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
   </div>
 </div>

@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="col-6" style="padding: 0px 12px;">
+  <div class="card shadow featured-item">
+    <div class="d-flex justify-content-between position-absolute w-100" >
+      <span class="rounded d-flex align-items-center justify-content-center {% if listing.type == '0' %} bg-danger {% elif listing.type == '1' %} bg-secondary {% endif %} color-white m-2" style="width: 66px;font-size: 12px;height: 20px;">
+        {% if listing.type == '0' %}
+        Prodaja
+        {% elif listing.type == '1' %}
+        Izdavanje
+        {% endif %}
+      </span>
+      <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
+    </div>
+    <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
+      <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 350px" alt=""></div>
+    </a>
+  <div class="d-flex flex-column justify-content-between" style="height: 288px;padding: 12px 12px 4px 12px;">
+    <div class="d-flex justify-content-between ">
+      <p class="card-text blog-title pe-5">{{ listing.title|truncatechars:70 }}</p>
+      {% include 'includes/listing_helpers/like_compare.html' %}
+    </div>
+    <div class="d-flex justify-content-between align-items-center ">
+      <small class="city-location">{{ listing.city }}, {{ listing.municipality}}</small>
+      <h5 class="blog-title">{% include 'includes/listing_helpers/price_parser.html' %}</h5>
+    </div>
+    <div class="text-justify blog-description-date" style="height: 130px;">{{ listing.description|truncatechars:300 }}</div>
+    {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
+  </div>
+</div>
+</div>

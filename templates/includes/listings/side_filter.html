@@ -1,0 +1,179 @@
+{% load static %}
+
+<form class="row shadow px-1 rounded fw-bold" style="height: 604px;" action="/oglasi" id="search-listing-form">
+  <div class="col-12">
+    <div class="input-group justify-content-center my-3">
+      <button for="izdavanje" id="btnBuy" name="0" class="btn {% if request.GET.search_type == '0' %} text-primary {% endif %} shadow fw-600" style="width: 88px;" type="button">Prodaja</button>
+      <button for="prodaja" id="btnRent" name="1" class="btn {% if request.GET.search_type == '1' %} text-primary {% endif %} shadow rounded-end fw-600" style="width: 88px;" type="button">Izdavanje</button>
+      <input type="hidden" name="search_type" value="0" id="search_type">
+    </div>
+  </div>
+  <div class="col-6 my-1">
+    <label for="grad" class="form-label ms-2">Grad</label>
+    <input value="{{request.GET.grad}}" type="text" list="country" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+    <datalist id="country">
+      {% for loc in cities %}
+        <option value="{{ loc.city }}">
+      {% endfor %}
+    </datalist>
+  </div>
+  <div class="col-6 my-1">
+    <label for="location" class="form-label ms-2">Lokacija</label>
+    <input value="{{request.GET.lokacija}}" for="neighbourhood" type="text" class="form-control input-area" list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+    <datalist id="neighbourhoods">
+    </datalist>
+  </div>
+  <div class="col-6 my-1">
+    <label for="tip" class="form-label ms-2" >Tip</label>
+    <select for="type" value="{{request.GET.tip}}" class="form-select select-listing-type" name="tip" id="type">
+      <option selected value="">Tip...</option>
+      {% for categ in categories %}
+        {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
+          <option  {% if request.GET.tip == categ.name %} selected {% endif %} value="{{ categ.name }}">{{ categ.name }}</option>
+        {% endif %}
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-6 my-1">
+    <label for="price" class="form-label ms-2">Cena</label>
+    <div class="d-flex">
+      <input type="text" value="{{request.GET.minprice}}" class="form-control me-2" id="min-price" name="min-price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.maxprice}}" class="form-control" id="max-price" name="max-price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
+    </div>
+  </div>
+  <div class="col-6 my-1">
+    <label for="size" class="form-label ms-2">Površina</label>
+    <div class="d-flex">
+      <input type="text" value="{{request.GET.minsize}}" class="form-control me-2" id="min-size" name="min-size" onkeyup="addPeriods()" placeholder="100" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.maxsize}}" class="form-control" id="max-size" name="max-size" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
+    </div>
+  </div>
+  <div class="col-6 my-1">
+    <label class="form-label ms-2">Spratnost</label> 
+    <div class="d-flex">
+      <input type="text" value="{{request.GET.minspratnost}}" onkeyup="addPeriods()" class="form-control me-2" id="min-spratnost" name="min-spratnost" placeholder="od" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.maxspratnost}}" onkeyup="addPeriods()" class="form-control" id="max-spratnost" name="max-spratnost" placeholder="do" aria-describedby="titleHelp">
+    </div>
+  </div>
+  <div class="col-6 my-1">
+    <label class="form-label ms-2">Stanje</label>
+    <select class="form-select" value="{{request.GET.condition}}" id="condition" name="condition" >
+      <option value="">Izaberite...</option>
+      <option {% if request.GET.condition == 'starogradnja' %} selected {% endif %} value="starogradnja">Starogradnja</option>
+      <option {% if request.GET.condition == 'novogradnja' %} selected {% endif %} value="novogradnja">Novogradnja</option>
+      <option {% if request.GET.condition == 'u_izgradnji' %} selected {% endif %} value="u_izgradnji">U izgradnji</option>
+    </select>
+  </div>
+  <div class="col-6 my-1">
+    <label class="form-label ms-2">Struktura</label>
+      <select class="form-select" value="{{request.GET.struktura}}" id="structure" name="struktura" aria-label="Default select example">
+        <option value="">Struktura</option>
+        <option  {% if request.GET.struktura == '0.5' %} selected {% endif %} value="0.5">Garsonjera 0.5</option>
+        <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">Jednosoban 1.0 </option>
+        <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">Jednoiposoban 1.5</option>
+        <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">Dvosoban 2.0</option>
+        <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">Dvoiposoban 2.5</option>   
+        <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">Trosoban 3.0</option>
+        <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">Troiposoban 3.5</option>
+        <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">Četvorosoban 4.0</option>
+        <option  {% if request.GET.struktura == '4.5' %} selected {% endif %} value="4.5">Četvoroiposoban 4.5</option>
+        <option  {% if request.GET.struktura == '5' %} selected {% endif %} value="5">Petosoban i veći 5.0</option>
+      </select>
+    </select>
+  </div>
+  <div class="col-6 my-1">
+    <label class="form-label ms-2">Parking</label>
+    <select class="form-select" value="{{request.GET.parking}}" id="garage" name="parking">
+      <option value="">Izaberite...</option>
+      <option {% if request.GET.parking == 'garaža' %} selected {% endif %} value="garaža">Garaža</option>
+      <option {% if request.GET.parking == 'parking mesto' %} selected {% endif %} value="parking mesto">Parking mesto</option>
+      <option {% if request.GET.parking == 'parking klackalica' %} selected {% endif %} value="parking klackalica">Parking klackalica</option>
+      <option {% if request.GET.parking == 'parking van zone' %} selected {% endif %} value="parking van zone">Parking van zone</option>
+      <option {% if request.GET.parking == 'parking u zoni' %} selected {% endif %} value="parking u zoni">Parking u zoni</option>
+      <option {% if request.GET.parking == 'garažno mesto' %} selected {% endif %} value="garažno mesto">Garažno mesto</option>
+      <option {% if request.GET.parking == 'parking platforma' %} selected {% endif %} value="parking platforma">Parking platforma</option>
+    </select>
+  </div>
+  <div class="col-6 my-1">
+    <label for="heating" class="form-label ms-2">Grejanje</label>
+    <select class="form-select" value="{{request.GET.grejanje}}" id="heating" name="grejanje">
+      <option value="">Izaberite...</option>
+      <option {% if request.GET.grejanje == 'Grejanje na struju' %} selected {% endif %} value="Grejanje na struju">Grejanje na struju</option>
+      <option {% if request.GET.grejanje == 'Centralno grejanje' %} selected {% endif %} value="Centralno grejanje">Centralno grejanje</option>
+      <option {% if request.GET.grejanje == 'Grejanje na gas' %} selected {% endif %} value="Grejanje na gas">Grejanje na gas</option>
+      <option {% if request.GET.grejanje == 'Čvrsta goriva' %} selected {% endif %} value="Čvrsta goriva">Čvrsta goriva</option>
+      <option {% if request.GET.grejanje == 'Grejanje ostalo' %} selected {% endif %} value="Grejanje ostalo">Grejanje ostalo</option>
+    </select>
+  </div>
+  <div class="col-6">
+    <label for="condition" class="form-label ms-2">Nameštenost</label>
+    <select class="form-select" id="namestenost" name="condition">
+      <option value="">Izaberite...</option>
+      <option {% if request.GET.condition == 'namešten' %} selected {% endif %} value="namešten">Namešten</option>
+      <option {% if request.GET.condition == 'polunamešten' %} selected {% endif %} value="polunamešten">Polunamešten</option>
+      <option {% if request.GET.condition == 'prazan' %} selected {% endif %} value="prazan">Prazan</option>
+    </select>
+  </div>
+  <div class="col-6">
+    <label for="oglasivac" class="form-label ms-2">Oglašivač</label>
+    <select class="form-select" id="oglasivac" name="oglasivac">
+      <option value="">Izaberite...</option>
+      <option {% if request.GET.oglasivac == 'agencija' %} selected {% endif %} value="agencija">Agencija</option>
+      <option {% if request.GET.oglasivac == 'vlasnik' %} selected {% endif %} value="vlasnik">Vlasnik</option>
+      <option {% if request.GET.oglasivac == 'pravno_lice' %} selected {% endif %} value="pravno_lice">Pravno lice</option>
+    </select>
+  </div>
+  <div class="col-12 mb-3 mt-4 d-flex justify-content-center">
+    <button class="btn btn-blue btn-search px-5 shadow d-flex align-items-center" type="submit"  id="inputGroupFileAddon04">
+      Pretraži
+      <img class="ms-2" src="{% static 'images/icons/search.svg' %}" alt="O"/>
+    </button>
+  </div>
+  <input type="text" hidden name="prikaz" value="{{ request.GET.prikaz }}" />
+</form>
+<script>
+    const btnBuy = document.getElementById('btnBuy');
+    const btnRent = document.getElementById('btnRent');
+    const searchType = document.getElementById('search_type');
+    const toggleBtnClasses = function(value) {
+      searchType.value = value;
+    }
+    btnRent.onclick = function() {
+      toggleBtnClasses('1');
+    }
+    btnBuy.onclick = function() {
+      toggleBtnClasses('0');
+    }
+
+    btnBuy.addEventListener('click', function() {
+    btnBuy.classList.add('text-primary');
+    btnRent.classList.remove('text-primary');
+});
+
+btnRent.addEventListener('click', function() {
+  btnRent.classList.add('text-primary');
+  btnBuy.classList.remove('text-primary');
+});
+
+    async function showNeighbourhoods() {
+      const city = document.getElementById('location').value;
+      document.getElementById('neighbourhoods').innerHTML = ''
+      
+      const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
+      const data = await response.json();
+
+      data.areas.forEach(el => {
+        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el[0] + '" label="' + el[1] +'">'
+      })
+    }
+
+    function addPeriods() {
+    let input = event.target;
+    let value = input.value;
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, '');
+    // Add periods every three digits
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    input.value = value;
+  }
+</script>

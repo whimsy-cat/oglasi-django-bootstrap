@@ -1,21 +1,22 @@
 {% load static %}
 
-<div class="col-7 d-flex px-2 my-2 align-items-center">
-  <select class="form-select" onchange="queryParam('grad', this.value)" aria-label="Default select example">
+<div class="col-7 d-flex ps-0 my-2 align-items-center" style="padding-right: 30px;">
+  <select id="city" class="form-select me-2 h-100" onchange="queryParam('grad', this.value)" aria-label="Default select example">
     <option value="">Grad</option>
-    <option  {% if request.GET.grad == 'beograd' %} selected {% endif %} value="beograd">Beograd</option>
+    {% for loc in cities %}
+      <option  {% if request.GET.grad == loc.city %} selected {% endif %} value="{{loc.city}}">{{loc.city}}</option>
+    {% endfor %}
   </select>
-  <select class="form-select mx-1" onchange="queryParam('lokacija', this.value)" aria-label="Default select example">
+  <select id="location" class="form-select mx-2 h-100" onchange="queryParam('lokacija', this.value)" aria-label="Default select example">
     <option value="">Lokacija</option>
-    <option  {% if request.GET.lokacija == 'šumadija' %} selected {% endif %} value="šumadija">Šumadija</option>
   </select>
-  <select class="form-select mx-1" onchange="queryParam('tip', this.value)" aria-label="Default select example">
+  <select class="form-select mx-2 h-100" onchange="queryParam('tip', this.value)" aria-label="Default select example">
     <option value="">Tip</option>
     {% for categ in categories %}
       <option  {% if request.GET.tip == categ.name %} selected {% endif %} value="{{ categ.name }}">{{ categ.name }}</option>
     {% endfor %}
   </select>
-  <select class="form-select mx-1" onchange="queryParam('cena', this.value)" aria-label="Default select example">
+  <select class="form-select mx-2 h-100" style="max-height: 39px;" onchange="queryParam('cena', this.value)" aria-label="Default select example">
     <option value="">Cena</option>
     <option  {% if request.GET.cena == '_20000' %} selected {% endif %} value="_20000">do 20.000 e</option>
     <option  {% if request.GET.cena == '20000_40.000' %} selected {% endif %} value="20000_40000">20.000 - 40.000 e</option>
@@ -28,7 +29,7 @@
     <option  {% if request.GET.cena == '300000_500000' %} selected {% endif %} value="300000_500000">300.000 - 500.000 e</option>
     <option  {% if request.GET.cena == '500000_' %} selected {% endif %} value="500000_">500.000 i više</option>
   </select>
-  <select class="form-select mx-1" onchange="queryParam('povrsina', this.value)" aria-label="Default select example">
+  <select class="form-select mx-2 h-100" onchange="queryParam('povrsina', this.value)" aria-label="Default select example">
     <option value="">Površina</option>
     <option  {% if request.GET.povrsina == '_35' %} selected {% endif %} value="_35">do 35 km2</option>
     <option  {% if request.GET.povrsina == '35_45' %} selected {% endif %} value="35_45">35 - 45 km2</option>
@@ -41,7 +42,7 @@
     <option  {% if request.GET.povrsina == '300_' %} selected {% endif %} value="300_">300 i više</option>
   </select>
 
-  <select class="form-select mx-1" onchange="queryParam('struktura', this.value)" aria-label="Default select example">
+  <select class="form-select ms-2 h-100" onchange="queryParam('struktura', this.value)" aria-label="Default select example">
     <option value="">Struktura</option>
     <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
     <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
@@ -51,79 +52,7 @@
     <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">3.5 Prostorija</option>
     <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 i više</option>
   </select>
-
 </div>
-<div class="col-5 d-flex my-2 align-items-center">
-  <!-- TODO: Define and create db table for this -->
-  <!-- <div class="col-5 d-flex justify-content-around">
-    <button onclick="resetQueryParams()" type="button" class="btn btn-sm border-0 px-1" >
-      Poništi
-      <img src="{% static 'images/icons/cancel.svg' %}" alt="Sort" width="17px"/>
-    </button>
-    <button type="button" class="btn btn-sm border-0">
-      Sačuvaj
-      <img src="{% static 'images/icons/save.svg' %}" alt="Sort" width="17px" />
-    </button>
-  </div> -->
-
-  <!-- More filters modal -->
-  <div class="col-7 d-flex justify-content-around align-items-center">
-    <button class="btn btn-sm btn-blue border-0" aria-label="Default select example" onclick="openModal()" >
-      <img src="{% static 'images/icons/main_filter.svg' %}" alt="Sort" width="15px" />
-      Više Filtera
-      <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" />
-    </button> 
-    <div class="fixed-top align-items-center justify-content-center w-100 h-100 z-1" id="filter"  style="display: none;">
-      <div class="position-absolute listing-item-overlayed w-100 h-100" onclick="closeModal()">
-      </div>
-      <div class="h-75 w-75 bg-blue position-absolute z-2 bg-white rounded overflow-y-scroll">
-        <h3 class="text-center my-2">Detalji</h3>
-        <div class="row m-3 border border-primary border-opacity-25 rounded" id="allDetails">
-          {% for detail in details %}
-          <div class="col-3">
-            <div class="form-checks my-2 d-flex align-items-center">
-              <input class="form-check-input" type="checkbox" value="{{detail.id}}" id="d{{detail}}" style="height:25px;width:25px">
-              <label class="form-check-label ms-2 fs-6" for="d{{detail}}">
-                {{detail}}
-              </label>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-        <h3 class="text-center my-2">Opremljenost</h3>
-        <div class="row m-3 border border-primary border-opacity-25 rounded" id="allAmenities">
-          {% for amenity in amenities %}
-          <div class="col-3">
-            <div class="form-checks my-2 d-flex align-items-center">
-              <input class="form-check-input" type="checkbox" value="{{amenity.id}}" id="a{{amenity}}" style="height:25px;width:25px">
-              <label class="form-check-label ms-2 fs-6" for="a{{amenity}}">
-                {{amenity}}
-              </label>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="d-flex justify-content-center">
-          <button type="button" class="btn btn-blue px-5 mb-4" onclick="applyFilters()">Primeni</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Change page view -->
-  <button class="btn btn-sm btn-blue border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-    <img src="{% static 'images/icons/map.svg' %}" alt="Sort" width="15px" />
-     {% if request.GET.prikaz == 'mapa2' %} Mapa 2
-     {% else %} Mapa 1
-     {% endif %}
-    <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" />
-  </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa1')">Mapa 1</a></li>
-    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa2')">Mapa 2</a></li>
-  </ul>
-  </div>
-</div>
-
 <script>
 
 function applyFilters() {
@@ -163,6 +92,37 @@ function getParams() {
   });
 }
 
+async function showNeighbourhoods() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const city = urlParams.get('grad');
+  const locationParam = urlParams.get('lokacija');
+
+  if (city) {
+    const location = document.getElementById('location');
+    
+    // CLEAR ALL OPTIONS FROM BEFORE
+    location.innerHTML = '';
+    
+    const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
+    const data = await response.json();
+    const option = document.createElement('option');
+    option.value = '';
+    option.textContent = 'Lokacija';
+    location.appendChild(option);
+
+    data.areas.forEach(el => {
+      // CREATE NEW OPTION ELEMENT
+      const option = document.createElement('option');
+      option.value = el[0];
+      option.textContent = el[1];
+      option.selected = locationParam == el[0]
+      // APPEND NEW OPTION TO SELECT ELEMENT
+      location.appendChild(option);
+    });
+  }
+}
+
+showNeighbourhoods();
 getParams()
 
 function openModal() {

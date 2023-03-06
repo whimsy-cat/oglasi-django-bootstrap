@@ -1,9 +1,8 @@
 {% load static %}
-<header class="" >
-  <div class="row px-3 m-0 header non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" >
-    <div class="col-2 d-flex justify-content-start">
+  <div class="row px-5 m-0 header non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" >
+    <div class="col-2 p-0 d-flex justify-content-start">
       <a href="/"> 
-        <img class="logo" {% if request.path == '/' %} style="filter: brightness(0) invert(1)" {% endif %} src="{% static 'images/shared/logos.svg' %}" height="72px" alt="logo">
+        <img class="logo" style="margin-left: -11px;" src="{% static 'images/shared/logos.svg' %}" height="72px" alt="logo">
       </a>
     </div>
     <div class="col-8 py-3 d-flex flex-wrap align-items-center justify-content-center">
@@ -14,7 +13,7 @@
         <li class="px-2 nav-hover"><a href="{% url 'blog_list' %}" class="nav-link px-2 {% if request.path == '/blog/' %}link-secondary{% endif %}">Blog</a></li>
         <!-- <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li> -->
         <!-- <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li> -->
-        <li class="px-2 nav-hover">
+        <!-- <li class="px-2 nav-hover">
           <a href="#" class="nav-link border-end {% if request.path == '/'%} border-white {% else %} border-dark-50 {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Jezik
               <ul class="dropdown-menu">
@@ -29,7 +28,7 @@
                 </li>
               </ul>
           </a>
-        </li>
+        </li> -->
       </ul>
       {% if user.id is not None %}
         <div class="dropdown text-end">
@@ -51,8 +50,7 @@
           {% include 'account_pages/login_register_modal.html' %}
         {% endif %}
       </div>
-    <div class="col-2 py-3">
+    <div class="col-2 py-3 p-0">
       <a {% if user.id is not None %} href="{% url 'listing_create' %}" {% else %} data-bs-toggle="modal" data-bs-target="#accountModal" {% endif %}  class="btn create-listing-btn">+ Postavi Oglas</a>
     </div>
   </div>
-</header>
