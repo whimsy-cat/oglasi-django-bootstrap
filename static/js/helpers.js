@@ -44,16 +44,16 @@ function queryParam(key, value) {
     // To do: Find other solution
     // If filter cena remove max-min price
     if (kvp && key === 'cena') {
-      kvp = kvp.filter(k => !k.includes('max-price='))
-      kvp = kvp.filter(k => !k.includes('min-price='))
+      kvp = kvp.filter(k => !k.includes('max_price='))
+      kvp = kvp.filter(k => !k.includes('min_price='))
     }
     if (kvp && key === 'povrsina') {
-      kvp = kvp.filter(k => !k.includes('max-size='))
-      kvp = kvp.filter(k => !k.includes('min-size='))
+      kvp = kvp.filter(k => !k.includes('max_size='))
+      kvp = kvp.filter(k => !k.includes('min_size='))
     }
     if (kvp && key === 'spratnost') {
-      kvp = kvp.filter(k => !k.includes('max-spratnost='))
-      kvp = kvp.filter(k => !k.includes('min-spratnost='))
+      kvp = kvp.filter(k => !k.includes('max_spratnost='))
+      kvp = kvp.filter(k => !k.includes('min_spratnost='))
     }
 
     // Reseting pagination when sort / filter changed

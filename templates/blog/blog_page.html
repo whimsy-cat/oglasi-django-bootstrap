@@ -22,7 +22,7 @@
       <div class="col px-0 h-100 d-flex justify-content-between">
         <a role="button" style="text-decoration: none;" href="{% if '/blog/' in request.path %} {% url 'blog_list' %} {% else %} {% url 'news_list' %} {% endif %}" class="text-white fw-bold">Sve</a>
         {% for category in categories %}
-          <a style="text-decoration: none;" class="text-white fw-bold" href="{% if '/blog/' in request.path %} {% url 'blog_list' %} {% else %} {% url 'news_list' %} {% endif %}?category={{category.id}}">{{ category.name }}</a>
+          <a style="text-decoration: none;" class="text-white fw-bold" href="{% if '/blog/' in request.path %}{% url 'blog_list' %}{% else %}{% url 'news_list' %}{% endif %}?category={{category.id}}">{{ category.name }}</a>
         {% endfor %}
       </div>
     </div>

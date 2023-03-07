@@ -166,7 +166,7 @@ MESSAGE_TAGS = {
 }
 
 
-MAILGUN_API_KEY = os.environ['MAILGUN_API_KEY']
+MAILGUN_API_KEY = os.environ.get('MAILGUN_API_KEY', '')
 DEFAULT_FROM_EMAIL = "podrska@moj-dom.me"
 
 SITE_ID = 1
