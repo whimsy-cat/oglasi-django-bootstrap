@@ -9,8 +9,10 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 from oglasi_app import settings
+from oglasi_app.mail import send_mailgun_mail
 from accounts.forms import RegistrationForm
 from accounts.models import Account
+from django.urls import reverse
 
 
 # def send_email_to_user(request, subject, body, mail_to):
@@ -30,15 +32,14 @@ def register(request):
 
             # User activation
             current_site = get_current_site(request)
-            mail_subject = "Please activate your account"
-            mail_body = render_to_string('account_pages/emails/account_verification.html', {
-                'user': user,
-                'domain': current_site,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': default_token_generator.make_token(user),
-            })
-            mail_to = email
-            send_mail(mail_subject, mail_body, settings.DEFAULT_FROM_EMAIL, [mail_to])
+            full_name = first_name + ' ' + last_name
+            activate_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': default_token_generator.make_token(user)})
+            link = f"https://{current_site}{activate_url}"
+            data = {
+                "first_name": first_name,
+                "link": link
+            }
+            send_mailgun_mail(email, full_name, 'Verifikujte vaš nalog', 'email_verification', data)
             messages.success(request, 'Thank you for registering, please confirm your email')
             return redirect('home')
     else:

@@ -3,26 +3,27 @@
       <div class="col-5 m-0 p-0">
         <div class="w-100 h-100" style="background: center / cover no-repeat url('{{ article.cover.url }}')"></div>
       </div>
-      <div class="col-7">
-        <div class="row p-2 justify-content-between h-100">
-          <div class="col-12 d-flex justify-content-between">
-            <div class="text-info">{{ article.category.name }}</div>
-            <div>{{ article.timestamp|date:"F j, Y" }}</div>
+      <div class="col-7 h-100 px-3 py-2">
+        <div class="row justify-content-between h-100">
+          <div class="col-12 p-0 d-flex justify-content-between">
+            <div class="blog-type text-primary">{{ article.category.name }}</div>
+            <div class="blog-description-date">{{ article.timestamp|date:"F j, Y" }}</div>
          </div>
-          <h6 class="col-12 fw-bold my-2">{{ article.title }}</h6>
-          <p class="col-12" style="text-align: justify;min-height: 112px;">
-            {{ article.description|striptags|slice:":190" }}...
-          </p>
-          <div class="col-12 border-top d-flex align-items-center justify-content-between">
+          <h6 class="col-12 p-0 profile-card-tab mt-2 mb-5">{{ article.title }}</h6>
+          <div class="col-12 p-0" style="text-align: justify;height: 84px;">
+            {{ article.description|striptags|slice:":160" }}...
+          </div>
+          <div class="col-12 px-0 pt-3 border-top d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center">
-              <div class="ms-1">{{ article.user.first_name }}</div>
+              <img src="{% static 'images/agenciespage/agency.jpg' %}" class="rounded-circle" height="28px" width="28px"/>
+              <div class="blog-description-date" style="margin-left: 12px;">{{ article.user.first_name }}</div>
             </div>
               {% if article.article_type == 'Blog' %}
                 <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
               {% else %} 
                 <a href="{% url 'news_detail' pk=article.id %}" style="text-decoration: none; color: black">
               {% endif %}
-                <div class="text-info">
+                <div class="blog-description-date text-primary">
                     Opsirnije >>
                 </div>
               </a>

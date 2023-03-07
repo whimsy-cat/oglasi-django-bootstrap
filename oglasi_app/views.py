@@ -2,8 +2,6 @@ from django.shortcuts import render
 from category.models import Category
 from listings.models import Listing, Location
 from blog.models import Article
-from django.core.mail import send_mail
-from oglasi_app import settings
 
 def home(request):
     articles = Article.objects.order_by('-timestamp')[:6]

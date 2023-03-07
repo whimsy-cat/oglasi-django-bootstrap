@@ -206,7 +206,7 @@
 
   <div class="break-bg my-5"></div>
   <section>
-    <div class="margin-container">
+    <div class="margin-container" style="padding: 0px 50px!important;">
       <div class="row">
         <div id="carouselAgencies" class="carousel carousel-dark slide pb-4 px-0" data-bs-ride="true">
           <div class="carousel-indicators mb-0">
@@ -266,11 +266,10 @@
     <div class="margin-container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
         {% for article in articles %}
-          <div class="text-dark {% if forloop.first%}col-lg-6{% elif forloop.last %}col-lg-6{% else %}col-lg-3{% endif %}">
+          <div style="padding: 12px;"  class="text-dark m-0 {% if forloop.first%} col-lg-6 {% elif forloop.last %} col-lg-6 {% else %} col-lg-3 {% endif %}">
             <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
               <div class="card shadow">
                 <div class="w-100" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
-            
                 <div class="card-body py-2 px-3">
                   <div class="d-flex justify-content-between align-items-center mb-2">        
                     <h6 class="blog-title mb-0" style="word-break: break-all;overflow: hidden;height: 24px;">{{ article.title }}</h6>

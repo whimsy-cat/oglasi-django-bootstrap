@@ -166,14 +166,7 @@ MESSAGE_TAGS = {
 }
 
 
-#SMTP configuration
-if 'SENDGRID_API_KEY' in os.environ:
-    EMAIL_HOST = 'smtp.sendgrid.net'
-    EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-    EMAIL_HOST_PASSWORD = os.environ['SENDGRID_API_KEY']
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-
+MAILGUN_API_KEY = os.environ['MAILGUN_API_KEY']
 DEFAULT_FROM_EMAIL = "podrska@moj-dom.me"
 
 SITE_ID = 1
@@ -221,6 +214,8 @@ AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID", "")
 AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY", "")
 AWS_STORAGE_BUCKET_NAME = env.str("AWS_STORAGE_BUCKET_NAME", "oglasi-raw-images")
 AWS_STORAGE_REGION = env.str("AWS_STORAGE_REGION", "eu-central-1")
+AWS_QUERYSTRING_AUTH = False
+
 
 USE_S3 = (
     AWS_ACCESS_KEY_ID and

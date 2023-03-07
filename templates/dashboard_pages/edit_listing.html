@@ -95,7 +95,8 @@
                     <small class="description-guide">Upišite cenu vaše nekretnine u EUR</small>
                   </div>
                   <div class="w-100">
-                    <input type="text" tyle="text-align: center!important;" class="form-control border-radius-10 height-40px description-inputs" value={{listing.price}} id="price" name="price" onkeyup="addPeriods()" required>
+                    <input type="text" tyle="text-align: center!important;" class="form-control border-radius-10 height-40px description-inputs" oninput="addPeriods()" value={{listing.price}} id="price" required>
+                    <input type="hidden" name="price" id="raw_price">
                   </div>
                 </div>
               </div>
@@ -266,7 +267,8 @@
                   </div>
                   <div class="mb-3" id='parcel-input'>
                     <label for="parcel_size" class="form-label blog-type margin-start-12">Površina parcele <span class="description-guide">(broj u m<sup>2</sup>)</span></label>
-                    <input type="text" onkeyup="addPeriods()" value="" class="form-control border-radius-10 height-40px description-inputs" id="parcel_size" name="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
+                    <input type="text" oninput="addPeriods()" value="" class="form-control border-radius-10 height-40px description-inputs" id="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
+                    <input type="hidden" name="parcel_size" id="raw_size">
                   </div>
                   <div class="mb-3">
                     <label for="efficiency_index" class="form-label blog-type margin-start-12">Hipoteka</label>
@@ -369,8 +371,8 @@
 
         <!---DETAILS AND AMENITIES-->
         <div class="creation-content" id="step5">
-          <div class="col shadow rounded" style="padding: 16px 0px 0px 0px;">
-            <div class="creation-step step-section mb-4">
+          <div class="col">
+            <div class="creation-step step-section mb-4 shadow rounded"  style="padding: 16px 0px 0px 0px;">
               <div class="mb-4 step-heading">
                 <h5 style="margin-bottom: 12px;padding-left: 12px;">Prodaja</h5>
                 <small class="blog-type" style="padding-left: 12px;">Čekirajte kvadratiće oglasa za prodaju</small>
@@ -733,14 +735,18 @@ async function showNeighbourhoods() {
 }
 
 function addPeriods() {
-    let input = event.target;
-    let value = input.value;
-    // Remove all non-digit characters
-    value = value.replace(/\D/g, '');
-    // Add periods every three digits
-    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-    input.value = value;
-  }
+  let input = event.target;
+  let value = input.value;
+  // Remove all non-digit characters
+  let numericValue = value.replace(/\D/g, '');
+  // Add periods every three digits
+  value = numericValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  input.setAttribute('data-value', numericValue);
+  input.value = value;
 
+  // Set the value of the raw_price field
+  document.getElementById('raw_price').value = numericValue;
+  document.getElementById('raw_size').value = numericValue;
+}
 </script>
 {% endblock %}

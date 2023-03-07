@@ -417,8 +417,8 @@ ul.pagination {
   width: 18px;
 }
 .icon24px {
-  height: 24px;
-  width: 24px;
+  height: 24px!important;
+  width: 24px!important;
 }
 /* LISTING CARD */
 
@@ -660,10 +660,11 @@ ul.pagination {
   line-height:16.37px;
 }
 .description-inputs {
-  color:#8C8C8C!important;
-  font-weight:500;
-  font-size: 12px;
-  line-height:16.37px;
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #8C8C8C;
 }
 .create-edit-button {
   color:#FFFFFF!important;
