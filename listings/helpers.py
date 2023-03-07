@@ -48,20 +48,20 @@ def query_params_helper(request, listing_data):
     query_garage = request.GET.get('parking')
 
     query_total_floors = request.GET.get('spratnost')
-    min_spratnost = request.GET.get('min-spratnost')
-    max_spratnost = request.GET.get('max-spratnost')
+    min_spratnost = request.GET.get('min_spratnost')
+    max_spratnost = request.GET.get('max_spratnost')
     min_spratnost = int(min_spratnost.replace(',', '')) if min_spratnost else None
     max_spratnost = int(max_spratnost.replace(',', '')) if max_spratnost else None
 
-    min_price = request.GET.get('min-price', '')
-    max_price = request.GET.get('max-price', '')
+    min_price = request.GET.get('min_price', '')
+    max_price = request.GET.get('max_price', '')
     min_price = int(min_price.replace('.', '').replace(',', '')) if min_price else None
     max_price = int(max_price.replace('.', '').replace(',', '')) if max_price else None
     query_price = request.GET.get('cena')
 
     query_size = request.GET.get('povrsina')
-    min_size = request.GET.get('min-size', '')
-    max_size = request.GET.get('max-size', '')
+    min_size = request.GET.get('min_size', '')
+    max_size = request.GET.get('max_size', '')
     min_size = int(min_size.replace(',', '')) if min_size else None
     max_size = int(max_size.replace(',', '')) if max_size else None
 

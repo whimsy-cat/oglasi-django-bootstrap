@@ -37,22 +37,22 @@
   <div class="col-6 my-1">
     <label for="price" class="form-label ms-2">Cena</label>
     <div class="d-flex">
-      <input type="text" value="{{request.GET.minprice}}" class="form-control me-2" id="min-price" name="min-price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
-      <input type="text" value="{{request.GET.maxprice}}" class="form-control" id="max-price" name="max-price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.min_price}}" class="form-control me-2" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.max_price}}" class="form-control" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
     </div>
   </div>
   <div class="col-6 my-1">
     <label for="size" class="form-label ms-2">Površina</label>
     <div class="d-flex">
-      <input type="text" value="{{request.GET.minsize}}" class="form-control me-2" id="min-size" name="min-size" onkeyup="addPeriods()" placeholder="100" aria-describedby="titleHelp">
-      <input type="text" value="{{request.GET.maxsize}}" class="form-control" id="max-size" name="max-size" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.min_size}}" class="form-control me-2" id="min_size" name="min_size" onkeyup="addPeriods()" placeholder="100" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.max_size}}" class="form-control" id="max_size" name="max_size" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
     </div>
   </div>
   <div class="col-6 my-1">
     <label class="form-label ms-2">Spratnost</label> 
     <div class="d-flex">
-      <input type="text" value="{{request.GET.minspratnost}}" onkeyup="addPeriods()" class="form-control me-2" id="min-spratnost" name="min-spratnost" placeholder="od" aria-describedby="titleHelp">
-      <input type="text" value="{{request.GET.maxspratnost}}" onkeyup="addPeriods()" class="form-control" id="max-spratnost" name="max-spratnost" placeholder="do" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.min_spratnost}}" onkeyup="addPeriods()" class="form-control me-2" id="min_spratnost" name="min_spratnost" placeholder="od" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.max_spratnost}}" onkeyup="addPeriods()" class="form-control" id="max_spratnost" name="max_spratnost" placeholder="do" aria-describedby="titleHelp">
     </div>
   </div>
   <div class="col-6 my-1">
@@ -107,11 +107,11 @@
   </div>
   <div class="col-6">
     <label for="condition" class="form-label ms-2">Nameštenost</label>
-    <select class="form-select" id="namestenost" name="condition">
+    <select class="form-select" id="namestenost" name="condition_rent">
       <option value="">Izaberite...</option>
-      <option {% if request.GET.condition == 'namešten' %} selected {% endif %} value="namešten">Namešten</option>
-      <option {% if request.GET.condition == 'polunamešten' %} selected {% endif %} value="polunamešten">Polunamešten</option>
-      <option {% if request.GET.condition == 'prazan' %} selected {% endif %} value="prazan">Prazan</option>
+      <option {% if request.GET.condition_rent == 'namešten' %} selected {% endif %} value="namešten">Namešten</option>
+      <option {% if request.GET.condition_rent == 'polunamešten' %} selected {% endif %} value="polunamešten">Polunamešten</option>
+      <option {% if request.GET.condition_rent == 'prazan' %} selected {% endif %} value="prazan">Prazan</option>
     </select>
   </div>
   <div class="col-6">
