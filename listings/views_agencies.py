@@ -122,3 +122,11 @@ def project_info(request):
     }
 
     return render(request, 'project_pages/info_about_project.html', context)
+
+
+def new_builds(request):
+    return render(request, 'newbuilds/new_builds.html')
+
+
+def about_newbuilds(request):
+    return render(request, 'newbuilds/about_new_builds.html')

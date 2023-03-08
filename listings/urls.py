@@ -46,6 +46,9 @@ urlpatterns = [
     path('lista-vesti/', views_agencies.news_list, name='news_list'),
     path('otvorene-vesti/', views_agencies.open_news, name='open_news'),
     
+    # New_builds
+    path('novogradnja/', views_agencies.new_builds, name='new_builds'),
+    path('o-novogradnji/', views_agencies.about_newbuilds, name='about_newbuilds'),
 
     # About us pages
     path('o-nama/', views_agencies.about_us, name="about_us"),

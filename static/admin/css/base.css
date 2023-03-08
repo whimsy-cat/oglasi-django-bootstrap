@@ -437,14 +437,6 @@ table thead th.sorted .sortoptions a.descending:hover {
 
 /* FORM DEFAULTS */
 
-input, textarea, select, .form-row p, form .button {
-    margin: 2px 0;
-    padding: 2px 3px;
-    vertical-align: middle;
-    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
-    font-weight: normal;
-    font-size: 0.8125rem;
-}
 .form-row div.help {
     padding: 2px 3px;
 }

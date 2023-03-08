@@ -658,7 +658,7 @@ async function getDetails() {
   amenitiesDiv.innerHTML = "";
 
   data.details.forEach(detail => {
-    detailsDiv.innerHTML += `<div class="col-xxl-2 col-xl-3 col-sm-6 col-12">
+    detailsDiv.innerHTML += `<div class="col-xxl-2 col-xl-2 col-sm-6 col-12">
         <div class="form-check form-check-inline mb-2 d-flex align-items-center">
           <input type="checkbox" class="form-check-input icon24px" id="detail-data${detail.detail__id}" name="details_data" value="${detail.detail__id}">
           <label class="form-check-label margin-start-12 detail-amenity-text" for="detail-data${detail.detail__id}">${detail.detail__name}</label>
@@ -667,7 +667,7 @@ async function getDetails() {
   })
 
   data.amenities.forEach(amenity => {
-    amenitiesDiv.innerHTML += `<div class="col-xxl-2 col-xl-3 col-sm-6 col-12">
+    amenitiesDiv.innerHTML += `<div class="col-xxl-2 col-xl-2 col-sm-6 col-12">
         <div class="form-check form-check-inline mb-2 d-flex align-items-center">
           <input type="checkbox" class="form-check-input icon24px" id="amenity-data${amenity.amenity__id}" name="amenities_data" value="${amenity.amenity__id}">
           <label class="form-check-label margin-start-12 detail-amenity-text" for="amenity-data${amenity.amenity__id}">${amenity.amenity__name}</label>

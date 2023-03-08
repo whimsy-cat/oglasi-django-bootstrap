@@ -6,156 +6,189 @@
 {% endblock %}
 
 {% block content %}
-  <section class="home-search">
-    <div class="w-100 h-100 vh-100 background-shadow">
-    <div class="container-fluid">
-      <div class="home-content justify-content-center">
-        <div class="text-center home-text">
-          <h1>Pronađite dom vaših snova</h1>
-        </div>
-        <div class="home-search-form p-3">
-          <form action="/oglasi" id="search-listing-form">
-            <div class="row justify-content-center ">
-              <div class="col col-auto">
-                <div class="input-group mb-3">
-                  <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue" type="button"  style="width: 132px;font-size: 18px;">Prodaja</button>
-                  <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end" style="width: 132px;font-size: 18px;" type="button">Izdavanje</button>
-                  <input type="hidden" name="search_type" value="0" id="search_type">
-                </div>
-              </div>
-            </div>
-            <div class="row mx-auto " style="max-width: 900px;">
-              <div class="col input-group p-0 mb-2">
-              <input type="text" list="country" style="width: 200px;font-size: 18px!important;" class="form-control input-location" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
-              <datalist id="country">
-                {% for loc in all_cities %}
-                <option value="{{ loc.city }}">
-                {% endfor %}
-              </datalist>
-              <select for="type" class="form-select select-listing-type text-black-50 fs-6" style="width: 200px;" name="tip" id="type">
-                <option selected value="">Tip</option>
-                {% for categ in categories %}
-                  {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
-                <option value="{{ categ.name }}">{{ categ.name }}</option>
-                  {% endif %}
-                {% endfor %}
-              </select>
-              <input for="neighbourhood" type="text" class="form-control input-area" style="width: 240px;font-size: 18px!important;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
-              <datalist id="neighbourhoods">
-              </datalist>
-                <button class="btn btn-outline border-start btn-white btn-details d-flex justify-content-center align-items-center" style="width: 120px;font-size: 18px!important;" type="button" id="btnFormDetails">Detaljnije
-                    <img class="ms-3" src="{% static 'images/icons/dots.svg' %}" alt="."/>
-                </button>
-                <button class="btn btn-blue btn-search ps-3 d-flex align-items-center" style="width: 120px;" type="submit"  id="inputGroupFileAddon04">
-                  Pretraži
-                  <img class="ms-1" src="{% static 'images/icons/search.svg' %}" alt="O"/>
-                </button>
-              </div>
-            </div>
-            <div id="detailsForm" class="row mx-auto p-2 m detail-form hide">
-              <div class="col-3">
-                <label for="price" class="form-label fw-600">Cena</label>
-                <div class="d-flex">
-                  <input type="text" class="form-control me-2" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
-                  <input type="text" class="form-control" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
-                </div>
-              </div>
-              <div class="col-3">
-                <label for="size" class="form-label fw-600">Površina</label>
-                <div class="d-flex">
-                  <input type="text" class="form-control me-2" id="min_size" name="min_size" onkeyup="addPeriods()" placeholder="100" aria-describedby="titleHelp">
-                  <input type="text" class="form-control" id="max_size" name="max_size" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
-                </div>
-              </div>
-              <div class="col-3">
-                <label class="form-label fw-600">Struktura</label>
-                  <select class="form-select text-black-50 fw-600" id="structure" name="struktura" aria-label="Default select example">
-                    <option value="">Struktura</option>
-                    <option  {% if request.GET.struktura == '0.5' %} selected {% endif %} value="0.5">Garsonjera 0.5</option>
-                    <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">Jednosoban 1.0 </option>
-                    <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">Jednoiposoban 1.5</option>
-                    <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">Dvosoban 2.0</option>
-                    <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">Dvoiposoban 2.5</option>   
-                    <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">Trosoban 3.0</option>
-                    <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">Troiposoban 3.5</option>
-                    <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">Četvorosoban 4.0</option>
-                    <option  {% if request.GET.struktura == '4.5' %} selected {% endif %} value="4.5">Četvoroiposoban 4.5</option>
-                    <option  {% if request.GET.struktura == '5' %} selected {% endif %} value="5">Petosoban i veći 5.0</option>
-                  </select>
-                </select>
-              </div>
-              <div class="col-3">
-              </div>
-              <div class="col-3 my-2">
-                <label class="form-label fw-600">Stanje</label>
-                <select class="form-select text-black-50 fw-600" id="condition" name="condition" >
-                  <option value="">Izaberite...</option>
-                  <option {% if request.GET.condition == 'starogradnja' %} selected {% endif %} value="starogradnja">Starogradnja</option>
-                  <option {% if request.GET.condition == 'novogradnja' %} selected {% endif %} value="novogradnja">Novogradnja</option>
-                  <option {% if request.GET.condition == 'u_izgradnji' %} selected {% endif %} value="u_izgradnji">U izgradnji</option>
-                </select>
-              </div>
-              <div class="col-3 my-2">
-                <label class="form-label fw-600">Spratnost</label> 
-                  <div class="d-flex">
-                    <input type="text" onkeyup="addPeriods()" class="form-control me-2 " id="min_spratnost" name="min_spratnost" placeholder="od" aria-describedby="titleHelp">
-                    <input type="text" onkeyup="addPeriods()" class="form-control" id="max_spratnost" name="max_spratnost" placeholder="do" aria-describedby="titleHelp">
-                  </div>
-                </div>
-                <div class="col-3 my-2">
-                  <label class="form-label fw-600">Parking</label>
-                  <select class="form-select text-black-50 fw-600" id="garage" name="parking">
-                    <option value="">Izaberite...</option>
-                    <option {% if request.GET.parking == 'garaža' %} selected {% endif %} value="garaža">Garaža</option>
-                    <option {% if request.GET.parking == 'parking mesto' %} selected {% endif %} value="parking mesto">Parking mesto</option>
-                    <option {% if request.GET.parking == 'parking klackalica' %} selected {% endif %} value="parking klackalica">Parking klackalica</option>
-                    <option {% if request.GET.parking == 'parking van zone' %} selected {% endif %} value="parking van zone">Parking van zone</option>
-                    <option {% if request.GET.parking == 'parking u zoni' %} selected {% endif %} value="parking u zoni">Parking u zoni</option>
-                    <option {% if request.GET.parking == 'garažno mesto' %} selected {% endif %} value="garažno mesto">Garažno mesto</option>
-                    <option {% if request.GET.parking == 'parking platforma' %} selected {% endif %} value="parking platforma">Parking platforma</option>
-                  </select>
-                </div>
-                <div class="col-3 justify-content-between d-flex flex-column align-items-center">
-                  <h3 class="fw-bold">Broj oglasa:</h3>
-                  <h3 class="fw-bold">{{total_listings}}</h3>
-                </div>
-                <div class="col-3">
-                  <label for="heating"  class="form-label fw-600">Grejanje</label>
-                  <select class="form-select text-black-50 fw-600" id="heating" name="grejanje">
-                    <option value="">Izaberite...</option>
-                    <option value="Grejanje na struju">Grejanje na struju</option>
-                    <option value="Centralno grejanje">Centralno grejanje</option>
-                    <option value="Grejanje na gas">Grejanje na gas</option>
-                    <option value="Čvrsta goriva">Čvrsta goriva</option>
-                    <option value="Grejanje ostalo">Grejanje ostalo</option>
-                  </select>
-                </div>
-              <div class="col-3">
-                <label for="condition"  class="form-label fw-600">Nameštenost</label>
-                <select class="form-select text-black-50 fw-600" id="namestenost" name="condition">
-                  <option value="">Izaberite...</option>
-                  <option value="namešten">Namešten</option>
-                  <option value="polunamešten">Polunamešten</option>
-                  <option value="prazan">Prazan</option>
-                </select>
-              </div>
-              <div class="col-3">
-                <label for="oglasivac" class="form-label fw-600">Oglašivač</label>
-                <select class="form-select text-black-50 fw-600" id="oglasivac" name="oglasivac">
-                  <option value="">Izaberite...</option>
-                  <option value="agencija">Agencija</option>
-                  <option value="vlasnik">Vlasnik</option>
-                  <option value="pravno_lice">Pravno lice</option>
-                </select>
-              </div>
-              <div class="col-3" >
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/homepage_bg.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
     </div>
-  </section>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/ns_bg.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/hram_bg.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/kalemegdan_cover.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/nis_bg.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/su_bg.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/usce_cover.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+    <div class="carousel-item">
+      <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/waterfront_cover.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<div class="container-fluid"> 
+  <div class="home-content home-search justify-content-center position-absolute" style="top: 10%; left: 0; bottom: 100;right: 0;">
+    <div class="text-center home-text">
+      <h1>Pronađite dom vaših snova</h1>
+    </div>
+    <div class="home-search-form p-3">
+      <form action="/oglasi" id="search-listing-form">
+        <div class="row justify-content-center ">
+          <div class="col col-auto">
+            <div class="input-group mb-3">
+              <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue swich-button" type="button"  style="width: 132px;font-size: 18px;">Prodaja</button>
+              <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end swich-button" style="width: 132px;font-size: 18px;" type="button">Izdavanje</button>
+              <input type="hidden" name="search_type" value="0" id="search_type">
+            </div>
+          </div>
+        </div>
+        <div class="row mx-auto " style="max-width: 857px;">
+          <div class="col input-group p-0 mb-2">
+          <input type="text" list="country" style="width: 175px" class="form-control input-location placeholders-search" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+          <datalist id="country">
+            {% for loc in all_cities %}
+            <option value="{{ loc.city }}">
+            {% endfor %}
+          </datalist>
+          <select for="type" class="form-select placeholders-search" style="width: 175px;" name="tip" id="type">
+            <option selected value="">Tip</option>
+            {% for categ in categories %}
+              {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
+            <option value="{{ categ.name }}">{{ categ.name }}</option>
+              {% endif %}
+            {% endfor %}
+          </select>
+          <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="width: 223px"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+          <datalist id="neighbourhoods">
+          </datalist>
+            <button class="btn btn-outline border-start btn-white btn-details d-flex justify-content-end align-items-center pe-0 search-font" style="width: 132px;font-size: 18px!important;" type="button" id="btnFormDetails">Detaljnije
+                <img style="margin:0px 14px;" src="{% static 'images/icons/dots.svg' %}" alt="."/>
+            </button>
+            <button class="btn btn-blue btn-search d-flex align-items-center search-font" style="width: 132px;padding-left: 20px;" type="submit"  id="inputGroupFileAddon04">
+              Pretraži
+              <img class="ms-2" style="filter: invert(100%) sepia(3%) saturate(370%) hue-rotate(321deg) brightness(112%) contrast(100%);" src="{% static 'images/icons/search.svg' %}" alt="O" height="20px" width="20px"/>
+            </button>
+          </div>
+        </div>
+        <div id="detailsForm" class="row mx-auto  detail-form hide" style="padding: 12px 24px;">
+          <div class="col-3 ps-0">
+            <label for="price " class="form-label fw-600">Cena</label>
+            <div class="d-flex">
+              <input type="text" class="form-control me-2 text-center height-28 detail-input-placeholders" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
+              <input type="text" class="form-control text-center height-28 detail-input-placeholders" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
+            </div>
+          </div>
+          <div class="col-3">
+            <label for="size" class="form-label fw-600">Površina</label>
+            <div class="d-flex">
+              <input type="text" class="form-control me-2 text-center height-28 detail-input-placeholders" id="min_size" name="min_size" onkeyup="addPeriods()" placeholder="100" aria-describedby="titleHelp">
+              <input type="text" class="form-control text-center height-28 detail-input-placeholders" id="max_size" name="max_size" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
+            </div>
+          </div>
+          <div class="col-3 pe-0">
+            <label class="form-label fw-600">Struktura</label>
+              <select class="form-select detail-input-placeholders height-28 input-padding" id="structure" name="struktura" aria-label="Default select example">
+                <option value="">Struktura</option>
+                <option  {% if request.GET.struktura == '0.5' %} selected {% endif %} value="0.5">Garsonjera 0.5</option>
+                <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">Jednosoban 1.0 </option>
+                <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">Jednoiposoban 1.5</option>
+                <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">Dvosoban 2.0</option>
+                <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">Dvoiposoban 2.5</option>   
+                <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">Trosoban 3.0</option>
+                <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">Troiposoban 3.5</option>
+                <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">Četvorosoban 4.0</option>
+                <option  {% if request.GET.struktura == '4.5' %} selected {% endif %} value="4.5">Četvoroiposoban 4.5</option>
+                <option  {% if request.GET.struktura == '5' %} selected {% endif %} value="5">Petosoban i veći 5.0</option>
+              </select>
+            </select>
+          </div>
+          <div class="col-3 pe-0">
+          </div>
+          <div class="col-3 ps-0" style="margin: 12px 0px;">
+            <label class="form-label fw-600">Stanje</label>
+            <select class="form-select detail-input-placeholders height-28 input-padding" id="condition" name="condition" >
+              <option value="">Izaberite...</option>
+              <option {% if request.GET.condition == 'starogradnja' %} selected {% endif %} value="starogradnja">Starogradnja</option>
+              <option {% if request.GET.condition == 'novogradnja' %} selected {% endif %} value="novogradnja">Novogradnja</option>
+              <option {% if request.GET.condition == 'u_izgradnji' %} selected {% endif %} value="u_izgradnji">U izgradnji</option>
+            </select>
+          </div>
+          <div class="col-3" style="margin: 12px 0px;">
+            <label class="form-label fw-600">Spratnost</label> 
+              <div class="d-flex">
+                <input type="text" onkeyup="addPeriods()" class="form-control me-2 text-center height-28 detail-input-placeholders" id="min_spratnost" name="min_spratnost" placeholder="od" aria-describedby="titleHelp">
+                <input type="text" onkeyup="addPeriods()" class="form-control text-center height-28 detail-input-placeholders" id="max_spratnost" name="max_spratnost" placeholder="do" aria-describedby="titleHelp">
+              </div>
+            </div>
+            <div class="col-3 pe-0" style="margin: 12px 0px;">
+              <label class="form-label fw-600">Parking</label>
+              <select class="form-select detail-input-placeholders height-28 input-padding" id="garage" name="parking">
+                <option value="">Izaberite...</option>
+                <option {% if request.GET.parking == 'garaža' %} selected {% endif %} value="garaža">Garaža</option>
+                <option {% if request.GET.parking == 'parking mesto' %} selected {% endif %} value="parking mesto">Parking mesto</option>
+                <option {% if request.GET.parking == 'parking klackalica' %} selected {% endif %} value="parking klackalica">Parking klackalica</option>
+                <option {% if request.GET.parking == 'parking van zone' %} selected {% endif %} value="parking van zone">Parking van zone</option>
+                <option {% if request.GET.parking == 'parking u zoni' %} selected {% endif %} value="parking u zoni">Parking u zoni</option>
+                <option {% if request.GET.parking == 'garažno mesto' %} selected {% endif %} value="garažno mesto">Garažno mesto</option>
+                <option {% if request.GET.parking == 'parking platforma' %} selected {% endif %} value="parking platforma">Parking platforma</option>
+              </select>
+            </div>
+            <div class="col-3 justify-content-between d-flex flex-column align-items-center">
+              <h3 class="fw-bold">Broj oglasa:</h3>
+              <h3 class="fw-bold">{{total_listings}}</h3>
+            </div>
+            <div class="col-3 ps-0">
+              <label for="heating"  class="form-label fw-600">Grejanje</label>
+              <select class="form-select detail-input-placeholders height-28 input-padding" id="heating" name="grejanje">
+                <option value="">Izaberite...</option>
+                <option value="Grejanje na struju">Grejanje na struju</option>
+                <option value="Centralno grejanje">Centralno grejanje</option>
+                <option value="Grejanje na gas">Grejanje na gas</option>
+                <option value="Čvrsta goriva">Čvrsta goriva</option>
+                <option value="Grejanje ostalo">Grejanje ostalo</option>
+              </select>
+            </div>
+          <div class="col-3">
+            <label for="condition"  class="form-label fw-600">Nameštenost</label>
+            <select class="form-select detail-input-placeholders height-28 input-padding" id="namestenost" name="condition">
+              <option value="">Izaberite...</option>
+              <option value="namešten">Namešten</option>
+              <option value="polunamešten">Polunamešten</option>
+              <option value="prazan">Prazan</option>
+            </select>
+          </div>
+          <div class="col-3 pe-0">
+            <label for="oglasivac" class="form-label fw-600">Oglašivač</label>
+            <select class="form-select detail-input-placeholders height-28 input-padding"  id="oglasivac" name="oglasivac">
+              <option value="">Izaberite...</option>
+              <option value="agencija">Agencija</option>
+              <option value="vlasnik">Vlasnik</option>
+              <option value="pravno_lice">Pravno lice</option>
+            </select>
+          </div>
+          <div class="col-3 px-0" >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
   <section class="featured-properties">
     <div class="margin-container">
       <h2 class="text-center py-4 m-0 section-title">Preporučeni oglasi</h2>
@@ -276,9 +309,9 @@
                     <div class="blog-type text-primary ps-2 d-flex align-items-center" style="height: 24px;">{{ article.category.name }}</div>
                   </div>
                   {% if forloop.first or forloop.last %}
-                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":170" }}...</p>
+                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":160" }}...</p>
                   {% else %}
-                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":80" }}...</p>
+                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":70" }}...</p>
                   {% endif %}
                   <div class="d-flex justify-content-between align-items-center mt-2">
                     <div class="d-flex align-items-center blog-description-date">

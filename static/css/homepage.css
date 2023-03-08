@@ -2,47 +2,35 @@
 /* #00A6BD */
 
 
-.header .nav a {
-  color: #f8f9fa;
-}
 .nav-hover:hover {
   color: #00A6BD!important;
 }
 
 /*homepage*/
-.home-search {
-  background-image: url("../images/homepage/homepage_bg.jpg");
-  -webkit-background-size: cover;
-  background-size: cover;
-  background-position: center center;
-  min-height: 100vh;
-  padding: 0;
-}
 .background-shadow {
   background-color: rgb(29, 41, 62, 0.6);
 }
 
-.home-search .home-content {
+ .home-content {
   padding-top: 200px
 }
 
-.home-search .home-text {
+.home-text {
   color: #ffffff;
   margin-top: 0;
 }
-.home-search .home-text h1 {
+.home-text h1 {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 800;
   font-size: 48px;
   letter-spacing: 0.02em;
 }
-.home-search .home-text p {
+.home-text p {
   font-size: 18px;
   font-weight: bold;
 }
-
-.home-search .btn-search {
+.btn-search {
   border-radius: 0px 5px 5px 0px;
   background: #00A6BD;
   color: white;
@@ -64,7 +52,7 @@
 
 .search-form-row,
 .detail-form {
-  max-width: 900px;
+  max-width: 857px;
 }
 
 .detail-form {

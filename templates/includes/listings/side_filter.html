@@ -2,10 +2,12 @@
 
 <form class="row shadow px-1 rounded fw-bold" style="height: 604px;" action="/oglasi" id="search-listing-form">
   <div class="col-12">
-    <div class="input-group justify-content-center my-3">
-      <button for="izdavanje" id="btnBuy" name="0" class="btn {% if request.GET.search_type == '0' %} text-primary {% endif %} shadow fw-600" style="width: 88px;" type="button">Prodaja</button>
-      <button for="prodaja" id="btnRent" name="1" class="btn {% if request.GET.search_type == '1' %} text-primary {% endif %} shadow rounded-end fw-600" style="width: 88px;" type="button">Izdavanje</button>
-      <input type="hidden" name="search_type" value="0" id="search_type">
+    <div class="input-group justify-content-center   my-3">
+      <div class="shadow rounded d-flex">
+        <button for="izdavanje" id="btnBuy" name="0" class="btn border-end  rounded-start rounded-0 {% if request.GET.search_type == '0' %} bg-primary text-white {% else %} bg-secondary text-white {% endif %}  fw-600" style="width: 88px;height: 40px;" type="button">Prodaja</button>
+        <button for="prodaja" id="btnRent" name="1" class="btn rounded-end rounded-0 {% if request.GET.search_type == '1' %} bg-primary text-white {% else %} bg-secondary text-white {% endif %}  fw-600" style="width: 88px;height: 40px" type="button">Izdavanje</button>
+        <input type="hidden" name="search_type" value="" id="search_type">
+      </div>
     </div>
   </div>
   <div class="col-6 my-1">
@@ -146,13 +148,15 @@
     }
 
     btnBuy.addEventListener('click', function() {
-    btnBuy.classList.add('text-primary');
-    btnRent.classList.remove('text-primary');
+      btnRent.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
+      btnBuy.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
+      btnBuy.classList.add('bg-primary', 'text-white' );
 });
 
 btnRent.addEventListener('click', function() {
-  btnRent.classList.add('text-primary');
-  btnBuy.classList.remove('text-primary');
+  btnBuy.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
+  btnRent.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
+  btnRent.classList.add('bg-primary', 'text-white');
 });
 
     async function showNeighbourhoods() {

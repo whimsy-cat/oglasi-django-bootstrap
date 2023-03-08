@@ -9,7 +9,7 @@
         {% for listing in listing.images.all %}
         <div class="carousel-item  {% if forloop.counter == 1 %} active {% endif %}">
           <div style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');height: 290px;">
-            <img src="{% static 'images/icons/star.svg' %}" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
+            <img src="{% static 'images/icons/star.svg' %}" height="20px" width="20px" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
           </div>
         </div>
         {% endfor %}

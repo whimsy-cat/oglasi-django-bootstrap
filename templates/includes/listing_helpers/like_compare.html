@@ -6,7 +6,7 @@
   {% if user.id in listing.likes %}
       <img class="isLiked{{listing.id}}" src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" width="25px" height="25px" {% if user.id is not None %} onclick="addRemoveFavorites('{{listing.id}}')" {% else %} data-bs-target="#accountModal" data-bs-toggle="modal"{% endif %} >
       {% else %}
-      <img class="isLiked{{listing.id}}" src="{% static 'images/icons/hearth.svg' %}" alt="Like" width="25px" height="25px" {% if user.id is not None %} onclick="addRemoveFavorites('{{listing.id}}')" {% else %} data-bs-target="#accountModal" data-bs-toggle="modal"{% endif %} >
+      <img class="isLiked{{listing.id}}" src="{% static 'images/icons/hearth.svg' %}" alt="Like" width="22px" height="22px" {% if user.id is not None %} onclick="addRemoveFavorites('{{listing.id}}')" {% else %} data-bs-target="#accountModal" data-bs-toggle="modal"{% endif %} >
     {% endif %}
 </div>
 <script>

@@ -1,5 +1,5 @@
 {% load static %}
-  <div class="row px-5 m-0 header non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" >
+  <div class="row px-5 m-0 header non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" style="z-index: 10;">
     <div class="col-2 p-0 d-flex justify-content-start">
       <a href="/"> 
         <img class="logo" style="margin-left: -11px;" src="{% static 'images/shared/logos.svg' %}" height="72px" alt="logo">
@@ -7,13 +7,13 @@
     </div>
     <div class="col-8 py-3 d-flex flex-wrap align-items-center justify-content-center">
       <ul class="nav">
-        <li class="px-2 nav-hover"><a href="{% url 'listings' %}" class="nav-link px-2 {% if request.path == '/oglasi/' %}link-secondary{% endif %}">Nekretnine</a></li>
-        <!-- <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li> -->
-        <li class="px-2 nav-hover"><a href="{% url 'news_list' %}" class="nav-link px-2 {% if request.path == '/vesti/' %}link-secondary{% endif %}">Vesti</a></li>
-        <li class="px-2 nav-hover"><a href="{% url 'blog_list' %}" class="nav-link px-2 {% if request.path == '/blog/' %}link-secondary{% endif %}">Blog</a></li>
-        <!-- <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li> -->
-        <!-- <li class="px-2 nav-hover"><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li> -->
-        <!-- <li class="px-2 nav-hover">
+        <li class="px-2 "><a href="{% url 'listings' %}" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/' %} link-secondary {% elif request.path == '/' %} text-white  {% endif %}">Nekretnine</a></li>
+        <!-- <li class="px-2 "><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li> -->
+        <li class="px-2 "><a href="{% url 'news_list' %}" class="nav-link nav-hover px-2 {% if request.path == '/vesti/' %} link-secondary {% elif request.path == '/' %} text-white  {% endif %}">Vesti</a></li>
+        <li class="px-2 "><a href="{% url 'blog_list' %}" class="nav-link nav-hover px-2 {% if request.path == '/blog/' %} link-secondary {% elif request.path == '/' %} text-white  {% endif %}">Blog</a></li>
+        <!-- <li class="px-2 "><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Oglašavanje</a></li> -->
+        <!-- <li class="px-2 "><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Info</a></li> -->
+        <!-- <li class="px-2 ">
           <a href="#" class="nav-link border-end {% if request.path == '/'%} border-white {% else %} border-dark-50 {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Jezik
               <ul class="dropdown-menu">

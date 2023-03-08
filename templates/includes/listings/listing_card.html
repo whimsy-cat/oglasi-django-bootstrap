@@ -2,14 +2,14 @@
 
 <div class="card shadow-sm featured-item" >
     <div class="d-flex justify-content-between position-absolute w-100" >
-      <span class="rounded d-flex align-items-center justify-content-center {% if listing.type == '0' %} bg-danger {% elif listing.type == '1' %} bg-secondary {% endif %} color-white m-2" style="width: 66px;font-size: 12px;height: 20px;">
+      <span class="rounded d-flex align-items-center justify-content-center {% if listing.type == '0' %} bg-danger {% elif listing.type == '1' %} bg-secondary {% endif %} color-white" style="width: 66px;font-size: 12px;height: 20px;margin: 8px 0px 0px 16px;">
         {% if listing.type == '0' %}
         Prodaja
         {% elif listing.type == '1' %}
         Izdavanje
         {% endif %}
       </span>
-      <img src="{% static 'images/icons/star.svg' %}"  class="m-2" alt="Star">
+      <img src="{% static 'images/icons/star.svg' %}"  style="margin: 8px 16px 0px 0px;" alt="Star" height="20px" width="20px">
     </div>
     <a style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
       <div class="bd-placeholder-img card-img-top"  style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}');height: 204px" alt=""></div>

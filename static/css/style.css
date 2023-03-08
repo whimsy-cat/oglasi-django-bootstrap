@@ -16,15 +16,8 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   line-height: 1.2;
 }
-
-input, select, textarea {
-  font-size: 14px !important;
-}
-
-input::placeholder {
-  font-size: 13px;
-  font-style: italic;
-  opacity: 0.8;
+.height-28 {
+  height: 28px!important;
 }
 
 .flex-wrapper {
@@ -63,6 +56,7 @@ input::placeholder {
 
   border-radius: 5px;
 }
+
 
 .btn-white {
   color: #00A6BD;
@@ -416,6 +410,11 @@ ul.pagination {
   height: 18px;
   width: 18px;
 }
+.icon20px {
+  height: 20px;
+  width: 20px;
+
+}
 .icon24px {
   height: 24px!important;
   width: 24px!important;
@@ -671,4 +670,73 @@ ul.pagination {
   font-weight:700;
   font-size: 16px;
   line-height:21.82px;
+}
+/* NEWSBUILDINGS*/
+.search-button {
+  font-weight: 600;
+  font-size: 16px;
+  line-height:23.68px;
+  color: #484848;
+}
+.card-location-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height:19.68px;
+  color: #8C8C8C;
+}
+.card-type-text {
+  font-weight: 400!important;
+  font-size: 12px!important;
+  line-height:16.68px;
+}
+.card-red-price {
+  font-weight: 700;
+  font-size: 16px;
+  line-height:12.68px;
+  color: #E57374;
+}
+
+/* HOMEPAGE SEARCH*/
+.search-font {
+  font-weight: 600;
+  font-size: 18px;
+  line-height:24.55px;
+}
+.swich-button {
+  font-weight: 700;
+  font-size: 18px;
+  line-height:25.2px;
+  letter-spacing: 2%;
+}
+.placeholders-search {
+  font-weight: 600;
+  font-size: 18px;
+  line-height:24.55px;
+  color: rgba(72, 72, 72, 0.4);
+}
+.placeholders-search::placeholder {
+  color: rgba(72, 72, 72, 0.4);
+}
+.detail-input-placeholders {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19.1px;
+  color: #a2a2a2;
+  
+}
+.detail-input-placeholders::placeholder {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19.1px;
+  color: #a2a2a2;
+}
+.input-padding {
+  padding: 5px 0px 4px 8px!important;
+}
+/*HALF MAP VIEW*/
+.save-reset {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19.6px;
+  color: #484848;
 }

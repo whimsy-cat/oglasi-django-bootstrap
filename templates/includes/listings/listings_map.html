@@ -28,12 +28,13 @@ function initMap() {
     zoom: 12
   }).addControl(new maplibregl.NavigationControl(), 'top-right');
 
-  {% for l in listings %}
+  {% for l in listings %} 
   {% if l.listingmap_set.first.lat != None %}
 
   const contentString{{ l.id }} = `
   <div class="card shadow-sm border-0" id="listingCard">
-    <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:330px">
+    <a class="h-100 w-100 position-absolute " style="border:none!important" href="{% url 'listing_profile' slug=l.slug %}"></a>
+    <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:280px">
       <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
         <div class="col-12 mb-auto d-flex">
           <span class="rounded d-flex align-items-center justify-content-center {% if l.type == '0' %} bg-danger {% elif l.type == '1' %} bg-secondary {% endif %} color-white m-2" style="width: 66px;font-size: 12px;height: 20px;">
@@ -49,12 +50,11 @@ function initMap() {
             <div class="d-flex flex-direction-column justify-content-between">
             <p class="card-text listing-description listing-card-overlay-title">{{ l.title }}</p>
             <a style="text-decoration:none" href="{% url 'listing_profile' slug=l.slug %}">
-              <div><img style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-eye.svg' %}" alt="House item"></div>
             </a>
         </div>
         <div class="d-flex justify-content-between align-items-center border-top border-light pt-2" >
           <div class="d-flex align-items-center">
-            <img class="me-1" style="height: 18px;width: 18px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{l.category.name|cut:' '}}.svg" alt=" ">
+            <img class="me-2" style="height: 20px;width: 20px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{l.category.name|cut:' '}}.svg" alt=" ">
             <small class="listing-icons-text">
               {% if l.category.name == 'Poslovni prostor' %}
                 Pos. Prostor
@@ -80,26 +80,26 @@ function initMap() {
             </small>
           </div>
           <div class="d-flex align-items-center text-nowrap">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
-            <small class="listing-icons-text ms-1">{{ l.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+            <small class="listing-icons-text ms-2">{{ l.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
           </div>
               {% if l.category.name|cut:' ' == 'Poljoprivrednaparcela' or l.category.name|cut:' ' == 'Građevinskaparcela'%}
           <div class="d-flex align-items-center">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
-            <small class="listing-icons-text ms-1 {% if 'Struja' in l.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
+            <small class="listing-icons-text ms-2 {% if 'Struja' in l.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
           </div>
           <div class="d-flex align-items-center">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
-            <small class="listing-icons-text ms-1 {% if 'Voda' in l.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
+            <small class="listing-icons-text ms-2 {% if 'Voda' in l.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
           </div>
             {% else %}
           <div class="d-flex align-items-center">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
-            <small class="listing-icons-text ms-1">{{ l.listingcharacteristics_set.first.structure }}</small>
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
+            <small class="listing-icons-text ms-2">{{ l.listingcharacteristics_set.first.structure }}</small>
           </div>
           <div class="d-flex align-items-center text-nowrap">
-            <img style="height: 18px;width: 18px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
-            <small class="listing-icons-text ms-1
+            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
+            <small class="listing-icons-text ms-2
             {% if l.listingcharacteristics_set.first.parking %}
               {% elif 'Garaža' in listing.details %}
               {% elif 'Parking van zone' in listing.details %}
@@ -116,7 +116,8 @@ function initMap() {
   
   // Popup definition before binding it to a marker
   let markerPopup{{l.id}} = new maplibregl.Popup({
-      closeOnClick: true
+      closeOnClick: true,
+      closeButton: false
     })
     .setMaxWidth("400px")
     .setHTML(contentString{{ l.id }});
