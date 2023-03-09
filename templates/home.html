@@ -359,17 +359,20 @@
     btnBuy.onclick = function() {
       toggleBtnClasses('0');
     }
-
+    
+    const locationElement = document.getElementById('neighbourhoods');
     async function showNeighbourhoods() {
       const city = document.getElementById('location').value;
-      document.getElementById('neighbourhoods').innerHTML = ''
+      locationElement.innerHTML = ''
       
       const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
-      const data = await response.json();
+      const {areas} = await response.json();
 
-      data.areas.forEach(el => {
-        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el.area + '" label="'+ el.area_distinct +'">'
-      })
+      locationElement.innerHTML = `
+        ${areas.map((el) => `
+          <option value="${el.area}" >${el.area_distinct}</option>
+        `).join('')}
+      `;
     }
 
   function addPeriods() {

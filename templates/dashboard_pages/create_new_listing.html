@@ -675,24 +675,31 @@ async function getDetails() {
       </div>`
   })
 }
+
+const locationElement = document.getElementById('location');
+const municipalityElement = document.getElementById('opstina');
 async function showNeighbourhoods() {
-  const city = document.getElementById('city').value;
-  const municipality = document.getElementById('municipality').value;
-  document.getElementById('location').innerHTML = ''
-  document.getElementById('opstina').innerHTML = ''
+  const cityValue = document.getElementById('city').value;
+
+  locationElement.innerHTML = ''
+  municipalityElement.innerHTML = ''
   
-  const cityResponse = await fetch(`/oglasi/get-areas?city=${city}`);
-  const cityData = await cityResponse.json();
+  const cityResponse = await fetch(`/oglasi/get-areas?city=${cityValue}`);
+  const { areas, municipality } = await cityResponse.json();
 
-  cityData.areas.forEach(el => {
-    document.getElementById('location').innerHTML += '<option value="'+ el.area + '">'
-  })
+  locationElement.innerHTML = `
+    ${areas.map((el) => `
+      <option value="${el.area}" ></option>
+    `).join('')}
+  `;
 
-  cityData.municipality.forEach(el => {
-    document.getElementById('opstina').innerHTML += '<option value="'+ el.municipality + '">'
-  })
-
+  municipalityElement.innerHTML = `
+    ${municipality.map((el) => `
+      <option value="${el.municipality}" ></option>
+    `).join('')}
+  `;
 }
+
 function addPeriods() {
   let input = event.target;
   let value = input.value;

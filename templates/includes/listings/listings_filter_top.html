@@ -92,33 +92,24 @@ function getParams() {
   });
 }
 
+const locationElement = document.getElementById('location');
 async function showNeighbourhoods() {
   const urlParams = new URLSearchParams(window.location.search);
   const city = urlParams.get('grad');
   const locationParam = urlParams.get('lokacija');
 
   if (city) {
-    const location = document.getElementById('location');
-    
-    // CLEAR ALL OPTIONS FROM BEFORE
-    location.innerHTML = '';
+    locationElement.innerHTML = '';
     
     const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
-    const data = await response.json();
-    const option = document.createElement('option');
-    option.value = '';
-    option.textContent = 'Lokacija';
-    location.appendChild(option);
+    const { areas } = await response.json();
 
-    data.areas.forEach(el => {
-      // CREATE NEW OPTION ELEMENT
-      const option = document.createElement('option');
-      option.value = el.area;
-      option.textContent = el.area_distinct;
-      option.selected = locationParam == el[0]
-      // APPEND NEW OPTION TO SELECT ELEMENT
-      location.appendChild(option);
-    });
+    locationElement.innerHTML = `
+      <option value="" selected disabled>Lokacija</option>
+      ${areas.map((el) => `
+        <option value="${el.area}" ${el.area === locationParam ? 'selected' : ''}>${el.area_distinct}</option>
+      `).join('')}
+    `;
   }
 }
 
