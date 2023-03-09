@@ -6,29 +6,33 @@
 {% endblock %}
 
 {% block content %}
-<!-- Filters -->
-<div class="row m-0 margin-container-half-map px-5 py-1 border-bottom align-items-center" style="height: 64px;">
-  <div class="col-2 ps-0 m-auto">Rezultata: {{ listings.paginator.count }}</div>
-  <div class="col-2 p-0 d-flex justify-content-end align-items-center" style="margin-right: -18px;">{% include 'includes/listings/listings_pagination.html' %}</div>
-  <div class="col-3 px-5">{% include 'includes/listings/listings_sorting.html' %}</div>
-  {% include 'includes/listings/change_page_view.html' %}
+
+<div class="margin-container">
+  <div class="row align-items-center" style="height:64px">
+      <div class="col-2 ps-0 m-auto">Rezultata: {{ listings.paginator.count }}</div>
+      <div class="col-2 pe-0 d-flex justify-content-end align-items-center">{% include 'includes/listings/listings_pagination.html' %}</div>
+      <div class="col-3 px-5">{% include 'includes/listings/listings_sorting.html' %}</div>
+      {% include 'includes/listings/change_page_view.html' %}
+  </div>
 </div>
 
-<div class="container-fluid px-5 h-100 margin-container-half-map">
-  <!-- Listings and Map -->
-  <div class="py-3 m-0 d-flex">
-    <div class="ps-0 h-100">
+<div class="w-100 border-bottom mb-3"></div>
+
+<div class="margin-container">
+  <div class="row">
+    <div class="col-4 px-0">
       {% include 'includes/listings/side_filter.html' %}
     </div>
-    <div class="col p-0">
-      <div class="row " style="margin-right: -12px!important;">
+    <div class="col-8 px-0">
+      <div class="row">
         {% for listing in listings %}
-          <div class="col-xxl-4 col-md-6 col-sm-12">
+          <div class="col-xxl-4 col-md-6 col-sm-12 pe-0 ps-4">
             {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
           </div>
-          {% endfor %}
+        {% endfor %}
       </div>
     </div>
   </div>
 </div>
+
 {% endblock %}

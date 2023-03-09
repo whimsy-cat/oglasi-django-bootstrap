@@ -126,6 +126,15 @@ h1, h2, h3, h4, h5, h6,
 
 /*header*/
 
+.center-absolute-header {
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 100px; /* Need a specific value to work */
+}
+
 .menu-user-icon {
   width: 22px;
   height: 22px;
@@ -227,7 +236,22 @@ h1, h2, h3, h4, h5, h6,
 .pagination .page-link.active {
   color: white !important;
   background-color: #00A6BD !important;
-    border-color: #00A6BD !important;
+  border-color: #00A6BD !important;
+  width: 32px !important;
+  height: 32px !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination .page-link {
+  cursor: pointer;
+  display: flex;
+  color: #484848 !important;
+  padding: 0px !important;
+  width: 32px !important;
+  height: 32px !important;
+  align-items: center;
+  justify-content: center;
 }
 
 ul.pagination {
@@ -331,8 +355,8 @@ ul.pagination {
 
 .margin-container {
     max-width: 1536px !important;
-    padding-left:40px !important;
-    padding-right:40px !important;
+    padding-left:40px;
+    padding-right:40px;
     margin:0px auto!important
 }
 
@@ -520,6 +544,11 @@ ul.pagination {
   color: white;
 }
 
+.loyalty-program-content {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
 /* BLOG CARD*/
 
 .blog-title {
@@ -535,6 +564,7 @@ ul.pagination {
 }
 .blog-description-date {
   font-weight:400;
+  overflow: hidden;
   font-size: 14px;
   letter-spacing: 2%;
   line-height:20.72px;
@@ -757,4 +787,23 @@ ul.pagination {
   font-weight: 600;
   font-size: 12px;
   line-height: 16.8px;
+}
+
+.switch-type-button {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* MAP */
+.map-switch-buttons-container {
+  padding: 16px;
+  position: inherit;
+  z-index: 1;
+  width: min-content;
+}
+
+.color-salmon {
+  color: #E57374 !important;
 }

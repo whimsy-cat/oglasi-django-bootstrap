@@ -7,11 +7,13 @@
 
 {% block content %}
 <!-- Filters -->
-<div class="row margin-container-half-map m-0 px-5 py-1 border-bottom" style="height: 64px;">
+<div class="row margin-container m-0 py-1 " style="height: 64px;">
   {% include 'includes/listings/listings_filter_top.html' %}
   {% include 'includes/listings/change_page_view.html' %}
 </div>
-    <div class="margin-container-half-map ps-5" >
+<div class="w-100 border-bottom"></div>
+
+    <div class="margin-container pe-0 ps-5" >
 
       <!-- Listings and Map -->
       <div class="d-flex justify-content-center full-screen-row">
@@ -19,18 +21,27 @@
         <div class="col-7 overflow-y-scroll pe-3" style="height: 85vh;margin-left: -12px!important;">
           <!-- Pagination and Sort -->
           <div class="row py-2 align-items-center" >
-            <div class="col m-auto">Rezultata: {{ listings.paginator.count }}</div>
+            <div class="col m-auto">Rezultata: {{ listings.paginator.count }} {{ listings.page }} </div>
             <div class="col-5">{% include 'includes/listings/listings_pagination.html' %}</div>
             <div class="col ps-0">{% include 'includes/listings/listings_sorting.html' %}</div> 
           </div>
-      
+          
           <!-- Listing Items -->
-          <div class="row" >
-            {% for listing in listings %}
-            <div class="col-xxl-4 col-md-6 col-sm-12" >
-              {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
+          <div class="row h-100">
+            <div class="col-12 p-0 m-0">
+              <div class="row">
+                {% for listing in listings %}
+                <div class="col-xxl-4 col-md-6 col-sm-12" >
+                  {% include 'includes/listings/listing_overlay_card.html' with listing=listing %}
+                </div>
+                {% endfor %}
+              </div>
             </div>
-            {% endfor %}
+            <div class="row">
+              <div class="col-12 d-flex flex-column align-self-end pb-5 pt-4">
+                {% include 'includes/listings/listings_pagination.html' %}
+              </div>
+            </div>
           </div>
         </div>
 
@@ -40,8 +51,5 @@
         </div>
 
       </div>
-    </div>
-    <div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
-      {% include 'includes/listings/listings_pagination.html' %}
     </div>
 {% endblock %}

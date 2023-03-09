@@ -1,11 +1,11 @@
 {% load static %}
 
-<form class="row shadow  rounded fw-bold" style="height: 562px;width: 494px;margin-right: 12px;" action="/oglasi" id="search-listing-form">
+<form class="row shadow  rounded fw-bold" style="height: 562px;" action="/oglasi" id="search-listing-form">
   <div class="col-12">
     <div class="input-group justify-content-center" style="margin: 16px 0px 15.64px 0px;">
       <div class="shadow rounded d-flex">
-        <button for="izdavanje" id="btnBuy" name="0" class="btn border-end  rounded-start rounded-0 {% if request.GET.search_type == '0' %} bg-primary text-white {% else %} bg-secondary text-white {% endif %}  fw-600" style="width: 88px;height: 40px;" type="button">Prodaja</button>
-        <button for="prodaja" id="btnRent" name="1" class="btn rounded-end rounded-0 {% if request.GET.search_type == '1' %} bg-primary text-white {% else %} bg-secondary text-white {% endif %}  fw-600" style="width: 88px;height: 40px" type="button">Izdavanje</button>
+        <button for="izdavanje" id="btnBuy" name="0" class="btn switch-type-button border-end  rounded-start rounded-0 {% if request.GET.search_type == '0' %} bg-primary text-white {% elif request.GET.search_type == '1' %} bg-white  {% else %} bg-secondary text-white {% endif %}" style="width: 88px;height: 40px;" type="button">Prodaja</button>
+        <button for="prodaja" id="btnRent" name="1" class="btn  switch-type-button rounded-end rounded-0 {% if request.GET.search_type == '1' %} bg-primary text-white {% elif request.GET.search_type == '0' %} bg-white {% else %} bg-secondary text-white {% endif %}" style="width: 88px;height: 40px" type="button">Izdavanje</button>
         <input type="hidden" name="search_type" value="" id="search_type">
       </div>
     </div>
@@ -149,15 +149,15 @@
 
     btnBuy.addEventListener('click', function() {
       btnRent.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
-      btnBuy.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
+      btnBuy.classList.remove('bg-primary', 'bg-white', 'text-white', 'bg-secondary', 'text-white');
       btnBuy.classList.add('bg-primary', 'text-white' );
-});
+    });
 
-btnRent.addEventListener('click', function() {
-  btnBuy.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
-  btnRent.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
-  btnRent.classList.add('bg-primary', 'text-white');
-});
+    btnRent.addEventListener('click', function() {
+      btnBuy.classList.remove('bg-primary', 'text-white', 'bg-secondary', 'text-white');
+      btnRent.classList.remove('bg-primary', 'bg-white', 'text-white', 'bg-secondary', 'text-white');
+      btnRent.classList.add('bg-primary', 'text-white');
+    });
 
     async function showNeighbourhoods() {
       const city = document.getElementById('location').value;
@@ -167,7 +167,7 @@ btnRent.addEventListener('click', function() {
       const data = await response.json();
 
       data.areas.forEach(el => {
-        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el[0] + '" label="' + el[1] +'">'
+        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el.area + '" label="' + el.area_distinct +'">'
       })
     }
 

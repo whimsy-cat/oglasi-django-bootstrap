@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="col-7 d-flex ps-0 my-2 align-items-center" style="padding-right: 32px;">
+<div class="col-7 d-flex ps-0 my-2 align-items-center" style="padding-right: 30px;">
   <select id="city" class="form-select me-2 h-100" onchange="queryParam('grad', this.value)" aria-label="Default select example">
     <option value="">Grad</option>
     {% for loc in cities %}
@@ -113,8 +113,8 @@ async function showNeighbourhoods() {
     data.areas.forEach(el => {
       // CREATE NEW OPTION ELEMENT
       const option = document.createElement('option');
-      option.value = el[0];
-      option.textContent = el[1];
+      option.value = el.area;
+      option.textContent = el.area_distinct;
       option.selected = locationParam == el[0]
       // APPEND NEW OPTION TO SELECT ELEMENT
       location.appendChild(option);

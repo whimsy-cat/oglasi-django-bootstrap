@@ -6,7 +6,14 @@
 
 {% block content %}
 
-<div class="map-canvas h-100" style="height: 85vh!important;max-height: 1215px;" id="map"> </div>
+<div class="map-canvas h-100" style="height: 85vh!important;max-height: 1215px;" id="map"> 
+  <div class="map-switch-buttons-container">
+    <div class="rounded d-flex shadow">
+      <button onclick="queryParam('search_type', 0)" for="izdavanje" id="btnBuy" name="0" class="btn switch-type-button border-end  rounded-start rounded-0 {% if request.GET.search_type == '0' %} bg-primary text-white  {% else %} bg-white color-salmon {% endif %}" style="width: 88px;height: 40px;" type="button">Prodaja</button>
+      <button onclick="queryParam('search_type', 1)" for="prodaja" id="btnRent" name="1" class="btn switch-type-button rounded-end rounded-0 {% if request.GET.search_type == '1' %} bg-primary text-white {% else %} bg-white text-secondary {% endif %}" style="width: 88px;height: 40px" type="button">Izdavanje</button>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
 
@@ -123,10 +130,20 @@ function initMap() {
     .setHTML(contentString{{ l.id }});
 
     // Connect the popup to a new marker
-  let marker{{l.id}} = new maplibregl.Marker({color: 'blue'})
-    .setLngLat([Number("{{l.listingmap_set.first.lng }}"), Number("{{l.listingmap_set.first.lat }}")])
-    .setPopup(markerPopup{{l.id}})
-    .addTo(map);
+    {% if l.type == "0" %}
+
+      let marker{{l.id}} = new maplibregl.Marker({color: '#E57374'})
+        .setLngLat([Number("{{l.listingmap_set.first.lng }}"), Number("{{l.listingmap_set.first.lat }}")])
+        .setPopup(markerPopup{{l.id}})
+        .addTo(map);
+    {% else %}
+
+    let marker{{l.id}} = new maplibregl.Marker({color: '#00A6BD'})
+        .setLngLat([Number("{{l.listingmap_set.first.lng }}"), Number("{{l.listingmap_set.first.lat }}")])
+        .setPopup(markerPopup{{l.id}})
+        .addTo(map);
+
+    {% endif %}
 
   allMarkers.set(String({{l.id}}), marker{{l.id}})
 

@@ -11,7 +11,17 @@
 <div class="dropdown d-flex justify-content-end ">
     <button class="btn d-flex align-items-center px-1 border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
       <img src="{% static 'images/icons/sort.svg' %}" style="margin-right:12px" alt="Sort" width="17px" id="sort-image">
-        <small class="blog-type">Po datumu - najnovije</small> 
+        <small class="blog-type text-nowrap ">
+          {% if request.GET.sort == 'asc-date_listed' %}
+            Po datumu - najstarije
+          {% elif request.GET.sort == 'desc-price' %}
+            Po cijeni - najviša
+          {% elif request.GET.sort == 'asc-price' %}
+            Po cijeni - najniža
+          {% else %}
+            Po datumu - najnovije
+          {% endif %}
+        </small> 
       <img src="{% static 'images/icons/down_icon.svg' %}" style="margin-left: 15px;" alt="Sort" width="20px" height="20px" id="sort-image"> 
     </button>
     <ul class="dropdown-menu blog-type" aria-labelledby="dropdownMenuButton1">

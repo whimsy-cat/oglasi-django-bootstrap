@@ -177,9 +177,17 @@ def get_areas(request):
 
 
 def get_areas_distinct(request):
-    with connection.cursor() as cursor:
-        cursor.execute("SELECT area, CASE WHEN municipality <> area THEN CONCAT_WS(' - ', municipality, area) ELSE area END AS area_distinct FROM listings_location WHERE city = %s", [request.GET.get('city')])
-        areas = cursor.fetchall()
+    areas = Location.objects.filter(city=request.GET.get('city')).annotate(
+    area_distinct=Concat(
+        'municipality', Value(' - '), 'area',
+        output_field=models.CharField()
+    )).annotate(
+        area_distinct=Case(
+            When(municipality__isnull=True, then=F('area')),
+            default=F('area_distinct'),
+            output_field=models.CharField()
+        )
+    ).values('area', 'area_distinct')
 
-    data = {'areas': areas}
+    data = {'areas': list(areas)}
     return JsonResponse(data, safe=False)

@@ -33,14 +33,6 @@
       <div class="" style="background: center / cover no-repeat url('{% static 'images/homepage/waterfront_cover.jpg' %}');height:100vh"><div class="w-100 h-100 vh-100 background-shadow"></div></div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 </div>
 <div class="container-fluid"> 
   <div class="home-content home-search justify-content-center position-absolute" style="top: 10%; left: 0; bottom: 100;right: 0;">
@@ -251,7 +243,7 @@
           <div class="carousel-inner">
             <div class="carousel-item active">
               <div class="row">
-                <div class="col ps-1">
+                <div class="col ps-0">
                   <div class="card shadow-sm">
                     <img src="{% static 'images/property/fp1.jpg' %}" class="d-block w-100" alt="...">
                   </div>
@@ -276,7 +268,7 @@
                     <img src="{% static 'images/property/fp1.jpg' %}" class="d-block w-100" alt="...">
                   </div>
                 </div>
-                <div class="col pe-1">
+                <div class="col pe-0">
                   <div class="card shadow-sm">
                     <img src="{% static 'images/property/fp1.jpg' %}" class="d-block w-100" alt="...">
                   </div>
@@ -334,8 +326,10 @@
 
   <section class="loyalty-program text-center">
     <div class="margin-container">
-      <h3 class="mb-4 section-subtitle">Loyalty program</h3>
-      <p class="section-text">S obzirom da smo novi na tržištu nekretnina kao portal, spremili smo za naše korisnike tkzv “loyalty program”. Program kao što sam naziv kaže, lojalnost za sve naše korisnike koji startuju sa nama na ovom putovanju imaće povoljnije uslove i veće mogućnosti u upravljanju i promovisanju svojih oglasa. Više na stranici cenovnik o detaljima.</p>
+      <div class="loyalty-program-content">
+        <h3 class="mb-4 section-subtitle">Loyalty program</h3>
+        <p class="section-text">S obzirom da smo novi na tržištu nekretnina kao portal, spremili smo za naše korisnike tkzv “loyalty program”. Program kao što sam naziv kaže, lojalnost za sve naše korisnike koji startuju sa nama na ovom putovanju imaće povoljnije uslove i veće mogućnosti u upravljanju i promovisanju svojih oglasa. Više na stranici cenovnik o detaljima.</p>
+      </div>
     </div>
    </section>
 {% endblock %}
@@ -374,7 +368,7 @@
       const data = await response.json();
 
       data.areas.forEach(el => {
-        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el[0] + '" label="'+ el[1]+'">'
+        document.getElementById('neighbourhoods').innerHTML += '<option value="'+ el.area + '" label="'+ el.area_distinct +'">'
       })
     }
 
