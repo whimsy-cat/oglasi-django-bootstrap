@@ -740,3 +740,21 @@ ul.pagination {
   line-height: 19.6px;
   color: #484848;
 }
+.margin-6_36 {
+  margin-bottom: 6.36px!important;
+}
+.sidebar-input {
+  height: 29px;
+}
+.sidebar-input::placeholder {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16.8px;
+  color: rgba(72, 72, 72, 0.4);
+
+}
+.select-inputs {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16.8px;
+}

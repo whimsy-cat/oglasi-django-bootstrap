@@ -37,7 +37,7 @@ function initMap() {
     <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:280px">
       <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
         <div class="col-12 mb-auto d-flex">
-          <span class="rounded d-flex align-items-center justify-content-center {% if l.type == '0' %} bg-danger {% elif l.type == '1' %} bg-secondary {% endif %} color-white m-2" style="width: 66px;font-size: 12px;height: 20px;">
+          <span class="rounded d-flex align-items-center justify-content-center {% if l.type == '0' %} bg-danger {% elif l.type == '1' %} bg-secondary {% endif %} text-white agency-inputs" style="width: 66px;height: 20px;margin: 8px 0px 0px 12px">
             {% if l.type == '0' %}
               Prodaja
             {% elif l.type == '1' %}
@@ -48,7 +48,7 @@ function initMap() {
         <div class="col-12 px-3 pb-2 text-white">
           <h6 class="listing-card-overlay-price">{{ l.price }} eur</h6>
             <div class="d-flex flex-direction-column justify-content-between">
-            <p class="card-text listing-description listing-card-overlay-title">{{ l.title }}</p>
+            <p class="card-text listing-description listing-card-overlay-title">{{ l.title|truncatechars:30 }}</p>
             <a style="text-decoration:none" href="{% url 'listing_profile' slug=l.slug %}">
             </a>
         </div>

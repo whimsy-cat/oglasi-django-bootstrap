@@ -30,9 +30,9 @@
     
     <!-- Render Last Button -->
     {% if listings.number < listings.paginator.num_pages|add:-1 %}
-      <!-- {% if listings.number < listings.paginator.num_pages|add:-2 %}
+      {% if listings.number < listings.paginator.num_pages|add:-2 %}
         <li><a class="page-link color-blue rounded-circle disabled m-1">...</a></li>
-      {% endif %} -->
+      {% endif %}
       <li><a onclick="queryParam('page', '{{ listings.paginator.num_pages }}')" class="page-link pagination-hover color-blue rounded-circle m-1">{{ listings.paginator.num_pages }}</a></li>
     {% endif %}
     

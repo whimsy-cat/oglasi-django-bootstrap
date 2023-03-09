@@ -1,10 +1,23 @@
 {% load static %}
- <div class="d-flex">
-    <img src="{% static 'images/icons/sort.svg' %}" alt="Sort" width="17px" id="sort-image">
+ <!-- <div class="d-flex">
+    <img src="{% static 'images/icons/sort.svg' %}" alt="Sort" width="16px" height="16px" id="sort-image">
     <select class="form-select border-0" id="sort" onchange="queryParam('sort', this.value)" aria-label="Default select example" >
         <option {% if request.GET.sort == 'desc-date_listed' %} selected {% endif %} value="desc-date_listed">Po datumu - najnovije</option>
         <option {% if request.GET.sort == 'asc-date_listed' %} selected {% endif %} value="asc-date_listed">Po datumu - najstarije</option>
         <option {% if request.GET.sort == 'desc-price' %} selected {% endif %} value="desc-price">Po cijeni - najviša</option>
         <option {% if request.GET.sort == 'asc-price' %} selected {% endif %} value="asc-price">Po cijeni - najniža</option>
     </select>
-</div>
+</div> -->
+<div class="dropdown d-flex justify-content-end ">
+    <button class="btn d-flex align-items-center px-1 border-0" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="{% static 'images/icons/sort.svg' %}" style="margin-right:12px" alt="Sort" width="17px" id="sort-image">
+        <small class="blog-type">Po datumu - najnovije</small> 
+      <img src="{% static 'images/icons/down_icon.svg' %}" style="margin-left: 15px;" alt="Sort" width="20px" height="20px" id="sort-image"> 
+    </button>
+    <ul class="dropdown-menu blog-type" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'desc-date_listed')">Po datumu - najnovije</a></li>
+      <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'asc-date_listed')">Po datumu - najstarije</a></li>
+      <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'desc-price')">Po cijeni - najviša</a></li>
+      <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'asc-price')">Po cijeni - najniža</a></li>
+    </ul>
+  </div>

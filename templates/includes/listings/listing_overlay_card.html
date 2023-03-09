@@ -3,10 +3,14 @@
 {% block content %}
 
 <div class="card something shadow border-0 mb-4">
-  <div class="rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}'); {% if request.GET.prikaz == 'mreža' %} height: 290px; {% elif 'oglasi/pregled/' in request.path %} height:308px;  {% else %} height: 250px;{% endif %}">
+  <div class="rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}'); {% if request.GET.prikaz == 'mreža' %} height: 269px; {% elif 'oglasi/pregled/' in request.path %} height:308px;  {% else %} height: 250px;{% endif %}">
     <div class="rounded d-flex flex-column h-100 listing-item-overlayed">
       <div class="col-12 mb-auto d-flex justify-content-between">
-        <img src="{% static 'images/icons/star.svg' %}" height="20px" width="20px" style="margin: 12px 0px 0px 16px;" alt="Star">
+        <img src="{% static 'images/icons/star.svg' %}" 
+        {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+        {% else %} height="20px" width="20px" 
+        {% endif %} 
+        style="margin: 12px 0px 0px 16px;" alt="Star">
         <div style="margin: 12px 16px 0px 0px;">
           {% include 'includes/listing_helpers/like_compare.html' %}
         </div>
@@ -20,7 +24,11 @@
         <p class="listing-card-overlay-title m-0">{{ listing.title|truncatechars:30 }}</p> 
         <div class="d-flex justify-content-between align-items-center " >
           <div class="d-flex align-items-center ">
-            <img class="me-2" style="height: 20px;width: 20px; filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
+            <img class="me-2"
+            {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+            {% else %} height="20px" width="20px" 
+            {% endif %} 
+             style="filter: brightness(0) invert(1)" src="{% static 'images/items/' %}{{listing.category.name|cut:' '}}.svg" alt=" ">
             <small class="listing-icons-text  ">
               {% if listing.category.name == 'Poslovni prostor' %}
               Pos. Prostor
@@ -46,25 +54,45 @@
             </small>
           </div>
           <div class="d-flex align-items-center text-nowrap">
-            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
+            <img 
+            {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+            {% else %} height="20px" width="20px" 
+            {% endif %} 
+            style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-area.svg' %}" alt="area item">
             <small class="listing-icons-text ms-2">{{ listing.listingcharacteristics_set.first.size|floatformat:0 }}m2</small>
           </div>
           {% if listing.category.name|cut:' ' == 'Poljoprivrednaparcela' or listing.category.name|cut:' ' == 'Građevinskaparcela'%}
           <div class="d-flex align-items-center">
-            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
+            <img 
+            {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+            {% else %} height="20px" width="20px" 
+            {% endif %} 
+            style="filter: brightness(0) invert(1)" src="{% static 'images/items/Struja.svg' %}" alt="Struja">
             <small class="listing-icons-text ms-2 {% if 'Struja' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Struja</small>
           </div>
           <div class="d-flex align-items-center">
-            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
+            <img
+            {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+            {% else %} height="20px" width="20px" 
+            {% endif %}  
+            style="filter: brightness(0) invert(1)" src="{% static 'images/items/Voda.svg' %}" alt="Voda ">
             <small class="listing-icons-text ms-2 {% if 'Voda' in listing.details %} {% else %} text-decoration-line-through {% endif %}">Voda</small>
           </div>
           {% else %}
           <div class="d-flex align-items-center">
-            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
+            <img 
+            {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+            {% else %} height="20px" width="20px" 
+            {% endif %} 
+            style="filter: brightness(0) invert(1)" src="{% static 'images/shared/item-floormap.svg' %}" alt="Floor">
             <small class="listing-icons-text ms-2" >{{ listing.listingcharacteristics_set.first.structure }}</small>
           </div>
           <div class="d-flex align-items-center text-nowrap">
-            <img style="height: 20px;width: 20px;filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
+            <img 
+            {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
+            {% else %} height="20px" width="20px" 
+            {% endif %} 
+            style="filter: brightness(0) invert(1)" src="{% static 'images/items/Parking.svg' %}" alt="Parking">
             <small class="listing-icons-text ms-2
             {% if listing.listingcharacteristics_set.first.parking %}
               {% elif 'Garaža' in listing.details %}

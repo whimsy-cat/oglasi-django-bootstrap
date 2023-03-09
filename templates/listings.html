@@ -7,7 +7,7 @@
 
 {% block content %}
 <!-- Filters -->
-<div class="row m-0 px-5 py-1 border-bottom" style="height: 64px;">
+<div class="row margin-container-half-map m-0 px-5 py-1 border-bottom" style="height: 64px;">
   {% include 'includes/listings/listings_filter_top.html' %}
   {% include 'includes/listings/change_page_view.html' %}
 </div>
@@ -21,7 +21,7 @@
           <div class="row py-2 align-items-center" >
             <div class="col m-auto">Rezultata: {{ listings.paginator.count }}</div>
             <div class="col-5">{% include 'includes/listings/listings_pagination.html' %}</div>
-            <div class="col">{% include 'includes/listings/listings_sorting.html' %}</div> 
+            <div class="col ps-0">{% include 'includes/listings/listings_sorting.html' %}</div> 
           </div>
       
           <!-- Listing Items -->
@@ -40,5 +40,8 @@
         </div>
 
       </div>
+    </div>
+    <div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
+      {% include 'includes/listings/listings_pagination.html' %}
     </div>
 {% endblock %}

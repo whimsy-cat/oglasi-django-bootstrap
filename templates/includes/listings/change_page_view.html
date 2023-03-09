@@ -1,8 +1,8 @@
 {% load static %}
-<div class="col-5 d-flex my-2 justify-content-between pe-0">
+<div class="col-5 d-flex justify-content-between align-items-center pe-0">
   
   <div class="d-flex justify-content-around">
-    <button onclick="resetQueryParams()" type="button" class="btn btn-sm mx-2 border-0 d-flex align-items-center save-reset" >
+    <button onclick="resetQueryParams()" type="button" class="btn btn-sm mx-2 border-0 d-flex align-items-center  save-reset" >
       Poništi
       <img style="margin-left: 12px;" src="{% static 'images/icons/cancel.svg' %}" height="16px" width="16px" alt="Sort" width="17px"/>
     </button>
@@ -13,15 +13,15 @@
   </div>
 
   <!-- More filters modal -->
-    <button class="btn btn-bg btn-blue border-0" style="width: 144px;" type="button" aria-label="Default select example" onclick="openModal()" >
+    <button class="btn btn-bg btn-blue border-0 blog-type d-flex justify-content-between align-items-center px-2" style="width: 144px;height: 40px;"  type="button" aria-label="Default select example" onclick="openModal()" >
       <img src="{% static 'images/icons/main_filter.svg' %}" alt="Sort" width="16px" height="16px" />
       Više Filtera
-      <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" height="13px"/>
+      <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="20px" height="20px"/>
     </button> 
     <div class="fixed-top align-items-center justify-content-center w-100 h-100 z-1" id="filter"  style="display: none;">
       <div class="position-absolute listing-item-overlayed w-100 h-100" onclick="closeModal()">
       </div>
-      <div class="h-75 w-75 bg-blue position-absolute z-2 bg-white rounded overflow-y-scroll">
+      <div class="h-75 w-75 bg-primary position-absolute z-2 bg-white rounded overflow-y-scroll">
         <h3 class="text-center my-2">Detalji</h3>
         <div class="row m-3 border border-primary border-opacity-25 rounded" id="allDetails">
           {% for detail in details %}
@@ -54,20 +54,20 @@
       </div>
     </div>
     <!-- Change page view -->
-  <button class="btn btn-bg btn-blue border-0" style="width: 144px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-bg btn-blue border-0 blog-type d-flex justify-content-between align-items-center px-2" style="width: 144px;height: 40px" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     <img src="{% static 'images/icons/map.svg' %}" alt="Sort" width="16px"  height="16px"/>
     {% if request.GET.prikaz == 'mapa2' %} Mapa 2
     {% elif request.GET.prikaz == 'mreža' %} Mreža
     {% elif request.GET.prikaz == 'lista' %} Lista
     {% else %} Mapa 1
     {% endif %}
-    <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="13px" height="13px"/>
+    <img src="{% static 'images/icons/arrow_down.svg' %}" alt="Sort" width="20px" height="20px"/>
   </button>
   <ul class="dropdown-menu">
-    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa1')">Mapa 1</a></li>
-    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mapa2')">Mapa 2</a></li>
-    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'lista')">Lista</a></li>
-    <li><a class="dropdown-item" onclick="queryParam('prikaz', 'mreža')">Mreža</a></li>
+    <li><a class="dropdown-item blog-type" onclick="queryParam('prikaz', 'mapa1')">Mapa 1</a></li>
+    <li><a class="dropdown-item blog-type" onclick="queryParam('prikaz', 'mapa2')">Mapa 2</a></li>
+    <li><a class="dropdown-item blog-type" onclick="queryParam('prikaz', 'lista')">Lista</a></li>
+    <li><a class="dropdown-item blog-type" onclick="queryParam('prikaz', 'mreža')">Mreža</a></li>
   </ul>
 </div>
 <script>

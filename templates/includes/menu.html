@@ -1,11 +1,11 @@
 {% load static %}
-  <div class="row px-5 m-0 header non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" style="z-index: 10;">
+  <div class="row px-5 m-0 header align-items-center non-printable-area {% if request.path == '/'%} position-absolute w-100{% else %} border-bottom {% endif %}" style="z-index: 10;height: 56px;">
     <div class="col-2 p-0 d-flex justify-content-start">
       <a href="/"> 
-        <img class="logo" style="margin-left: -11px;" src="{% static 'images/shared/logos.svg' %}" height="72px" alt="logo">
+        <img class="logo" style="margin-left: -11px;" src="{% static 'images/shared/logos.svg' %}" height="56px" alt="logo">
       </a>
     </div>
-    <div class="col-8 py-3 d-flex flex-wrap align-items-center justify-content-center">
+    <div class="col-8 d-flex flex-wrap align-items-center justify-content-center">
       <ul class="nav">
         <li class="px-2 "><a href="{% url 'listings' %}" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/' %} link-secondary {% elif request.path == '/' %} text-white  {% endif %}">Nekretnine</a></li>
         <!-- <li class="px-2 "><a href="#" class="nav-link px-2 {% if request.path == 'TODO: DEFINE' %}link-secondary{% endif %}">Novogradnja</a></li> -->
@@ -50,7 +50,7 @@
           {% include 'account_pages/login_register_modal.html' %}
         {% endif %}
       </div>
-    <div class="col-2 py-3 p-0">
+    <div class="col-2 p-0">
       <a {% if user.id is not None %} href="{% url 'listing_create' %}" {% else %} data-bs-toggle="modal" data-bs-target="#accountModal" {% endif %}  class="btn create-listing-btn">+ Postavi Oglas</a>
     </div>
   </div>

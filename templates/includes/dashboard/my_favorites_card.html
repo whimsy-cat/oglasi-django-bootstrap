@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<div class="row mb-4 shadow rounded">
-  <div class="col-7 p-0">
+<div class="row mb-4 shadow rounded" style="height: 269px ;">
+  <div class="col-6 p-0" >
     <div id="carouselExampleControls{{listing.id}}" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner rounded-start w-100">
         {% for listing in listing.images.all %}
         <div class="carousel-item  {% if forloop.counter == 1 %} active {% endif %}">
-          <div style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');height: 290px;">
-            <img src="{% static 'images/icons/star.svg' %}" height="20px" width="20px" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
+          <div style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');height: 269px;">
+            <img src="{% static 'images/icons/star.svg' %}" height="24px" width="24px" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
           </div>
         </div>
         {% endfor %}
@@ -22,11 +22,11 @@
       </button>
     </div>
   </div>
-  <div class="col-5 d-flex" style="padding: 12px 16px 8px 16px;">
-    <div class="d-flex flex-column justify-content-between w-75">
+  <div class="col-6 d-flex" style="padding: 12px 16px 8px 16px;">
+    <div class="d-flex flex-column justify-content-between w-75 pe-5">
       <h6 class="my-listing-price mb-4">{{listing.title}}</h6>
       <p class="city-location">{{listing.city}}, {{listing.municipality}}</p>
-      <div class="fs-6 mb-3 blog-description-date" style="height: 121px;">
+      <div class="fs-6 blog-description-date text-justify" style="height: 121px;">
           {{listing.description|truncatechars:150}}
       </div>
       {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
@@ -37,7 +37,7 @@
       </div>
       {% include 'includes/listing_helpers/like_compare.html' %}
       <div class="text-nowrap fw-bold fs-6 d-flex justify-content-end" id="money{{listing.id}}" ></div>
-      <a class="d-flex justify-content-end" style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}">
+      <a class="d-flex justify-content-end" style="text-decoration:none;margin-bottom: 8px;" href="{% url 'listing_profile' slug=listing.slug %}">
         <div class="my-favorute-card-button rounded d-flex justify-content-center align-items-center" style="height: 40px;width: 100px;">
           Detaljnije
         </div>
