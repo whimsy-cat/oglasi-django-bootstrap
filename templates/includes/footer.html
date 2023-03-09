@@ -1,6 +1,6 @@
 {% load static %}
-<section class="footer pt-4 sticky">
-  <footer class="margin-container">
+<section class="footer pt-4 sticky ">
+  <footer class="{% if request.path == '/' %} home-container-xl padding-x-12 padding-x-20px {% else %} margin-container-xxl {% endif %}">
     <div class="row">
       <div class="col-3 ps-0 col-md-3 mb-3">
         <h5 class="footer-title">O nama</h5>
@@ -50,13 +50,22 @@
           <h5 class="footer-title">Pratite nas</h5>
           <div class="d-flex justify-content-between social-buttons">
             <a class="" href="">
-              <i class="bi bi-twitter"></i>
+              <img src="{% static 'images/icons/facebook.svg' %}" alt="...">
             </a>
             <a class="" href="">
-              <i class="bi bi-instagram"></i>
+              <img src="{% static 'images/icons/instagram.svg' %}" alt="...">
             </a>
             <a class="" href="">
-              <i class="bi bi-linkedin"></i>
+              <img src="{% static 'images/icons/youtube.svg' %}" alt="...">
+            </a>
+            <a class="" href="">
+              <img src="{% static 'images/icons/linkedin.svg' %}" alt="...">
+            </a>
+            <a class="" href="">
+              <img src="{% static 'images/icons/email.svg' %}" alt="...">
+            </a>
+            <a class="" href="">
+              <img src="{% static 'images/icons/phone-call.svg' %}" alt="...">
             </a>
           </div>
         </form>

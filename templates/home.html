@@ -183,7 +183,7 @@
   </div>
 </div>
   <section class="featured-properties">
-    <div class="margin-container">
+    <div class="home-container-xl">
       <h2 class="text-center py-4 m-0 section-title">Preporučeni oglasi</h2>
       <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
         <div class="carousel-indicators">
@@ -198,16 +198,16 @@
           <div class=" carousel-item active">
             <div class="row">
               {% for listing in listings1 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4 px-3">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 padding-12 padding-20px">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
-              {% endfor %}
+          {% endfor %}
             </div>
           </div>
           <div class="carousel-item">
             <div class="row">
               {% for listing in listings2 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4 px-3">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 padding-12 padding-20px">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
               {% endfor %}
@@ -216,7 +216,7 @@
           <div class="carousel-item">
             <div class="row">
               {% for listing in listings3 %}
-              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4 px-3">
+              <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 padding-12 padding-20px">
                 {% include 'includes/listings/listing_card.html' with listing=listing %}
               </div>
               {% endfor %}
@@ -232,8 +232,8 @@
 
   <div class="break-bg my-5"></div>
   <section>
-    <div class="margin-container" style="padding: 0px 50px!important;">
-      <div class="row">
+    <div class="home-container-xl">
+      <div class="row padding-12 padding-20px">
         <div id="carouselAgencies" class="carousel carousel-dark slide pb-4 px-0" data-bs-ride="true">
           <div class="carousel-indicators mb-0">
             <button type="button" data-bs-target="#carouselAgencies" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -289,13 +289,13 @@
 
   <section class="py-3">
     <h2 class="text-center section-title mb-4">Blog & Vesti</h2>
-    <div class="margin-container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3">
+    <div class=" articles-container-xl">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3 padding-x-8px">
         {% for article in articles %}
-          <div style="padding: 12px;"  class="text-dark m-0 {% if forloop.first%} col-lg-6 {% elif forloop.last %} col-lg-6 {% else %} col-lg-3 {% endif %}">
+          <div style="padding: 12px;"  class="text-dark padding-20px m-0 {% if forloop.first%} col-lg-6 {% elif forloop.last %} col-lg-6 {% else %} col-lg-3 {% endif %}">
             <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
               <div class="card shadow">
-                <div class="w-100" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
+                <div class="w-100 rounded-top" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
                 <div class="card-body py-2 px-3">
                   <div class="d-flex justify-content-between align-items-center mb-2">        
                     <h6 class="blog-title mb-0" style="word-break: break-all;overflow: hidden;height: 24px;">{{ article.title }}</h6>
@@ -325,8 +325,8 @@
   </section>
 
   <section class="loyalty-program text-center">
-    <div class="margin-container">
-      <div class="loyalty-program-content">
+    <div class="home-container-xl padding-x-40px padding-x-12 ">
+      <div class="">
         <h3 class="mb-4 section-subtitle">Loyalty program</h3>
         <p class="section-text">S obzirom da smo novi na tržištu nekretnina kao portal, spremili smo za naše korisnike tkzv “loyalty program”. Program kao što sam naziv kaže, lojalnost za sve naše korisnike koji startuju sa nama na ovom putovanju imaće povoljnije uslove i veće mogućnosti u upravljanju i promovisanju svojih oglasa. Više na stranici cenovnik o detaljima.</p>
       </div>
