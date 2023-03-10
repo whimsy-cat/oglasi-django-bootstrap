@@ -360,7 +360,7 @@ ul.pagination {
     margin:0px auto!important
 }
 
-@media (max-width: 1536px) {
+@media (max-width: 1919px) {
   .home-container-xl {
     max-width: 1466px;
     margin: 0 auto;
@@ -378,7 +378,7 @@ ul.pagination {
   }
 }
 
-@media (min-width: 1537px) {
+@media (min-width: 1920px) {
   .home-container-xl {
     max-width: 1526px;
     margin: 0 auto;
@@ -864,4 +864,11 @@ ul.pagination {
 
 .color-salmon {
   color: #E57374 !important;
+}
+
+.font-weight-600 {
+  font-weight: 600!important;
+}
+.font-size-12px {
+  font-size: 12px!important;
 }

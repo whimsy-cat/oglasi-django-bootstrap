@@ -6,35 +6,34 @@
 {% endblock %}
 
 {% block content %}
-<div class="text-center form-signin w-100 m-auto">
-  {% include 'includes/alerts.html' %}
-  <form action="{% url 'login' %}" method="post" class="needs-validation" novalidate>
-    {% csrf_token %}
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-    <div class="form-floating mb-3">
-      <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
-      <label for="floatingInput">Email address</label>
-      <div class="invalid-feedback">
-        Please enter email address
+<div class="form-signin w-100 m-auto">
+  <div class=" w-100 d-flex flex-column align-items-center">
+    <form action="{% url 'login' %}" method="post" class="needs-validation" novalidate>
+      {% csrf_token %}
+        <h2 class="mb-4 fw-bold text-center" style="font-size: 24px;">Ulogujte se</h2>
+      <div>
+        <label for="email" class="form-label mb-1" style="font-weight: 600">Email *</label>
+        <input type="email" class="form-control height-40px" style="margin-bottom: 36px;width: 320px" id="email" name="email" aria-describedby="emailHelp" required>
       </div>
-    </div>
-    <div class="form-floating mb-3">
-      <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" required>
-      <label for="floatingPassword">Password</label>
-      <div class="invalid-feedback">
-        Please enter your password
+      <div>
+        <label for="floatingPassword" class="form-label mb-1" style="font-weight: 600">Lozinka *</label>
+        <input type="email" class="form-control height-40px" style="margin-bottom: 56px;width: 320px;" id="floatingPassword" name="password" aria-describedby="passwordHelp" required>
       </div>
-    </div>
-
-    <div class="form-floating mb-3">
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-    </div>
-
+      <div class="form-floating d-flex justify-content-center" style="margin-bottom: 32px;">
+        <button class="btn btn-lg btn-primary text-white" type="submit" style="width: 320px; height: 48px;font-weight: 700;font-size: 16px;">Ulogujte se</button>
+      </div>
+    </form>
     <div class="form-floating">
-      <a href="{% url 'forgot_password' %}" class="float-right">Forgot password?</a>
-    </div> <!-- form-group form-check .// -->
-  </form>
+      <ul class="d-flex flex-column align-items-center p-0 font-weight-600 font-size-12px">
+        <div class="font-weight-600 font-size-12px" style="margin-bottom: 12px;"> Nemate nalog?
+          <a style="text-decoration: none;margin-bottom: 12px;" class="text-primary font-weight-600 font-size-12px" href="{% url 'register' %}">Registruj se</a>
+        </div>
+        <div class="font-weight-600 font-size-12px">
+          <a style="text-decoration: none;margin-bottom: 12px;" class="text-primary font-weight-600 font-size-12px" href="{% url 'forgot_password' %}">Zaboravili ste lozinku?</a>
+        </div>
+      </ul>
+    </div> 
+  </div>
 </div>
 {% endblock %}
 

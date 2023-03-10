@@ -2,83 +2,97 @@
 {% load static %}
 
 {% block content %}
-  <!-- ========================= SECTION CONTENT ========================= -->
   <section class="section-content padding-y">
-
-    <!-- ============================ COMPONENT REGISTER   ================================= -->
-    <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
-      <article class="card-body">
-        {% include 'includes/alerts.html' %}
-        <header class="mb-4"><h4 class="card-title">Sign up</h4></header>
+    <div class="card mx-auto border-0" style="max-width:520px; margin-top:40px;padding: 12px 24px 4px 24px;">
         <form action="{% url 'register' %}" method="POST">
           {% csrf_token %}
-          <div class="row mb-3">
-            <div class="col-md">
-              <label for="first_name">First Name</label>
-              {{ form.first_name }}
-            </div> <!-- form-group end.// -->
-            <div class="col-md form-group">
-              <label>Last name</label>
-              {{ form.last_name }}
-            </div> <!-- form-group end.// -->
-          </div> <!-- form-row end.// -->
-          <div class="form-group mb-3">
-            <label>Email</label>
-            {{ form.email }}
-            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+          <h2 class="fw-bold text-center" style="margin-bottom: 18px;font-size: 24px;">Registracija</h2>
+          <nav class="mb-4">
+            <div class="nav d-flex align-items-center justify-content-between" id="nav-tab" role="tablist">
+              <div class="form-check ps-0">
+                <input class="form-check-input m-0" type="checkbox" style="width: 24px;height: 24px;" id="nav-user-tab" data-bs-toggle="tab" data-bs-target="#nav-user" type="checkbox" role="tab" aria-controls="nav-user" aria-selected="true">
+                <label class="form-check-label ms-3" for="nav-user-tab">
+                  Fizičko lice
+                </label>
+              </div>
+              <div class="form-check ">
+                <input class="form-check-input m-0" type="checkbox" style="width: 24px;height: 24px;" id="nav-agency-tab" data-bs-toggle="tab" data-bs-target="#nav-agency" type="checkbox" role="tab" aria-controls="nav-agency" aria-selected="false">
+                <label class="form-check-label ms-3" for="nav-agency-tab">
+                  Pravno lice 
+                </label>
+              </div>
+            </div>
+          </nav>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab" tabindex="0">
+              <div class="row mb-3">
+                <div class="col-6 " style="padding: 0px 28px 0px 0px!important;">
+                  <label for="floatingfirstname" class="form-label mb-1" style="font-weight: 600">Ime</label>
+                  <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingfirstname" name="first_name" aria-describedby="passwordHelp" required>
+                </div>
+                <div class="col-6" style="padding: 0px 0px 0px 28px!important;">
+                  <label for="floatinglastname" class="form-label mb-1" style="font-weight: 600">Prezime</label>
+                  <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatinglastname" name="last_name" aria-describedby="passwordHelp" required>
+                </div>
+                <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
+                  <label for="floatingusername" class="form-label mb-1" style="font-weight: 600">Korisničko ime *</label>
+                  <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingusername" name="user_name" aria-describedby="passwordHelp" required>
+                </div>
+                <div class="col-6 pe-0" style="padding: 0px 0px 0px 28px!important;">
+                  <label for="floatingregisteremail" class="form-label mb-1" style="font-weight: 600">Email *</label>
+                  <input type="email" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingregisteremail" name="email" aria-describedby="emailHelp" required>
+                </div>
+                <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
+                  <label for="floatingpassword" class="form-label mb-1" style="font-weight: 600">Lozinka *</label>
+                  <input type="password" class="form-control height-40px" style="width: 200px" id="floatingpassword" name="password" aria-describedby="passwordHelp" required>
+                </div>
+                <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
+                  <label for="floatingconfirmpassword" class="form-label mb-1" style="font-weight: 600">Potvri lozinku *</label>
+                  <input type="password" class="form-control height-40px" style="width: 200px" id="floatingconfirmpassword" name="confirm_password" aria-describedby="passwordHelp" required>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-agency" role="tabpanel" aria-labelledby="nav-agency-tab" tabindex="0">...</div>
           </div>
-          <div class="form-group mb-3">
-            <label>Phone number</label>
-            {{ form.phone_number }}
+          <div class="d-flex flex-column" style="padding-left: 72px;margin-bottom: 32px;">
+            <div class="form-check"> 
+              <input class="form-check-input" type="checkbox"  id="uslovi" >
+              <label class="form-check-label font-weight-600 font-size-12px" for="uslovi" style="margin-left: 4px;">
+                Prihvatam pravila i uslove korišćenja portama Moj Dom
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  id="obavjestenja">
+              <label class="form-check-label font-weight-600 font-size-12px"  for="obavjestenja" style="margin-left: 4px;">
+                Želim da primam obavještenja
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox"  id="saglasnost" >
+              <label class="form-check-label font-weight-600 font-size-12px" for="saglasnost" style="margin-left: 4px;">
+                Biće saglasnosti za račune kasnije, samo uračunavam prostor
+              </label>
+            </div>
           </div>
-          <div>
-            Are you shaking now? Not so much...is this better right now/
-
+          <div class="form-floating d-flex justify-content-center" style="margin-bottom: 32px;">
+            <button class="btn btn-lg btn-primary text-white" style="width: 320px;height: 48px;font-weight: 700;font-size: 16px;" type="submit">Register</button>
           </div>
-          <!-- form-group end.// -->
-          {#				<div class="form-row">#}
-          {#					<div class="form-group col-md-6">#}
-          {#					  <label>City</label>#}
-          {#					  <input type="text" class="form-control">#}
-          {#					</div> <!-- form-group end.// -->#}
-          {#					<div class="form-group col-md-6">#}
-          {#					  <label>Country</label>#}
-          {#					  <select id="inputState" class="form-control">#}
-          {#					    <option> Choose...</option>#}
-          {#					      <option>Uzbekistan</option>#}
-          {#					      <option>Russia</option>#}
-          {#					      <option selected="">United States</option>#}
-          {#					      <option>India</option>#}
-          {#					      <option>Afganistan</option>#}
-          {#					  </select>#}
-          {#					</div>#}
-          {#				</div> <!-- form-row.// -->#}
-          <div class="row mb-3">
-            <div class="form-group col-md">
-              <label>Create password</label>
-              {{ form.password }}
-            </div> <!-- form-group end.// -->
-            <div class="form-group col-md">
-              <label>Repeat password</label>
-              {{ form.confirm_password }}
-            </div> <!-- form-group end.// -->
-          </div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block"> Register  </button>
-          </div> <!-- form-group// -->
-          {{ form.email.errors }}
-          {{ form.phone_number.errors }}
-          {{ form.password.errors }}
+          <!-- {{ form.email.errors|add:"Please enter a valid email address. " }}
+          {{ form.password.errors|add:"Enter password correctly" }}
           {{ form.confirm_password.errors }}
-          {{ form.non_field_errors }}
+          {{ form.non_field_errors }} -->
         </form>
-      </article><!-- card-body.// -->
-    </div> <!-- card .// -->
-    <p class="text-center mt-4">Have an account? <a href="{% url 'login' %}">Log In</a></p>
-    <br><br>
-    <!-- ============================ COMPONENT REGISTER  END.// ================================= -->
-
-
+        <div class="form-floating">
+          <ul class="d-flex flex-column align-items-center p-0 font-weight-600 font-size-12px">
+            <div style="margin-bottom: 12px;">Već ste registrovani?
+              <a style="text-decoration: none;" class="active text-primary font-weight-600 font-size-12px" href="{% url 'login' %}">Ulogujte se</a>
+            </div>
+            
+            <div class="font-weight-600 font-size-12px">
+              <a style="text-decoration: none;margin-bottom: 12px;" class="text-primary font-weight-600 font-size-12px" href="{% url 'forgot_password' %}">Zaboravili ste lozinku?</a>
+            </div>
+          </ul>
+        </div> 
+        </div>
   </section>
-  <!-- ========================= SECTION CONTENT END// ========================= -->
 {% endblock %}
