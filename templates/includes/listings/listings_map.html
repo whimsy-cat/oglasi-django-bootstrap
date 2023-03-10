@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<div class="map-canvas h-100" style="height: 85vh!important;max-height: 1215px;" id="map"> 
+<div class="map-canvas h-100" style="height: calc(100vh - 64px - 56px) !important" id="map"> 
   <div class="map-switch-buttons-container">
     <div class="rounded d-flex shadow">
       <button onclick="queryParam('search_type', 0)" for="izdavanje" id="btnBuy" name="0" class="btn switch-type-button border-end  rounded-start rounded-0 {% if request.GET.search_type == '0' %} bg-primary text-white  {% else %} bg-white color-salmon {% endif %}" style="width: 88px;height: 40px;" type="button">Prodaja</button>

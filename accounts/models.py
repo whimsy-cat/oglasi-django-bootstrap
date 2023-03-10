@@ -35,11 +35,26 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
+    
+    USER_TYPE = (
+        (0, 'Fizičko lice'),
+        (1, 'Pravno lice'),
+    )
+
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     username = models.CharField(max_length=50, unique=True)
     email = models.CharField(max_length=100, unique=True)
-    phone_number = models.CharField(max_length=50, unique=True)
+    phone_number = models.CharField(max_length=50, default='')
+
+    type = models.CharField(max_length=25, choices=USER_TYPE, default=0)
+
+    identification_number = models.CharField(max_length=100, default='')
+    tax_id = models.CharField(max_length=100, default='')
+
+    newsletter_subscribed = models.BooleanField(default=False)
+
+    image = models.FileField(max_length=255, upload_to='users', null=True)
 
     # required
     date_joined = models.DateTimeField(auto_now_add=True)

@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="row margin-container-xxl m-0 py-1" style="height: 64px;">
+<div class="row og-container-fluid m-0 py-1" style="height: 64px;">
   {% include 'includes/listings/listings_filter_top.html' %}
   {% include 'includes/listings/change_page_view.html' %}
 </div>
@@ -15,12 +15,12 @@
 
   <section class="full-map-listing-section">
     
-    <div class="h-100 m-0 p-0 h-100 margin-container-xxl">
+    <div class="h-100 m-0 p-0 h-100 og-container-fluid">
       <!-- Filters -->
       
       <!-- Map -->
       <div class="full-screen-row h-100">
-        <div class="col h-100 px-5">
+        <div class="og-container-fluid h-100">
           {% include 'includes/listings/listings_map.html' with listing=listing %}
         </div>
       </div>
