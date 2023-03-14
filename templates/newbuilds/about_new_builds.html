@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/listings.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center">
+  <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
+    <div class="w-100 h-100 listing-item-overlayed">
+      <div class="og-container-180 row align-items-center text-white h-100 w-100">
+        <h1 class="col-4 fw-bolder ps-0">Moj Dom Investitori</h1>
+        <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="og-container-180">
+  <div class="row shadow rounded mt-4" style="height:290px">
+    <div class="col-5 border-end border-2 d-flex justify-content-center align-items-center">
+      <div class="rounded" style="height: 170px;width: 260px;background: center / cover no-repeat url('{% static 'images/agenciespage/primer_agencije.jpg'%}')"></div>
+    </div>
+    <div class="col-7" style="padding: 16px;">
+      <div class="row h-100 ps-0">
+        <h4 class="col-12 fw-bold ps-0">Art Nekretnine</h4>
+        <div class="col-12 fs-6 d-flex ps-0">
+          <div class="fw-bold me-1">Adresa:</div><div>Krunska 38, Vracar, Beograd, Srbija</div>
+        </div>
+        <div class="col-12 fs-6 d-flex ps-0">
+          <div class="fw-bold me-1">Telefon 1:</div><div>011/xxxx-xxx</div>
+        </div>
+        <div class="col-12 fs-6 d-flex ps-0">
+          <div class="fw-bold me-1">Telefon 2:</div><div>064/xxxx-xxx</div>
+        </div>
+        <div class="col-12 fs-6 d-flex ps-0">
+          <div class="fw-bold me-1">Website:</div><div>www.gigant.rs</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row shadow rounded" style="margin-top: 88px; height: 2226px;" >
+      asd
+  </div>
+</div>
+<div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
+  {% include 'includes/listings/listings_pagination.html' %}
+</div>
+
+<script>
+function handleClick(tab) {
+  const tabs = document.querySelectorAll('.tab');
+  tabs.forEach((btn) => btn.classList.remove('active-blue-tab'));
+
+  tab.classList.add('active-blue-tab');
+}   
+
+</script>
+{% endblock %}

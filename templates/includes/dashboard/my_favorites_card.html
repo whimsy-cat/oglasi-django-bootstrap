@@ -2,13 +2,13 @@
 
 {% block content %}
 
-<div class="row mb-4 shadow rounded" style="height: 269px ;">
+<div class="row mb-4 shadow rounded" {% if request.path == '/oglasi/o-agenciji/' %} style="height: 290px ;" {% else %} style="height: 269px ;"{% endif %}>
   <div class="col-6 p-0" >
     <div id="carouselExampleControls{{listing.id}}" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner rounded-start w-100">
         {% for listing in listing.images.all %}
         <div class="carousel-item  {% if forloop.counter == 1 %} active {% endif %}">
-          <div style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');height: 269px;">
+          <div style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');{% if request.path == '/oglasi/o-agenciji/' %}height: 290px; {% else %} height: 269px{% endif %}">
             <img src="{% static 'images/icons/star.svg' %}" height="24px" width="24px" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
           </div>
         </div>
