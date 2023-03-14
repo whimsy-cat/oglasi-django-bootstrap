@@ -66,7 +66,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 ROOT_URLCONF = 'oglasi_app.urls'
 

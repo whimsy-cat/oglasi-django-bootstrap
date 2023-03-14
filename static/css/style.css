@@ -179,7 +179,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .header .create-listing-btn {
-  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
   height: 36px;
   color: #fff;
   background-color: #617E8C;
@@ -219,12 +220,67 @@ h1, h2, h3, h4, h5, h6,
 } */
 
 .listing-item-overlayed {
-  background-color: #00000070
+  background-color: #00000030
 }
 .shadow-caroseul-controls {
   background-color: #00000020;
 }
+/*Dropdown menu*/
+.dropdown-content {
+  display: none;
+  position: absolute;
+  z-index: 5;
+}
+.dropdown-submenu:hover .dropdown-menu {
+  display: block;
+}
+.parent-hover:hover {
+  color: #00A6BD;
+  cursor: pointer;
+}
+.selected {
+  color: #00A6BD;
+}
+.dropdown-submenu {
+  position: relative;
+}
 
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  min-width: 200px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown.active .dropdown-content {
+  display: block;
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-submenu:hover .dropdown-submenu-content {
+  display: block;
+}
+
+/*-----------------------*/
 .listing-description {
   overflow: hidden;
   white-space: nowrap;
@@ -738,6 +794,11 @@ ul.pagination {
   line-height:25.2px;
   letter-spacing: 2%;
 }
+.listing-counter {
+  font-weight: 700;
+  font-size: 24px;
+  line-height:32.74px;
+}
 .placeholders-search {
   font-weight: 600;
   font-size: 18px;
@@ -752,8 +813,8 @@ ul.pagination {
   font-size: 14px;
   line-height: 19.1px;
   color: #a2a2a2;
-  
 }
+
 .detail-input-placeholders::placeholder {
   font-weight: 600;
   font-size: 14px;
@@ -827,6 +888,18 @@ ul.pagination {
     padding-left: 208px;
     padding-right: 208px;
   }
+  .og-container-180{
+    margin:0px auto;
+    max-width: 1920px;
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  .og-container-180-fluid{
+    padding-left: 208px;
+    padding-right: 208px;
+    max-width: 1920px;
+
+  }
 }
 
 
@@ -841,6 +914,18 @@ ul.pagination {
     padding-left: 40px;
     padding-right: 40px;
   }
+  .og-container-180{
+    margin:0px auto;
+    max-width: 1920px;
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+}
+
+.og-container-40 {
+  margin: 0px auto;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .px-12 {
@@ -852,6 +937,6 @@ ul.pagination {
   padding: 12px !important;
 }
 
-.max-1000 {
-  max-width: 1000px !important;
+.max-1200 {
+  max-width: 1200px !important;
 }

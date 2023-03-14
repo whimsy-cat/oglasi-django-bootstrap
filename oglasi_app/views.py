@@ -10,6 +10,7 @@ def home(request):
     categories = Category.objects.all()
     total_listings = Listing.objects.count()
 
+
     all_cities = Location.objects.values('city').distinct()
 
     context = {
@@ -19,6 +20,7 @@ def home(request):
         'categories': categories,
         'total_listings':total_listings,
         'all_cities': all_cities,
-        'articles': articles
+        'articles': articles,
+
     }
     return render(request, 'home.html', context)

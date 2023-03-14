@@ -12,7 +12,7 @@
 }
 
  .home-content {
-  padding-top: 200px
+  padding-top: 125px
 }
 
 .home-text {
@@ -23,7 +23,7 @@
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 40px;
   letter-spacing: 0.02em;
 }
 .home-text p {

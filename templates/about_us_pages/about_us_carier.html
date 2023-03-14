@@ -6,32 +6,36 @@
 {% endblock %}
 
 {% block content %}
-<div class="d-flex align-items-center">
-  <div class="row position-absolute align-items-center text-white m-0 w-100" style="padding: 0px 168px;" >
-    <h1 class="col-4 fw-bolder">Moj Dom Informacije</h1>
-    <h5 class="col fw-bold mt-1">Neki tekst poput / Budite u toku s najnovijim vestima iz nekretnina, nesto tako</h5>
-  </div>
+<div class=" d-flex align-items-center ">
+  
   <div class="w-100" style="background: center / cover no-repeat url('{% static 'images/agenciespage/agency.jpg'%}');height:132px">
-    <div class="w-100 h-100 listing-item-overlayed"></div>
+    <div class="w-100 h-100 listing-item-overlayed">
+      <div class="og-container-180 row h-100 align-items-center text-white w-100">
+        <h1 class="col-4 fw-bolder p-0">Moj Dom Informacije</h1>
+        <h5 class="col fw-bold mt-1"></h5>
+      </div>
+    </div>
   </div>
 </div>
 <div class="bg-grayish">
-  <div class="row m-0 text-white fs-6" style="height: 64px; padding: 0px 168px;">
-    <ul class="col-8 justify-content-between align-items-center nav nav-pills fw-bold fs-6" id="pills-tab" role="tablist">
-        <div class="infoTabs color-blue active" id="pills-karijera-tab" data-bs-toggle="pill" data-bs-target="#pills-karijera" role="tab" aria-controls="pills-karijera" aria-selected="true" onclick="handleInfo(this)">Karijera</div>
-        <div class="infoTabs" id="pills-kontakt-tab" data-bs-toggle="pill" data-bs-target="#pills-kontakt" role="tab" aria-controls="pills-kontakt" aria-selected="false" onclick="handleInfo(this)">Kontakt</div>
-        <div class="infoTabs" id="pills-onama-tab" data-bs-toggle="pill" data-bs-target="#pills-onama"  role="tab" aria-controls="pills-onama" aria-selected="false" onclick="handleInfo(this)">O-Nama</div>
-        <div class="infoTabs" id="pills-PitanjaIOglasi-tab" data-bs-toggle="pill" data-bs-target="#pills-PitanjaIOglasi" role="tab" aria-controls="pills-PitanjaIOglasi" aria-selected="false" onclick="handleInfo(this)">Pitanja I Oglasi</div>
-    </ul>
+  <div class="og-container-180">
+    <div class="row m-0 text-white fs-6 pe-2" style="height: 64px">
+      <ul class="col-8 justify-content-between align-items-center pe-4 nav nav-pills fw-bold fs-6" id="pills-tab" role="tablist">
+          <div class="infoTabs {% if request.GET.selected == 'karijera' or 'selected' not in request.GET %} color-blue  active {% endif %}" id="pills-karijera-tab" data-bs-toggle="pill" data-bs-target="#pills-karijera" role="tab" aria-controls="pills-karijera" aria-selected="true" onclick="handleInfo(this)">Karijera</div>
+          <div class="infoTabs {% if request.GET.selected == 'kontakt' %} color-blue active {% endif %}" id="pills-kontakt-tab" data-bs-toggle="pill" data-bs-target="#pills-kontakt" role="tab" aria-controls="pills-kontakt" aria-selected="false" onclick="handleInfo(this)">Kontakt</div>
+          <div class="infoTabs {% if request.GET.selected == 'onama' %} color-blue active {% endif %}" id="pills-onama-tab" data-bs-toggle="pill" data-bs-target="#pills-onama"  role="tab" aria-controls="pills-onama" aria-selected="false" onclick="handleInfo(this)">O-Nama</div>
+          <div class="infoTabs {% if request.GET.selected == 'pitanja' %} color-blue active {% endif %}" id="pills-PitanjaIOglasi-tab" data-bs-toggle="pill" data-bs-target="#pills-PitanjaIOglasi" role="tab" aria-controls="pills-PitanjaIOglasi" aria-selected="false" onclick="handleInfo(this)">Pitanja I Oglasi</div>
+      </ul>
+    </div>
   </div>
 </div>
 
-<div class="container-fluid" style="padding: 0px 180px;">
+<div class="og-container-180">
   <div class="tab-content mt-4" id="pills-tabContent">
-    <div class="tab-pane fade show active" id="pills-karijera" role="tabpanel" aria-labelledby="pills-karijera-tab">
+    <div class="tab-pane fade {% if request.GET.selected == 'karijera' or 'selected' not in request.GET %} show active {% endif %}" id="pills-karijera" role="tabpanel" aria-labelledby="pills-karijera-tab">
       <div class="row">
-        <div class="col-8 mb-4">
-          <div class="shadow rounded h-100">
+        <div class="col-8 mb-4 ps-0" style="padding-right: 28px!important;">
+          <div class="shadow rounded h-100 px-5 py-4">
             Blank
           </div>
         </div>
@@ -42,16 +46,16 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="pills-kontakt" role="tabpanel" aria-labelledby="pills-kontakt-tab">
+    <div class="tab-pane fade {% if request.GET.selected == 'kontakt' %} show active {% endif %}" id="pills-kontakt" role="tabpanel" aria-labelledby="pills-kontakt-tab">
       <div class="row">
-        <div class="col-8 mb-4">
-          <div class="shadow rounded h-100 p-4 fs-6">
-            <div class="border-bottom d-flex flex-column justify-content-between pb-4 " style="height: 265px;">
-              <h5>Poslovne prostorije:</h5>
+        <div class="col-8 mb-4 ps-0" style="padding-right: 28px!important;">
+          <div class="shadow rounded h-100 fs-6 h-100 px-5 py-4">
+            <div class="border-bottom border-2 d-flex flex-column justify-content-between pb-4 " style="height: 265px;">
+              <h5 class="profile-card-tab">Poslovne prostorije:</h5>
               <div><b>Adresa:</b> Marsala Birjuzova 12, 11.000 Beograd, Srbija</div>
-              <div><b>Matični broj:</b>xxxxxxxxx</div>
-              <div><b>PIB:</b>xxxx</div>
-              <div><b>Radno vreme:</b>ponedeljak - petak, od 09 do 17 časova</div>
+              <div><b class="me-1">Matični broj:</b>xxxxxxxxx</div>
+              <div><b class="me-1">PIB:</b>xxxx</div>
+              <div><b class="me-1">Radno vreme:</b>ponedeljak - petak, od 09 do 17 časova</div>
               <b>Kontakt za oglašavanje</b>
               <div class="d-flex justify-content-between">
                 <div><b>Telefon 1:</b> 069/XXX-XXX</div>
@@ -59,12 +63,12 @@
                 <div><b>Telefon 3:</b> 069/XXX-XXX</div>
               </div>
             </div>
-            <div class="border-bottom d-flex flex-column justify-content-between pb-4 mt-4" style="height: 265px;">
-              <h5>Poslovne prostorije:</h5>
+            <div class="border-bottom border-2 d-flex flex-column justify-content-between pb-4 mt-4" style="height: 265px;">
+              <h5 class="profile-card-tab">Poslovne prostorije:</h5>
               <div><b>Adresa:</b> Marsala Birjuzova 12, 11.000 Beograd, Srbija</div>
-              <div><b>Matični broj:</b>xxxxxxxxx</div>
-              <div><b>PIB:</b>xxxx</div>
-              <div><b>Radno vreme:</b>ponedeljak - petak, od 09 do 17 časova</div>
+              <div><b class="me-1">Matični broj:</b>xxxxxxxxx</div>
+              <div><b class="me-1">PIB:</b>xxxx</div>
+              <div><b class="me-1">Radno vreme:</b>ponedeljak - petak, od 09 do 17 časova</div>
               <b>Kontakt za oglašavanje</b>
               <div class="d-flex justify-content-between">
                 <div><b>Telefon 1:</b> 069/XXX-XXX</div>
@@ -92,7 +96,7 @@
                   <textarea class="form-control" style="resize: none;" id="exampleFormControlTextarea1" rows="6"></textarea>
                 </div>
                 <div class="col mt-4 d-flex justify-content-center">
-                  <button type="button" class="btn btn-lg btn-primary w-50" disabled>Pošalji</button>
+                  <button type="button" class="btn btn-lg btn-primary w-50 text-white" disabled>Pošalji</button>
                 </div>
               </form>
             </div>
@@ -105,10 +109,10 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="pills-onama" role="tabpanel" aria-labelledby="pills-onama-tab">
+    <div class="tab-pane fade {% if request.GET.selected == 'onama' %} show active {% endif %}" id="pills-onama" role="tabpanel" aria-labelledby="pills-onama-tab">
       <div class="row">
-        <div class="col-8 mb-4">
-          <div class="shadow rounded fs-6 h-100 p-4" style="text-align: justify;">
+        <div class="col-8 mb-4 ps-0" style="padding-right: 28px!important;">
+          <div class="shadow rounded fs-6 h-100 px-5 py-4" style="text-align: justify;">
             <p class="">
               <b>Moj Dom</b> je portal za nekretnine, koji se bavi internet oglašavanjem nekretnina, čija
               misija ima za cilj da korisnicima omogući što lakši, bolji i pregledniji način uvida o oglase nekretnina na tržištu,
@@ -127,7 +131,7 @@
                 <img src="{% static 'images/icons/grid.svg' %}" alt="Hearth" width="56px" height="56px">
               </div>
               <div class="col-4">
-                <img src="{% static 'images/icons/lokacija.svg' %}" alt="Hearth" width="56px" height="56px">
+                <img src="{% static 'images/icons/location_aboutus.svg' %}" alt="Hearth" width="56px" height="56px">
               </div>
             </div>
             <p>
@@ -159,9 +163,9 @@
               mogućnosti da ostvare 7.5% i 5% popusta.
             </p>
             <div class="row text-center mt-5">
-              <div class="col-4 fw-bolder" style="font-size: 4rem;">10%</div>
-              <div class="col-4 fw-bolder" style="font-size: 4rem;">7,5%</div>
-              <div class="col-4 fw-bolder" style="font-size: 4rem;">5%</div>
+              <div class="col-4 fw-bolder" style="font-size: 3rem;">10%</div>
+              <div class="col-4 fw-bolder" style="font-size: 3rem;">7,5%</div>
+              <div class="col-4 fw-bolder" style="font-size: 3rem;">5%</div>
             </div>
           </div>
         </div>
@@ -172,32 +176,32 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="pills-PitanjaIOglasi" role="tabpanel" aria-labelledby="pills-PitanjaIOglasi-tab">
+    <div class="tab-pane fade {% if request.GET.selected == 'pitanja' %} show active {% endif %}" id="pills-PitanjaIOglasi" role="tabpanel" aria-labelledby="pills-PitanjaIOglasi-tab">
       <div class="row">
-        <div class="col-8 mb-4">
-          <div class="shadow rounded fs-6 h-100 p-4" style="text-align: justify;">
-            <h6 class="ms-2 fs-6 fw-bold">1. Kako da se registrujem?</h6>
-            <p class="shadow rounded mt-3 mb-4 p-3" style="min-height: 136px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
+        <div class="col-8 mb-4 ps-0" style="padding-right: 28px!important;">
+          <div class="shadow rounded fs-6 h-100 px-5 py-4" style="text-align: justify;">
+            <h6 class="ms-2 fs-6 fw-bold mb-0">1. Kako da se registrujem?</h6>
+            <p class="shadow rounded mt-3 mb-4" style="min-height: 136px;padding: 16px 12px 32px 12px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
               kako na mobilnim i tablet uređajima klasičnim pregledom u vidu liste, tako i preko mape. Za naše korisnike desktop i laprop uređaja 
               imamo 4 vrste pretrage koje čine: lista, mreža, polu mapa i mapa.
             </p>
-            <h6 class="ms-2 fs-6 fw-bold">2. Kako da napravim nalog?</h6>
-            <p class="shadow rounded mt-3 mb-4 p-3" style="min-height: 136px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
+            <h6 class="ms-2 fs-6 fw-bold mb-0">2. Kako da napravim nalog?</h6>
+            <p class="shadow rounded mt-3 mb-4" style="min-height: 136px;padding: 16px 12px 32px 12px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
               kako na mobilnim i tablet uređajima klasičnim pregledom u vidu liste, tako i preko mape. Za naše korisnike desktop i laprop uređaja 
               imamo 4 vrste pretrage koje čine: lista, mreža, polu mapa i mapa.Za naše korisnike desktop i laprop uređaja imamo 4 vrste pretrage 
               koje čine: lista, mreža, polu mapa i mapa.
             </p>
-            <h6 class="ms-2 fs-6 fw-bold">3. Zašto ne mogu da uđem u svoj nalog ?</h6>
-            <p class="shadow rounded mt-3 mb-4 p-3" style="min-height: 136px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
+            <h6 class="ms-2 fs-6 fw-bold mb-0">3. Zašto ne mogu da uđem u svoj nalog ?</h6>
+            <p class="shadow rounded mt-3 mb-4" style="min-height: 136px;padding: 16px 12px 32px 12px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
               kako na mobilnim i tablet uređajima.
             </p>
-            <h6 class="ms-2 fs-6 fw-bold">4. Kako da okačim oglas?</h6>
-            <p class="shadow rounded mt-3 mb-4 p-3" style="min-height: 136px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
+            <h6 class="ms-2 fs-6 fw-bold mb-0">4. Kako da okačim oglas?</h6>
+            <p class="shadow rounded mt-3 mb-4" style="min-height: 136px;padding: 16px 12px 32px 12px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
               kako na mobilnim i tablet uređajima klasičnim pregledom u vidu liste, tako i preko mape. Za naše korisnike desktop i laprop uređaja 
               imamo 4 vrste pretrage koje čine: lista, mreža, polu mapa i mapa.
             </p>
-            <h6 class="ms-2 fs-6 fw-bold">5. Kako da u pload-ujem slike?</h6>
-            <p class="shadow rounded mt-3 p-3" style="min-height: 136px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
+            <h6 class="ms-2 fs-6 fw-bold mb-0">5. Kako da u pload-ujem slike?</h6>
+            <p class="shadow rounded mt-3" style="min-height: 136px;padding: 16px 12px 32px 12px;">Trudimo se da ponudimo našim korisnicima širi i kvalitetniji pristup oglasima kroz više vrsta pretraga i načina pregleda,
               kako na mobilnim i tablet uređajima klasičnim pregledom u vidu liste, tako i preko mape. Za naše korisnike desktop i laprop uređaja 
               imamo 4 vrste pretrage koje čine: lista, mreža, polu mapa i mapa.
             </p>

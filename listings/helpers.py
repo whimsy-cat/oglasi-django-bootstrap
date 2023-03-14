@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from listings.models import ListingPrice
-from django.db.models import Max, Subquery, OuterRef
+from django.db.models import Q, Subquery, OuterRef
 
 
 # Sort listings
@@ -41,7 +41,7 @@ def query_params_helper(request, listing_data):
     query_city = request.GET.get('grad')
     query_location = request.GET.get('lokacija')
     query_category = request.GET.get('tip')
-    query_structure = request.GET.get('struktura')
+    query_structure = request.GET.getlist('struktura')
     query_details_amenities = request.GET.get('d-a')
     query_type = request.GET.get('search_type')
     query_condition = request.GET.get('condition')
@@ -62,8 +62,8 @@ def query_params_helper(request, listing_data):
     query_size = request.GET.get('povrsina')
     min_size = request.GET.get('min_size', '')
     max_size = request.GET.get('max_size', '')
-    min_size = int(min_size.replace(',', '')) if min_size else None
-    max_size = int(max_size.replace(',', '')) if max_size else None
+    min_size = int(float(min_size.replace(',', ''))) if min_size else None
+    max_size = int(float(max_size.replace(',', ''))) if max_size else None
 
     query_grejanje = request.GET.get('grejanje')
 
@@ -152,16 +152,10 @@ def query_params_helper(request, listing_data):
         listing_data = listing_data.filter(area__iexact=query_location)
 
     if query_category:
-        listing_data = listing_data.filter(
-            category__name__iexact=query_category)
+        listing_data = listing_data.filter(Q(category__name=query_category) | Q(category__parent__name=query_category))
    
     if query_structure:
-        if query_structure == '5':
-            listing_data = listing_data.filter(
-                listingcharacteristics__structure__gte=5)
-        else:
-            listing_data = listing_data.filter(
-                listingcharacteristics__structure__exact=float(query_structure))
+        listing_data = listing_data.filter(listingcharacteristics__structure__in=query_structure)
 
     if query_details_amenities:
         detailsParam = query_details_amenities.split('_')[0]

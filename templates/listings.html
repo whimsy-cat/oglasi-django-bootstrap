@@ -7,21 +7,21 @@
 
 {% block content %}
 <!-- Filters -->
-<div class="row og-container-fluid m-0 py-1 " style="height: 64px;">
+<div class="row og-container-40  m-0 py-1 " style="height: 64px;">
   {% include 'includes/listings/listings_filter_top.html' %}
   {% include 'includes/listings/change_page_view.html' %}
 </div>
 <div class="w-100 border-bottom"></div>
 
-    <div class="og-container-fluid pe-0" >
+    <div class="og-container-40 pe-0" >
 
       <!-- Listings and Map -->
       <div class="d-flex justify-content-center full-screen-row">
 
-        <div class="col-7 overflow-y-scroll max-1000 pe-3 ps-0" style="height: calc(100vh - 64px - 56px);margin-left: -12px!important;">
+        <div class="col-7 overflow-y-scroll max-1200 pe-3 ps-0" style="height: calc(100vh - 64px - 56px);margin-left: -12px!important;">
           <!-- Pagination and Sort -->
           <div class="row py-2 align-items-center" >
-            <div class="col m-auto">Rezultata: {{ listings.paginator.count }} {{ listings.page }} </div>
+            <div class="col m-auto blog-title">Rezultata: {{ listings.paginator.count }} {{ listings.page }} </div>
             <div class="col-5">{% include 'includes/listings/listings_pagination.html' %}</div>
             <div class="col ps-0">{% include 'includes/listings/listings_sorting.html' %}</div> 
           </div>

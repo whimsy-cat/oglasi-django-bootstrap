@@ -10,7 +10,7 @@
   <div class="map-switch-buttons-container">
     <div class="rounded d-flex shadow">
       <button onclick="queryParam('search_type', 0)" for="izdavanje" id="btnBuy" name="0" class="btn switch-type-button border-end  rounded-start rounded-0 {% if request.GET.search_type == '0' %} bg-primary text-white  {% else %} bg-white color-salmon {% endif %}" style="width: 88px;height: 40px;" type="button">Prodaja</button>
-      <button onclick="queryParam('search_type', 1)" for="prodaja" id="btnRent" name="1" class="btn switch-type-button rounded-end rounded-0 {% if request.GET.search_type == '1' %} bg-primary text-white {% else %} bg-white text-secondary {% endif %}" style="width: 88px;height: 40px" type="button">Izdavanje</button>
+      <button onclick="queryParam('search_type', 1)" for="prodaja" id="btnRent" name="1" class="btn switch-type-button rounded-end rounded-0 {% if request.GET.search_type == '1' %} bg-secondary text-white {% else %} bg-white text-secondary {% endif %}" style="width: 88px;height: 40px" type="button">Izdavanje</button>
     </div>
   </div>
 </div>
@@ -33,7 +33,7 @@ function initMap() {
     style: style ,
     center: belgrade,
     zoom: 12
-  }).addControl(new maplibregl.NavigationControl(), 'top-right');
+  }).addControl(new maplibregl.NavigationControl(), 'bottom-right');
 
   {% for l in listings %} 
   {% if l.listingmap_set.first.lat != None %}

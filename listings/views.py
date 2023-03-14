@@ -34,6 +34,12 @@ def listings(request):
     locations = Location.objects.all()
     cities = locations.distinct('city')
 
+    struktura_filter = request.GET.getlist('struktura')
+    stanje_filter = request.GET.getlist('condition')
+    parking_filter = request.GET.getlist('parking')
+    grejanje_filter = request.GET.getlist('grejanje')
+
+
     # Full Map View
     if view == 'mapa2':
         context = {
@@ -41,11 +47,15 @@ def listings(request):
             "categories": categories,
             "details": details,
             "amenities": amenities,
-            "cities": cities
+            "cities": cities,
+            "selected_struktura": struktura_filter,
+            "selected_stanje": stanje_filter,
+            "selected_parking": parking_filter,
+            "selected_grejanje": grejanje_filter,
         }
         return render(request, 'listings_fullmap.html', context)
     
-    listings = pagination_helper(request, listing_data , 2)
+    listings = pagination_helper(request, listing_data)
 
     if view == 'lista':
         context = {
@@ -53,11 +63,16 @@ def listings(request):
             "categories": categories,
             "details": details,
             "amenities": amenities,
-            "cities": cities
+            "cities": cities,
+            "selected_struktura": struktura_filter,
+            "selected_stanje": stanje_filter,
+            "selected_parking": parking_filter,
+            "selected_grejanje": grejanje_filter,
+
         }
         return render(request, 'listings_list_view.html', context)
     
-    listings = pagination_helper(request, listing_data, 6)
+    listings = pagination_helper(request, listing_data)
 
     if view == 'mreža':
         context = {
@@ -65,7 +80,12 @@ def listings(request):
             "categories": categories,
             "details": details,
             "amenities": amenities,
-            "cities": cities
+            "cities": cities,
+            "selected_struktura": struktura_filter,
+            "selected_stanje": stanje_filter,
+            "selected_parking": parking_filter,
+            "selected_grejanje": grejanje_filter,
+
         }
         return render(request, 'listings_network.html', context)
 
@@ -80,9 +100,13 @@ def listings(request):
             "categories": categories,
             "details": details,
             "amenities": amenities,
-            "cities": cities
-        }
+            "cities": cities,
+            "selected_struktura": struktura_filter,
+            "selected_stanje": stanje_filter,
+            "selected_parking": parking_filter,
+            "selected_grejanje": grejanje_filter,
 
+        }
         return render(request, 'listings.html', context)
 
 
@@ -148,6 +172,23 @@ def get_subcategories(request):
         parent=category_id).values('name', 'id')
 
     return JsonResponse(list(categories), safe=False)
+
+
+def get_all_categories(request):
+    parent_categories = Category.objects.filter(parent=None)
+    categories_list = []
+
+    for parent_cat in parent_categories:
+        children_categories = Category.objects.filter(parent=parent_cat)
+        children_list = [{'id': c.id, 'name': c.name} for c in children_categories]
+        categories_list.append({
+            'id': parent_cat.id,
+            'name': parent_cat.name,
+            'children': children_list
+        })
+
+    return JsonResponse(categories_list, safe=False, content_type='application/json')
+
 
 
 def add_remove_favorites(request):

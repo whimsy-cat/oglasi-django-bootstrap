@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block page_specific_styles %}
-  <link rel="stylesheet" href="{% static 'css/listing_detail.css' %}">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/listing_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/listing_profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
   <link href="https://cdn.maptiler.com/maplibre-gl-js/v2.4.0/maplibre-gl.css" rel="stylesheet" />
 {% endblock %}
 {% block content %}
@@ -56,15 +57,15 @@
         {% endif %}
       </div>
       <div class="col-3 d-flex justify-content-end px-0">
-        <!-- TODO:  <img class="shadow rounded p-2 mx-2 " src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
-        <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
           {% include 'includes/listing_helpers/share_listing.html' %}
             {% if user.id in listing.likes %}
-              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/items/blue_hearth.svg' %}" alt="Liked" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}')">
+              <img id="liked_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/items/blue_hearth.svg' %}" alt="Liked" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}'); location.reload()">
             {% else %}
-              <img class="non-printable-area shadow rounded p-2 mx-2" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}')">
+              <img id="like_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}'); location.reload()">
             {% endif %}
-        <img class="shadow rounded p-2 ms-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
+                    <!-- TODO:  <img class="shadow rounded p-2 mx-2  hover-icons" src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
+        <img id="share_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img id="print_on_hover" class="shadow rounded p-2 ms-2 hover-icons" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
     </div>
 
@@ -326,6 +327,48 @@
 
 
 <script>
+  const share = document.getElementById('share_on_hover');
+  const prints = document.getElementById('print_on_hover');
+  const shareSrc = share.src;
+  const printSrc = prints.src;
+  const newShare = '{% static "images/icons/share_hover.svg" %}';
+  const newPrints = '{% static "images/icons/print_on_hover.svg" %}';
+  
+share.addEventListener('mouseover', function() {
+  share.src = newShare;
+});
+share.addEventListener('mouseout', function() {
+  share.src = shareSrc;
+});
+prints.addEventListener('mouseover', function() { 
+  prints.src = newPrints
+})
+prints.addEventListener('mouseout', function() {
+  prints.src = printSrc
+});
+if (document.getElementById('like_on_hover')) {
+  const like = document.getElementById('like_on_hover');
+  const likeSrc = like.src;
+  const newLike = '{% static "images/icons/not_liked_on_hover.svg" %}';
+  like.addEventListener('mouseover', function() {
+    like.src = newLike;
+  });
+  like.addEventListener('mouseout', function() {
+    like.src = likeSrc;
+  });
+}
+if (document.getElementById('liked_on_hover')) {
+  const liked = document.getElementById('liked_on_hover');
+  const likedSrc = liked.src;
+  const newLike = '{% static "images/icons/not_liked_on_hover.svg" %}';
+  liked.addEventListener('mouseover', function() {
+    liked.src = newLike;
+  });
+  liked.addEventListener('mouseout', function() {
+    liked.src = likedSrc;
+  });
+}
+
   // Tab modals styles
   function tabStyleHandler(elementId, className, styleClass) {
     let element = document.getElementById(elementId);
@@ -385,56 +428,56 @@ map.on('error', function(err) {
 
 // Chart
 
-let labels = [];
-let data = [];
+// let labels = [];
+// let data = [];
 
-function generateData() {
-  {% for cd in chart_data %} 
-    labels.push('{{cd.quarter|date:'M-Y'}}')
-    data.push('{{cd.avg_price}}')
-  {% endfor %}
-}
+// function generateData() {
+//   {% for cd in chart_data %} 
+//     labels.push('{{cd.quarter|date:'M-Y'}}')
+//     data.push('{{cd.avg_price}}')
+//   {% endfor %}
+// }
 
-generateData();
+// generateData();
 
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: labels,
-    datasets: [{
-      fill: true, // Set fill to true to fill area under line
-      pointRadius: 4,
-      borderColor: "#dd557b",
-      backgroundColor: "#dd557b", // Set desired background color
-      data: data
-    }]
-  },    
-  options: {
-    title: {
-      display: true,
-      text: '{{listing.city}}',
-      fontSize: 18,
-      fontColor: 'black',
-      fontStyle: 'bold',
-    },
-    legend: {display: false},
-    scales: {
-      type: 'time', 
-      xAxes: [{
-        ticks: {
-          maxRotation: 0,
-          reverse: false,
-          fontSize: 16
-        },
-      }],
-      yAxes: [{
-        ticks: {
-          fontSize: 16,
-        },
-      }]
-    },
-  }
-});
+// new Chart("myChart", {
+//   type: "line",
+//   data: {
+//     labels: labels,
+//     datasets: [{
+//       fill: true, // Set fill to true to fill area under line
+//       pointRadius: 4,
+//       borderColor: "#dd557b",
+//       backgroundColor: "#dd557b", // Set desired background color
+//       data: data
+//     }]
+//   },    
+//   options: {
+//     title: {
+//       display: true,
+//       text: '{{listing.city}}',
+//       fontSize: 18,
+//       fontColor: 'black',
+//       fontStyle: 'bold',
+//     },
+//     legend: {display: false},
+//     scales: {
+//       type: 'time', 
+//       xAxes: [{
+//         ticks: {
+//           maxRotation: 0,
+//           reverse: false,
+//           fontSize: 16
+//         },
+//       }],
+//       yAxes: [{
+//         ticks: {
+//           fontSize: 16,
+//         },
+//       }]
+//     },
+//   }
+// });
 
 
 </script>

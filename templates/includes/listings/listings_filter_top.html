@@ -1,59 +1,206 @@
 {% load static %}
-
 <div class="col-7 d-flex ps-0 my-2 align-items-center" style="padding-right: 34px;">
-  <select id="city" class="form-select me-2 h-100" onchange="queryParam('grad', this.value)" aria-label="Default select example">
-    <option value="">Grad</option>
-    {% for loc in cities %}
-      <option  {% if request.GET.grad == loc.city %} selected {% endif %} value="{{loc.city}}">{{loc.city}}</option>
-    {% endfor %}
-  </select>
-  <select id="location" class="form-select mx-2 h-100" onchange="queryParam('lokacija', this.value)" aria-label="Default select example">
-    <option value="">Lokacija</option>
-  </select>
-  <select class="form-select mx-2 h-100" onchange="queryParam('tip', this.value)" aria-label="Default select example">
-    <option value="">Tip</option>
-    {% for categ in categories %} 
-      <option  {% if request.GET.tip == categ.name %} selected {% endif %} value="{{ categ.name }}">{{ categ.name }}</option>
-    {% endfor %}
-  </select>
-  <select class="form-select mx-2 h-100" style="max-height: 39px;" onchange="queryParam('cena', this.value)" aria-label="Default select example">
-    <option value="">Cena</option>
-    <option  {% if request.GET.cena == '_20000' %} selected {% endif %} value="_20000">do 20.000 e</option>
-    <option  {% if request.GET.cena == '20000_40.000' %} selected {% endif %} value="20000_40000">20.000 - 40.000 e</option>
-    <option  {% if request.GET.cena == '40000_60000' %} selected {% endif %} value="40000_60000">40.000 - 60.000 e</option>
-    <option  {% if request.GET.cena == '60000_80000' %} selected {% endif %} value="60000_80000">60.000 - 80.000 e</option>
-    <option  {% if request.GET.cena == '80000_100000' %} selected {% endif %} value="80000_100000">80.000 - 100.000 e</option>
-    <option  {% if request.GET.cena == '100000_150000' %} selected {% endif %} value="100000_150000">100.000 - 150.000 e</option>
-    <option  {% if request.GET.cena == '150000_200000' %} selected {% endif %} value="150000_200000">150.000 - 200.000 e</option>
-    <option  {% if request.GET.cena == '200000_300000' %} selected {% endif %} value="200000_300000">200.000 - 300.000 e</option>
-    <option  {% if request.GET.cena == '300000_500000' %} selected {% endif %} value="300000_500000">300.000 - 500.000 e</option>
-    <option  {% if request.GET.cena == '500000_' %} selected {% endif %} value="500000_">500.000 i više</option>
-  </select>
-  <select class="form-select mx-2 h-100" onchange="queryParam('povrsina', this.value)" aria-label="Default select example">
-    <option value="">Površina</option>
-    <option  {% if request.GET.povrsina == '_35' %} selected {% endif %} value="_35">do 35 km2</option>
-    <option  {% if request.GET.povrsina == '35_45' %} selected {% endif %} value="35_45">35 - 45 km2</option>
-    <option  {% if request.GET.povrsina == '45_55' %} selected {% endif %} value="45_55">45 - 55 km2</option>
-    <option  {% if request.GET.povrsina == '55_75' %} selected {% endif %} value="55_75">55 - 75 km2</option>
-    <option  {% if request.GET.povrsina == '75_100' %} selected {% endif %} value="75_100">75 - 100 km2</option>
-    <option  {% if request.GET.povrsina == '100_150' %} selected {% endif %} value="100_150">100 - 150 km2</option>
-    <option  {% if request.GET.povrsina == '150_200' %} selected {% endif %} value="150_200">150 - 200 km2</option>
-    <option  {% if request.GET.povrsina == '200_300' %} selected {% endif %} value="200_300">200 - 300 km2</option>
-    <option  {% if request.GET.povrsina == '300_' %} selected {% endif %} value="300_">300 i više</option>
-  </select>
+<form class="w-100" id="mainFiltersForm">
 
-  <select class="form-select ms-2 h-100" onchange="queryParam('struktura', this.value)" aria-label="Default select example">
-    <option value="">Struktura</option>
-    <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
-    <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
-    <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">2 Prostorija</option>
-    <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">2.5 Prostorija</option>   
-    <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>
-    <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">3.5 Prostorija</option>
-    <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 i više</option>
-  </select>
+  <div class="row w-100">
+    <div class="dropdown col-2 ps-0 ">
+      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Grad
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+        <div class="d-flex px-2" style="width: 230px;">
+          <input type=" text" list="country" value="{{request.GET.grad}}" class=" form-control height-28 input-location placeholders-search" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+          <datalist id="country">
+            {% for loc in cities %}
+            <option value="{{ loc.city }}">
+            {% endfor %}
+          </datalist>        
+        </div>
+      </div>
+    </div>
+    <div class="dropdown col-2 px-2">
+      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Lokacija
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+        <div class="d-flex px-2" style="width: 230px;">
+          <input for="neighbourhood" type="text" class="col-2 form-control height-28 input-area placeholders-search" value="{{request.GET.lokacija}}"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+            <datalist id="location">
+            </datalist>       
+        </div>
+      </div>
+    </div>
+    <div class="col-2 px-2 dropdown" id="myDropdown">
+      <button class="dropbtn btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="tip" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Tip
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <div class="dropdown-content bg-white border rounded text-nowrap" style="width:fit-content;">
+        {% for categ in categories %}
+          {% if categ.parent is None %}
+            <div class="dropdown-submenu">
+              <div class="parent-hover p-1 {% if request.GET.tip == categ.name %} selected {% endif %}" onclick="selectCategory('{{categ.name}}')">{{categ.name}}</div>
+              <div class="dropdown-submenu-content rounded">
+                {% for child in categories %}
+                  {% if child.parent == categ %}
+                    <div class="parent-hover p-1" onclick="selectCategory('{{child.name}}')">{{child.name}}</div>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+        <input name="tip" hidden id="categoryHiddenInput" />
+      </div>
+    </div>
+    
+    <div class="dropdown col-2 px-2">
+      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Cena
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+        <div class="d-flex px-2" style="width: 230px;">
+          <input type="text" class="form-control me-2 text-center height-28 detail-input-placeholders" value="{{request.GET.min_price}}" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="od" aria-describedby="titleHelp">
+          <input type="text" class="form-control text-center height-28 detail-input-placeholders" value="{{request.GET.max_price}}" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
+        </div>
+      </div>
+    </div>
+    <div class="dropdown col-2 px-2">
+      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Površina
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+        <div class="d-flex px-2" style="width: 230px;">
+          <input type="text" class="form-control me-2 text-center height-28 detail-input-placeholders" value="{{request.GET.min_size}}" id="min_size" name="min_size"  placeholder="od" aria-describedby="titleHelp">
+          <input type="text" class="form-control text-center height-28 detail-input-placeholders" value="{{request.GET.max_size}}" id="max_size" name="max_size"placeholder="do" aria-describedby="titleHelp">
+        </div>
+      </div>
+    </div>
+    <div class="col-2 pe-0 ps-2">
+      <div class="dropdown">
+        <button class="btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiSelectDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          Struktura 
+          <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiSelectDropdown">
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garsonjera">Garsonjera <div class="px-2">0.5</div></label><input class="form-check-input" {% if '0.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="0.5" id="garsonjera"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednosoban">Jednosoban <div class="px-2">1.0</div></label><input class="form-check-input" {% if '1' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1" id="jednosoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednoiposoban">Jednoiposoban <div class="px-2">1.5</div> </label><input class="form-check-input" {% if '1.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1.5" id="jednoiposoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvosoban">Dvosoban <div class="px-2">2.0</div> </label><input class="form-check-input" {% if '2' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2" id="dvosoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvoiposoban">Dvoiposoban <div class="px-2">2.5</div> </label><input class="form-check-input" {% if '2.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2.5" id="dvoiposoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="trosoban">Trosoban <div class="px-2">3.0</div> </label><input class="form-check-input" {% if '3' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3" id="trosoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="troiposoban">Troiposoban <div class="px-2">3.5</div> </label><input class="form-check-input" {% if '3.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3.5" id="troiposoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvorosoban">Četvorosoban <div class="px-2">4.0</div> </label><input class="form-check-input" {% if '4' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4" id="četvorosoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvoroiposoban">Četvoroiposoban <div class="px-2">4.5</div> </label><input class="form-check-input" {% if '4.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4.5" id="četvoroiposoban"></li>
+          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="petosoban">Petosoban i veći <div class="px-2">5.0</div> </label><input class="form-check-input" {% if '5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="5" id="petosoban"></li>
+        </ul>
+      </div>
+    </div>
+    <!-- <select id="city" class="form-select me-2 h-100" onchange="queryParam('grad', this.value)" aria-label="Default select example">
+      <option value="">Grad</option>
+      {% for loc in cities %}
+        <option  {% if request.GET.grad == loc.city %} selected {% endif %} value="{{loc.city}}">{{loc.city}}</option>
+      {% endfor %}
+    </select> -->
+    <!-- <select id="location" class="form-select mx-2 h-100" onchange="queryParam('lokacija', this.value)" aria-label="Default select example">
+      <option value="">Lokacija</option>
+    </select> -->
+    <!-- <div class="col-2 px-2" >
+      <select class="form-select h-100 col-2" onchange="queryParam('tip', this.value)" aria-label="Default select example">
+        <option value="">Tip</option>
+        {% for categ in categories %} 
+          <option  {% if request.GET.tip == categ.name %} selected {% endif %} value="{{ categ.name }}">{{ categ.name }}</option>
+        {% endfor %}
+      </select>
+    </div> -->
+    <!-- <select class="form-select mx-2 h-100" style="max-height: 39px;" onchange="queryParam('cena', this.value)" aria-label="Default select example">
+      <option value="">Cena</option>
+      <option  {% if request.GET.cena == '_20000' %} selected {% endif %} value="_20000">do 20.000 e</option>
+      <option  {% if request.GET.cena == '20000_40.000' %} selected {% endif %} value="20000_40000">20.000 - 40.000 e</option>
+      <option  {% if request.GET.cena == '40000_60000' %} selected {% endif %} value="40000_60000">40.000 - 60.000 e</option>
+      <option  {% if request.GET.cena == '60000_80000' %} selected {% endif %} value="60000_80000">60.000 - 80.000 e</option>
+      <option  {% if request.GET.cena == '80000_100000' %} selected {% endif %} value="80000_100000">80.000 - 100.000 e</option>
+      <option  {% if request.GET.cena == '100000_150000' %} selected {% endif %} value="100000_150000">100.000 - 150.000 e</option>
+      <option  {% if request.GET.cena == '150000_200000' %} selected {% endif %} value="150000_200000">150.000 - 200.000 e</option>
+      <option  {% if request.GET.cena == '200000_300000' %} selected {% endif %} value="200000_300000">200.000 - 300.000 e</option>
+      <option  {% if request.GET.cena == '300000_500000' %} selected {% endif %} value="300000_500000">300.000 - 500.000 e</option>
+      <option  {% if request.GET.cena == '500000_' %} selected {% endif %} value="500000_">500.000 i više</option>
+    </select> -->
+    <!-- <select class="form-select mx-2 h-100" onchange="queryParam('povrsina', this.value)" aria-label="Default select example">
+      <option value="">Površina</option>
+      <option  {% if request.GET.povrsina == '_35' %} selected {% endif %} value="_35">do 35 km2</option>
+      <option  {% if request.GET.povrsina == '35_45' %} selected {% endif %} value="35_45">35 - 45 km2</option>
+      <option  {% if request.GET.povrsina == '45_55' %} selected {% endif %} value="45_55">45 - 55 km2</option>
+      <option  {% if request.GET.povrsina == '55_75' %} selected {% endif %} value="55_75">55 - 75 km2</option>
+      <option  {% if request.GET.povrsina == '75_100' %} selected {% endif %} value="75_100">75 - 100 km2</option>
+      <option  {% if request.GET.povrsina == '100_150' %} selected {% endif %} value="100_150">100 - 150 km2</option>
+      <option  {% if request.GET.povrsina == '150_200' %} selected {% endif %} value="150_200">150 - 200 km2</option>
+      <option  {% if request.GET.povrsina == '200_300' %} selected {% endif %} value="200_300">200 - 300 km2</option>
+      <option  {% if request.GET.povrsina == '300_' %} selected {% endif %} value="300_">300 i više</option>
+    </select> -->
+    <!-- <div class="col-2 pe-0 ps-2">
+      <select class="form-select col-2 h-100" onchange="queryParam('struktura', this.value)" aria-label="Default select example">
+        <option value="">Struktura</option>
+        <option  {% if request.GET.struktura == '1' %} selected {% endif %} value="1">1 Prostorija</option>
+        <option  {% if request.GET.struktura == '1.5' %} selected {% endif %} value="1.5">1.5 Prostorija</option>
+        <option  {% if request.GET.struktura == '2' %} selected {% endif %} value="2">2 Prostorija</option>
+        <option  {% if request.GET.struktura == '2.5' %} selected {% endif %} value="2.5">2.5 Prostorija</option>   
+        <option  {% if request.GET.struktura == '3' %} selected {% endif %} value="3">3 Prostorija</option>
+        <option  {% if request.GET.struktura == '3.5' %} selected {% endif %} value="3.5">3.5 Prostorija</option>
+        <option  {% if request.GET.struktura == '4' %} selected {% endif %} value="4">4 i više</option>
+      </select>
+    </div> -->
+    
+  </div>
+</form>
+
 </div>
+
 <script>
+  const dropdown = document.querySelector('#myDropdown')
+
+// Open the dropdown when clicked
+dropdown.addEventListener('click', function() {
+  this.classList.toggle('active');
+});
+
+// Close the dropdown when clicked outside
+document.addEventListener('click', function(event) {
+  if (!dropdown.contains(event.target)) {
+    dropdown.classList.remove('active');
+  }
+});
+  document.addEventListener('DOMContentLoaded', function() {
+  let labels = document.querySelectorAll('.dropdown-menu label');
+  for (let i = 0; i < labels.length; i++) {
+    labels[i].addEventListener('click', function(event) {
+      event.stopPropagation(); // prevent dropdown from closing
+    });
+  }
+});
+
+let items = document.querySelectorAll('.parent-hover');
+
+// Loop through the items and add a click event listener to each one
+items.forEach(function(item) {
+  item.addEventListener('click', function() {
+    // Remove the "selected" class from any previously selected item
+    document.querySelectorAll('.parent-hover.selected').forEach(function(selectedItem) {
+      selectedItem.classList.remove('selected');
+    });
+    // Add the "selected" class to the clicked item
+    item.classList.add('selected');
+  });
+});
+
+function selectCategory(id) {
+  const categoryHiddenInput = document.getElementById('categoryHiddenInput')
+  categoryHiddenInput.value = id;
+}
 
 function applyFilters() {
   const selectedDetailsValues = []
@@ -127,5 +274,14 @@ function closeModal() {
   let modal = document.getElementById('filter')
   modal.style.display = 'none'
 }
+function addPeriods() {
+    let input = event.target;
+    let value = input.value;
+    // Remove all non-digit characters
+    value = value.replace(/\D/g, '');
+    // Add periods every three digits
+    value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    input.value = value;
+  }
 
 </script>

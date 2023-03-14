@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<div class="og-container-fluid">
+<div class="og-container-40">
   <div class="row align-items-center" style="height:64px">
       <div class="col-2 ps-0 m-auto">Rezultata: {{ listings.paginator.count }}</div>
       <div class="col-2 pe-0 d-flex justify-content-end align-items-center">{% include 'includes/listings/listings_pagination.html' %}</div>
@@ -18,12 +18,12 @@
 
 <div class="w-100 border-bottom mb-3"></div>
 
-<div class="og-container">
+<div class="og-container-40">
   <div class="row">
     <div class="col-4 px-0">
       {% include 'includes/listings/side_filter.html' %}
     </div>
-    <div class="col-8 pe-0 ps-4">
+    <div class="col-8 pe-0 ps-4" style="overflow-y: scroll;height: 562px;">
       {% for listing in listings %}
         {% include 'includes/dashboard/my_favorites_card.html' %}
       {% endfor %}

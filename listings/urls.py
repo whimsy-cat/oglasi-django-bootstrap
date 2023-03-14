@@ -11,6 +11,7 @@ urlpatterns = [
     path('get-areas/', views.get_areas, name='get_areas'),
     path('get-areas-distinct/', views.get_areas_distinct, name='get_areas_distinct'),
     path('get-subcategories/', views.get_subcategories, name='get_subcategories'),
+    path('get-all-categories/', views.get_all_categories, name='get_all_categories'),
     path('oglas-omiljeni/', views.add_remove_favorites, name="listing_add_remove_favorites"),
 
     # Delete lilisting
