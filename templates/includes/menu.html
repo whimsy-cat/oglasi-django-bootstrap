@@ -92,27 +92,27 @@
         </li>
         <li class="px-2 hover-open"><a href="#" class="nav-link nav-hover px-2  {% if request.path == '###drugi oglasi###' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white  {% endif %}">Drugi oglasi</a></li>
         <li class="px-2 hover-open">
-          <a href="#" class="nav-link nav-hover px-2 {% if request.path == 'TODO: DEFINE' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/o-nama/' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Info
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/' %} link-secondary {% endif %}">Cenovnik</a>
+              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2">Cenovnik</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=kontakt" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/' %} link-secondary {% endif %}">Kontakt</a>
+              <a href="{% url 'about_us' %}?selected=kontakt" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'kontakt' %} link-secondary {% endif %}">Kontakt</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=onama" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/' %} link-secondary {% endif %}">O nama</a>
+              <a href="{% url 'about_us' %}?selected=onama" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'onama' %} link-secondary {% endif %}">O nama</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=karijera" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/' %} link-secondary {% endif %}">Karijera</a>
+              <a href="{% url 'about_us' %}?selected=karijera" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'karijera' %} link-secondary {% endif %}">Karijera</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=pitanja" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/' %} link-secondary {% endif %}">Pitanja i odgovori</a>
+              <a href="{% url 'about_us' %}?selected=pitanja" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'pitanja' %} link-secondary {% endif %}">Pitanja i odgovori</a>
             </li>
             <li>
-              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/' %} link-secondary {% endif %}">Pravila i uslovi korišćenja</a>
+              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2">Pravila i uslovi korišćenja</a>
             </li>
           </ul>
         </li>
