@@ -2182,10 +2182,13 @@ textarea.form-control-lg {
   float: left;
   margin-left: -1.5em;
 }
+.form-check .form-check-label {
+  margin-bottom: -2px;
+}
 
 .form-check-input {
-  width: 1em;
-  height: 1em;
+  min-width: 1.2em;
+  min-height: 1.2em;
   margin-top: 0.25em;
   vertical-align: top;
   background-color: #fff;
