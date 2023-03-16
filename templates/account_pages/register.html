@@ -4,133 +4,58 @@
 {% block content %}
   <section class="section-content" style="min-height:92vh">
     <div class="card mx-auto border-0" style="max-width:520px; margin-top:40px;padding: 12px 24px 4px 24px;">
-      <form action="{% url 'register' %}" method="POST">
-        {% csrf_token %}
-        <h2 class="fw-bold text-center" style="margin-bottom: 18px;font-size: 24px;">Registracija</h2>
-        <nav class="mb-4">
-          <div class="nav pe-2 d-flex align-items-center justify-content-between" id="nav-tab" role="tablist">
-            <div class="form-check ps-0">
-              <input class="form-check-input m-0" checked type="checkbox" style="width: 24px;height: 24px;" id="nav-userregister-tab" data-bs-toggle="tab" data-bs-target="#nav-userregister" type="checkbox" role="tab" aria-controls="nav-userregister">
-              <label class="form-check-label ms-3" for="nav-userregister-tab" >
-                Fizičko lice
-              </label>
-            </div>
-            <div class="form-check ">
-              <input class="form-check-input m-0" type="checkbox" style="width: 24px;height: 24px;" id="nav-agencyregister-tab" data-bs-toggle="tab" data-bs-target="#nav-agencyregister" type="checkbox" role="tab" aria-controls="nav-agencyregister">
-              <label class="form-check-label ms-3" for="nav-agencyregister-tab">
-                Pravno lice 
-              </label>
-            </div>
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active" id="nav-userregister" role="tabpanel" aria-labelledby="nav-userregister-tab" tabindex="0">
-            <div class="row mb-3">
-              <div class="col-6 " style="padding: 0px 28px 0px 0px!important;">
-                <label for="floatingfirstname" class="form-label mb-1" style="font-weight: 600">Ime</label>
-                <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingfirstname" name="first_name" aria-describedby="name" required>
-              </div>
-              <div class="col-6" style="padding: 0px 0px 0px 28px!important;">
-                <label for="floatinglastname" class="form-label mb-1" style="font-weight: 600">Prezime</label>
-                <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatinglastname" name="last_name" aria-describedby="last_name" required>
-              </div>
-              <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
-                <label for="floatingusername" class="form-label mb-1" style="font-weight: 600">Korisničko ime <span class="color-salmon">*</span></label>
-                <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingusername" name="user_name" aria-describedby="passwordHelp" required>
-              </div>
-              <div class="col-6 pe-0" style="padding: 0px 0px 0px 28px!important;">
-                <label for="floatingregisteremail" class="form-label mb-1" style="font-weight: 600">Email <span class="color-salmon">*</span></label>
-                <input type="email" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingregisteremail" name="email" aria-describedby="emailHelp" required>
-              </div>
-              <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
-                <label for="floatingpassword" class="form-label mb-1" style="font-weight: 600">Lozinka <span class="color-salmon">*</span></label>
-                <input type="password" class="form-control height-40px" style="width: 200px" id="floatingpassword" name="password" aria-describedby="passwordHelp" required>
-              </div>
-              <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
-                <label for="floatingconfirmpassword" class="form-label mb-1" style="font-weight: 600">Potvri lozinku <span class="color-salmon">*</span></label>
-                <input type="password" class="form-control height-40px" style="width: 200px" id="floatingconfirmpassword" name="confirm_password" aria-describedby="passwordHelp" required>
-              </div>
-            </div>
-          </div>
-          <div class="tab-pane fade" id="nav-agencyregister" role="tabpanel" aria-labelledby="nav-agencyregister-tab" tabindex="0">
-            <div class="row mb-3">
-              <div class="col-6 " style="padding: 0px 28px 0px 0px!important;">
-                <label for="agency_name" class="form-label mb-1" style="font-weight: 600">Naziv <span class="color-salmon">*</span></label>
-                <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="agency_name" name="agency_name" aria-describedby="agency_name" required>
-              </div>  
-              <div class="col-6" style="padding: 0px 0px 0px 28px!important;">
-                <label for="agency_adress" class="form-label mb-1" style="font-weight: 600">Adresa <span class="color-salmon">*</span></label>
-                <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="agency_adress" name="agency_adress" aria-describedby="agency_adress" required>
-              </div>
-              <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
-                <label for="agency_user_name" class="form-label mb-1" style="font-weight: 600">Korisničko ime <span class="color-salmon">*</span></label>
-                <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="agency_user_name" name="agency_user_name" aria-describedby="agency_user_name" required>
-              </div>
-              <div class="col-6 pe-0" style="padding: 0px 0px 0px 28px!important;">
-                <label for="floatingregisteremail" class="form-label mb-1" style="font-weight: 600">Email <span class="color-salmon">*</span></label>
-                <input type="email" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingregisteremail" name="email" aria-describedby="emailHelp" required>
-              </div>
-              <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
-                <label for="floatingpassword" class="form-label mb-1" style="font-weight: 600">Lozinka <span class="color-salmon">*</span></label>
-                <input type="password" class="form-control height-40px" style="width: 200px;margin-bottom: 16px" id="floatingpassword" name="password" aria-describedby="passwordHelp" required>
-              </div>
-              <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
-                <label for="floatingconfirmpassword" class="form-label mb-1" style="font-weight: 600">Potvri lozinku <span class="color-salmon">*</span></label>
-                <input type="password" class="form-control height-40px" style="width: 200px;margin-bottom: 16px" id="floatingconfirmpassword" name="confirm_password" aria-describedby="passwordHelp" required>
-              </div>
-              <div class="col-6 ps-0  " style="padding: 0px 28px 0px 0px!important;">
-                <label for="agency_pib" class="form-label mb-1" style="font-weight: 600">PIB <span class="color-salmon">*</span></label>
-                <input type="password" class="form-control height-40px" style="width: 200px" id="agency_pib" name="agency_pib" aria-describedby="agency_pib" required>
-              </div>
-              <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
-                <label for="agency_jmbg" class="form-label mb-1" style="font-weight: 600">Matični broj <span class="color-salmon">*</span></label>
-                <input type="password" class="form-control height-40px" style="width: 200px" id="agency_jmbg" name="agency_jmbg" aria-describedby="agency_jmbg" required>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="d-flex flex-column" style="padding-left: 72px;margin-bottom: 32px;">
-          <div class="form-check"> 
-            <input class="form-check-input" type="checkbox"  id="nav-tearms-tab" data-bs-toggle="tab" data-bs-target="#nav-tearms" type="checkbox" role="tab" aria-controls="nav-tearms" aria-selected="true">
-            <label class="form-check-label font-weight-600 font-size-12px" for="nav-tearms-tab" style="margin-left: 4px;">
-              Prihvatam pravila i uslove korišćenja portama Moj Dom
+
+      <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
+      <div class="alert alert-success" id="success-alert" role="alert" hidden></div>
+
+      <!-- Type Selection -->
+      <h2 class="fw-bold text-center" style="margin-bottom: 18px;font-size: 24px;">Registracija</h2>
+      <nav class="mb-4">
+        <div class="nav pe-2 d-flex align-items-center justify-content-between" id="nav-tab" role="tablist">
+          <div class="form-check ps-0">
+            <input class="form-check-input m-0" checked type="checkbox" style="width: 24px;height: 24px;" id="nav-userregister-tab" data-bs-toggle="tab" data-bs-target="#nav-userregister" type="checkbox" role="tab" aria-controls="nav-userregister">
+            <label class="form-check-label ms-3" for="nav-userregister-tab" >
+              Fizičko lice
             </label>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox"  id="nav-notifications-tab" data-bs-toggle="tab" data-bs-target="#nav-notifications" type="checkbox" role="tab" aria-controls="nav-notifications" aria-selected="true">
-            <label class="form-check-label font-weight-600 font-size-12px"  for="nav-notifications-tab" style="margin-left: 4px;">
-              Želim da primam obavještenja
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox"  id="nav-agrreemant-tab" data-bs-toggle="tab" data-bs-target="#nav-agrreemant" type="checkbox" role="tab" aria-controls="nav-agrreemant" aria-selected="true">
-            <label class="form-check-label font-weight-600 font-size-12px" for="nav-agrreemant-tab" style="margin-left: 4px;">
-              Biće saglasnosti za račune kasnije, samo uračunavam prostor
+          <div class="form-check ">
+            <input class="form-check-input m-0" type="checkbox" style="width: 24px;height: 24px;" id="nav-agencyregister-tab" data-bs-toggle="tab" data-bs-target="#nav-agencyregister" type="checkbox" role="tab" aria-controls="nav-agencyregister">
+            <label class="form-check-label ms-3" for="nav-agencyregister-tab">
+              Pravno lice 
             </label>
           </div>
         </div>
-        <div class="form-floating d-flex justify-content-center" style="margin-bottom: 32px;">
-          <button class="btn btn-lg btn-primary text-white" style="width: 320px;height: 48px;font-weight: 700;font-size: 16px;" type="submit">Register</button>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+        <!-- User Form -->
+        <div class="tab-pane fade show active" id="nav-userregister" role="tabpanel" aria-labelledby="nav-userregister-tab" tabindex="0">
+            {% include 'includes/account/register_user_form.html' %}
         </div>
-        <!-- {{ form.email.errors|add:"Please enter a valid email address. " }}
-        {{ form.password.errors|add:"Enter password correctly" }}
-        {{ form.confirm_password.errors }}
-        {{ form.non_field_errors }} -->
-      </form>
-        <div class="form-floating">
-          <ul class="d-flex flex-column align-items-center p-0 font-weight-600 font-size-12px">
-            <div style="margin-bottom: 12px;">Već ste registrovani?
-              <a style="text-decoration: none;" class="active text-primary font-weight-600 font-size-12px" href="{% url 'login' %}">Ulogujte se</a>
-            </div>
-            <div class="font-weight-600 font-size-12px">
-              <a style="text-decoration: none;margin-bottom: 12px;" class="text-primary font-weight-600 font-size-12px" href="{% url 'forgot_password' %}">Zaboravili ste lozinku?</a>
-            </div>
-          </ul>
-        </div> 
+
+        <!-- Agency Form -->
+        <div class="tab-pane fade" id="nav-agencyregister" role="tabpanel" aria-labelledby="nav-agencyregister-tab" tabindex="0">
+          {% include 'includes/account/register_agency_form.html' %}
         </div>
+      </div>
+
+      <div class="form-floating">
+        <ul class="d-flex flex-column align-items-center p-0 font-weight-600 font-size-12px">
+          <div style="margin-bottom: 12px;">Već ste registrovani?
+            <a style="text-decoration: none;" class="active text-primary font-weight-600 font-size-12px" href="{% url 'login' %}">Ulogujte se</a>
+          </div>
+          <div class="font-weight-600 font-size-12px">
+            <a style="text-decoration: none;margin-bottom: 12px;" class="text-primary font-weight-600 font-size-12px" href="{% url 'forgot_password' %}">Zaboravili ste lozinku?</a>
+          </div>
+        </ul>
+      </div> 
+
+    </div>  
   </section>
 <script>
-  // get references to the checkboxes
+
+
+// get references to the checkboxes
 const userTabs = document.getElementById('nav-userregister-tab');
 const userContents = document.getElementById('nav-userregister');
 const agencyTabs = document.getElementById('nav-agencyregister-tab');
@@ -150,5 +75,42 @@ agencyTabs.addEventListener('click', () => {
   userContents.style.display = 'none'
   agencyContents.style.display = 'block'
 });
+
+// AUTH
+function registerMe(formId) {
+  const form = document.getElementById(formId);
+  const formData = new FormData(form);
+  const url = "{% url 'register' %}";
+  const errorLog = document.getElementById('error-alert');
+  const successLog = document.getElementById('success-alert')
+
+  fetch(url, {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    errorLog.hidden = true;
+    successLog.hidden = true;
+    if (data.success) {
+      successLog.innerText = 'Hvala Vam na registraciji, molimo potvrdite aktivacijski email.'
+      successLog.hidden = false;
+      form.reset()
+    } else {
+      errorLog.innerText = data.error;
+      errorLog.hidden = false;
+    }
+  })
+  .catch(error => {
+    errorLog.innerText = 'Došlo je do greške, molimo javite se podršci.';
+    errorLog.hidden = false;
+  });
+}
+
 </script>
 {% endblock %}

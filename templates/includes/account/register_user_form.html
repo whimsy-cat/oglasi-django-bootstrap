@@ -1,0 +1,57 @@
+<!-- User Form -->
+<form id="userForm">
+  {% csrf_token %}
+    <div class="row mb-3">
+      <div class="col-6 " style="padding: 0px 28px 0px 0px!important;">
+        <label for="floatingfirstname" class="form-label mb-1" style="font-weight: 600">Ime</label>
+        <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingfirstname" name="first_name" aria-describedby="name" required>
+      </div>
+      <div class="col-6" style="padding: 0px 0px 0px 28px!important;">
+        <label for="floatinglastname" class="form-label mb-1" style="font-weight: 600">Prezime</label>
+        <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatinglastname" name="last_name" aria-describedby="last_name" required>
+      </div>
+      <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
+        <label for="floatingusername" class="form-label mb-1" style="font-weight: 600">Korisničko ime <span class="color-salmon">*</span></label>
+        <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingusername" name="username" aria-describedby="passwordHelp" required>
+      </div>
+      <div class="col-6 pe-0" style="padding: 0px 0px 0px 28px!important;">
+        <label for="floatingregisteremail" class="form-label mb-1" style="font-weight: 600">Email <span class="color-salmon">*</span></label>
+        <input type="email" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingregisteremail" name="email" aria-describedby="emailHelp" required>
+      </div>
+      <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
+        <label for="floatingpassword" class="form-label mb-1" style="font-weight: 600">Lozinka <span class="color-salmon">*</span></label>
+        <input type="password" class="form-control height-40px" style="width: 200px" id="floatingpassword" name="password" aria-describedby="passwordHelp" required>
+      </div>
+      <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
+        <label for="floatingconfirmpassword" class="form-label mb-1" style="font-weight: 600">Potvri lozinku <span class="color-salmon">*</span></label>
+        <input type="password" class="form-control height-40px" style="width: 200px" id="floatingconfirmpassword" name="confirm_password" aria-describedby="passwordHelp" required>
+      </div>
+    </div>
+
+    <input type="hidden" value="0" name="type" />
+
+    <div class="d-flex flex-column" style="padding-left: 72px;margin-bottom: 32px;">
+      <div class="form-check"> 
+        <input name="terms" class="form-check-input" type="checkbox"  id="nav-terms-tab" data-bs-toggle="tab" data-bs-target="#nav-terms" type="checkbox" role="tab" aria-controls="nav-terms" aria-selected="true">
+        <label class="form-check-label font-weight-600 font-size-12px" for="nav-terms-tab" style="margin-left: 4px;">
+          Prihvatam pravila i uslove korišćenja portama Moj Dom
+        </label>
+      </div>
+      <div class="form-check">
+        <input name="newsletter_subscribed" class="form-check-input" type="checkbox"  id="nav-notifications-tab" data-bs-toggle="tab" data-bs-target="#nav-notifications" type="checkbox" role="tab" aria-controls="nav-notifications" aria-selected="true">
+        <label class="form-check-label font-weight-600 font-size-12px"  for="nav-notifications-tab" style="margin-left: 4px;">
+          Želim da primam obavještenja
+        </label>
+      </div>
+      <div class="form-check">
+        <input name="privacy" class="form-check-input" type="checkbox"  id="nav-agrreemant-tab" data-bs-toggle="tab" data-bs-target="#nav-agrreemant" type="checkbox" role="tab" aria-controls="nav-agrreemant" aria-selected="true">
+        <label class="form-check-label font-weight-600 font-size-12px" for="nav-agrreemant-tab" style="margin-left: 4px;">
+          Biće saglasnosti za račune kasnije, samo uračunavam prostor
+        </label>
+      </div>
+    </div>
+
+    <div class="form-floating d-flex justify-content-center" style="margin-bottom: 32px;">
+      <button class="btn btn-lg btn-primary text-white" style="width: 320px;height: 48px;font-weight: 700;font-size: 16px;" type="button" onclick="registerMe('userForm')">Registruj se</button>
+    </div>
+  </form>

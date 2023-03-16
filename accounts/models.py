@@ -1,23 +1,36 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.db import models
+from django.db import models, IntegrityError
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, first_name, last_name, username, email, password=None, phone_number=None):
+    def create_user(self, first_name, last_name='', username=None, email=None, password=None, phone_number='', type=None, identification_number='', tax_id='', newsletter_subscribed=False, address=''):
         if not email:
-            raise ValueError('Email must be provided')
+            raise ValueError('Email je obavezan')
+        
         if not username:
-            raise ValueError('Username must be provided')
+            raise ValueError('Korisničo ime je obavezno')
+
+        if not first_name:
+            raise ValueError('Unesite ime/naziv')
+
+        if not password or len(password) < 8:
+            raise ValueError('Lozinka mora biti bar 8 karaktera')
 
         user = self.model(
             email = self.normalize_email(email),
             username = username,
             first_name = first_name,
             last_name = last_name,
-            phone_number = phone_number
+            phone_number = phone_number,
+            type = int(type),
+            identification_number = identification_number,
+            tax_id = tax_id,
+            newsletter_subscribed = newsletter_subscribed,
+            address=address
         )
 
         user.set_password(password)
+        user.full_clean()
         user.save(using=self.db)
         return user
 
@@ -37,24 +50,25 @@ class MyAccountManager(BaseUserManager):
 class Account(AbstractBaseUser):
     
     USER_TYPE = (
-        (0, 'Fizičko lice'),
-        (1, 'Pravno lice'),
+        ("0", 'Fizičko lice'),
+        ("1", 'Pravno lice'),
     )
 
     first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50, null=True, blank=True, default='')
     username = models.CharField(max_length=50, unique=True)
     email = models.CharField(max_length=100, unique=True)
-    phone_number = models.CharField(max_length=50, default='')
+    phone_number = models.CharField(max_length=50, null=True, blank=True, default='')
 
-    type = models.CharField(max_length=25, choices=USER_TYPE, default=0)
+    type = models.CharField(max_length=25, choices=USER_TYPE, default="0")
 
-    identification_number = models.CharField(max_length=100, default='')
-    tax_id = models.CharField(max_length=100, default='')
+    identification_number = models.CharField(max_length=100, null=True, blank=True, default='')
+    tax_id = models.CharField(max_length=100, null=True, blank=True, default='')
 
     newsletter_subscribed = models.BooleanField(default=False)
 
-    image = models.FileField(max_length=255, upload_to='users', null=True)
+    image = models.FileField(max_length=255, upload_to='users', blank=True, null=True)
+    address = models.CharField(max_length=255, null=True, blank=True, default='')
 
     # required
     date_joined = models.DateTimeField(auto_now_add=True)

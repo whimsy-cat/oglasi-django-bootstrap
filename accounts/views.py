@@ -10,26 +10,65 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 from oglasi_app import settings
 from oglasi_app.mail import send_mailgun_mail
-from accounts.forms import RegistrationForm
 from accounts.models import Account
 from django.urls import reverse
 
-
-# def send_email_to_user(request, subject, body, mail_to):
+from django.http import JsonResponse
 
 def register(request):
     if request.method == 'POST':
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            phone_number = form.cleaned_data['phone_number']
-            password = form.cleaned_data['password']
+        terms = request.POST.get('terms')
+        privacy = request.POST.get('privacy')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name', '')
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        phone_number = request.POST.get('phone_number', '')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        type = request.POST.get('type')
+        identification_number = request.POST.get('identification_number', '')
+        tax_id = request.POST.get('tax_id', '')
+        newsletter_subscribed = True if request.POST.get('newsletter_subscribed') else False
+        address = request.POST.get('address')
 
-            user = Account.objects.create_user(first_name, last_name, email, email, password, phone_number)
+        try:
+            if type == "1":
+                if not identification_number or not tax_id:
+                    raise ValueError('PIB i Matični broj obavezni')
+                
+                if not address:
+                    raise ValueError('Adresa je obavezan podatak')
+
+            if password != confirm_password:
+                raise ValueError('Lozinke se ne poklapaju')
+            
+            if not terms or not privacy:
+                raise ValueError('Molimo prihvatite pravila i uslove korištenja')
+            
+            emailExists = Account.objects.filter(email=email)
+            usernameExists = Account.objects.filter(username=username)
+
+            if emailExists or usernameExists:
+                raise ValueError('Email ili korisničko ime zauzeto')
+
+            user = Account.objects.create_user(
+                first_name=first_name,
+                last_name=last_name,
+                username=username,
+                email=email,
+                password=password,
+                phone_number=phone_number,
+                type=type,
+                identification_number=identification_number,
+                tax_id=tax_id,
+                newsletter_subscribed=newsletter_subscribed,
+                address=address
+            )
             user.save()
-
+            response_data = {'success': True}
+        
+            
             # User activation
             current_site = get_current_site(request)
             full_name = first_name + ' ' + last_name
@@ -40,16 +79,14 @@ def register(request):
                 "link": link
             }
             send_mailgun_mail(email, full_name, 'Verifikujte vaš nalog', 'email_verification', data)
-            messages.success(request, 'Thank you for registering, please confirm your email')
-            return redirect('home')
+        
+        except Exception as e:
+            response_data = {'success': False, 'error': str(e)} 
+
+        return JsonResponse(response_data, safe=False)
+
     else:
-        form = RegistrationForm()
-
-    context = {
-        'form': form
-    }
-    return render(request, 'account_pages/register.html', context)
-
+        return render(request, 'account_pages/register.html')
 
 def login(request):
     if request.method == 'POST':
@@ -61,10 +98,9 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             # messages.success(request, 'You are now logged in.')
-            return redirect('home')
+            return JsonResponse({ "success": True}, safe=False)
         else:
-            messages.error(request, 'Invalid login credentials')
-            return redirect('login')
+            return JsonResponse({ "success": False}, safe=False)
 
     return render(request, 'account_pages/login.html')
 
@@ -98,17 +134,15 @@ def forgot_password(request):
         email_address = request.POST['email']
 
         if Account.objects.filter(email=email_address).exists():
-            user = Account.objects.get(email__icontains=email_address)
+            user = Account.objects.filter(email__icontains=email_address).first()
             current_site = get_current_site(request)
-            mail_subject = "Reset your password"
-            mail_body = render_to_string('account_pages/emails/forgot_password.html', {
-                'user': user,
-                'domain': current_site,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': default_token_generator.make_token(user),
-            })
-            mail_to = email_address
-            send_mail(mail_subject, mail_body, settings.EMAIL_HOST_USER, [mail_to])
+            activate_url = reverse('reset_password_valited', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': default_token_generator.make_token(user)})
+            link = f"https://{current_site}{activate_url}"
+            data = {
+                "first_name": user.first_name,
+                "link": link
+            }
+            send_mailgun_mail(user.email, user.first_name, 'Izmenite vašu lozinku', 'forgot_password', data)
             messages.success(request, 'Password reset email has been sent to your email address')
             return redirect('login')
         else:

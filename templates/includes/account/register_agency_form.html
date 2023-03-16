@@ -1,0 +1,62 @@
+<form id="agencyForm">
+  {% csrf_token %}
+    <div class="row mb-3">
+      <div class="col-6 " style="padding: 0px 28px 0px 0px!important;">
+        <label for="agency_name" class="form-label mb-1" style="font-weight: 600">Naziv <span class="color-salmon">*</span></label>
+        <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="agency_name" name="first_name" aria-describedby="agency_name" required>
+      </div>  
+      <div class="col-6" style="padding: 0px 0px 0px 28px!important;">
+        <label for="agency_adress" class="form-label mb-1" style="font-weight: 600">Adresa <span class="color-salmon">*</span></label>
+        <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="agency_adress" name="address" aria-describedby="agency_adress" required>
+      </div>
+      <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
+        <label for="agency_user_name" class="form-label mb-1" style="font-weight: 600">Korisničko ime <span class="color-salmon">*</span></label>
+        <input type="text" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="agency_user_name" name="username" aria-describedby="agency_user_name" required>
+      </div>
+      <div class="col-6 pe-0" style="padding: 0px 0px 0px 28px!important;">
+        <label for="floatingregisteremail" class="form-label mb-1" style="font-weight: 600">Email <span class="color-salmon">*</span></label>
+        <input type="email" class="form-control height-40px" style="margin-bottom: 16px;width: 200px" id="floatingregisteremail" name="email" aria-describedby="emailHelp" required>
+      </div>
+      <div class="col-6 ps-0" style="padding: 0px 28px 0px 0px!important;">
+        <label for="floatingpassword" class="form-label mb-1" style="font-weight: 600">Lozinka <span class="color-salmon">*</span></label>
+        <input type="password" class="form-control height-40px" style="width: 200px;margin-bottom: 16px" id="floatingpassword" name="password" aria-describedby="passwordHelp" required>
+      </div>
+      <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
+        <label for="floatingconfirmpassword" class="form-label mb-1" style="font-weight: 600">Potvri lozinku <span class="color-salmon">*</span></label>
+        <input type="password" class="form-control height-40px" style="width: 200px;margin-bottom: 16px" id="floatingconfirmpassword" name="confirm_password" aria-describedby="passwordHelp" required>
+      </div>
+      <div class="col-6 ps-0  " style="padding: 0px 28px 0px 0px!important;">
+        <label for="agency_pib" class="form-label mb-1" style="font-weight: 600">PIB <span class="color-salmon">*</span></label>
+        <input name="identification_number" class="form-control height-40px" style="width: 200px" id="agency_pib" aria-describedby="agency_pib" required>
+      </div>
+      <div class="col-6 pe-0  " style="padding: 0px 0px 0px 28px!important;">
+        <label for="agency_jmbg" class="form-label mb-1" style="font-weight: 600">Matični broj <span class="color-salmon">*</span></label>
+        <input name="tax_id" class="form-control height-40px" style="width: 200px" id="agency_jmbg"  aria-describedby="agency_jmbg" required>
+      </div>
+    </div>
+
+    <input type="hidden" value="1" name="type" />
+    <div class="d-flex flex-column" style="padding-left: 72px;margin-bottom: 32px;">
+      <div class="form-check"> 
+        <input name="terms" class="form-check-input" type="checkbox"  id="nav-terms1-tab" data-bs-toggle="tab" data-bs-target="#nav-terms1" type="checkbox" role="tab" aria-controls="nav-terms1" aria-selected="true">
+        <label class="form-check-label font-weight-600 font-size-12px" for="nav-terms1-tab" style="margin-left: 4px;">
+          Prihvatam pravila i uslove korišćenja portama Moj Dom
+        </label>
+      </div>
+      <div class="form-check">
+        <input name="newsletter_subscribed" class="form-check-input" type="checkbox"  id="nav-notifications1-tab" data-bs-toggle="tab" data-bs-target="#nav-notifications1" type="checkbox" role="tab" aria-controls="nav-notifications1" aria-selected="true">
+        <label class="form-check-label font-weight-600 font-size-12px"  for="nav-notifications1-tab" style="margin-left: 4px;">
+          Želim da primam obavještenja
+        </label>
+      </div>
+      <div class="form-check">
+        <input name="privacy" class="form-check-input" type="checkbox"  id="nav-agrreemant1-tab" data-bs-toggle="tab" data-bs-target="#nav-agrreemant1" type="checkbox" role="tab" aria-controls="nav-agrreemant1" aria-selected="true">
+        <label class="form-check-label font-weight-600 font-size-12px" for="nav-agrreemant1-tab" style="margin-left: 4px;">
+          Biće saglasnosti za račune kasnije, samo uračunavam prostor
+        </label>
+      </div>
+    </div>
+    <div class="form-floating d-flex justify-content-center" style="margin-bottom: 32px;">
+      <button class="btn btn-lg btn-primary text-white" style="width: 320px;height: 48px;font-weight: 700;font-size: 16px;" type="button" onclick="registerMe('agencyForm')">Registruj se</button>
+    </div>
+</form>
