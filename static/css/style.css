@@ -252,9 +252,8 @@ h1, h2, h3, h4, h5, h6,
   margin-left: -1px;
   min-width: 200px;
 }
-
-.dropdown:hover .dropdown-menu {
-  display: block;
+.hoverGalery:hover {
+  opacity: 0.7;
 }
 
 .dropdown.active .dropdown-content {
