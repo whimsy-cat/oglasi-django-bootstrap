@@ -138,10 +138,11 @@
       </ul>
       {% if user.id is not None %}
         <div class="hover-open">
-          <a href="#" class="d-block link-light text-decoration-none dropdown-toggle"
+          <a href="#" class="nav-link d-block link-light text-decoration-none dropdown-toggle"
             data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
-                class="rounded-circle ms-3">
+                class="rounded-circle ms-3 me-1">
+              {{ user.username }}
           </a>
           <ul class="dropdown-menu">
             <li><a class="font-weight-600 nav-link nav-hover py-1 px-2" href="#">Moj Profil</a></li>
