@@ -1,11 +1,16 @@
 {% load static %}
+
+{% block page_specific_styles %}
+  <link rel="stylesheet" href="{% static 'css/profile-sidebar.css' %}">
+{% endblock %}
+
 <div class="col-2 px-0">
   <div class="profile-sidebar">
         <div class="">
           <div class="d-flex justify-content-center">
             <img class="profile-avatar" src="{% static 'images/property/fp1.jpg' %}" alt="Avatar">
           </div>
-          <p class="text-center profile-name">Petar Petrović</p>
+          <p class="text-center profile-name">{{ user.first_name }} {{ user.last_name }}</p>
         </div>
         <ul class="list-unstyled">
 <!--            <li>
@@ -31,7 +36,7 @@
 <!--            <li class="d-flex">
             <img class="bi" src="{% static 'images/icons/saved_searches.svg' %}" alt="saved searches icon">
             <a href="/oglasi/sacuvane-pretrage">Sačuvane pretrage</a>
-          </li> 
+          </li>
            <li>
             <i class="bi bi-eye"></i>
             <a href="/oglasi/pregledi">Pregledi</a>

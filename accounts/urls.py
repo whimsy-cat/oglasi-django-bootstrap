@@ -10,4 +10,6 @@ urlpatterns = [
     path('zaboravljena-sifra/', views.forgot_password, name="forgot_password"),
     path('reset-sifre-validacija/<uidb64>/<token>', views.reset_password_validate, name="reset_password_valited"),
     path('reset-sifre/', views.reset_password, name="reset_password"),
+
+    path('profil/<username>', views.user_profile, name="user_profile"),
 ]

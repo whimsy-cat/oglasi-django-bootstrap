@@ -22,12 +22,11 @@ urlpatterns = [
     path('edit/', views_dashboard.edit, name='edit'),
     path('save-listing/<int:pk>', views_dashboard.confirm_edit, name='confirm_edit'),
 
-    # TODO: Redefine pages to specific models 
+    # TODO: Redefine pages to specific models
     path('postavi/', views_dashboard.create, name="listing_create", kwargs={'footer': 'create_listing'}),
     path('postavi/sacuvaj', views_dashboard.submit, name="listing_submit"),
     path('moji-oglasi/', views_dashboard.my_listings, name="listing_my_listings"),
     path('sacuvane-pretrage/', views_dashboard.saved_listings, name="listing_saved_listings"),
-    path('profil/', views_dashboard.profile, name="listing_profile"),
     path('poruke/', views_dashboard.messages, name="listing_messages"),
     path('omiljeni-oglasi/', views_dashboard.my_favorites, name="listing_my_favorites"),
     path('pregledi/', views_dashboard.my_views, name="listing_my_views"),
@@ -43,10 +42,10 @@ urlpatterns = [
     path('investitori/', views_agencies.investors_page, name="investors_page"),
     path('o-investitoru/', views_agencies.about_investor, name="about_investor"),
 
-    # News pages 
+    # News pages
     path('lista-vesti/', views_agencies.news_list, name='news_list'),
     path('otvorene-vesti/', views_agencies.open_news, name='open_news'),
-    
+
     # New_builds
     path('novogradnja/', views_agencies.new_builds, name='new_builds'),
     path('o-novogradnji/', views_agencies.about_newbuilds, name='about_newbuilds'),
