@@ -482,8 +482,8 @@
         document.querySelector('.footer').classList.add('sticky');
       }
 
-      if (nextStep === 3 && !mapInited) { 
-        initMap() 
+      if (nextStep === 3 && !mapInited) {
+        initMap()
         mapInited = true;
       }
     }
@@ -528,7 +528,7 @@
         maxFileSize: 1000000,
         minFileSize: 50000,
         maxTotalFileSize: null,
-        maxNumberOfFiles: 5,
+        maxNumberOfFiles: 15,
         minNumberOfFiles: 1,
         allowedFileTypes: ['image/*'],
         requiredMetaFields: [],
@@ -572,7 +572,7 @@
         maxFileSize: 1000000,
         minFileSize: 50000,
         maxTotalFileSize: null,
-        maxNumberOfFiles: 20,
+        maxNumberOfFiles: 1,
         minNumberOfFiles: 1,
         allowedFileTypes: ['image/*'],
         requiredMetaFields: [],
@@ -661,11 +661,11 @@ async function populateSubCategories(data) {
   } catch (error) {
     console.error(error);
   }
-  
+
 }
 
 
-    
+
 function selectCategory() {
   const subCatInput = document.getElementById('subcateg')
   const subCatValue = subCatInput.options[subCatInput.selectedIndex].innerHTML;
@@ -697,7 +697,7 @@ function categories() {
   document.getElementById('bedrooms-input').style.display = 'block'
   document.getElementById('parcel-input').style.display = 'block'
   document.getElementById('additional-input').style.display = 'block';
-  
+
   const categoryInput = document.getElementById('category')
   const category = categoryInput.options[categoryInput.selectedIndex].innerHTML;
 
@@ -784,7 +784,7 @@ async function showNeighbourhoods() {
 
   locationElement.innerHTML = ''
   municipalityElement.innerHTML = ''
-  
+
   const cityResponse = await fetch(`/oglasi/get-areas?city=${cityValue}`);
   const { areas, municipality } = await cityResponse.json();
 
