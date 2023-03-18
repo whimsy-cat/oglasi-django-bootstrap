@@ -1,5 +1,6 @@
 import random
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.timezone import now
 
@@ -95,8 +96,8 @@ def confirm_edit(request, pk):
                 listing_instance.images.add(dropbox)
 
         listing_instance.save()
-        
-        
+
+
         listing_chars, _ = ListingCharacteristics.objects.get_or_create(listing=listing_instance)
         listing_chars.size = to_type_or_none(request.POST['size'], float, 0.0)
         listing_chars.structure = to_type_or_none(request.POST.get('structure'), float, 0.0)
@@ -159,7 +160,7 @@ def my_listings(request):
     listing_data = sort_helper(request, listing_data)
 
     listings_paginated = pagination_helper(request, listing_data, 9)
-    
+
     context = {
         'listings': listings_paginated
     }
@@ -193,10 +194,6 @@ def my_favorites(request):
 
 def promote_listing(request):
     return render(request, 'dashboard_pages/promote_listing.html')
-
-
-def profile(request):
-    return render(request, 'dashboard_pages/profile.html')
 
 
 def subscription(request):
@@ -246,7 +243,7 @@ def submit(request):
     for image in request.POST.getlist('images[]'):
         dropbox = DropBox.objects.get(pk=image)
         listing_instance.images.add(dropbox)
-        
+
 
     listing_instance.save()
 

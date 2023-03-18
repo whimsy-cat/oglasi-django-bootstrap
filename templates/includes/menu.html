@@ -2,11 +2,11 @@
 <div class="og-container-40 {% if request.path == '/'%} center-absolute-header w-100 {% else %}  {% endif %}"  style="z-index: 5;height: 56px;">
   <div class="row m-0 header align-items-center non-printable-area justify-content-between">
     <div class="col-1 p-0 d-flex justify-content-start">
-      <a href="{% url 'home' %}"> 
+      <a href="{% url 'home' %}">
         <img class="logo p-2" style="margin-left: -11px;" src="{% static 'images/shared/logo.png' %}" height="56px" alt="logo">
       </a>
     </div>
-    <div class="col-9 d-flex flex-wrap align-items-center justify-content-center">
+    <div class="col-9 d-flex flex-wrap align-items-center justify-content-center flex-grow-1">
       <div class="hover-open" style="margin-right: 20px">
         <div class="d-flex align-items-center">
           <img class="my-1 mx-2" width="24" height="24" src="{% static 'images/shared/flag_srb_nav.png' %}" alt="language flag">
@@ -17,7 +17,7 @@
             <img class="mx-2 text-white" width="24" height="24" src="{% static 'images/icons/chevron-down-white.png' %}">
           {% endif %}
         </div>
-     
+
         <ul class="dropdown-menu" style="max-width: 128px; min-width: 0px !important;">
           <li class="pb-2 d-flex flex-row align-items-center justify-content-between">
             <div class="d-flex flex-row align-items-center">
@@ -35,14 +35,14 @@
           </li>
         </ul>
       </div>
-      
+
       <ul class="nav">
         <li class="px-2 hover-open">
           <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/' %} link-secondary {% elif request.path == '/' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Nekretnine
           </a>
           <ul class="dropdown-menu" id="subCategories">
-            
+
           </ul>
         </li>
         <li class="px-2 hover-open">
@@ -180,7 +180,7 @@ async function populateSubCategories() {
   let childOptions = parentCat.children.map(childCat => {
     return `<li><a class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${childCat.name}">${childCat.name}</a></li>`;
   }).join('');
-  subcategorySelect.innerHTML += 
+  subcategorySelect.innerHTML +=
     `<li class="dropdown-submenu">
       <a class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${parentCat.name}">${parentCat.name} > </a>
       <ul class="dropdown-menu">
@@ -191,7 +191,7 @@ async function populateSubCategories() {
   } catch (error) {
     console.error(error);
   }
-  
-}  
+
+}
 populateSubCategories()
 </script>

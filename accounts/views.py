@@ -2,13 +2,10 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.tokens import default_token_generator
 from django.contrib.sites.shortcuts import get_current_site
-from django.core.mail import send_mail
 from django.shortcuts import render, redirect
-from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
-from oglasi_app import settings
 from oglasi_app.mail import send_mailgun_mail
 from accounts.models import Account
 from django.urls import reverse
@@ -36,16 +33,16 @@ def register(request):
             if type == "1":
                 if not identification_number or not tax_id:
                     raise ValueError('PIB i Matični broj obavezni')
-                
+
                 if not address:
                     raise ValueError('Adresa je obavezan podatak')
 
             if password != confirm_password:
                 raise ValueError('Lozinke se ne poklapaju')
-            
+
             if not terms or not privacy:
                 raise ValueError('Molimo prihvatite pravila i uslove korištenja')
-            
+
             emailExists = Account.objects.filter(email=email)
             usernameExists = Account.objects.filter(username=username)
 
@@ -67,8 +64,8 @@ def register(request):
             )
             user.save()
             response_data = {'success': True}
-        
-            
+
+
             # User activation
             current_site = get_current_site(request)
             full_name = first_name + ' ' + last_name
@@ -79,9 +76,9 @@ def register(request):
                 "link": link
             }
             send_mailgun_mail(email, full_name, 'Verifikujte vaš nalog', 'email_verification', data)
-        
+
         except Exception as e:
-            response_data = {'success': False, 'error': str(e)} 
+            response_data = {'success': False, 'error': str(e)}
 
         return JsonResponse(response_data, safe=False)
 
@@ -185,3 +182,16 @@ def reset_password(request):
             return redirect('reset_password')
 
     return render(request, 'account_pages/reset_password.html')
+
+
+@login_required(login_url='login')
+def user_profile(request, username):
+    if request.method == 'PATCH':
+        # do something about profile update
+        return redirect(request.path_info)
+    else:
+        user = Account.objects.filter(username=username)
+        context = {
+            user: user
+        }
+        return render(request, "dashboard_pages/profile.html", context)
