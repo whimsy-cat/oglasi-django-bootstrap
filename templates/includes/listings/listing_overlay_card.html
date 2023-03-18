@@ -8,12 +8,12 @@
       <div class="col-12 mb-auto d-flex justify-content-between">
         <img src="{% static 'images/icons/star.svg' %}" 
         {% if request.GET.prikaz == 'mreža' %} height="24px" width="24px" 
-        {% elif '/oglasi/pregled' in request.path  %} height="20px" width="20px"
-        {% else %} height="22px" width="22px" 
+        {% elif '/oglasi/pregled' in request.path or '/vesti/' in request.path or '/blog/' %} height="20px" width="20px"
+        {% else %} height="20px" width="20px" 
         {% endif %} 
         style="margin: 12px 0px 0px 16px;" alt="Star">
         <div style="margin: 12px 16px 0px 0px;">
-          {% include 'includes/listing_helpers/like_compare.html' %}
+          {% include 'includes/listing_helpers/like.html' %}
         </div>
       </div>
         <a class="position-absolute w-100" style="text-decoration:none" href="{% url 'listing_profile' slug=listing.slug %}" {% if request.path == '/oglasi/' %}  onmouseover="onListingHover('{{ listing.id }}')" onmouseleave="onListingHover('{{ listing.id }}')" {% endif %}>

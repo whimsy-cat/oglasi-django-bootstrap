@@ -1,24 +1,9 @@
 {% load static %}
 <div class="col-5 d-flex justify-content-between align-items-center px-0">
-  {% if request.GET.prikaz != 'mreža' and request.GET.prikaz  != 'lista' %}
-  <button form="mainFiltersForm" class="me-3 blog-type btn btn-blue  d-flex justify-content-center  align-items-center" style="height: 40px;width: 144px;" type="submit">
+  <button form="mainFiltersForm" class="me-3 blog-type btn btn-blue  d-flex justify-content-center  align-items-center" style="height: 40px;width: 110px;" type="submit">
     Pretraži
     <img class="ms-2" src="{% static 'images/icons/search.svg' %}" style="filter: invert(100%) sepia(3%) saturate(370%) hue-rotate(321deg) brightness(112%) contrast(100%);" alt="O" height="20px" width="20px"/>
   </button>
-  {% endif %}
-  {% if request.GET.prikaz == 'mreža' or request.GET.prikaz  == 'lista' %}
-
-  <div class="d-flex justify-content-around mx-3">
-    <button onclick="resetQueryParams()" type="button" class="btn btn-sm p-0 border-0 d-flex align-items-center  save-reset" style="margin-right: 16px;">
-      Poništi
-      <img style="margin-left: 8px;" src="{% static 'images/icons/cancel.svg' %}" height="16px" width="16px" alt="Sort" width="17px"/>
-    </button>
-    <button type="button" class="btn btn-sm border-0 p-0 d-flex align-items-center save-reset">
-      Sačuvaj
-      <img style="margin-left: 8px;" src="{% static 'images/icons/save.svg' %}" alt="Sort" width="18px" height="18px" />
-    </button>
-  </div>
-  {% endif %}
 
    <!-- More filters modal -->
    <button class="btn btn-bg btn-blue border-0 blog-type d-flex justify-content-between align-items-center px-2" style="width: 144px!important ;height: 40px;"  type="button" aria-label="Default select example" onclick="openModal()" >
@@ -61,8 +46,6 @@
       </div>
     </div>
   </div>
-  {% if request.GET.prikaz != 'mreža' and request.GET.prikaz  != 'lista' %}
-
   <div class="d-flex justify-content-around mx-3">
     <button onclick="resetQueryParams()" type="button" class="btn btn-sm p-0 border-0 d-flex align-items-center  save-reset" style="margin-right: 16px;">
       Poništi
@@ -73,7 +56,6 @@
       <img style="margin-left: 8px;" src="{% static 'images/icons/save.svg' %}" alt="Sort" width="18px" height="18px" />
     </button>
   </div>
-  {% endif %}
 
 
     <!-- Change page view -->

@@ -4,7 +4,13 @@
 
   <div class="row w-100">
     <div class="dropdown col-2 ps-0 ">
-      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <input type="text" list="country" class="form-control input-location placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+          <datalist id="country">
+            {% for loc in cities %}
+              <option value="{{ loc.city }}">
+            {% endfor %}
+          </datalist>
+      <!-- <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Grad
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
@@ -17,10 +23,13 @@
             {% endfor %}
           </datalist>        
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="dropdown col-2 px-2">
-      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+          <datalist id="neighbourhoods">
+          </datalist>
+      <!-- <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Lokacija
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
@@ -30,10 +39,10 @@
             <datalist id="location">
             </datalist>       
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="col-2 px-2 dropdown" id="myDropdown">
-      <button class="dropbtn btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="tip" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="dropbtn btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="tip" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Tip
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
@@ -57,46 +66,46 @@
     </div>
     
     <div class="dropdown col-2 px-2">
-      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Cena
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
       <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-        <div class="d-flex px-2" style="width: 230px;">
-          <input type="text" class="form-control me-2 text-center height-28 detail-input-placeholders" value="{{request.GET.min_price}}" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="od" aria-describedby="titleHelp">
-          <input type="text" class="form-control text-center height-28 detail-input-placeholders" value="{{request.GET.max_price}}" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
+        <div class="d-flex px-2 align-items-center" style="width: 230px;height: 52px;">
+          <input type="text" class="form-control me-2 text-center  detail-input-placeholders" style="height: 40px;" value="{{request.GET.min_price}}" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="od" aria-describedby="titleHelp">
+          <input type="text" class="form-control text-center  detail-input-placeholders" style="height: 40px;" value="{{request.GET.max_price}}" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
         </div>
       </div>
     </div>
     <div class="dropdown col-2 px-2">
-      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40x!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Površina
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
       <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-        <div class="d-flex px-2" style="width: 230px;">
-          <input type="text" class="form-control me-2 text-center height-28 detail-input-placeholders" value="{{request.GET.min_size}}" id="min_size" name="min_size"  placeholder="od" aria-describedby="titleHelp">
-          <input type="text" class="form-control text-center height-28 detail-input-placeholders" value="{{request.GET.max_size}}" id="max_size" name="max_size"placeholder="do" aria-describedby="titleHelp">
+        <div class="d-flex px-2 align-items-center" style="width: 230px;height: 52px;">
+          <input type="text" class="form-control me-2 text-center  detail-input-placeholders" style="height: 40px;" value="{{request.GET.min_size}}" id="min_size" name="min_size"  placeholder="od" aria-describedby="titleHelp">
+          <input type="text" class="form-control text-center  detail-input-placeholders" style="height: 40px;" value="{{request.GET.max_size}}" id="max_size" name="max_size"placeholder="do" aria-describedby="titleHelp">
         </div>
       </div>
     </div>
     <div class="col-2 pe-0 ps-2">
       <div class="dropdown">
-        <button class="btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiSelectDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn border d-flex justify-content-between align-items-center w-100" style="height: 40px;"  type="button" id="multiSelectDropdown" data-bs-toggle="dropdown" aria-expanded="false">
           Struktura 
           <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
         </button>
         <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiSelectDropdown">
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garsonjera">Garsonjera <div class="px-2">0.5</div></label><input class="form-check-input" {% if '0.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="0.5" id="garsonjera"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednosoban">Jednosoban <div class="px-2">1.0</div></label><input class="form-check-input" {% if '1' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1" id="jednosoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednoiposoban">Jednoiposoban <div class="px-2">1.5</div> </label><input class="form-check-input" {% if '1.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1.5" id="jednoiposoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvosoban">Dvosoban <div class="px-2">2.0</div> </label><input class="form-check-input" {% if '2' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2" id="dvosoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvoiposoban">Dvoiposoban <div class="px-2">2.5</div> </label><input class="form-check-input" {% if '2.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2.5" id="dvoiposoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="trosoban">Trosoban <div class="px-2">3.0</div> </label><input class="form-check-input" {% if '3' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3" id="trosoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="troiposoban">Troiposoban <div class="px-2">3.5</div> </label><input class="form-check-input" {% if '3.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3.5" id="troiposoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvorosoban">Četvorosoban <div class="px-2">4.0</div> </label><input class="form-check-input" {% if '4' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4" id="četvorosoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvoroiposoban">Četvoroiposoban <div class="px-2">4.5</div> </label><input class="form-check-input" {% if '4.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4.5" id="četvoroiposoban"></li>
-          <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="petosoban">Petosoban i veći <div class="px-2">5.0</div> </label><input class="form-check-input" {% if '5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="5" id="petosoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garsonjera">Garsonjera <div class="px-2">0.5</div></label><input class="form-check-input border-0" {% if '0.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="0.5" id="garsonjera"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednosoban">Jednosoban <div class="px-2">1.0</div></label><input class="form-check-input border-0" {% if '1' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1" id="jednosoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednoiposoban">Jednoiposoban <div class="px-2">1.5</div> </label><input class="form-check-input border-0" {% if '1.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1.5" id="jednoiposoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvosoban">Dvosoban <div class="px-2">2.0</div> </label><input class="form-check-input border-0" {% if '2' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2" id="dvosoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvoiposoban">Dvoiposoban <div class="px-2">2.5</div> </label><input class="form-check-input border-0" {% if '2.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2.5" id="dvoiposoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="trosoban">Trosoban <div class="px-2">3.0</div> </label><input class="form-check-input border-0" {% if '3' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3" id="trosoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="troiposoban">Troiposoban <div class="px-2">3.5</div> </label><input class="form-check-input border-0" {% if '3.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3.5" id="troiposoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvorosoban">Četvorosoban <div class="px-2">4.0</div> </label><input class="form-check-input border-0" {% if '4' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4" id="četvorosoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvoroiposoban">Četvoroiposoban <div class="px-2">4.5</div> </label><input class="form-check-input border-0" {% if '4.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4.5" id="četvoroiposoban"></li>
+          <li class="p-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="petosoban">Petosoban i veći <div class="px-2">5.0</div> </label><input class="form-check-input border-0" {% if '5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="5" id="petosoban"></li>
         </ul>
       </div>
     </div>
@@ -238,27 +247,20 @@ function getParams() {
     }
   });
 }
+const locationElement = document.getElementById('neighbourhoods');
+    async function showNeighbourhoods() {
+      const city = document.getElementById('location').value;
+      locationElement.innerHTML = ''
+      
+      const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
+      const {areas} = await response.json();
 
-const locationElement = document.getElementById('location');
-async function showNeighbourhoods() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const city = urlParams.get('grad');
-  const locationParam = urlParams.get('lokacija');
-
-  if (city) {
-    locationElement.innerHTML = '';
-    
-    const response = await fetch(`/oglasi/get-areas-distinct?city=${city}`);
-    const { areas } = await response.json();
-
-    locationElement.innerHTML = `
-      <option value="" selected disabled>Lokacija</option>
-      ${areas.map((el) => `
-        <option value="${el.area}" ${el.area === locationParam ? 'selected' : ''}>${el.area_distinct}</option>
-      `).join('')}
-    `;
-  }
-}
+      locationElement.innerHTML = `
+        ${areas.map((el) => `
+          <option value="${el.area}" >${el.area_distinct}</option>
+        `).join('')}
+      `;
+    }
 
 showNeighbourhoods();
 getParams()

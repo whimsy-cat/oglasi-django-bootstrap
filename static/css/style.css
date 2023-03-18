@@ -394,6 +394,15 @@ ul.pagination {
   border-bottom: 2px #F66C6C solid;
   color: #F66C6C!important;
 }
+
+.maplibregl-popup  {
+  border: none !important;
+}
+
+.mapboxgl-popup-content, .maplibregl-popup-content {
+  border: none !important;
+}
+
 @media print {
   .non-printable-area {
     display: none;

@@ -90,6 +90,8 @@ class ListingCharacteristics(models.Model):
     efficiency = models.CharField(null=False, max_length=50)
     efficiency_index = models.CharField(null=False, max_length=50)
     additional = models.CharField(default=None, null=False, max_length=50)
+    set_up = models.CharField(null=True, max_length=50)
+
 
     def __str__(self):
         return self.listing.title

@@ -1,6 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from listings.models import ListingPrice
-from django.db.models import Q, Subquery, OuterRef
+from django.db.models import Q, Subquery, OuterRef, FloatField 
+from django.db.models.functions import Cast
 
 
 # Sort listings
@@ -155,7 +156,10 @@ def query_params_helper(request, listing_data):
         listing_data = listing_data.filter(Q(category__name=query_category) | Q(category__parent__name=query_category))
    
     if query_structure:
-        listing_data = listing_data.filter(listingcharacteristics__structure__in=query_structure)
+        if query_structure == '5' or query_structure == 5:
+            listing_data = listing_data.annotate(str=Cast('listingcharacteristics__structure', FloatField())).filter(str__gte=5)
+        else:
+            listing_data = listing_data.filter(listingcharacteristics__structure__in=query_structure)
 
     if query_details_amenities:
         detailsParam = query_details_amenities.split('_')[0]

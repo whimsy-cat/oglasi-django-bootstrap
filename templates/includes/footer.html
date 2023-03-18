@@ -50,22 +50,22 @@
           <h5 class="footer-title">Pratite nas</h5>
           <div class="d-flex justify-content-between social-buttons">
             <a class="" href="">
-              <img src="{% static 'images/icons/facebook.svg' %}" alt="...">
+              <img id="facebook" src="{% static 'images/icons/facebook.svg' %}" alt="..." height="32px" width="32px">
             </a>
             <a class="" href="">
-              <img src="{% static 'images/icons/instagram.svg' %}" alt="...">
+              <img id="instagram" src="{% static 'images/icons/instagram.svg' %}" alt="..." height="32px" width="32px">
             </a>
             <a class="" href="">
-              <img src="{% static 'images/icons/youtube.svg' %}" alt="...">
+              <img id="youtube" src="{% static 'images/icons/youtube.svg' %}" alt="..." height="32px" width="32px">
             </a>
             <a class="" href="">
-              <img src="{% static 'images/icons/linkedin.svg' %}" alt="...">
+              <img id="linkedin" src="{% static 'images/icons/linkedin.svg' %}" alt="..." height="32px" width="32px">
             </a>
             <a class="" href="">
-              <img src="{% static 'images/icons/email.svg' %}" alt="...">
+              <img id="email_pic" src="{% static 'images/icons/email.svg' %}" alt="..." height="32px" width="32px">
             </a>
             <a class="" href="">
-              <img src="{% static 'images/icons/phone-call.svg' %}" alt="...">
+              <img id="phone_call" src="{% static 'images/icons/phone-call.svg' %}" alt="..." height="32px" width="32px">
             </a>
           </div>
         </form>
@@ -82,3 +82,28 @@
     </div>
   </footer>
 </section>
+<script>
+  const icons = [
+  { element: document.getElementById('facebook'), src: '{% static "images/icons/facebook_hover.svg" %}' },
+  { element: document.getElementById('instagram'), src: '{% static "images/icons/instagram_hover.svg" %}' },
+  { element: document.getElementById('youtube'), src: '{% static "images/icons/youtube_hover.svg" %}' },
+  { element: document.getElementById('linkedin'), src: '{% static "images/icons/linkedin_hover.svg" %}' },
+  { element: document.getElementById('email_pic'), src: '{% static "images/icons/email_hover.svg" %}' },
+  { element: document.getElementById('phone_call'), src: '{% static "images/icons/phone-call_hover.svg" %}' }
+];
+
+icons.forEach(icon => {
+  const { element, src } = icon;
+  const originalSrc = element.src;
+  
+  element.addEventListener('mouseover', () => {
+    element.src = src;
+
+  });
+  
+  element.addEventListener('mouseout', () => {
+    element.src = originalSrc;
+
+  });
+});
+</script>

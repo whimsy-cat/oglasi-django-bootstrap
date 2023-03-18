@@ -116,6 +116,7 @@ def confirm_edit(request, pk):
         listing_chars.efficiency = request.POST.get('efficiency')
         listing_chars.efficiency_index = request.POST.get('efficiency_index')
         listing_chars.additional = request.POST.get('additional')
+        listing_chars.set_up = request.POST.get('set_up')
         listing_chars.save()
 
         # Update the listing details
@@ -268,7 +269,8 @@ def submit(request):
         condition=request.POST.get('condition'),
         efficiency=request.POST.get('efficiency'),
         efficiency_index=request.POST.get('efficiency_index'),
-        additional=request.POST.get('additional')
+        additional=request.POST.get('additional'),
+        set_up=request.POST.get('set_up')
     )
     listing_chars.save()
 

@@ -138,7 +138,7 @@
       </ul>
       {% if user.id is not None %}
         <div class="hover-open">
-          <a href="#" class="nav-link d-block link-light text-decoration-none dropdown-toggle"
+          <a href="#" class="nav-link d-block text-decoration-none dropdown-toggle {% if request.resolver_match.url_name == 'home' %} text-white {% endif %}"
             data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
                 class="rounded-circle ms-3 me-1">
