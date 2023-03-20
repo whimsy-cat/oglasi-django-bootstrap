@@ -66,13 +66,12 @@ def query_params_helper(request, listing_data):
     min_size = int(float(min_size.replace(',', ''))) if min_size else None
     max_size = int(float(max_size.replace(',', ''))) if max_size else None
 
-    query_grejanje = request.GET.get('grejanje')
-    query_setup = request.GET.get('set-up')
-    query_acctype = request.GET.get('acc-type')
-
+    query_grejanje = request.GET.getlist('grejanje')
+    query_setup = request.GET.getlist('set-up')
+    query_acctype = request.GET.getlist('acc-type')
 
     if query_acctype:
-        listing_data = listing_data.filter(posted_by__type=query_acctype)
+        listing_data = listing_data.filter(posted_by__type__in=query_acctype)
   
     if query_setup:
         listing_data = listing_data.filter(listingcharacteristics__set_up__in=query_setup)
@@ -81,8 +80,7 @@ def query_params_helper(request, listing_data):
         listing_data = listing_data.filter(title=query_search)
 
     if query_grejanje:
-        listing_data = listing_data.filter(
-            listingdetails__detail__name=query_grejanje)
+        listing_data = listing_data.filter(listingdetails__detail__name__in=query_grejanje)
         
     if query_price:
         latest_listing_prices = ListingPrice.objects.filter(listing=OuterRef('pk')).order_by('-timestamp')[:1]
@@ -162,8 +160,8 @@ def query_params_helper(request, listing_data):
         listing_data = listing_data.filter(Q(category__name=query_category) | Q(category__parent__name=query_category))
    
     if query_structure:
-        if query_structure == '5' or query_structure == 5:
-            listing_data = listing_data.annotate(str=Cast('listingcharacteristics__structure', FloatField())).filter(str__gte=5)
+        if '5' in query_structure:
+            listing_data = listing_data.annotate(str=Cast('listingcharacteristics__structure', FloatField())).filter(Q(str__gte=5) | Q(listingcharacteristics__structure__in=query_structure))
         else:
             listing_data = listing_data.filter(listingcharacteristics__structure__in=query_structure)
 

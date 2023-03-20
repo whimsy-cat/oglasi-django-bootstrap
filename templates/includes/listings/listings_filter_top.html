@@ -4,7 +4,7 @@
 
   <div class="row w-100">
     <div class="dropdown col-2 ps-0 ">
-      <input type="text" list="country" class="form-control input-location placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+      <input type="text" list="country" class="form-control input-location placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()" value="{{ request.GET.grad }}">
           <datalist id="country">
             {% for loc in cities %}
               <option value="{{ loc.city }}">
@@ -26,7 +26,7 @@
       </div> -->
     </div>
     <div class="dropdown col-2 px-2">
-      <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+      <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija" value="{{ request.GET.lokacija }}">
           <datalist id="neighbourhoods">
           </datalist>
       <!-- <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,7 +43,11 @@
     </div>
     <div class="col-2 px-2 dropdown" id="myDropdown">
       <button class="dropbtn btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="tip" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Tip
+        {% if request.GET.tip %}
+        <div class="text-nowrap" style="overflow: hidden;">{{ request.GET.tip }} </div>
+        {% else %}
+        <div>Tip</div>
+        {% endif %}
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
       <div class="dropdown-content bg-white border rounded text-nowrap" style="width:fit-content;">
@@ -67,7 +71,11 @@
     
     <div class="dropdown col-2 px-2">
       <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Cena
+        {% if request.GET.min_price or request.GET.max_price %}
+        <div class="text-nowrap" style="overflow: hidden;">{{ request.GET.min_price }} - {{ request.GET.max_price }} EUR</div>
+        {% else %}
+        <div>Cena</div>
+        {% endif %}
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
       <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
@@ -79,7 +87,11 @@
     </div>
     <div class="dropdown col-2 px-2">
       <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Površina
+        {% if request.GET.min_size or request.GET.max_size %}
+        <div class="text-nowrap" style="overflow: hidden;">{{ request.GET.min_size }} - {{ request.GET.max_size }} m2</div>
+        {% else %}
+        <div>Površina</div>
+        {% endif %}
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
       <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
@@ -92,7 +104,13 @@
     <div class="col-2 pe-0 ps-2">
       <div class="dropdown">
         <button class="btn border d-flex justify-content-between align-items-center w-100" style="height: 40px;"  type="button" id="multiSelectDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          Struktura 
+          {% if request.GET.struktura %}
+          <div class="text-nowrap" id="strukturaValue" style="overflow: hidden;">
+           
+          </div>
+          {% else %}
+          <div>Struktura</div>
+          {% endif %} 
           <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
         </button>
         <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiSelectDropdown">
@@ -247,6 +265,23 @@ function getParams() {
     }
   });
 }
+
+function getStrukturaParams() {
+  const strukturaParamValues = new URL(window.location.href).searchParams.getAll("struktura");
+  const holder = document.getElementById('strukturaValue');
+  if (strukturaParamValues) {
+    if (strukturaParamValues.length == 1) {
+      holder.innerText = '1 izabrana';
+    } else if (strukturaParamValues.length > 4) {
+      holder.innerText = `${strukturaParamValues.length} izabranih`;
+    } else {
+      holder.innerText = `${strukturaParamValues.length} izbrane`;
+    }
+  }
+}
+
+getStrukturaParams();
+
 const locationElement = document.getElementById('neighbourhoods');
     async function showNeighbourhoods() {
       const city = document.getElementById('location').value;
