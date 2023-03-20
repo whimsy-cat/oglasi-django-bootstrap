@@ -695,7 +695,51 @@ function selectCategory() {
   if (subCatValue == 'Stan' || subCatValue == 'Apartman' || subCatValue == 'Soba' ) {
     document.getElementById('parcel-input').style.display = 'none'
   } else {
-    document.getElementById('parcel-input').style.display = 'block'
+    document.getElementById('parcel-input').style.visibility = 'visible'
+  }
+}
+function categories() {
+  const category = document.getElementById('category').value
+  if (category == 2 ) {
+    document.getElementById('size-input').style.display = 'none'
+    document.getElementById('floor-input').style.display = 'none'
+    document.getElementById('balcony-input').style.display = 'none'
+    document.getElementById('structure-input').style.display = 'none'
+    document.getElementById('total_floors-input').style.display = 'none'
+    document.getElementById('storage-input').style.display = 'none'
+    document.getElementById('condition-input').style.display = 'none'
+    document.getElementById('year_built-input').style.display = 'none'
+    document.getElementById('bedrooms-input').style.display = 'none'
+    document.getElementById('basement-input').style.display = 'none'
+    document.getElementById('efficiency-input').style.display = 'none'
+    document.getElementById('parking-input').style.display = 'none'
+    document.getElementById('baths-input').style.display = 'none'
+    document.getElementById('efficiency_index-input').style.display = 'none'
+    document.getElementById('parking_slots-input').style.display = 'none'
+    document.getElementById('half_baths-input').style.display = 'none'
+    document.getElementById('set_up-input').style.display = 'none'
+  } else if (category == 3 ) {
+    document.getElementById('bedrooms-input').style.visibility = 'hidden'
+  } else {
+    document.getElementById('size-input').style.display = 'block'
+    document.getElementById('floor-input').style.display = 'block'
+    document.getElementById('balcony-input').style.display = 'block'
+    document.getElementById('structure-input').style.display = 'block'
+    document.getElementById('total_floors-input').style.display = 'block'
+    document.getElementById('storage-input').style.display = 'block'
+    document.getElementById('condition-input').style.display = 'block'
+    document.getElementById('year_built-input').style.display = 'block'
+    document.getElementById('bedrooms-input').style.display = 'block'
+    document.getElementById('basement-input').style.display = 'block'
+    document.getElementById('efficiency-input').style.display = 'block'
+    document.getElementById('parking-input').style.display = 'block'
+    document.getElementById('baths-input').style.display = 'block'
+    document.getElementById('efficiency_index-input').style.display = 'block'
+    document.getElementById('parking_slots-input').style.display = 'block'
+    document.getElementById('half_baths-input').style.display = 'block'
+    document.getElementById('set_up-input').style.display = 'block'
+    document.getElementById('bedrooms-input').style.visibility = 'visible'
+    document.getElementById('parcel-input').style.visibility = 'visible'
   }
 }
 

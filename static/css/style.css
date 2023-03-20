@@ -229,6 +229,12 @@ h1, h2, h3, h4, h5, h6,
 .shadow-caroseul-controls {
   background-color: #00000020;
 }
+/*Dashbord profile*/
+.listing-sub-card {
+  font-weight: 700;
+  font-size: 14px;
+}
+
 /*Dropdown menu*/
 .dropdown-content {
   display: none;
@@ -252,7 +258,6 @@ h1, h2, h3, h4, h5, h6,
 .dropdown-submenu .dropdown-menu {
   top: 0;
   left: 100%;
-  margin-top: -8px;
   min-width: 202px;
 }
 .hoverGalery:hover {

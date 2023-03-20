@@ -73,6 +73,8 @@
                       <label for="category" class="form-label blog-type">Kategorija</label>
                       <select class="form-select border-radius-10 height-40px description-inputs" id="category" required onchange="categories(); populateSubCategories(this) ">
                         <option value="" >Izaberite kategoriju</option>
+                      <select class="form-select border-radius-10 height-40px description-inputs" id="category" required onchange="categories(); populateSubCategories(this) ">
+                        <option value="" >Izaberite kategoriju</option>
                         {% for categ in categories %}
                           {% if categ.parent is None %}
                             <option value="{{ categ.id }}">{{ categ.name }}</option>
@@ -672,7 +674,26 @@ function selectCategory() {
   if (subCatValue == 'Stan' || subCatValue == 'Apartman' || subCatValue == 'Soba' ) {
     document.getElementById('parcel-input').style.display = 'none'
   } else {
-    document.getElementById('parcel-input').style.display = 'block'
+    document.getElementById('size-input').style.display = 'block'
+    document.getElementById('floor-input').style.display = 'block'
+    document.getElementById('balcony-input').style.display = 'block'
+    document.getElementById('structure-input').style.display = 'block'
+    document.getElementById('total_floors-input').style.display = 'block'
+    document.getElementById('storage-input').style.display = 'block'
+    document.getElementById('condition-input').style.display = 'block'
+    document.getElementById('year_built-input').style.display = 'block'
+    document.getElementById('bedrooms-input').style.display = 'block'
+    document.getElementById('basement-input').style.display = 'block'
+    document.getElementById('efficiency-input').style.display = 'block'
+    document.getElementById('parking-input').style.display = 'block'
+    document.getElementById('baths-input').style.display = 'block'
+    document.getElementById('efficiency_index-input').style.display = 'block'
+    document.getElementById('parking_slots-input').style.display = 'block'
+    document.getElementById('half_baths-input').style.display = 'block'
+    document.getElementById('set_up-input').style.display = 'block'
+    document.getElementById('bedrooms-input').style.visibility = 'visible'
+    document.getElementById('parcel-input').style.visibility = 'visible'
+
   }
 }
 function categories() {
