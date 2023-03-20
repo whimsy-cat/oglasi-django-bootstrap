@@ -63,7 +63,7 @@
             {% else %}
               <img id="like_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}'); location.reload()">
             {% endif %}
-                    <!-- TODO:  <img class="shadow rounded p-2 mx-2  hover-icons" src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" > -->
+              <img id="compare_on_hover" class="shadow rounded p-2 mx-2  hover-icons" src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" >
         <img id="share_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <img id="print_on_hover" class="shadow rounded p-2 ms-2 hover-icons" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
@@ -329,10 +329,13 @@
 <script>
   const share = document.getElementById('share_on_hover');
   const prints = document.getElementById('print_on_hover');
+  const compare = document.getElementById('compare_on_hover');
   const shareSrc = share.src;
   const printSrc = prints.src;
+  const compareSrc = compare.src;
   const newShare = '{% static "images/icons/share_hover.svg" %}';
   const newPrints = '{% static "images/icons/print_on_hover.svg" %}';
+  const newCompare = '{% static "images/icons/compare_on_hover.svg" %}';
   
 share.addEventListener('mouseover', function() {
   share.src = newShare;
@@ -345,6 +348,12 @@ prints.addEventListener('mouseover', function() {
 })
 prints.addEventListener('mouseout', function() {
   prints.src = printSrc
+});
+compare.addEventListener('mouseover', function() { 
+  compare.src = newCompare
+})
+compare.addEventListener('mouseout', function() {
+  compare.src = compareSrc
 });
 if (document.getElementById('like_on_hover')) {
   const like = document.getElementById('like_on_hover');

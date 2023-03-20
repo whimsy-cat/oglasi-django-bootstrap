@@ -18,7 +18,7 @@
   <div class="d-flex flex-column justify-content-between" style="height: 288px;padding: 12px 12px 4px 12px;">
     <div class="d-flex justify-content-between ">
       <p class="card-text blog-title pe-5">{{ listing.title|truncatechars:70 }}</p>
-      {% include 'includes/listing_helpers/like_compare.html' %}
+      {% include 'includes/listing_helpers/like.html' %}
     </div>
     <div class="d-flex justify-content-between align-items-center ">
       <small class="city-location">{{ listing.city }}, {{ listing.municipality}}</small>

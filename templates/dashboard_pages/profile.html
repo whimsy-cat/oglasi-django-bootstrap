@@ -7,21 +7,22 @@
 
 {% block content %}
 
-<section class="create-listing p-2 flex-shrink-0">
-  <div class="container-fluid margin-container">
-    <div class="row align-items-center" style="height: 46px;">
+  <div class="og-container">
+    <div class="row align-items-center" style="height: 40px;">
       <div class="col-2 d-flex justify-content-center fs-5 fw-bold">
-        Dobrodošao/la/
+        Dobrodošao/la
       </div>
-      </div>
+    </div>
     <div class="row ">
         {% include 'includes/profile_sidebar.html' %}
       <div class="col m-0 p-0">
-        <div class="row m-0">
-          <div class="col-9">
-                {% include 'includes/dashboard/profile_card.html' %}
+        <div class="row w-100 h-100">
+          <div class="col px-4">
+            {% for listing in listings|slice:'1' %}
+              {% include 'includes/dashboard/profile_card.html' %}
+            {% endfor %}
             <div class="row mt-4">
-              <div class="col">
+              <div class="col ps-0">
                 <div class="shadow rounded pt-3 ps-3">
                   <h5>
                     Poruke:
@@ -49,7 +50,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col">
+              <div class="col pe-0">
                 <div class="shadow rounded">
                   <div class="d-flex  justify-content-between align-items-center px-3 pt-3 border-bottom">
                     <h5>
@@ -70,15 +71,15 @@
               </div>
             </div>
           </div>
-          <div class="col-3 d-flex flex-column justify-content-between">
+          <div class="p-0 d-flex flex-column justify-content-between" style="width: 206px;">
             {% include 'includes/dashboard/listing_profile_views.html' %}
           </div>
-          <div class="col">
+          <div class="col mt-4 ps-4 pe-0">
             {% include 'includes/dashboard/subscription_card.html' %}
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
 {% endblock %}
+

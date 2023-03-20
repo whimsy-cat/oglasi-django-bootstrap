@@ -1,62 +1,56 @@
 {% load static %}
-<div class="d-flex shadow rounded flex-row" >
-  <div id="carouselExampleControls" class="carousel slide col-6" data-bs-ride="carousel">
-    <div class="carousel-inner rounded-start w-100">
-      <div class="carousel-item active">
-        <div style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 270px;"></div>
-      </div>
-      <div class="carousel-item">
-        <div style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 270px;"></div>
-      </div>
-      <div class="carousel-item">
-        <div style="background: center / cover no-repeat url('/static/images/placeholders/apt1.jpg');height: 270px;"></div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-  </div>
-  <div class="d-flex justify-content-between flex-column px-3 py-2">
-    <h6 class="fw-bold mb-4">Novogradnja, New Minel, Tosin Bunar</h6>
-    <p class="text-black-50">Beograd, Novi Beograd, Blok 60</p>
-    <div class="d-flex">
-      <div class="text-small">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
-        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...
-      </div>
-      <div class="d-flex flex-column ms-3">
-        <div class="d-flex justify-content-end my-4"> 
-            <img class="me-2" src="{% static 'images/shared/actionitem-compare.svg' %}" alt="Compare item" width="21px">
-            <img src="{% static 'images/icons/hearth.svg' %}" alt="Compare item" width="25px">
+
+{% block content %}
+
+<div class="row mb-4 shadow rounded" {% if request.path == '/oglasi/o-agenciji/' %} style="height: 290px ;" {% else %} style="height: 269px ;"{% endif %}>
+  <div class="col-6 p-0" >
+    <div id="carouselExampleControls{{listing.id}}" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner rounded-start w-100">
+        {% for listing in listing.images.all %}
+        <div class="carousel-item  {% if forloop.counter == 1 %} active {% endif %}">
+          <div style="max-width: 492px!important;background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.file }}');{% if request.path == '/oglasi/o-agenciji/' %}height: 290px; {% else %} height: 269px{% endif %}">
+            <img src="{% static 'images/icons/star.svg' %}" height="24px" width="24px" onclick="favoriteHandler()" class="m-2 position-absolute" alt="Star" style="z-index: 2;">
+          </div>
         </div>
-        <div class="text-nowrap fw-bold fs-6">10.300.000 eur</div>
+        {% endfor %}
       </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls{{listing.id}}" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls{{listing.id}}" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
-    <div class="d-flex justify-content-between">
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <img class="mb-1" src="{% static 'images/shared/item-apartment.svg' %}" alt="Compare item" width="24px">
-          Stan
+  </div>
+  <div class="col-6 d-flex" style="padding: 12px 16px 8px 16px;">
+    <div class="d-flex flex-column justify-content-between w-75 pe-5">
+      <h6 class="my-listing-price mb-4">{{listing.title}}</h6>
+      <p class="city-location">{{listing.city}}, {{listing.municipality}}</p>
+      <div class="fs-6 blog-description-date text-justify" style="height: 121px;">
+          {{listing.description|truncatechars:150}}
       </div>
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <img class="mb-1" src="{% static 'images/shared/item-area.svg' %}" alt="Compare item" width="24px">
-          80m2
+      {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
+    </div>
+    <div class="d-flex flex-column justify-content-between ms-2 w-25">
+      <div>
+        <div style="background: center / contain no-repeat url('/static/images/placeholders/zidart.jpg');height: 110px;"></div>
       </div>
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <img class="mb-1" src="{% static 'images/shared/item-floormap.svg' %}" alt="Compare item" width="24px">
-          3.0
+      <div class="d-flex justify-content-end ms-3">
+        {% include 'includes/listing_helpers/compare.html' %}
+        {% include 'includes/listing_helpers/like.html' %}
       </div>
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <img class="mb-1" src="{% static 'images/shared/item-parking.svg' %}" alt="Compare item" width="24px">
-          Parking
-      </div>
-      <div class="d-flex justify-content-center align-items-center">
-        <div class="border border-info text-info p-2 rounded fs-6">
+      <div class="text-nowrap fw-bold fs-6 d-flex justify-content-end" id="money{{listing.id}}" ></div>
+      <a class="d-flex justify-content-end" style="text-decoration:none;margin-bottom: 8px;" href="{% url 'listing_profile' slug=listing.slug %}">
+        <div class="my-favorute-card-button rounded d-flex justify-content-center align-items-center" style="height: 40px;width: 100px;">
           Detaljnije
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </div>
+{% endblock %}
+<script>
+
+  document.getElementById("money{{listing.id}}").innerHTML = new Intl.NumberFormat('de-DE', {minimumFractionDigits: 2}).format({{listing.price}}) + ' eur'   
+
+</script>

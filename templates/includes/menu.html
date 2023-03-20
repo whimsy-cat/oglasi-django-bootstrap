@@ -41,7 +41,7 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/' %} link-secondary {% elif request.path == '/' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Nekretnine
           </a>
-          <ul class="dropdown-menu" id="subCategories">
+          <ul class="dropdown-menu p-0" id="subCategories">
             
           </ul>
         </li>
@@ -49,7 +49,7 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'new_builds'  %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Novogradnja
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" style="min-width: 118px!important; min-height: 136px;">
             <li>
               <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == 'project_list' %} link-secondary {% endif %}">Projekti</a>
             </li>
@@ -58,16 +58,16 @@
             </li>
           </ul>
         </li>
-        <li class="px-2 hover-open">
+        <li class="px-2 hover-open" >
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'blog_list'  %} link-secondary  {% elif request.resolver_match.url_name == 'home' %} text-white  {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Vesti
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu p-0" style="min-width: fit-content!important;min-height: 136px;">
             <li>
-              <a href="{% url 'news_list' %}" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == 'news_list' %} link-secondary {% endif %}">Vesti</a>
+              <a href="{% url 'news_list' %}" style="padding: 8px 12px 4px 12px;" class="font-weight-600 nav-link nav-hover  {% if request.resolver_match.url_name == 'news_list' %} link-secondary {% endif %}">Vesti</a>
             </li>
             <li>
-              <a href="{% url 'blog_list' %}" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == 'blog_list' %} link-secondary {% endif %}">Blog</a>
+              <a href="{% url 'blog_list' %}" style="padding: 4px 12px 16px 12px;" class="font-weight-600 nav-link nav-hover  {% if request.resolver_match.url_name == 'blog_list' %} link-secondary {% endif %}">Blog</a>
             </li>
           </ul>
         </li>
@@ -75,18 +75,18 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'investors_page' or request.resolver_match.url_name == 'agencies_page' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Oglašavanje
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu p-0" style="min-width:110px;">
             <li>
-              <a href="{% url 'agencies_page' %}" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == 'agencies_page' %} link-secondary {% endif %}">Agencije</a>
+              <a href="{% url 'agencies_page' %}" style="padding: 8px 12px 4px 12px;" class="font-weight-600 nav-link nav-hover {% if request.resolver_match.url_name == 'agencies_page' %} link-secondary {% endif %}">Agencije</a>
             </li>
             <li>
-              <a href="{% url 'investors_page' %}" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == 'investors_page' %} link-secondary {% endif %}">Investitori</a>
+              <a href="{% url 'investors_page' %}" style="padding: 4px 12px;" class="font-weight-600 nav-link nav-hover {% if request.resolver_match.url_name == 'investors_page' %} link-secondary {% endif %}">Investitori</a>
             </li>
             <li>
-              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '###pravna lica###' %} link-secondary {% endif %}">Pravna lica</a>
+              <a href="#" style="padding: 4px 12px;" class="font-weight-600 nav-link nav-hover {% if request.path == '###pravna lica###' %} link-secondary {% endif %}">Pravna lica</a>
             </li>
             <li>
-              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '###banke###' %} link-secondary {% endif %}">Banke</a>
+              <a href="#" style="padding: 4px 12px 16px 12px;" class="font-weight-600 nav-link nav-hover {% if request.path == '###banke###' %} link-secondary {% endif %}">Banke</a>
             </li>
           </ul>
         </li>
@@ -95,24 +95,24 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/o-nama/' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Info
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu p-0">
             <li>
-              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2">Cenovnik</a>
+              <a href="#" style="padding: 8px 12px 4px 12px;"  class="font-weight-600 nav-link nav-hover">Cenovnik</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=kontakt" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'kontakt' %} link-secondary {% endif %}">Kontakt</a>
+              <a href="{% url 'about_us' %}?selected=kontakt" style="padding: 4px 12px 4px 12px;" class="font-weight-600 nav-link nav-hover {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'kontakt' %} link-secondary {% endif %}">Kontakt</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=onama" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'onama' %} link-secondary {% endif %}">O nama</a>
+              <a href="{% url 'about_us' %}?selected=onama" style="padding: 4px 12px;" class="font-weight-600 nav-link nav-hover  {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'onama' %} link-secondary {% endif %}">O nama</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=karijera" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'karijera' %} link-secondary {% endif %}">Karijera</a>
+              <a href="{% url 'about_us' %}?selected=karijera" style="padding: 4px 12px;" class="font-weight-600 nav-link nav-hover  {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'karijera' %} link-secondary {% endif %}">Karijera</a>
             </li>
             <li>
-              <a href="{% url 'about_us' %}?selected=pitanja" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'pitanja' %} link-secondary {% endif %}">Pitanja i odgovori</a>
+              <a href="{% url 'about_us' %}?selected=pitanja" style="padding: 4px 12px;" class="font-weight-600 nav-link nav-hover  {% if request.path == '/oglasi/o-nama/' and request.GET.selected == 'pitanja' %} link-secondary {% endif %}">Pitanja i odgovori</a>
             </li>
             <li>
-              <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2">Pravila i uslovi korišćenja</a>
+              <a href="#" style="padding: 4px 12px 16px 12px;" class="font-weight-600 nav-link nav-hover">Pravila i uslovi korišćenja</a>
             </li>
           </ul>
         </li>
@@ -138,7 +138,7 @@
       </ul>
       {% if user.id is not None %}
         <div class="hover-open">
-          <a href="#" class="nav-link d-block link-light text-decoration-none dropdown-toggle"
+          <a href="#" class="nav-link d-block text-decoration-none dropdown-toggle {% if request.resolver_match.url_name == 'home' %} text-white {% endif %}"
             data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32"
                 class="rounded-circle ms-3 me-1">
@@ -177,17 +177,27 @@ async function populateSubCategories() {
     const subcategorySelect = document.getElementById('subCategories');
 
     json.forEach(parentCat => {
-  let childOptions = parentCat.children.map(childCat => {
-    return `<li><a class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${childCat.name}">${childCat.name}</a></li>`;
+  let childOptions = parentCat.children.map((childCat, index, array) => {
+    let padding = "padding: 4px 12px";
+    if (index === array.length - 1) {
+      padding = "padding: 4px 12px 16px 12px";
+    }
+    return `<li><a style="${padding}" class="font-weight-600 nav-link nav-hover {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${childCat.name}">${childCat.name}</a></li>`;
   }).join('');
+  let parentPadding = "padding: 4px 12px";
+  let lastIndex = json.length - 1;
+  if (parentCat === json[lastIndex]) {
+    parentPadding = "padding: 4px 12px 16px 12px";
+  }
   subcategorySelect.innerHTML += 
     `<li class="dropdown-submenu">
-      <a class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${parentCat.name}">${parentCat.name} > </a>
-      <ul class="dropdown-menu">
+      <a style="${parentPadding}" class="font-weight-600 nav-link nav-hover  {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${parentCat.name}">${parentCat.name} > </a>
+      <ul class="dropdown-menu p-0" >
         ${childOptions}
       </ul>
     </li>`;
 });
+
   } catch (error) {
     console.error(error);
   }

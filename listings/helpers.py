@@ -66,7 +66,15 @@ def query_params_helper(request, listing_data):
     max_size = int(float(max_size.replace(',', ''))) if max_size else None
 
     query_grejanje = request.GET.get('grejanje')
+    query_setup = request.GET.get('set-up')
+    query_acctype = request.GET.get('acc-type')
 
+
+    if query_acctype:
+        listing_data = listing_data.filter(posted_by__type=query_acctype)
+  
+    if query_setup:
+        listing_data = listing_data.filter(listingcharacteristics__set_up__in=query_setup)
 
     if query_search:
         listing_data = listing_data.filter(title=query_search)
@@ -74,8 +82,6 @@ def query_params_helper(request, listing_data):
     if query_grejanje:
         listing_data = listing_data.filter(
             listingdetails__detail__name=query_grejanje)
-        
-
         
     if query_price:
         latest_listing_prices = ListingPrice.objects.filter(listing=OuterRef('pk')).order_by('-timestamp')[:1]

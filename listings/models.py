@@ -18,7 +18,7 @@ class Listing(models.Model):
         (1, 'Na čekanju'),
         (2, 'Istekao'),
     )
-
+    
     title = models.CharField(max_length=150, null=False)
     description = models.TextField(max_length=1000, null=True)
     type = models.CharField(max_length=25, choices=LISTING_TYPE, default=0)
@@ -37,6 +37,7 @@ class Listing(models.Model):
     video = models.TextField(max_length=1000, null=True)
     virtual_tour = models.TextField(max_length=1000, null=True)
     posted_by = models.ForeignKey(Account, on_delete=models.CASCADE)
+
 
     def save(self, *args, **kwargs):
         the_slug = self.city + '-' + self.municipality + \
@@ -90,6 +91,8 @@ class ListingCharacteristics(models.Model):
     efficiency = models.CharField(null=False, max_length=50)
     efficiency_index = models.CharField(null=False, max_length=50)
     additional = models.CharField(default=None, null=False, max_length=50)
+    set_up = models.CharField(null=True, max_length=50)
+
 
     def __str__(self):
         return self.listing.title

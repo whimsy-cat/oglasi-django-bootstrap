@@ -35,7 +35,10 @@
       <div>
         <div style="background: center / contain no-repeat url('/static/images/placeholders/zidart.jpg');height: 110px;"></div>
       </div>
-      {% include 'includes/listing_helpers/like_compare.html' %}
+      <div class="d-flex justify-content-end ms-3">
+        {% include 'includes/listing_helpers/compare.html' %}
+        {% include 'includes/listing_helpers/like.html' %}
+      </div>
       <div class="text-nowrap fw-bold fs-6 d-flex justify-content-end" id="money{{listing.id}}" ></div>
       <a class="d-flex justify-content-end" style="text-decoration:none;margin-bottom: 8px;" href="{% url 'listing_profile' slug=listing.slug %}">
         <div class="my-favorute-card-button rounded d-flex justify-content-center align-items-center" style="height: 40px;width: 100px;">

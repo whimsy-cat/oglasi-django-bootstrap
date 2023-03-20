@@ -1,20 +1,21 @@
 {% load static %}
 
 <div class="d-flex justify-content-end"> 
-  <!--TO DO: COMPARE LISTING <img class="me-2" {% if request.path != '/oglasi/' %} hidden {% endif %} src="{% static 'images/shared/actionitem-compare.svg' %}" alt="Compare item" width="21px"> -->
   <input hidden id="token" value="{{ csrf_token }}" >
   {% if user.id in listing.likes %}
       <img class="isLiked{{listing.id}}" src="{% static 'images/items/HearthFilled.svg' %}" alt="Liked" 
       {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' or request.GET.prikaz == 'mreža' %} width="24px" height="24px" 
-      {% elif '/oglasi/pregled' in request.path  %}  width="20px" height="20px"
-      {% else %} width="22px" height="22px" 
+      {% elif '/oglasi/pregled' in request.path or '/vesti/' in request.path or '/blog/' in request.path %} height="20px" width="20px" %}
+      {% elif request.resolver_match.url_name == 'home' %} width="22px" height="22px" 
+      {% else %} width="20px" height="20px" 
       {% endif %} 
       {% if user.id is not None %} onclick="addRemoveFavorites('{{listing.id}}')" {% else %} data-bs-target="#accountModal" data-bs-toggle="modal"{% endif %} >
       {% else %}
       <img class="isLiked{{listing.id}}" src="{% static 'images/icons/hearth.svg' %}" alt="Like" 
       {% if request.path == '/oglasi/omiljeni-oglasi/' or request.GET.prikaz == 'lista' or request.GET.prikaz == 'mreža' %} width="24px" height="24px" 
-      {% elif '/oglasi/pregled' in request.path  %}  width="20px" height="20px"
-      {% else %} width="22px" height="22px" 
+      {% elif '/oglasi/pregled' in request.path or '/vesti/' in request.path or '/blog/' in request.path %} height="20px" width="20px" %}
+      {% elif request.resolver_match.url_name == 'home' %} width="22px" height="22px" 
+      {% else %} width="20px" height="20px" 
       {% endif %} 
       {% if user.id is not None %} onclick="addRemoveFavorites('{{listing.id}}')" {% else %} data-bs-target="#accountModal" data-bs-toggle="modal"{% endif %} >
     {% endif %}

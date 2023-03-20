@@ -1,10 +1,11 @@
 {% load static %}
- <div class="col d-flex border ps-2 rounded {% if request.path == '/oglasi/novogradnja/' %} border-secondary {% else %} border-white {% endif %}">
+ <div class="col d-flex border ps-2 rounded {% if request.path == '/oglasi/novogradnja/' %} border-secondary {% else %} border-white {% endif %}" >
     <img src="{% static 'images/icons/sort.svg' %}" alt="Sort" width="17px" style=" {% if request.path == '/oglasi/novogradnja/' %} filter: invert(26%) sepia(6%) saturate(13%) hue-rotate(318deg) brightness(97%) contrast(88%) {% else %} filter: invert(100%) sepia(100%) brightness(2) {% endif %}">
-    <select class="form-select border-0 {% if request.path == '/oglasi/novogradnja/' %} search-button bg-white {% else %} text-white bg-grayish {% endif %}  height-40px" id="sort" onchange="queryParam('sort', this.value)" aria-label="Default select example" >
+    <select class="form-select border-0 {% if request.path == '/oglasi/novogradnja/' %} search-button bg-white {% else %} text-white bg-grayish {% endif %}  height-40px" id="sort" onchange="queryParam('sort', this.value)" aria-label="Default select example" style="outline: none;box-shadow: none;">
         <option {% if request.GET.sort == 'desc-date_listed' %} selected {% endif %} value="desc-date_listed">Po datumu - najnovije</option>
         <option {% if request.GET.sort == 'asc-date_listed' %} selected {% endif %} value="asc-date_listed">Po datumu - najstarije</option>
         <option {% if request.GET.sort == 'desc-price' %} selected {% endif %} value="desc-price">Po cijeni - najviša</option>
         <option {% if request.GET.sort == 'asc-price' %} selected {% endif %} value="asc-price">Po cijeni - najniža</option>
     </select>
 </div>
+

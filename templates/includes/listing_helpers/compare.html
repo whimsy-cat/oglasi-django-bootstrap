@@ -1,0 +1,7 @@
+{% load static%}
+<img style="margin-right: 16px;" src="{% static 'images/shared/actionitem-compare.svg' %}" alt="Compare item" 
+{% if '/oglasi/omiljeni-oglasi/' in request.path or request.GET.prikaz == 'lista' %} width="24px" height="24px" 
+{% elif request.resolver_match.url_name == 'home' %} width="22px" height="22px" 
+{% elif 'oglasi/pregled/' in request.path %} width="20px" height="20px"
+{% else %} width="22px" height="22px" 
+{% endif %}>
