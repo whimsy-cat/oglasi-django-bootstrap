@@ -135,12 +135,12 @@ agencyTabs.addEventListener('click', () => {
 
 
 // AUTH
-function logMe() {
-  const form = document.getElementById('loginForm');
+function logMe(fromPage) {
+  const form = document.getElementById(fromPage ? 'loginForm1' : 'loginForm');
   const formData = new FormData(form);
   const url = "{% url 'login' %}";
-  const errorLog = document.getElementById('error-alert');
-  const successLog = document.getElementById('success-alert')
+  const errorLog = document.getElementById(fromPage ? 'error-alert1' : 'error-alert');
+  const successLog = document.getElementById(fromPage ? 'success-alert1' : 'success-alert');
 
   fetch(url, {
     method: 'POST',
@@ -156,7 +156,7 @@ function logMe() {
     errorLog.hidden = true;
     successLog.hidden = true;
     if (data.success) {
-      window.location = '{% url "home" %}'
+      window.location = '{% url "home" %}?logged=true'
     } else {
       errorLog.innerText = 'Pogrešni podaci';
       errorLog.hidden = false;
@@ -168,12 +168,12 @@ function logMe() {
   });
 }
 
-function registerMe(formId) {
+function registerMe(formId, fromPage) {
   const form = document.getElementById(formId);
   const formData = new FormData(form);
   const url = "{% url 'register' %}";
-  const errorLog = document.getElementById('error-alert');
-  const successLog = document.getElementById('success-alert')
+  const errorLog = document.getElementById(fromPage ? 'error-alert1' : 'error-alert');
+  const successLog = document.getElementById(fromPage ? 'success-alert1' : 'success-alert');
 
   fetch(url, {
     method: 'POST',
@@ -204,26 +204,39 @@ function registerMe(formId) {
 }
 
 function singin() {
+  document.getElementById('error-alert').hidden = true;
+  document.getElementById('success-alert').hidden = true;
+
   document.getElementById('dont_have_acc').setAttribute('style', 'display: block;')
   document.getElementById('forgot_pass').setAttribute('style', 'display: block;')
   document.getElementById('log_in').setAttribute('style', 'display: none;')
 }
 function register() {
+  document.getElementById('error-alert').hidden = true;
+  document.getElementById('success-alert').hidden = true;
+
   document.getElementById('dont_have_acc').setAttribute('style', 'display: none;')
   document.getElementById('forgot_pass').setAttribute('style', 'display: block;')
   document.getElementById('log_in').setAttribute('style', 'display: block;')
 }
 
 function forgotpassword() {
+  document.getElementById('error-alert').hidden = true;
+  document.getElementById('success-alert').hidden = true;
+
   document.getElementById('dont_have_acc').setAttribute('style', 'display: block;')
   document.getElementById('forgot_pass').setAttribute('style', 'display: none;')
   document.getElementById('log_in').setAttribute('style', 'display: block;')
 }
 
 function registerModal() {
+  document.getElementById('error-alert').hidden = true;
+  document.getElementById('success-alert').hidden = true;
   document.getElementById('register-tab').click()
 }
 function signInModal() {
+  document.getElementById('error-alert').hidden = true;
+  document.getElementById('success-alert').hidden = true;
   document.getElementById('signin-tab').click()
 }
 

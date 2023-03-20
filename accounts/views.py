@@ -76,7 +76,6 @@ def register(request):
                 "link": link
             }
             send_mailgun_mail(email, full_name, 'Verifikujte vaš nalog', 'email_verification', data)
-
         except Exception as e:
             response_data = {'success': False, 'error': str(e)}
 
@@ -94,7 +93,6 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            # messages.success(request, 'You are now logged in.')
             return JsonResponse({ "success": True}, safe=False)
         else:
             return JsonResponse({ "success": False}, safe=False)
@@ -105,7 +103,7 @@ def login(request):
 @login_required(login_url='login')
 def logout(request):
     auth.logout(request)
-    messages.success(request, 'You are logged out.')
+    messages.success(request, 'Uspešno ste odjavljeni')
     return redirect('home')
 
 
@@ -119,10 +117,10 @@ def activate(request, uidb64, token):
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
-        messages.success(request, 'Congratulations, you have successfully activated your account')
+        messages.success(request, 'Uspešno ste aktivirali nalog!')
         return redirect('login')
     else:
-        messages.error(request, 'Invalid activation link')
+        messages.error(request, 'Aktivacioni link nije validan.')
         return redirect('register')
 
 
@@ -140,10 +138,10 @@ def forgot_password(request):
                 "link": link
             }
             send_mailgun_mail(user.email, user.first_name, 'Izmenite vašu lozinku', 'forgot_password', data)
-            messages.success(request, 'Password reset email has been sent to your email address')
+            messages.success(request, 'Email za izmenu lozinke poslat.')
             return redirect('login')
         else:
-            messages.error(request, 'Account does not exist.')
+            messages.error(request, 'Nalog ne postoji.')
             return redirect('forgot_password')
 
     return render(request, 'account_pages/forgot_password.html')
@@ -158,10 +156,10 @@ def reset_password_validate(request, uidb64, token):
 
     if user is not None and default_token_generator.check_token(user, token):
         request.session['uid'] = uid
-        messages.success(request, 'Please reset your password')
+        messages.success(request, 'Molimo izmenite vašu lozinku')
         return redirect('reset_password')
     else:
-        messages.error(request, 'This link expired')
+        messages.error(request, 'Link više nije aktivan')
         return redirect('login')
 
 
@@ -175,14 +173,13 @@ def reset_password(request):
             user = Account.objects.get(pk=uid)
             user.set_password(password)
             user.save()
-            messages.success(request, 'Password changed!')
+            messages.success(request, 'Lozinka uspešno promenjena!')
             return redirect('login')
         else:
-            messages.error(request, 'Passwords do not match')
+            messages.error(request, 'Lozinke se ne podudaraju')
             return redirect('reset_password')
 
     return render(request, 'account_pages/reset_password.html')
-
 
 @login_required(login_url='login')
 def user_profile(request, username):

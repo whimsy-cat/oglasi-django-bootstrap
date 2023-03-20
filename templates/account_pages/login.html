@@ -8,10 +8,13 @@
 {% block content %}
 <div class="form-signin w-100 m-auto" style="min-height:92vh"> 
   <div class=" w-100 d-flex flex-column align-items-center">
-    <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
-    <div class="alert alert-success" id="success-alert" role="alert" hidden></div>
 
-    <form id="loginForm" novalidate>
+    {% include 'includes/alerts.html' %}
+
+    <div class="alert alert-danger w-100" id="error-alert1" role="alert" hidden></div>
+    <div class="alert alert-success w-100" id="success-alert1" role="alert" hidden></div>
+
+    <form id="loginForm1" class="mt-2" novalidate>
       {% csrf_token %}
         <h2 class="mb-4 fw-bold text-center" style="font-size: 24px;">Ulogujte se</h2>
       <div>
@@ -23,7 +26,7 @@
         <input type="password" class="form-control height-40px" style="margin-bottom: 56px;width: 320px;" id="floatingPassword" name="password" aria-describedby="passwordHelp" required>
       </div>
       <div class="form-floating d-flex justify-content-center" style="margin-bottom: 32px;">
-        <button class="btn btn-lg btn-primary text-white" type="button" onclick="logMe()" style="width: 320px; height: 48px;font-weight: 700;font-size: 16px;">Ulogujte se</button>
+        <button class="btn btn-lg btn-primary text-white" type="button" onclick="logMe('1')" style="width: 320px; height: 48px;font-weight: 700;font-size: 16px;">Ulogujte se</button>
       </div>
     </form>
     <div class="form-floating">
@@ -39,40 +42,6 @@
   </div>
 </div>
 
-<script>
-function logMe() {
-  const form = document.getElementById('loginForm');
-  const formData = new FormData(form);
-  const url = "{% url 'login' %}";
-  const errorLog = document.getElementById('error-alert');
-  const successLog = document.getElementById('success-alert')
-
-  fetch(url, {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    errorLog.hidden = true;
-    successLog.hidden = true;
-    if (data.success) {
-      window.location = '{% url "home" %}'
-    } else {
-      errorLog.innerText = 'Pogrešni podaci';
-      errorLog.hidden = false;
-    }
-  })
-  .catch(error => {
-    errorLog.innerText = 'Došlo je do greške, molimo javite se podršci.';
-    errorLog.hidden = false;
-  });
-}
-</script>
 {% endblock %}
 
 {% block page_specific_scripts %}

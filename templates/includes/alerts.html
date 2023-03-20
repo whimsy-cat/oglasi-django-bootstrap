@@ -1,11 +1,55 @@
+<!-- Django Default Alerts -->
 {% if messages %}
-  <div class="container">
-    {% for message in messages %}
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header justify-content-between">
+      Obaveštenja
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      {% for message in messages %}
       <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %} role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
         {{ message }}
       </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
+</div>
 {% endif %}
+
+<!-- Logged Api Alert -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast fade hide" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header justify-content-between">
+      Obaveštenja
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      <div class="alert alert-success" role="alert">
+        Uspešno ste prijavljeni!
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Get the URL parameters
+const params = new URLSearchParams(window.location.search);
+
+// Check if the "logged" parameter is present
+if (params.has('logged')) {
+  // Show the alert
+  const toast = document.getElementById('liveToast');
+  const toastBody = toast.querySelector('.toast-body');
+  const alertSuccess = toastBody.querySelector('.alert-success');
+  alertSuccess.textContent = 'Uspešno ste prijavljeni!';
+  toast.classList.remove('hide');
+  toast.classList.add('show');
+
+  // Remove the "logged" parameter from the URL
+  params.delete('logged');
+  const newUrl = window.location.origin + window.location.pathname + '?' + params.toString();
+  window.history.replaceState({}, '', newUrl);
+}
+</script>

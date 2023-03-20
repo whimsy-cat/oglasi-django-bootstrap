@@ -5,37 +5,39 @@
   <section class="section-content" style="min-height:92vh">
     <div class="card mx-auto border-0" style="max-width:520px; margin-top:40px;padding: 12px 24px 4px 24px;">
 
-      <div class="alert alert-danger" id="error-alert" role="alert" hidden></div>
-      <div class="alert alert-success" id="success-alert" role="alert" hidden></div>
+      {% include 'includes/alerts.html' %}
+
+      <div class="alert alert-danger" id="error-alert1" role="alert" hidden></div>
+      <div class="alert alert-success" id="success-alert1" role="alert" hidden></div>
 
       <!-- Type Selection -->
       <h2 class="fw-bold text-center" style="margin-bottom: 18px;font-size: 24px;">Registracija</h2>
       <nav class="mb-4">
-        <div class="nav pe-2 d-flex align-items-center justify-content-between" id="nav-tab" role="tablist">
+        <div class="nav pe-2 d-flex align-items-center justify-content-between" id="nav-tab1" role="tablist">
           <div class="form-check ps-0">
-            <input class="form-check-input m-0" checked type="checkbox" style="width: 24px;height: 24px;" id="nav-userregister-tab" data-bs-toggle="tab" data-bs-target="#nav-userregister" type="checkbox" role="tab" aria-controls="nav-userregister">
-            <label class="form-check-label ms-3" for="nav-userregister-tab" >
+            <input class="form-check-input m-0" checked type="checkbox" style="width: 24px;height: 24px;" id="nav-userreg-tab" data-bs-toggle="tab" data-bs-target="#nav-userreg" type="checkbox" role="tab" aria-controls="nav-userreg">
+            <label class="form-check-label ms-3" for="nav-userreg-tab" >
               Fizičko lice
             </label>
           </div>
           <div class="form-check ">
-            <input class="form-check-input m-0" type="checkbox" style="width: 24px;height: 24px;" id="nav-agencyregister-tab" data-bs-toggle="tab" data-bs-target="#nav-agencyregister" type="checkbox" role="tab" aria-controls="nav-agencyregister">
-            <label class="form-check-label ms-3" for="nav-agencyregister-tab">
+            <input class="form-check-input m-0" type="checkbox" style="width: 24px;height: 24px;" id="nav-areg-tab" data-bs-toggle="tab" data-bs-target="#nav-areg" type="checkbox" role="tab" aria-controls="nav-areg">
+            <label class="form-check-label ms-3" for="nav-areg-tab">
               Pravno lice 
             </label>
           </div>
         </div>
       </nav>
 
-      <div class="tab-content" id="nav-tabContent">
+      <div class="tab-content" id="nav-tab1Content">
         <!-- User Form -->
-        <div class="tab-pane fade show active" id="nav-userregister" role="tabpanel" aria-labelledby="nav-userregister-tab" tabindex="0">
-            {% include 'includes/account/register_user_form.html' %}
+        <div class="tab-pane fade show active" id="nav-userreg" role="tabpanel" aria-labelledby="nav-userreg-tab" tabindex="0">
+            {% include 'includes/account/register_user_form.html' with fromPage=1 %}
         </div>
 
         <!-- Agency Form -->
-        <div class="tab-pane fade" id="nav-agencyregister" role="tabpanel" aria-labelledby="nav-agencyregister-tab" tabindex="0">
-          {% include 'includes/account/register_agency_form.html' %}
+        <div class="tab-pane fade" id="nav-areg" role="tabpanel" aria-labelledby="nav-areg-tab" tabindex="0">
+          {% include 'includes/account/register_agency_form.html' with fromPage=1 %}
         </div>
       </div>
 
@@ -56,61 +58,25 @@
 
 
 // get references to the checkboxes
-const userTabs = document.getElementById('nav-userregister-tab');
-const userContents = document.getElementById('nav-userregister');
-const agencyTabs = document.getElementById('nav-agencyregister-tab');
-const agencyContents = document.getElementById('nav-agencyregister');
+const userTabs1 = document.getElementById('nav-userreg-tab');
+const userContents1 = document.getElementById('nav-userreg');
+const agencyTabs1 = document.getElementById('nav-areg-tab');
+const agencyContents1 = document.getElementById('nav-areg');
 
 // add event listeners to the checkboxes
-userTabs.addEventListener('click', () => {
-  userTabs.checked = true;
-  agencyTabs.checked = false;  
-  userContents.style.display = 'block'
-  agencyContents.style.display = 'none'
+userTabs1.addEventListener('click', () => {
+  userTabs1.checked = true;
+  agencyTabs1.checked = false;  
+  userContents1.style.display = 'block'
+  agencyContents1.style.display = 'none'
 });
 
-agencyTabs.addEventListener('click', () => {
-  agencyTabs.checked = true;
-  userTabs.checked = false;
-  userContents.style.display = 'none'
-  agencyContents.style.display = 'block'
+agencyTabs1.addEventListener('click', () => {
+  agencyTabs1.checked = true;
+  userTabs1.checked = false;
+  userContents1.style.display = 'none'
+  agencyContents1.style.display = 'block'
 });
-
-// AUTH
-function registerMe(formId) {
-  const form = document.getElementById(formId);
-  const formData = new FormData(form);
-  const url = "{% url 'register' %}";
-  const errorLog = document.getElementById('error-alert');
-  const successLog = document.getElementById('success-alert')
-
-  fetch(url, {
-    method: 'POST',
-    body: formData
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    errorLog.hidden = true;
-    successLog.hidden = true;
-    if (data.success) {
-      successLog.innerText = 'Hvala Vam na registraciji, molimo potvrdite aktivacijski email.'
-      successLog.hidden = false;
-      form.reset()
-    } else {
-      errorLog.innerText = data.error;
-      errorLog.hidden = false;
-    }
-  })
-  .catch(error => {
-    errorLog.innerText = 'Došlo je do greške, molimo javite se podršci.';
-    errorLog.hidden = false;
-  });
-}
 
 </script>
 {% endblock %}
