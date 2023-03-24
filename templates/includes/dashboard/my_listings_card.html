@@ -104,6 +104,7 @@ window.addEventListener('load', function () {
   const scrollTop = localStorage.getItem('scrollTop');
   if (scrollTop) {
       window.scrollTo(0, scrollTop);
+      localStorage.removeItem('scrollTop')
   }
 });
 

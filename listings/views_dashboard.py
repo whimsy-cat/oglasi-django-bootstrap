@@ -196,6 +196,14 @@ def promote_listing(request):
     return render(request, 'dashboard_pages/promote_listing.html')
 
 
+def profile(request):
+    user = Account.objects.get(id=request.user.id)
+    listing_data = Listing.objects.filter(posted_by=user).order_by('?')
+    context = {
+        'listings': listing_data
+    }
+    return render(request, 'dashboard_pages/profile.html', context)
+
 def subscription(request):
     return render(request, 'dashboard_pages/subscription.html')
 

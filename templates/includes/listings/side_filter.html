@@ -64,10 +64,10 @@
         Stanje
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
-      <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiselectStruktura">
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="starogradnja">Starogradnja</label><input class="form-check-input" {% if 'starogradnja' in selected_stanje %} checked="true" {% endif %} name="condition" type="checkbox" value="starogradnja" id="starogradnja"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="novogradnja">Novogradnja</label><input class="form-check-input" {% if 'novogradnja' in selected_stanje %} checked="true" {% endif %} name="condition" type="checkbox" value="novogradnja" id="novogradnja"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="u_izgradnji">U izgradnji</label><input class="form-check-input" {% if 'u_izgradnji' in selected_stanje %} checked="true" {% endif %} name="condition" type="checkbox" value="u_izgradnji" id="u_izgradnji"></li>
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectStruktura">
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="starogradnja">Starogradnja</label><input class="form-check-input border-0" {% if 'starogradnja' in selected_stanje %} checked="true" {% endif %} name="condition" type="checkbox" value="starogradnja" id="starogradnja"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="novogradnja">Novogradnja</label><input class="form-check-input border-0" {% if 'novogradnja' in selected_stanje %} checked="true" {% endif %} name="condition" type="checkbox" value="novogradnja" id="novogradnja"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="u_izgradnji">U izgradnji</label><input class="form-check-input border-0" {% if 'u_izgradnji' in selected_stanje %} checked="true" {% endif %} name="condition" type="checkbox" value="u_izgradnji" id="u_izgradnji"></li>
       </ul>
     </div>
     <!-- <select class="form-select  select-inputs"  value="{{request.GET.condition}}" id="condition" name="condition" >
@@ -84,17 +84,17 @@
         Struktura
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
-      <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiselectStruktura">
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garsonjera">Garsonjera <div class="px-2">0.5</div></label><input class="form-check-input" {% if '0.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="0.5" id="garsonjera"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednosoban">Jednosoban <div class="px-2">1.0</div></label><input class="form-check-input" {% if '1' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1" id="jednosoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednoiposoban">Jednoiposoban <div class="px-2">1.5</div> </label><input class="form-check-input" {% if '1.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1.5" id="jednoiposoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvosoban">Dvosoban <div class="px-2">2.0</div> </label><input class="form-check-input" {% if '2' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2" id="dvosoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvoiposoban">Dvoiposoban <div class="px-2">2.5</div> </label><input class="form-check-input" {% if '2.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2.5" id="dvoiposoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="trosoban">Trosoban <div class="px-2">3.0</div> </label><input class="form-check-input" {% if '3' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3" id="trosoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="troiposoban">Troiposoban <div class="px-2">3.5</div> </label><input class="form-check-input" {% if '3.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3.5" id="troiposoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvorosoban">Četvorosoban <div class="px-2">4.0</div> </label><input class="form-check-input" {% if '4' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4" id="četvorosoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvoroiposoban">Četvoroiposoban <div class="px-2">4.5</div> </label><input class="form-check-input" {% if '4.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4.5" id="četvoroiposoban"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="petosoban">Petosoban i veći <div class="px-2">5.0</div> </label><input class="form-check-input" {% if '5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="5" id="petosoban"></li>
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectStruktura">
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garsonjera">Garsonjera <div class="px-2">0.5</div></label><input class="form-check-input border-0" {% if '0.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="0.5" id="garsonjera"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednosoban">Jednosoban <div class="px-2">1.0</div></label><input class="form-check-input border-0" {% if '1' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1" id="jednosoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednoiposoban">Jednoiposoban <div class="px-2">1.5</div> </label><input class="form-check-input border-0" {% if '1.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1.5" id="jednoiposoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvosoban">Dvosoban <div class="px-2">2.0</div> </label><input class="form-check-input border-0" {% if '2' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2" id="dvosoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="dvoiposoban">Dvoiposoban <div class="px-2">2.5</div> </label><input class="form-check-input border-0" {% if '2.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="2.5" id="dvoiposoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="trosoban">Trosoban <div class="px-2">3.0</div> </label><input class="form-check-input border-0" {% if '3' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3" id="trosoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="troiposoban">Troiposoban <div class="px-2">3.5</div> </label><input class="form-check-input border-0" {% if '3.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="3.5" id="troiposoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvorosoban">Četvorosoban <div class="px-2">4.0</div> </label><input class="form-check-input border-0" {% if '4' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4" id="četvorosoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="četvoroiposoban">Četvoroiposoban <div class="px-2">4.5</div> </label><input class="form-check-input border-0" {% if '4.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="4.5" id="četvoroiposoban"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="petosoban">Petosoban i veći <div class="px-2">5.0</div> </label><input class="form-check-input border-0" {% if '5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="5" id="petosoban"></li>
       </ul>
     </div>
   </div>
@@ -105,10 +105,10 @@
         Parking
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
-      <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiselectstanje">
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garaža">Garaža</label><input class="form-check-input" {% if 'garaža' in selected_parking %} checked="true" {% endif %} name="parking" type="checkbox" value="garaža" id="garaža"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="parking_mesto">Parking mesto</label><input class="form-check-input" {% if 'parking mesto' in selected_parking %} checked="true" {% endif %} name="parking" type="checkbox" value="parking mesto" id="parking_mesto"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garažno_mesto">Garažno mesto</label><input class="form-check-input" {% if 'garažno mesto' in selected_parking %} checked="true" {% endif %} name="parking" type="checkbox" value="garažno mesto" id="garažno_mesto"></li>
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectstanje">
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garaža">Garaža</label><input class="form-check-input border-0" {% if 'garaža' in selected_parking %} checked="true" {% endif %} name="parking" type="checkbox" value="garaža" id="garaža"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="parking_mesto">Parking mesto</label><input class="form-check-input border-0" {% if 'parking mesto' in selected_parking %} checked="true" {% endif %} name="parking" type="checkbox" value="parking mesto" id="parking_mesto"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garažno_mesto">Garažno mesto</label><input class="form-check-input border-0" {% if 'garažno mesto' in selected_parking %} checked="true" {% endif %} name="parking" type="checkbox" value="garažno mesto" id="garažno_mesto"></li>
       </ul>
     </div>
     <!-- <select class="form-select  select-inputs" value="{{request.GET.parking}}" id="garage" name="parking">
@@ -125,12 +125,12 @@
         Grejanje
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
-      <ul class="dropdown-menu dropdown-menu-form text-nowrap" aria-labelledby="multiselectstanje">
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje na struju">Grejanje na struju</label><input class="form-check-input" {% if 'Grejanje na struju' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje na struju" id="Grejanje na struju"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Centralno grejanje">Centralno grejanje</label><input class="form-check-input" {% if 'Centralno grejanje' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Centralno grejanje" id="Centralno grejanje"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje na gas">Grejanje na gas</label><input class="form-check-input" {% if 'Grejanje na gas' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje na gas" id="Grejanje na gas"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Čvrsta goriva">Čvrsta goriva</label><input class="form-check-input" {% if 'Čvrsta goriva' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Čvrsta goriva" id="Čvrsta goriva"></li>
-        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje ostalo">Grejanje ostalo</label><input class="form-check-input" {% if 'Grejanje ostalo' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje ostalo" id="Grejanje ostalo"></li>
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectstanje">
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje na struju">Grejanje na struju</label><input class="form-check-input border-0" {% if 'Grejanje na struju' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje na struju" id="Grejanje na struju"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Centralno grejanje">Centralno grejanje</label><input class="form-check-input border-0" {% if 'Centralno grejanje' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Centralno grejanje" id="Centralno grejanje"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje na gas">Grejanje na gas</label><input class="form-check-input border-0" {% if 'Grejanje na gas' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje na gas" id="Grejanje na gas"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Čvrsta goriva">Čvrsta goriva</label><input class="form-check-input border-0" {% if 'Čvrsta goriva' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Čvrsta goriva" id="Čvrsta goriva"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje ostalo">Grejanje ostalo</label><input class="form-check-input border-0" {% if 'Grejanje ostalo' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje ostalo" id="Grejanje ostalo"></li>
       </ul>
     </div>
     <!-- <select class="form-select  select-inputs" value="{{request.GET.grejanje}}" id="heating" name="grejanje">
@@ -143,22 +143,32 @@
     </select> -->
   </div>
   <div class="col-6">
-    <label for="condition" class="form-label ms-2 margin-6_36">Nameštenost</label>
-    <select class="form-select  select-inputs" id="namestenost" name="condition_rent">
-      <option value="">Izaberite...</option>
-      <option {% if request.GET.condition_rent == 'namešten' %} selected {% endif %} value="namešten">Namešten</option>
-      <option {% if request.GET.condition_rent == 'polunamešten' %} selected {% endif %} value="polunamešten">Polunamešten</option>
-      <option {% if request.GET.condition_rent == 'prazan' %} selected {% endif %} value="prazan">Prazan</option>
-    </select>
+    <label for="multiselectnamestenost" class="form-label ms-2 margin-6_36">Nameštenost</label>
+    <div class="dropdown">
+      <button class="select-inputs btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiselectnamestenost" data-bs-toggle="dropdown" aria-expanded="false">
+        Nameštenost
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectnamestenost">
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="namešten">Namešten</label><input class="form-check-input border-0" {% if 'namešten' in selected_setup %} checked="true" {% endif %} name="set-up" type="checkbox" value="namešten" id="namešten"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="polunamešten">Polunamešten</label><input class="form-check-input border-0" {% if 'polunamešten' in selected_setup %} checked="true" {% endif %} name="set-up" type="checkbox" value="polunamešten" id="polunamešten"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="prazan">Prazan</label><input class="form-check-input border-0" {% if 'prazan' in selected_setup %} checked="true" {% endif %} name="set-up" type="checkbox" value="prazan" id="prazan"></li>
+      </ul>
+    </div>
   </div>
   <div class="col-6">
-    <label for="oglasivac" class="form-label ms-2 margin-6_36">Oglašivač</label>
-    <select class="form-select  select-inputs" id="oglasivac" name="oglasivac">
-      <option value="">Izaberite...</option>
-      <option {% if request.GET.oglasivac == 'agencija' %} selected {% endif %} value="agencija">Agencija</option>
-      <option {% if request.GET.oglasivac == 'vlasnik' %} selected {% endif %} value="vlasnik">Vlasnik</option>
-      <option {% if request.GET.oglasivac == 'pravno_lice' %} selected {% endif %} value="pravno_lice">Pravno lice</option>
-    </select>
+    <label for="multiselectoglasivac" class="form-label ms-2 margin-6_36">Oglašivač</label>
+    <div class="dropdown">
+      <button class="select-inputs btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiselectnamestenost" data-bs-toggle="dropdown" aria-expanded="false">
+        Oglašivač
+        <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectoglasivac">
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="agencija">Agencija</label><input class="form-check-input border-0" {% if 'agencija' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="1" id="agencija"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="vlasnik">Vlasnik</label><input class="form-check-input border-0" {% if 'vlasnik' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="0" id="vlasnik"></li>
+        <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="pravno_lice">Pravno lice</label><input class="form-check-input border-0" {% if 'pravno_lice' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="pravno_lice" id="pravno_lice"></li>
+      </ul>
+    </div>
   </div>
   <div class="col-12 mb-3 d-flex justify-content-center" style="margin-top: 26.65px;">
     <button class="btn btn-blue btn-search shadow d-flex justify-content-center profile-top-icons align-items-center" style="width: 233px;height: 40px;" type="submit"  id="inputGroupFileAddon04">

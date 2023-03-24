@@ -207,7 +207,7 @@
               <input type="hidden" id="zoom" name="zoom" required>
             </div>
             <div class="p-0 d-flex justify-content-end next-step " style="margin-top: 28px;">
-              <button class="btn btn-blue btn-creation-step create-edit-button" type="button" id="nextStep" onclick="switchStep(3, 4);categories();selectCategory()">
+              <button class="btn btn-blue btn-creation-step create-edit-button" type="button" id="nextStep" onclick="switchStep(3, 4)">
                 Dalje
                 <i class="bi bi-chevron-double-right"></i>
               </button>
@@ -218,7 +218,7 @@
         <!---CHARACTERISTICS-->
         <div class="creation-content" id="step4">
           <div class="col">
-            <div class="creation-step step-section mb-4 shadow rounded" style="padding: 16px 0px 62px 0px;min-height: 480px;">
+            <div class="creation-step step-section mb-4 shadow rounded" style="padding: 16px 0px 62px 0px;height: 480px;">
               <div class="mb-3 d-flex step-heading justify-content-start">
                 <h5 class="" style="padding-left: 12px;">
                   Karakteristike
@@ -230,26 +230,20 @@
               </div>
             <div class="d-flex">
               <div class="row w-100">
-                <div class="col-3 col-lg-3" id="size-input">
-                  <div class="mb-3">
+                <div class="col-3 col-lg-3">
+                  <div class="mb-3" id="size-input">
                     <label for="size" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Površina u m<sup>2</sup> <span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="size" name="size" aria-describedby="titleHelp" placeholder="npr 80">
                   </div>
-                  </div>
-                <div class="col-3 col-lg-3" id="floor-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="floor-input">
                     <label for="floor" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Na spratu<span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="floor" name="floor" aria-describedby="titleHelp" placeholder="npr 2">
                   </div>
-                  </div>
-                <div class="col-3 col-lg-3" id="balcony-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="balcony-input">
                     <label for="balcony" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Terasa <span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="balcony" name="balcony" aria-describedby="titleHelp">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="legal_status-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="legal_status-input">
                     <label for="legal_status" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Katastarski status <span class="description-guide">(izaberite)</span></label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="legal_status" name="legal_status">
                       <option value="uknjizeno" selected>Uknjizeno</option>
@@ -259,29 +253,23 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-3 col-lg-3" id="structure-input">
-                  <div class="mb-3">
+                <div class="col-3 col-lg-3" id="column-2">
+                  <div class="mb-3" id="structure-input">
                     <label for="structure" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Struktura <span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="structure" name="structure" aria-describedby="titleHelp" placeholder="npr 2.5">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="total_floors-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="total_floors-input">
                     <label for="total_floors" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Ukupno spratova<span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="total_floors" name="total_floors" aria-describedby="titleHelp" placeholder="5">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="storage-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="storage-input">
                     <label for="storage" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Ostava</label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="storage" name="storage">
                       <option value="false" selected>Nema</option>
                       <option value="true">Ima</option>
                     </select>
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="condition-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="condition-input">
                     <label for="condition" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Stanje <span class="description-guide">(izaberite)</span></label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="condition" name="condition">
                       <option value="starogradnja" {% if listing.listingcharacteristics_set.first.condition == 'starogradnja' %} selected {% endif %}>Starogradnja</option>
@@ -290,29 +278,23 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-3 col-lg-3" id="year_built-input">
-                  <div class="mb-3">
+                <div class="col-3 col-lg-3" id="column-3">
+                  <div class="mb-3" id="year_built-input">
                     <label for="year_built" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Godina Izgradnje</label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="year_built" name="year_built" aria-describedby="titleHelp" placeholder="npr 1983">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="bedrooms-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="bedrooms-input">
                     <label for="bedrooms" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Spavaćih soba <span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="bedrooms" name="bedrooms" aria-describedby="titleHelp" placeholder="npr 2">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="basement-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="basement-input">
                     <label for="basement" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Podrum<span class="description-guide">(brojevima)</span></label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="basement" name="basement">
                       <option value="false" selected>Nema</option>
                       <option value="true">Ima</option>
                     </select>
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="efficiency-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="efficiency-input">
                     <label for="efficiency" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Energetski pasoš <span class="description-guide">(izaberite)</span></label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="efficiency" name="efficiency">
                       <option value="" selected>Izaberite...</option>
@@ -321,8 +303,8 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-3 col-lg-3" id="parking-input">
-                  <div class="mb-3">
+                <div class="col-3 col-lg-3">
+                  <div class="mb-3" id="parking-input">
                     <label for="parking" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Parking <span class="description-guide">(izaberite vrstu)</span></label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="parking" name="parking">
                       <option value="">Izaberite...</option>
@@ -331,22 +313,16 @@
                       <option value="garaža">Garaža</option>
                     </select>
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="baths-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="baths-input">
                     <label for="baths" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Kupatilo <span class="description-guide">(brojevima)</span></label>
                     <input type="text" class="form-control border-radius-10 height-40px description-inputs" id="baths" name="baths" aria-describedby="titleHelp" placeholder="npr 1">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3"  id="parcel-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id='parcel-input'>
                     <label for="parcel_size" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Površina parcele <span class="description-guide">(broj u m<sup>2</sup>)</span></label>
                     <input type="text" oninput="addPeriods()" value="" class="form-control border-radius-10 height-40px description-inputs" id="parcel_size" aria-describedby="titleHelp" placeholder="npr 30.000 za 30ari">
                     <input type="hidden" name="parcel_size" id="raw_size">
                   </div>
-                </div>
-                <div class="col-3 col-lg-3" id="efficiency_index-input">
-                  <div class="mb-3">
+                  <div class="mb-3" id="efficiency_index-input">
                     <label for="efficiency_index" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Energetski razred <span class="description-guide">(izaberite)</span></label>
                     <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" id="efficiency_index" name="efficiency_index">
                       <option value="" selected>Izaberite...</option>
@@ -360,41 +336,35 @@
                       <option value="8">G</option>
                     </select>
                   </div>
+                </div>              
+              </div>
+              <div style="padding: 0px 12px;">
+                <div class="mb-3" id="parking_slots-input">
+                  <label for="parking_slots" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Parking mesta <span class="description-guide">(brojevima)</span></label>
+                  <input type="text" style="width: 209px;" class="form-control border-radius-10 height-40px description-inputs" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
                 </div>
-                <div class="col-3 col-lg-3" id="parking_slots-input">
-                  <div class="mb-3">
-                    <label for="parking_slots" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Parking mesta <span class="description-guide">(brojevima)</span></label>
-                    <input type="text"  class="form-control border-radius-10 height-40px description-inputs" id="parking_slots" name="parking_slots" aria-describedby="titleHelp">
-                  </div>
+                <div class="mb-3" id="half_baths-input">
+                  <label for="half_baths" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Toalet/WC <span class="description-guide">(brojevima)</span></label>
+                  <input type="text" style="width: 209px;" class="form-control border-radius-10 height-40px description-inputs" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
                 </div>
-                <div class="col-3 col-lg-3" id="half_baths-input">
-                  <div class="mb-3">
-                    <label for="half_baths" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Toalet/WC <span class="description-guide">(brojevima)</span></label>
-                    <input type="text"  class="form-control border-radius-10 height-40px description-inputs" id="half_baths" name="half_baths" aria-describedby="titleHelp" placeholder="npr 0">
-                  </div>
+                <div class="mb-3" id="additional-input">
+                  <label for="additional" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Ostalo/dodatno <span class="description-guide">(upišite)</span></label>
+                  <input type="text" style="width: 209px;" class="form-control border-radius-10 height-40px description-inputs" id="additional" name="additional" aria-describedby="titleHelp">
                 </div>
-                <div class="col-3 col-lg-3" id="additional-input">
-                  <div class="mb-3">
-                    <label for="additional" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Ostalo/dodatno <span class="description-guide">(upišite)</span></label>
-                    <input type="text"  class="form-control border-radius-10 height-40px description-inputs" id="additional" name="additional" aria-describedby="titleHelp">
-                  </div>
+                <div class="mb-3" id="set_up-input">
+                  <label for="set_up" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Nameštenost <span class="description-guide">(upišite)</span></label>
+                  <select class="form-select border-radius-10 height-40px description-inputs" aria-label="set_up" id="set_up" name="set_up">
+                    <option value="">Izaberite...</option>
+                    <option value="namešten">Namešten</option>
+                    <option value="polunamešten">Polunamešten</option>
+                    <option value="prazan">Prazan</option>
+                  </select>
                 </div>
-                <div class="col-3 col-lg-3" id="set_up-input">
-                  <div class="mb-3">
-                    <label for="set_up" style="margin-bottom: 12px;" class="form-label blog-type margin-start-12">Nameštenost <span class="description-guide">(upišite)</span></label>
-                    <select class="form-select border-radius-10 height-40px description-inputs" aria-label="set_up" id="set_up" name="set_up">
-                      <option value="">Izaberite...</option>
-                      <option value="namešten">Namešten</option>
-                      <option value="polunamešten">Polunamešten</option>
-                      <option value="prazan">Prazan</option>
-                    </select>
-                  </div>
-                </div>
-            </div>
+              </div>
             </div>
             </div>
             <div class="d-flex justify-content-end  next-step">
-              <button class="btn btn-blue btn-creation-step create-edit-button" type="button" id="nextStep" onclick="switchStep(4, 5)">
+              <button class="btn btn-blue btn-creation-step create-edit-button" type="button" id="nextStep" onclick="switchStep(5, 5)">
                 Dalje
                 <i class="bi bi-chevron-double-right "></i>
               </button>
@@ -667,12 +637,56 @@ async function populateSubCategories(data) {
 
 
 function selectCategory() {
-  const subCatInput = document.getElementById('subcateg')
-  const subCatValue = subCatInput.options[subCatInput.selectedIndex].innerHTML;
-  if (subCatValue == 'Stan' || subCatValue == 'Apartman' || subCatValue == 'Soba' ) {
-    document.getElementById('parcel-input').style.display = 'none'
+  const subCatValue = document.getElementById('subcateg').value
+  if (subCatValue == 4 || subCatValue == 6 || subCatValue == 8 ) {
+    document.getElementById('parcel-input').style.visibility = 'hidden'
   } else {
-    document.getElementById('parcel-input').style.display = 'block'
+    document.getElementById('parcel-input').style.visibility = 'visible'
+  }
+}
+function categories() {
+  const category = document.getElementById('category').value
+  if (category == 2 ) {
+    document.getElementById('size-input').style.display = 'none'
+    document.getElementById('floor-input').style.display = 'none'
+    document.getElementById('balcony-input').style.display = 'none'
+    document.getElementById('structure-input').style.display = 'none'
+    document.getElementById('total_floors-input').style.display = 'none'
+    document.getElementById('storage-input').style.display = 'none'
+    document.getElementById('condition-input').style.display = 'none'
+    document.getElementById('year_built-input').style.display = 'none'
+    document.getElementById('bedrooms-input').style.display = 'none'
+    document.getElementById('basement-input').style.display = 'none'
+    document.getElementById('efficiency-input').style.display = 'none'
+    document.getElementById('parking-input').style.display = 'none'
+    document.getElementById('baths-input').style.display = 'none'
+    document.getElementById('efficiency_index-input').style.display = 'none'
+    document.getElementById('parking_slots-input').style.display = 'none'
+    document.getElementById('half_baths-input').style.display = 'none'
+    document.getElementById('set_up-input').style.display = 'none'
+  } else if (category == 3 ) {
+    document.getElementById('bedrooms-input').style.visibility = 'hidden'
+  } else {
+    document.getElementById('size-input').style.display = 'block'
+    document.getElementById('floor-input').style.display = 'block'
+    document.getElementById('balcony-input').style.display = 'block'
+    document.getElementById('structure-input').style.display = 'block'
+    document.getElementById('total_floors-input').style.display = 'block'
+    document.getElementById('storage-input').style.display = 'block'
+    document.getElementById('condition-input').style.display = 'block'
+    document.getElementById('year_built-input').style.display = 'block'
+    document.getElementById('bedrooms-input').style.display = 'block'
+    document.getElementById('basement-input').style.display = 'block'
+    document.getElementById('efficiency-input').style.display = 'block'
+    document.getElementById('parking-input').style.display = 'block'
+    document.getElementById('baths-input').style.display = 'block'
+    document.getElementById('efficiency_index-input').style.display = 'block'
+    document.getElementById('parking_slots-input').style.display = 'block'
+    document.getElementById('half_baths-input').style.display = 'block'
+    document.getElementById('set_up-input').style.display = 'block'
+    document.getElementById('bedrooms-input').style.visibility = 'visible'
+    document.getElementById('parcel-input').style.visibility = 'visible'
+
   }
 }
 function categories() {
