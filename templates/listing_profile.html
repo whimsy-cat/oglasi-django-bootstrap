@@ -20,13 +20,13 @@
     </div>
   </div>
   <div class="carousel-inner w-100">
-    
+
     <div class="d-flex justify-content-end position-absolute w-100" style="z-index: 2;" >
       <img class="m-5 hoverGalery" src="{% static 'images/icons/galery.svg' %}" alt="Hearth" data-bs-toggle="modal" data-bs-target="#galeryModal" >    </div>
     <!-- Modal -->
     {% include 'includes/listing_helpers/listing_profile_modal.html' %}
 
-    
+
     {% for i in listing.images.all %}
     <div class="carousel-item {% if forloop.counter == 1 %} active {% endif %}">
       <div class="d-block w-100  w-100 me-2" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 666px;"></div>
@@ -50,7 +50,7 @@
         {% if listing.type == '0' %}
         <div class="d-flex justify-content-center ">
           <div class="shadow d-flex justify-content-center city-location">
-              <div class="bg-blue text-white p-1 rounded-start ps-2" id="price_per_square"></div>          
+              <div class="bg-blue text-white p-1 rounded-start ps-2" id="price_per_square"></div>
             <div class="bg-blue text-white rounded-end p-1 pe-2">eur/m2</div>
           </div>
         </div>
@@ -121,7 +121,7 @@
                 <div class="col-6  border-end p-0 text-black" >
                   <h6 class="mb-3">Površina: {{listing.listingcharacteristics_set.first.size}}m2</h6>
                   <h6 class="mb-3">Struktura: {{listing.listingcharacteristics_set.first.structure}}</h6>
-                  <h6 class="mb-3">Parking: 
+                  <h6 class="mb-3">Parking:
                   {% if listing.listingcharacteristics_set.first.parking %}
                     {{listing.listingcharacteristics_set.first.parking}}
                     {% elif 'Garaža' in listing.details %}Garaža
@@ -140,7 +140,7 @@
                   {% endif %}
                   <h6 class="mb-3">Visina plafona:
                     {% for detail in listing.details %}
-                      {% if 'Visina do 260cm' in detail %} Do 260cm 
+                      {% if 'Visina do 260cm' in detail %} Do 260cm
                         {% elif 'Visina 260-300cm' in detail %} 260-300cm
                         {% elif 'Visina od 300cm' in detail %} Od 300cm
                       {% endif %}
@@ -231,7 +231,7 @@
         </div>
       </div>
         {% endif %}
-        
+
         <!-- 3. Map & Locations -->
       <div class="row non-printable-area">
         <div class="col-8 printable-area ps-0 pe-3" >
@@ -304,12 +304,19 @@
 
     <!-- Suggested Listings -->
     <div class="row mb-4 non-printable-area" style="margin: 0px -52px;" >
-        <h3 class="col-12 mt-5 section-title text-center" style="margin-bottom: 32px;">Preporučeni Oglasi</h3>
-      {% for similar in similar_listings %}
-      <div class="col-xxl-3 col-xl-3 col-sm-12">
-        {% include 'includes/listings/listing_card.html' with listing=similar%}
+      <h3 class="col-12 mt-5 section-title text-center" style="margin-bottom: 32px;">Preporučeni Oglasi</h3>
+
+      <div class="carousel-inner pb-5">
+        <div class=" carousel-item active">
+          <div class="row">
+            {% for similar in similar_listings %}
+            <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4">
+              {% include 'includes/listings/listing_card.html' with listing=listing %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
       </div>
-      {% endfor %}
     </div>
   </div>
 </div>
@@ -336,20 +343,20 @@
   const newShare = '{% static "images/icons/share_hover.svg" %}';
   const newPrints = '{% static "images/icons/print_on_hover.svg" %}';
   const newCompare = '{% static "images/icons/compare_on_hover.svg" %}';
-  
+
 share.addEventListener('mouseover', function() {
   share.src = newShare;
 });
 share.addEventListener('mouseout', function() {
   share.src = shareSrc;
 });
-prints.addEventListener('mouseover', function() { 
+prints.addEventListener('mouseover', function() {
   prints.src = newPrints
 })
 prints.addEventListener('mouseout', function() {
   prints.src = printSrc
 });
-compare.addEventListener('mouseover', function() { 
+compare.addEventListener('mouseover', function() {
   compare.src = newCompare
 })
 compare.addEventListener('mouseout', function() {
@@ -396,7 +403,7 @@ if (document.getElementById('liked_on_hover')) {
   tabStyleHandler("infoPills", "info", "infoTabStyle");
   tabStyleHandler("imagesVideosFloorplanPills", "media", "imageVideoFlooplanStyle");
   tabStyleHandler("mapAndLocation", "place", "mapLocationStyle");
-  
+
 
   // Thumbnail alingment and scroll
 function caroseulIndicatorFrame() {
@@ -441,7 +448,7 @@ map.on('error', function(err) {
 // let data = [];
 
 // function generateData() {
-//   {% for cd in chart_data %} 
+//   {% for cd in chart_data %}
 //     labels.push('{{cd.quarter|date:'M-Y'}}')
 //     data.push('{{cd.avg_price}}')
 //   {% endfor %}
@@ -460,7 +467,7 @@ map.on('error', function(err) {
 //       backgroundColor: "#dd557b", // Set desired background color
 //       data: data
 //     }]
-//   },    
+//   },
 //   options: {
 //     title: {
 //       display: true,
@@ -471,7 +478,7 @@ map.on('error', function(err) {
 //     },
 //     legend: {display: false},
 //     scales: {
-//       type: 'time', 
+//       type: 'time',
 //       xAxes: [{
 //         ticks: {
 //           maxRotation: 0,
