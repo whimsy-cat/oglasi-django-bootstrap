@@ -3,10 +3,11 @@ from django.db import models, IntegrityError
 
 
 class MyAccountManager(BaseUserManager):
-    def create_user(self, first_name, last_name='', username=None, email=None, password=None, phone_number='', type=None, identification_number='', tax_id='', newsletter_subscribed=False, address=''):
+    def create_user(self, first_name, last_name, username, email, password, phone_number=None,
+                    type=None, identification_number=None, tax_id=None, newsletter_subscribed=False, address=None, **kwargs):
         if not email:
             raise ValueError('Email je obavezan')
-        
+
         if not username:
             raise ValueError('Korisničo ime je obavezno')
 
@@ -17,16 +18,17 @@ class MyAccountManager(BaseUserManager):
             raise ValueError('Lozinka mora biti bar 8 karaktera')
 
         user = self.model(
-            email = self.normalize_email(email),
-            username = username,
-            first_name = first_name,
-            last_name = last_name,
-            phone_number = phone_number,
-            type = int(type),
-            identification_number = identification_number,
-            tax_id = tax_id,
-            newsletter_subscribed = newsletter_subscribed,
-            address=address
+            email=self.normalize_email(email),
+            username=username,
+            first_name=first_name,
+            last_name=last_name,
+            phone_number=phone_number,
+            type=int(type) if type else 0,
+            identification_number=identification_number,
+            tax_id=tax_id,
+            newsletter_subscribed=newsletter_subscribed,
+            address=address,
+            **kwargs
         )
 
         user.set_password(password)
@@ -36,7 +38,7 @@ class MyAccountManager(BaseUserManager):
 
     def create_superuser(self, first_name, last_name, username, email, password):
         user = self.create_user(
-            first_name, last_name, username, email, password
+            first_name=first_name, last_name=last_name, username=username, email=email, password=password
         )
         user.is_admin = True
         user.is_staff = True
@@ -48,7 +50,6 @@ class MyAccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    
     USER_TYPE = (
         ("0", 'Fizičko lice'),
         ("1", 'Pravno lice'),

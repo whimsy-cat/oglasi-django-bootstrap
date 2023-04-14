@@ -12,6 +12,7 @@ from django.urls import reverse
 
 from django.http import JsonResponse
 
+
 def register(request):
     if request.method == 'POST':
         terms = request.POST.get('terms')
@@ -65,11 +66,11 @@ def register(request):
             user.save()
             response_data = {'success': True}
 
-
             # User activation
             current_site = get_current_site(request)
             full_name = first_name + ' ' + last_name
-            activate_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': default_token_generator.make_token(user)})
+            activate_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)),
+                                                       'token': default_token_generator.make_token(user)})
             link = f"https://{current_site}{activate_url}"
             data = {
                 "first_name": first_name,
@@ -84,6 +85,7 @@ def register(request):
     else:
         return render(request, 'account_pages/register.html')
 
+
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
@@ -93,9 +95,9 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return JsonResponse({ "success": True}, safe=False)
+            return JsonResponse({"success": True}, safe=False)
         else:
-            return JsonResponse({ "success": False}, safe=False)
+            return JsonResponse({"success": False}, safe=False)
 
     return render(request, 'account_pages/login.html')
 
@@ -131,7 +133,9 @@ def forgot_password(request):
         if Account.objects.filter(email=email_address).exists():
             user = Account.objects.filter(email__icontains=email_address).first()
             current_site = get_current_site(request)
-            activate_url = reverse('reset_password_valited', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': default_token_generator.make_token(user)})
+            activate_url = reverse('reset_password_valited',
+                                   kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)),
+                                           'token': default_token_generator.make_token(user)})
             link = f"https://{current_site}{activate_url}"
             data = {
                 "first_name": user.first_name,
@@ -180,6 +184,7 @@ def reset_password(request):
             return redirect('reset_password')
 
     return render(request, 'account_pages/reset_password.html')
+
 
 @login_required(login_url='login')
 def user_profile(request, username):

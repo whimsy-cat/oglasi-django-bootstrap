@@ -5120,82 +5120,82 @@ class Command(BaseCommand):
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Aktaš"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Arberija"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Velanija"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Veternik"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dardanija"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kalabrija"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lakrište"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pejton"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sinji Dol"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sunčani Breg"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tasliđe"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ulpijana"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Univerzitetsko Naselje"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Priština",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -5440,22 +5440,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ada",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Druga Mesna Zajednica"
         },
         {
             "grad": "Ada",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Prva Mesna Zajednica"
         },
         {
             "grad": "Ada",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ada",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -5490,12 +5490,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Aleksandrovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Aleksandrovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -5780,47 +5780,47 @@ class Command(BaseCommand):
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Žitkovački Put"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona Kukiš"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Logorište"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mikro Naselje"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Padalište"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Palilula"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Aleksinac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -6190,17 +6190,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Alibunar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vašarište"
         },
         {
             "grad": "Alibunar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Alibunar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -6265,17 +6265,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Apatin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Popini Vinogradi"
         },
         {
             "grad": "Apatin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Apatin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -6310,72 +6310,72 @@ class Command(BaseCommand):
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đajino Brdo"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đikino Brdo"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đunis"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zlatar"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jelinac"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ješovac"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Otvoreno Polje"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Preseka"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Risovača"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Seničani"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Slatina"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Aranđelovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -6485,32 +6485,32 @@ class Command(BaseCommand):
         },
         {
             "grad": "Arilje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gruda"
         },
         {
             "grad": "Arilje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mirotin"
         },
         {
             "grad": "Arilje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mlekara"
         },
         {
             "grad": "Arilje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Piskavice"
         },
         {
             "grad": "Arilje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Arilje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -6630,12 +6630,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Babušnica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Babušnica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -6905,12 +6905,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bajina Bašta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bajina Bašta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7105,12 +7105,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Batočina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Batočina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7175,12 +7175,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bač",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bač",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7220,52 +7220,52 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok Kaloš 1"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok Kaloš 2"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bratstvo"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dunav"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nova Palanka"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sinaj"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stara Palanka"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari grad"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bačka Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7340,27 +7340,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bačka Topola",
-            "opstina": "Bačka Topola",
-            "lokacija": "Bačka Topola"
-        },
-        {
-            "grad": "Bačka Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vašarište"
         },
         {
             "grad": "Bačka Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Bačka Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bačka Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7485,12 +7480,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bački Petrovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bački Petrovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7520,12 +7515,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bela Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bela Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7765,12 +7760,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bela Crkva",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bela Crkva",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -7855,37 +7850,37 @@ class Command(BaseCommand):
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ekonomija"
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Dunav"
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Beočin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šljivik"
         },
         {
@@ -7965,67 +7960,67 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bratstvo Jedinstvo"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Veljko Vlahović"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donji grad"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ivan Perišić"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kamp Naselje"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Rit"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje 7 Sekretara SKOJ-a"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Picoder"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Putrija"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ribnjak"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari Rit"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -8060,12 +8055,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Blace",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Blace",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -8275,17 +8270,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bogatić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sveto Polje"
         },
         {
             "grad": "Bogatić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bogatić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -8365,12 +8360,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bojnik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bojnik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -8560,12 +8555,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Boljevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Boljevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -8675,77 +8670,77 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "4. Mesna Zajednica"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "5. Mesna Zajednica"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bolničko Naselje"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kučajna"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Metalurg"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Bor 2"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Sunce"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novi gradski Centar"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Selište"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Slatinsko Naselje"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Staro Selište"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čoka Boruluj"
         },
         {
             "grad": "Bor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -8835,12 +8830,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bosilegrad",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bosilegrad",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -9035,12 +9030,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Brus",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Brus",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -9340,12 +9335,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Bujanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Bujanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -9650,167 +9645,167 @@ class Command(BaseCommand):
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bair"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Belo Polje"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Boričevac"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Brđani"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vidrak"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vujićev Venac"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradac"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička Stanica"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zlokućani"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ilidža"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jadar"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kasarna"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolubara"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolubara 1"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kosančićev Venac"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Krušik"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nada Purić"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje 27. Novembar"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Milivoja Bjelice"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Milorad Pavlović"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Oslobodioca Valjeva"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Sreten Dudić"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Zbratimljenih gradova"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pećina"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Peti Puk"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Popare"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radino Brdo"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Senjak"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sinđelićev Blok"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tešnjar"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Valjevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -10215,27 +10210,27 @@ class Command(BaseCommand):
         },
         {
             "grad": "Varvarin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Poljce 1"
         },
         {
             "grad": "Varvarin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Poljce 2"
         },
         {
             "grad": "Varvarin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rasadnik"
         },
         {
             "grad": "Varvarin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Varvarin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -10350,32 +10345,32 @@ class Command(BaseCommand):
         },
         {
             "grad": "Velika Plana",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bugarija"
         },
         {
             "grad": "Velika Plana",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đurakovac"
         },
         {
             "grad": "Velika Plana",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Velika Plana",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari Odbor"
         },
         {
             "grad": "Velika Plana",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Velika Plana",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -10455,22 +10450,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Veliko gradište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Beli Bagrem"
         },
         {
             "grad": "Veliko gradište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vinogradi"
         },
         {
             "grad": "Veliko gradište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Veliko gradište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -10615,12 +10610,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vitina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vitina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -10845,12 +10840,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vladimirci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vladimirci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -11005,22 +11000,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vladičin Han",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kula"
         },
         {
             "grad": "Vladičin Han",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Poljana"
         },
         {
             "grad": "Vladičin Han",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vladičin Han",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -11285,32 +11280,32 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vlasotince",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornja Mala"
         },
         {
             "grad": "Vlasotince",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donja Mala"
         },
         {
             "grad": "Vlasotince",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kamenica"
         },
         {
             "grad": "Vlasotince",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Manastiršte"
         },
         {
             "grad": "Vlasotince",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vlasotince",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -11560,107 +11555,107 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Autobuska Stanica"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Beli Most"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bunuševac"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Viktor Bubanj"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornja Čaršija"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornji Asambair"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donje Vranje"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donji Asambair"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ledena Stena"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ogledna Stanica"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Odžinka"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Palestina"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Panađurište"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Raška"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rudina"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sobina"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tulbe"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ćoška"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šapranački Rid"
         },
         {
             "grad": "Vranje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -12195,57 +12190,57 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Borjak"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dubrava"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jezero"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Piskavac"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Raj"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Slatina"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Snežnik"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sunčani Breg"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čajkino Brdo"
         },
         {
             "grad": "Vrnjačka Banja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -12325,117 +12320,117 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Balata"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vinogradski Kraj"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vojnički Trg"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Guduričko Naselje"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Irig Mala"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Istočni Vršac"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kalvarija"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kozluk"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kormanter"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kuštiljsko Naselje"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Rit"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Margitsko Naselje"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Gudurički Put"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Breg"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Paorski Kraj"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radakova Mala"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Staklenik Mala"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Helvecija"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hemograd"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Crkvenjačka Mala"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čukur Mala"
         },
         {
             "grad": "Vršac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -12565,12 +12560,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Vučitrn",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Vučitrn",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -12915,12 +12910,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Gadžin Han",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Gadžin Han",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -13100,12 +13095,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Glogovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Glogovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -13300,12 +13295,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Gnjilane",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Gnjilane",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -13600,12 +13595,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Golubac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Golubac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -13735,52 +13730,52 @@ class Command(BaseCommand):
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Backovac"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Brankovo Brdo"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Grobnice"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Despotovica"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ivice"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Neškovića Brdo"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rasadnik"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trijangla"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Gornji Milanovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -14110,12 +14105,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Despotovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Despotovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -14295,12 +14290,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Dečani",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Dečani",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -14510,12 +14505,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Dimitrovgrad",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Dimitrovgrad",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -14740,12 +14735,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Doljevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Doljevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -14835,12 +14830,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Dragaš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Dragaš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -14945,12 +14940,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Đakovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Đakovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -15375,17 +15370,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Žabalj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Čikmeže"
         },
         {
             "grad": "Žabalj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Žabalj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -15415,12 +15410,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Žabari",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Žabari",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -15505,12 +15500,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Žagubica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Žagubica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -15610,12 +15605,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Žitište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Žitište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -15685,12 +15680,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Žitorađa",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Žitorađa",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -15850,147 +15845,147 @@ class Command(BaseCommand):
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Beli Breg"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Višnjar"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vlačić"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vlaška Mala"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gnjilak"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gojkova Jaruga"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradež"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dva brata"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Živinarnik"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zvezdanska Krivina"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ključ"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kotlujevac"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kraljevica"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lubničko Brdo"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Muljak"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Plaža"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Oskoruša"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pazarište"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pikovo Imanje"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pišura"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Podliv"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Popova Plaža"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Selište"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Timok"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Cerak"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šljivarksi Put"
         },
         {
             "grad": "Zaječar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šljivarsko Brdo"
         },
         {
@@ -16215,12 +16210,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Zvečan",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Zvečan",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -16405,132 +16400,132 @@ class Command(BaseCommand):
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "4. Juli"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bagljaš"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Berbersko Novo"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Berbersko Staro"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Budžak"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradulnica"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradulnica Guvno"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dolja"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dositej Obradović"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Duvanik"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Žitni Trg"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zeleno Polje"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lesnina"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mala Amerika"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mičkel"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mužlja"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mužljanska Kolonija"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nova Kolonija"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Putnikovo"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ruža Šulman"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari Bagljaš"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čontika"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šećerana"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Zrenjanin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šumica"
         },
         {
@@ -16655,12 +16650,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Zubin Potok",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Zubin Potok",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -16985,32 +16980,32 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ivanjica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Buk"
         },
         {
             "grad": "Ivanjica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kušićan"
         },
         {
             "grad": "Ivanjica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lučka Reka"
         },
         {
             "grad": "Ivanjica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mrkočevac"
         },
         {
             "grad": "Ivanjica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ivanjica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -17270,72 +17265,72 @@ class Command(BaseCommand):
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Aleksandrija"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Atina"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 43"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 44"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 63"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Boška Buha"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jugoistočna Radna Zona"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Moskva"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Severoistočna Radna Zona"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Srpski Kraj"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šangaj"
         },
         {
             "grad": "Inđija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -17405,12 +17400,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Irig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Irig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -17490,12 +17485,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Istok",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Istok",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -17755,122 +17750,122 @@ class Command(BaseCommand):
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Aqua Park"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Budžino Brdo"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vašarište"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradski Stadion"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dimitrija Tucovića"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đurđevo Brdo"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kajsijar"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kupusara"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Levač"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lipar"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Železnički Most"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pijaca"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pivara"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ribarski Put"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rusko Groblje"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sarina Međa"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Svetozarevo"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Solaris"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Strelište"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tabane"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trnava"
         },
         {
             "grad": "Jagodina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tavrića Obori"
         },
         {
@@ -18140,17 +18135,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kanjiža",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Banja Kanjiža"
         },
         {
             "grad": "Kanjiža",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kanjiža",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -18225,12 +18220,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kačanik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kačanik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -18450,47 +18445,47 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "ABC Naselje"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 35"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 36"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička stanica"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mikronaselje"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pristanište"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Strelište"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kikinda",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -18550,27 +18545,27 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kladovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dunav"
         },
         {
             "grad": "Kladovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pemci"
         },
         {
             "grad": "Kladovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pesak"
         },
         {
             "grad": "Kladovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kladovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -18700,12 +18695,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Klina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Klina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -19035,12 +19030,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Knić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Knić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -19240,37 +19235,37 @@ class Command(BaseCommand):
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Glavičica"
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jezava"
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mladost"
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje 9. Brigade"
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sastavak"
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Knjaževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -19715,12 +19710,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kovačica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kovačica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -19770,27 +19765,27 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kovin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dunav"
         },
         {
             "grad": "Kovin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Klek"
         },
         {
             "grad": "Kovin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Kovin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kovin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -19865,12 +19860,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kosjerić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kosjerić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -20015,12 +20010,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kosovo Polje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kosovo Polje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -20120,12 +20115,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kosovska Kamenica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kosovska Kamenica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -20505,42 +20500,42 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bošnjačka Mahala"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Brđani"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ibar"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mikro Naselje"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tamnik"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tri Solitera"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kosovska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -20795,12 +20790,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Koceljeva",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Koceljeva",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -20895,157 +20890,157 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bogavčevo Brdo"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Boračko Naselje"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Braće Jevremović"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Braće Jovanović"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Braće Pirić"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bunjačko Brdo"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vojvode Stepe"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vojno Naselje"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradski Kej"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Grdica"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dositejeva"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zelengora"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ibar"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jarčujak"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jovana Deroka"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jovac"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Karađorđeva"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kovanluk"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kovači"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Moše Pijade"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Voćareve Livade"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pampula"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pic - Mala"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ribnica"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sijaće Polje"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stara Čaršija"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Francuska Kolonija"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Higijenski Zavod"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Crveni Krst"
         },
         {
             "grad": "Kraljevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -21525,12 +21520,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Krupanj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Krupanj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -21655,117 +21650,117 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Aerodrom"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bagdala"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bare"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blagoja Parovića"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bolnica"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bronks"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vlado Jurić"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lazarica"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Malo Golovode"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mudrakovac"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nova Pijaca"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pakašnica"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pejton"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Prnjavor"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rasadnik"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stara Čaršija"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trg Kosturnica"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ujedinjene Nacije"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Kruševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šumice"
         },
         {
@@ -22265,22 +22260,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kula",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornji grad"
         },
         {
             "grad": "Kula",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donji grad"
         },
         {
             "grad": "Kula",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kula",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -22325,27 +22320,27 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kuršumlija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Veljkoviće"
         },
         {
             "grad": "Kuršumlija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pantiće"
         },
         {
             "grad": "Kuršumlija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rasadnik"
         },
         {
             "grad": "Kuršumlija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kuršumlija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -22810,12 +22805,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Kučevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Kučevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -22960,12 +22955,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Lajkovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Lajkovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -23070,12 +23065,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Lapovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Lapovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -23095,12 +23090,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Lebane",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Lebane",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -23305,12 +23300,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Leposavić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Leposavić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -23675,97 +23670,97 @@ class Command(BaseCommand):
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "ATD"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vaskovo"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dubočica"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zatvor"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zele Veljković"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kosta Stamenković"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kumalak"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Morava"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ohridsko Naselje"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Podrum"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Prva Južnomoravska Brigada"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rade Žunić"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radničko Naselje"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Solidarnost"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hisar"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čifluk Mira"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Leskovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Štrkovo Naselje"
         },
         {
@@ -24495,12 +24490,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Lipljan",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Lipljan",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -24860,77 +24855,77 @@ class Command(BaseCommand):
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Banjski Šor"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradilište"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kličevac"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Klupci"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Krajišnici"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lagator"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lamele"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lozničko Polje"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Crnogora"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šabački put"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šanac"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Loznica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šulovača"
         },
         {
@@ -25200,12 +25195,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Lučani",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Lučani",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -25395,12 +25390,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -25550,27 +25545,27 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ljubovija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vagan"
         },
         {
             "grad": "Ljubovija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đurinovac"
         },
         {
             "grad": "Ljubovija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ljubovija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čitluk"
         },
         {
             "grad": "Ljubovija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -25715,22 +25710,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Majdanpek",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bagremarci"
         },
         {
             "grad": "Majdanpek",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vidikovac"
         },
         {
             "grad": "Majdanpek",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Majdanpek",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -25815,12 +25810,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Mali Zvornik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Mali Zvornik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -25895,12 +25890,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Mali Iđoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Mali Iđoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -25925,12 +25920,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Malo Crniće",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Malo Crniće",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -26040,12 +26035,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Medveđa",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Medveđa",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -26275,12 +26270,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Merošina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Merošina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -26425,12 +26420,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Mionica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Mionica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -26625,62 +26620,62 @@ class Command(BaseCommand):
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Badnjevo"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Borska Kolonija"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bukovski Put"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Veljko Vlahović"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vrelo"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradište"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Miloševski Put"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Kombinat"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radujevački Put"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rastoka"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Negotin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -26890,67 +26885,67 @@ class Command(BaseCommand):
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Branoševac 1"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Branoševac 2"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vionik"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Voćnjak"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zebinovac"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kuburovina"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Milanovac"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Petlovac"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Potočilo"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šanac"
         },
         {
             "grad": "Nova Varoš",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -27135,12 +27130,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Nova Crnja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Nova Crnja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -27180,47 +27175,47 @@ class Command(BaseCommand):
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vranjevo"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gerberov Blok"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Klemenov Blok"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Selo"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tisa"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tiski Kej"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Novi Bečej",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -27250,17 +27245,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Novi Kneževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tisa"
         },
         {
             "grad": "Novi Kneževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Novi Kneževac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -27315,137 +27310,137 @@ class Command(BaseCommand):
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Banja"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bukreš"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Varevo"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Varoš Mahala"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Deževski Put"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Erozija"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jalija"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lug"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mur"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Osoje"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Paralovo"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Parice"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Petlače"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pobrđe"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rasadnik"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Selakovac"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Svojbor"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ćeremedžinica"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hadžet"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hotkovo"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čerkez Mahala"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šaćirovići"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šestovo"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
             "grad": "Novi Pazar",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šutenovac"
         },
         {
@@ -27930,12 +27925,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Novo Brdo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Novo Brdo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -27995,12 +27990,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Obilić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Obilić",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -28100,22 +28095,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Opovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kertiz"
         },
         {
             "grad": "Opovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tamiš"
         },
         {
             "grad": "Opovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Opovo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -28145,12 +28140,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Orahovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Orahovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -28435,12 +28430,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Osečina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Osečina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -28550,12 +28545,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Odžaci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Odžaci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -28610,122 +28605,122 @@ class Command(BaseCommand):
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vojlovica"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornji grad Margita"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donji grad"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zelengora"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Karaula"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kotež 1"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kotež 2"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kudeljarski Nasip"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Rit"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Misa Vinogradi"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mladost"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novi Svet"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pepeljare"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Skrobara"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sodara"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stara Misa"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari Tamiš"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Strelište"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tesla"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tip Stanko"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Topola"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Utvina Kolonija"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Pančevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -28815,92 +28810,92 @@ class Command(BaseCommand):
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "4. Juli"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "7. Juli"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "11. Kongres"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Branko Krsmanović"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vrapčane"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Glodžak"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradski Stadion"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dankovo"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Žabare"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zmič"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jagodnjak"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Karađorđevo Brdo"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Lozica"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Selo"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Striško Naselje"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tekija"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Paraćin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -29080,12 +29075,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Petrovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Petrovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -29270,12 +29265,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Peć",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Peć",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -29685,12 +29680,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Pećinci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Pećinci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -29775,132 +29770,132 @@ class Command(BaseCommand):
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "ATP"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Barije"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Berilovac"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đeram"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Četvrt"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jatagan Mala"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kale"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nova Mala"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novi Zavoj"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Tigrovo Naselje"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pazar"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pirotski Kej"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Prisjansko Naselje"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Provalija"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Prčevac"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radin Do"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rogoz"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sarlah"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Senjak"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Staro Tigrovo Naselje"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tanasko Rajić"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tijabara"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Cin Cin Kladenac"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Češalj"
         },
         {
             "grad": "Pirot",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -30280,17 +30275,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Plandište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mariolana"
         },
         {
             "grad": "Plandište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Plandište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -30370,12 +30365,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Podujevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Podujevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -30775,112 +30770,112 @@ class Command(BaseCommand):
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "27. Aprila"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bulevar Bože Dimitrijevića"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Burjan"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Busije"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Varoško Brdo"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornja Mala"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradištanski Put"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đurino Naselje"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička Stanica"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zabela Naselje"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kostolački Put"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lamela"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ljubičevo"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Meminac"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pionirski Trg"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radna Mala"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sopot"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tabačka Čaršija"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tulba"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čačalica"
         },
         {
             "grad": "Požarevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -31040,62 +31035,62 @@ class Command(BaseCommand):
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bakionica"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Borjak"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zelenac"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kotarski Grm"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lisište"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Marijanovića Brdo"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Milovića Livade"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radovina"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Savinac"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tatojevica"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Požega",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -31310,17 +31305,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Preševo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička Stanica"
         },
         {
             "grad": "Preševo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Preševo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -31505,72 +31500,72 @@ class Command(BaseCommand):
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Banjski Čamac"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička Stanica"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zelenac"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jarkovac"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jarmovac"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lim"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Luka"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mostina"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novi Priboj"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Poljice"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari grad"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čitluk"
         },
         {
             "grad": "Priboj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -31765,12 +31760,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Prizren",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Prizren",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -32260,52 +32255,52 @@ class Command(BaseCommand):
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vakuf"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jezdovića Kosa"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolovrat"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lim"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Luke"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Raišnjeva"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Suvodo"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šehovića Polje"
         },
         {
             "grad": "Prijepolje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -32715,72 +32710,72 @@ class Command(BaseCommand):
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Borovnjak"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Garić"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornja Draganja"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Đurevačko Naselje"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jabukar"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kasarna"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lipar"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ozrensko Naselje"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pojate"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sokićev Bulevar"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hisar"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Prokuplje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -33325,12 +33320,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ražanj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ražanj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -33455,12 +33450,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Rača",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Rača",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -33560,12 +33555,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Raška",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Raška",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -33880,12 +33875,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Rekovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Rekovac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -34055,72 +34050,72 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Barunovac"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Berak"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Borkovac"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Breg"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vrbare"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Igralište"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Katanića Sokak"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kudoš"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sodol"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tivol"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Cerje"
         },
         {
             "grad": "Ruma",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -34215,37 +34210,37 @@ class Command(BaseCommand):
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Velika Morava"
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Vračar"
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Resava"
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sinđelićeva"
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Svilajnac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -34365,32 +34360,32 @@ class Command(BaseCommand):
         },
         {
             "grad": "Svrljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lukavica"
         },
         {
             "grad": "Svrljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Magovac"
         },
         {
             "grad": "Svrljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Saraj"
         },
         {
             "grad": "Svrljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trs"
         },
         {
             "grad": "Svrljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Svrljig",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -34595,62 +34590,62 @@ class Command(BaseCommand):
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Alveg"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Makoš"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Rit"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pana"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pesak"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tisa"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Topartski duž"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čarda"
         },
         {
             "grad": "Senta",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -34685,12 +34680,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Sečanj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Sečanj",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -34755,12 +34750,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Sjenica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Sjenica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -35275,117 +35270,117 @@ class Command(BaseCommand):
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "25. Maj"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Buline Vode"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Godomin"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornja Vaga"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donji grad"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dunav"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zlatno Brdo"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jugovo"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Karađorđev Dud"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Karađorđevo Brdo"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kovačićevo"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ladna Voda"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Leštar"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Papazovac"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Plavinac"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Provalija"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sveti Sava"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Senjak"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Slavija"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Carina"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Smederevo",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -35535,62 +35530,62 @@ class Command(BaseCommand):
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vlajića Brdo"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gorčine"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ivak"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kiseljak"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Ključ"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mikulja"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rudine"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Taš"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hajdučki Potok"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Smederevska Palanka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -35690,57 +35685,57 @@ class Command(BaseCommand):
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Banjica"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vrelo Borići"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradašnica"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jabukar"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ozren"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Podina"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čair"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čuka 2"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šetalište"
         },
         {
             "grad": "Sokobanja",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -35880,77 +35875,77 @@ class Command(BaseCommand):
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Venac"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Goge"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornja Varoš"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička Stanica"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Josićko Naselje"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mlake"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nenadić"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rokovci"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Selenča"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trepča Naselje"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Crvenka"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čvorak"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šikara"
         },
         {
             "grad": "Sombor",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -36110,12 +36105,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Srbica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Srbica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -36375,17 +36370,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Srbobran",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Naselje"
         },
         {
             "grad": "Srbobran",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Srbobran",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -36410,157 +36405,157 @@ class Command(BaseCommand):
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "22. Avgust"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "29. Novembar"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Aleja"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Autobuska Stanica"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok B"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gajeva"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dekanske Bašte"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dudara"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Žitopromet"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "K.P. Dom"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "M.P. Kamenjar"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Maksima Gorkog"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Matije Huđi"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Miloš Obilić"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje 25. Maj"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Nikola Tesla"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Orao - Poljostroj"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Palanka"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pejton"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radinački Put"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sava"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Severno od Planinske"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Slobodan Bajić - Paja"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Spomen Groblje"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari Most"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stevan Sremac"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sutjeska"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Crvena Česma"
         },
         {
             "grad": "Sremska Mitrovica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -36720,42 +36715,42 @@ class Command(BaseCommand):
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Belilo"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornji Kraj"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Doka"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dudara"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pivara"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Čerat"
         },
         {
             "grad": "Sremski Karlovci",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -36775,12 +36770,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Stara Pazova",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Stara Pazova",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -36835,157 +36830,157 @@ class Command(BaseCommand):
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Aleksandrovo"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bajnat"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bolnica"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Veliki Radanovac"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vinogradi"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gat"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gornji grad"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dudova Šuma"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Željezničko Naselje"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zorka"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jasibara"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ker"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kertvaroš"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Makova Sedmica"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Bajmok"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mali Radanovac"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novi grad"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Novo Selo"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Peščara"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Prozivka"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radanovac"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Radijalac"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Srpski Šor"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Teslino Naselje"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tokio"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar 1"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar 2"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar 3"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Crveno Selo"
         },
         {
             "grad": "Subotica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -37095,12 +37090,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Suva Reka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Suva Reka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -37355,17 +37350,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Surdulica",
-            "opstina": "Surdulica",
-            "lokacija": "Surdulica"
-        },
-        {
-            "grad": "Surdulica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Surdulica",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -37605,47 +37595,42 @@ class Command(BaseCommand):
         },
         {
             "grad": "Temerin",
-            "opstina": "Temerin",
-            "lokacija": "Temerin"
-        },
-        {
-            "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 18"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Blok 22"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vašarište"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kolonija"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kudeljara"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Staro Đurđevo"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Temerin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -37670,22 +37655,17 @@ class Command(BaseCommand):
         },
         {
             "grad": "Titel",
-            "opstina": "Titel",
-            "lokacija": "Titel"
-        },
-        {
-            "grad": "Titel",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tisa"
         },
         {
             "grad": "Titel",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Titel",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -37725,47 +37705,47 @@ class Command(BaseCommand):
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Industrijska Zona"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jezero Topola"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ljube Selo"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Meterize"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Mitrovčić"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Oplenac"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ravnica"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Topola",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -37925,17 +37905,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Trgovište",
-            "opstina": "Trgovište",
-            "lokacija": "Trgovište"
-        },
-        {
-            "grad": "Trgovište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Trgovište",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -38115,27 +38090,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Trstenik",
-            "opstina": "Trstenik",
-            "lokacija": "Trstenik"
-        },
-        {
-            "grad": "Trstenik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zapadna Morava"
         },
         {
             "grad": "Trstenik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pejovac"
         },
         {
             "grad": "Trstenik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Trstenik",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -38395,32 +38365,27 @@ class Command(BaseCommand):
         },
         {
             "grad": "Tutin",
-            "opstina": "Tutin",
-            "lokacija": "Tutin"
-        },
-        {
-            "grad": "Tutin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "gradac"
         },
         {
             "grad": "Tutin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lukavica"
         },
         {
             "grad": "Tutin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Severni Kočarnik"
         },
         {
             "grad": "Tutin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Tutin",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -38875,17 +38840,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ćićevac",
-            "opstina": "Ćićevac",
-            "lokacija": "Ćićevac"
-        },
-        {
-            "grad": "Ćićevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ćićevac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -38940,92 +38900,87 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ćuprija",
-            "opstina": "Ćuprija",
-            "lokacija": "Ćuprija"
-        },
-        {
-            "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ada"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bolnica"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Visoka Medicinska Škola"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dom Zdravlja"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Železnička Stanica"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zmić"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ludo Polje"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Moravski Park"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Minel"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ordište"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rasputnica"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Selište"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Skelino Polje"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tonja"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Cernica"
         },
         {
             "grad": "Ćuprija",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -39120,27 +39075,22 @@ class Command(BaseCommand):
         },
         {
             "grad": "Ub",
-            "opstina": "Ub",
-            "lokacija": "Ub"
-        },
-        {
-            "grad": "Ub",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vučjak"
         },
         {
             "grad": "Ub",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Talovi"
         },
         {
             "grad": "Ub",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Ub",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centrar"
         },
         {
@@ -39335,107 +39285,102 @@ class Command(BaseCommand):
         },
         {
             "grad": "Užice",
-            "opstina": "Užice",
-            "lokacija": "Užice"
-        },
-        {
-            "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Begluk"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bela Zemlja"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Belo Groblje"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gluvaći"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Dovarje"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Zabučje"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Koštica"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Krčagovo"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lipa"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Malo Zabučje"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pora"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rakijska Pijaca"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Rosulje"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Senjak"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari grad"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Terazije"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Turica"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Carina"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Užice",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -39720,17 +39665,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Uroševac",
-            "opstina": "Uroševac",
-            "lokacija": "Uroševac"
-        },
-        {
-            "grad": "Uroševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Uroševac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -39965,17 +39905,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Crna Trava",
-            "opstina": "Crna Trava",
-            "lokacija": "Crna Trava"
-        },
-        {
-            "grad": "Crna Trava",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Crna Trava",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -40105,17 +40040,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Čajetina",
-            "opstina": "Čajetina",
-            "lokacija": "Čajetina"
-        },
-        {
-            "grad": "Čajetina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Čajetina",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -40245,167 +40175,162 @@ class Command(BaseCommand):
         },
         {
             "grad": "Čačak",
-            "opstina": "Čačak",
-            "lokacija": "Čačak"
-        },
-        {
-            "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "3. Decembar"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Alvadžinica"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Avenija 1"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Avenija 2"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Avenija Lipa"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Beljina"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Velika Kolonija"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vinara"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Gvožđar"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Jezdinsko Polje"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kaluđerice"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kasarna Ratko Mitrović"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kej"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ključ"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Košutnjak"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kulinovačko Polje"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lozničko Polje"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Lugovi"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ljubić"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Ljubić Kej"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Medicinska Škola"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Palilula"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Park"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Pridvoračko Polje"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sajmište"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari Autoprevoz"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Stari grad"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Tanasko Rajić"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Turski Potok"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Hotel Morava"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Čačak",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -40705,17 +40630,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Čoka",
-            "opstina": "Čoka",
-            "lokacija": "Čoka"
-        },
-        {
-            "grad": "Čoka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Čoka",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -40760,92 +40680,87 @@ class Command(BaseCommand):
         },
         {
             "grad": "Šabac",
-            "opstina": "Šabac",
-            "lokacija": "Šabac"
-        },
-        {
-            "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Bair"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Benska Bara"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Donji Šor"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Živinarnik"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Žika Popović"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kamenjak"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kamičak"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Kasarske Livade"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Letnjikovac"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Letnjikovačka Kosa"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Preki Šor"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Sava"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trijangla"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Trkalište"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Šipurske Livade"
         },
         {
             "grad": "Šabac",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -41110,37 +41025,32 @@ class Command(BaseCommand):
         },
         {
             "grad": "Šid",
-            "opstina": "Šid",
-            "lokacija": "Šid"
-        },
-        {
-            "grad": "Šid",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Vračar"
         },
         {
             "grad": "Šid",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "G2 Naselje"
         },
         {
             "grad": "Šid",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Istok"
         },
         {
             "grad": "Šid",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Naselje Jelice Stanivuković"
         },
         {
             "grad": "Šid",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Šid",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -41240,17 +41150,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Štimlje",
-            "opstina": "Štimlje",
-            "lokacija": "Štimlje"
-        },
-        {
-            "grad": "Štimlje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Štimlje",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
@@ -41365,17 +41270,12 @@ class Command(BaseCommand):
         },
         {
             "grad": "Štrpce",
-            "opstina": "Štrpce",
-            "lokacija": "Štrpce"
-        },
-        {
-            "grad": "Štrpce",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Centar"
         },
         {
             "grad": "Štrpce",
-            "opstina": "gradska lokacija",
+            "opstina": "Gradska lokacija",
             "lokacija": "Širi Centar"
         },
         {
