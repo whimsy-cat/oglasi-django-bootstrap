@@ -3,9 +3,9 @@
 {% block page_specific_styles %}
 {% endblock %}
 
-<i class="bi bi-person ms-2 me-1 hover {% if request.path == '/' %} text-white {% else %} menu-user-icon-dark {% endif %} rounded-circle menu-user-icon"></i>
 <a class="nav-link pe-0 hover ps-1 d-flex align-items-center justify-content-center {% if request.path == '/' %} nav-hover text-white {% endif %} hovers"  data-bs-toggle="modal" data-bs-target="#accountModal" onclick="signInModal()">
-  Prijava
+  <i class="bi bi-person ms-2 me-1 cursor-pointer hover {% if request.path == '/' %} text-white {% else %} menu-user-icon-dark {% endif %} rounded-circle menu-user-icon"></i>
+  <span>Prijava</span>
 </a>
   <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
     <div class="modal-dialog" style="max-width: 512px!important;">
