@@ -3,7 +3,7 @@
   <div class="row m-0 header align-items-center non-printable-area justify-content-between">
     <div class="col-1 p-0 d-flex justify-content-start">
       <a href="{% url 'home' %}">
-        <img class="logo p-2" style="margin-left: -11px;" src="{% static 'images/shared/logo.png' %}" height="56px" alt="logo">
+        <img class="logo p-2" style="width:156px;" src="{% static 'images/shared/logo.png' %}" height="56px" alt="logo">
       </a>
     </div>
     <div class="col-9 d-flex flex-wrap align-items-center justify-content-center flex-grow-1">
@@ -37,11 +37,11 @@
       </div>
 
       <ul class="nav">
-        <li class="px-2 hover-open">
+        <li class="px-1 hover-open header-menu">
           <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/' %} link-secondary {% elif request.path == '/' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Nekretnine
           </a>
-          <ul class="dropdown-menu p-0" id="subCategories">
+          <ul class="dropdown-menu header-menu p-0" id="subCategories" ></ul>
             
           </ul>
         </li>
@@ -49,7 +49,8 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'new_builds'  %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Novogradnja
           </a>
-          <ul class="dropdown-menu" style="min-width: 118px!important; min-height: 136px;">
+          <!-- style="min-width: 118px!important; min-height: 136px;" -->
+          <ul class="dropdown-menu">
             <li>
               <a href="#" class="font-weight-600 nav-link nav-hover py-1 px-2 {% if request.resolver_match.url_name == 'project_list' %} link-secondary {% endif %}">Projekti</a>
             </li>
@@ -62,7 +63,8 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'blog_list'  %} link-secondary  {% elif request.resolver_match.url_name == 'home' %} text-white  {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Vesti
           </a>
-          <ul class="dropdown-menu p-0" style="min-width: fit-content!important;min-height: 136px;">
+          <!-- style="min-width: 118px!important; min-height: 136px;" -->
+          <ul class="dropdown-menu p-0">
             <li>
               <a href="{% url 'news_list' %}" style="padding: 8px 12px 4px 12px;" class="font-weight-600 nav-link nav-hover  {% if request.resolver_match.url_name == 'news_list' %} link-secondary {% endif %}">Vesti</a>
             </li>
@@ -75,7 +77,8 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'investors_page' or request.resolver_match.url_name == 'agencies_page' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Oglašavanje
           </a>
-          <ul class="dropdown-menu p-0" style="min-width:110px;">
+          <!-- style="min-width:118px;" -->
+          <ul class="dropdown-menu p-0" >
             <li>
               <a href="{% url 'agencies_page' %}" style="padding: 8px 12px 4px 12px;" class="font-weight-600 nav-link nav-hover {% if request.resolver_match.url_name == 'agencies_page' %} link-secondary {% endif %}">Agencije</a>
             </li>
@@ -120,7 +123,7 @@
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'new_builds'  %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Jezik
           </a>
-          <ul class="dropdown-menu">
+         <ul class="dropdown-menu p-0 " style="min-width: 150px!important; min-height: 136px;">
             <li class="d-flex flex-row align-items-center">
               <img class="my-1 mx-2" width="24" height="24" src="{% static 'images/shared/flag_srb_nav.png' %}" alt="language flag">
               <a href="#" class="nav-link nav-hover p-0 font-weight-600">Srpski(lat)</a>
