@@ -960,7 +960,6 @@ ul.pagination {
 .hover-open:hover > ul {
   display: block;
 }
-
 .hover-open > ul{
   margin: 2px 0px 0px 0px;
 }
