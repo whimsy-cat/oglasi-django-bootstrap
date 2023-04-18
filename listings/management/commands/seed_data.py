@@ -20,6 +20,10 @@ class Command(BaseCommand):
       poslovni_prostori = Category.objects.create(name='Poslovni prostori', description='Poslovni prostori')
     except:  
       poslovni_prostori = Category.objects.get(name='Poslovni prostori', description='Poslovni prostori')
+    try:
+      parking_prostor = Category.objects.create(name='Parking prostor', description='Parking prostor')
+    except:
+      parking_prostor = Category.objects.get(name='Parking prostor', description='Parking prostor')
 
     try:
       stan = Category.objects.create(parent=stambene_nekretnine, name='Stan')
@@ -33,10 +37,7 @@ class Command(BaseCommand):
       soba = Category.objects.create(parent=stambene_nekretnine, name='Soba')
     except:
       soba = Category.objects.get(parent=stambene_nekretnine, name='Soba')
-    try:
-      garaza = Category.objects.create(parent=stambene_nekretnine, name='Garaža')
-    except:
-      garaza = Category.objects.get(parent=stambene_nekretnine, name='Garaža')
+
     try:
       apartman = Category.objects.create(parent=stambene_nekretnine, name='Apartman')
     except:
@@ -85,7 +86,20 @@ class Command(BaseCommand):
       ostalo = Category.objects.create(parent=poslovni_prostori, name='Ostalo')
     except:
       ostalo = Category.objects.get(parent=poslovni_prostori, name='Ostalo')
-    
+
+    try:
+      garažno_mesto = Category.objects.create(parent=parking_prostor, name='Garažno mesto')
+    except:
+      garažno_mesto = Category.objects.get(parent=parking_prostor, name='Garažno mesto')
+    try:
+      parking_mesto = Category.objects.create(parent=parking_prostor, name='Parking mesto')
+    except:
+      parking_mesto = Category.objects.get(parent=parking_prostor, name='Parking mesto')
+    try:
+      garaža = Category.objects.create(parent=parking_prostor, name='Garaža')
+    except:
+      garaža = Category.objects.get(parent=parking_prostor, name='Garaža')
+
     self.stdout.write(self.style.SUCCESS('Successfully seeded data for categories'))
 
     # ADD DETAILS AND AMENITIES and APPEND THEM TO CATEGORIES

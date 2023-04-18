@@ -193,7 +193,7 @@ async function populateSubCategories() {
   }
   subcategorySelect.innerHTML +=
     `<li class="dropdown-submenu">
-      <a style="${parentPadding}" class="font-weight-600 nav-link nav-hover  {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${parentCat.name}">${parentCat.name} > </a>
+      <a style="${parentPadding}" class="font-weight-600 nav-link nav-hover  {% if request.resolver_match.url_name == '' %} link-secondary {% endif %}"" href="{% url 'listings' %}?tip=${parentCat.name}">${parentCat.name} </a>
       <ul class="dropdown-menu p-0" >
         ${childOptions}
       </ul>
