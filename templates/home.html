@@ -36,8 +36,9 @@
     </div>
   </div>
 </div>
+
 <div class="container-fluid">
-  <div class="home-content home-search justify-content-center position-absolute" style="top: 10%; left: 0; bottom: 150;right: 0;">
+  <div class="home-content home-search justify-content-center position-absolute">
     <div class="text-center home-text">
       <h1>Pronađite dom vaših snova</h1>
     </div>
@@ -46,42 +47,50 @@
         <div class="row justify-content-center ">
           <div class="col col-auto">
             <div class="input-group mb-3">
-              <button for="izdavanje" id="btnBuy" name="0" class="btn btn-blue swich-button" type="button"  style="width: 132px;font-size: 18px;">Prodaja</button>
-              <button for="prodaja" id="btnRent" name="1" class="btn btn-transparent rounded-end swich-button" style="width: 132px;font-size: 18px;" type="button">Izdavanje</button>
+              <button id="btnBuy" name="0" class="btn btn-blue switch-button" type="button">Prodaja</button>
+              <button id="btnRent" name="1" class="btn btn-transparent rounded-end switch-button" type="button">Izdavanje</button>
               <input type="hidden" name="search_type" value="0" id="search_type">
             </div>
           </div>
         </div>
-        <div class="row mx-auto " style="max-width: 857px;">
+        <div class="row mx-auto location-holder">
           <div class="col input-group p-0 mb-2">
-          <input type="text" list="country" style="width: 175px" class="form-control input-location placeholders-search" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
-          <datalist id="country">
-            {% for loc in all_cities %}
-            <option value="{{ loc.city }}">
-            {% endfor %}
-          </datalist>
-          <select for="type" class="form-select placeholders-search" style="width: 175px;" name="tip" id="type">
-            <option selected value="">Tip</option>
-            {% for categ in categories %}
-              {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
-            <option value="{{ categ.name }}">{{ categ.name }}</option>
-              {% endif %}
-            {% endfor %}
-          </select>
-          <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="width: 223px"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
-          <datalist id="neighbourhoods">
-          </datalist>
-            <button class="btn btn-outline border-start btn-white btn-details d-flex justify-content-end align-items-center pe-0 search-font" style="width: 132px;font-size: 18px!important;" type="button" id="btnFormDetails">Detaljnije
-                <img style="margin:0px 14px;" src="{% static 'images/icons/dots.svg' %}" alt="."/>
+            <input type="text" list="country" class="form-control input-location" name="grad" id="location"
+                   aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()">
+            <datalist id="country">
+              {% for loc in all_cities %}
+                <option value="{{ loc.city }}">
+              {% endfor %}
+            </datalist>
+            <select for="type" class="form-select" name="tip" id="type">
+              <option selected value="">Tip</option>
+              {% for categ in categories %}
+                {% if categ.name != 'Stambene nekretnine' and categ.name != 'Zemljišta' and categ.name != 'Poslovni prostori' %}
+                  <option value="{{ categ.name }}">{{ categ.name }}</option>
+                {% endif %}
+              {% endfor %}
+            </select>
+            <input for="neighbourhood" type="text" class="form-control input-area placeholders-search"
+                   list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija">
+
+            {# Populated from the JS#}
+            <datalist id="neighbourhoods">
+            </datalist>
+
+            <button
+                class="btn btn-outline border-start btn-white btn-details d-flex justify-content-end align-items-center search-font pe-0"
+                type="button" id="btnFormDetails">Detaljnije
+              <img src="{% static 'images/icons/dots.svg' %}" alt="."/>
             </button>
-            <button class="btn btn-blue btn-search d-flex align-items-center search-font" style="width: 132px;padding-left: 20px;" type="submit"  id="inputGroupFileAddon04">
+            <button class="btn btn-blue btn-search d-flex align-items-center search-font"
+                     type="submit" id="btnSearch">
               Pretraži
-              <img class="ms-2" style="filter: invert(100%) sepia(3%) saturate(370%) hue-rotate(321deg) brightness(112%) contrast(100%);" src="{% static 'images/icons/search.svg' %}" alt="O" height="20px" width="20px"/>
+              <img class="ms-2" src="{% static 'images/icons/search.svg' %}" alt="Search icon"/>
             </button>
           </div>
         </div>
-        <div id="detailsForm" class="d-flex mx-auto  detail-form hide" style="padding: 12px 24px;">
-          <div style="max-width: 648px;">
+        <div id="detailsForm" class="d-flex mx-auto detail-form hide">
+          <div class="detail-form-inner">
             <div class="row p-0">
               <div class="col-4 ps-0">
                 <label for="price " class="form-label fw-600">Cena</label>
@@ -120,7 +129,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-4 ps-0" style="margin: 12px 0px;">
+              <div class="col-4 ps-0 listing-state-wrapper">
                 <label class="form-label fw-600">Stanje</label>
                 <div class="dropdown">
                   <button class="detail-input-placeholders btn border d-flex justify-content-between align-items-center w-100 height-28" type="button" id="multiselectStruktura" data-bs-toggle="dropdown" aria-expanded="false">
@@ -134,14 +143,15 @@
                   </ul>
                 </div>
               </div>
-              <div class="col-4" style="margin: 12px 0px;">
+
+              <div class="col-4 listing-state-wrapper">
                 <label class="form-label fw-600">Spratnost</label>
                   <div class="d-flex">
                     <input type="text" onkeyup="addPeriods()" class="form-control me-2 text-center height-28 detail-input-placeholders" id="min_spratnost" name="min_spratnost" placeholder="od" aria-describedby="titleHelp">
                     <input type="text" onkeyup="addPeriods()" class="form-control text-center height-28 detail-input-placeholders" id="max_spratnost" name="max_spratnost" placeholder="do" aria-describedby="titleHelp">
                   </div>
                 </div>
-                <div class="col-4 pe-0" style="margin: 12px 0px;">
+                <div class="col-4 pe-0 listing-state-wrapper">
                   <label class="form-label fw-600">Parking</label>
                   <div class="dropdown">
                     <button class="detail-input-placeholders btn border d-flex justify-content-between align-items-center w-100 height-28" type="button" id="multiselectstanje" data-bs-toggle="dropdown" aria-expanded="false">
@@ -207,8 +217,8 @@
               </div>
             </div>
           </div>
-          <div class="justify-content-center d-flex flex-column align-items-center" style="width: 185px;">
-            <h3 class="listing-counter ps-3 text-nowrap" style="margin-bottom: 12px;">Broj oglasa:</h3>
+          <div class="justify-content-center d-flex flex-column align-items-center listing-counter">
+            <h3 class="listing-counter ps-3 text-nowrap">Broj oglasa:</h3>
             <h3 class="listing-counter">{{total_listings}}</h3>
           </div>
           <div class="px-0" >
@@ -351,31 +361,41 @@
     </div>
   </section>
 
-  <section class="py-3">
+  <section class="py-3 blog-news">
     <h2 class="text-center section-title mb-4">Blog & Vesti</h2>
     <div class="og-container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3 padding-x-8px">
         {% for article in articles %}
-          <div class="text-dark p-12 m-0 {% if forloop.first%} col-lg-6 {% elif forloop.last %} col-lg-6 {% else %} col-lg-3 {% endif %}">
-            <a href="{% url 'blog_detail' pk=article.id %}" style="text-decoration: none; color: black">
+          <div
+              class="text-dark p-12 m-0 {% if forloop.first %} col-lg-6 {% elif forloop.last %} col-lg-6 {% else %} col-lg-3 {% endif %}">
+            <a href="{% url 'blog_detail' pk=article.id %}">
               <div class="card shadow">
-                <div class="w-100 rounded-top" style="background: center / cover no-repeat url('{{ article.cover.url }}'); height: 212px;"></div>
+                <div class="w-100 rounded-top blog-cover"
+                     style="background: center / cover no-repeat url('{{ article.cover.url }}'); "></div>
                 <div class="card-body py-2 px-3">
                   <div class="d-flex justify-content-between align-items-center mb-2">
-                    <h6 class="blog-title mb-0" style="word-break: break-all;overflow: hidden;height: 24px;">{{ article.title }}</h6>
-                    <div class="blog-type text-primary ps-2 d-flex align-items-center" style="height: 24px;">{{ article.category.name }}</div>
+                    <h6 class="blog-title mb-0">
+                      {{ article.title }}
+                    </h6>
+                    <div class="blog-type text-primary ps-2 d-flex align-items-center">
+                      {{ article.category.name }}
+                    </div>
                   </div>
                   {% if forloop.first or forloop.last %}
-                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":160" }}...</p>
+                    <p class="card-text blog-description-date">
+                      {{ article.description|striptags|slice:":160" }}...
+                    </p>
                   {% else %}
-                    <p class="card-text blog-description-date" style="min-height: 42px;">{{ article.description|striptags|slice:":70" }}...</p>
+                    <p class="card-text blog-description-date">
+                      {{ article.description|striptags|slice:":70" }}...
+                    </p>
                   {% endif %}
                   <div class="d-flex justify-content-between align-items-center mt-2">
                     <div class="d-flex align-items-center blog-description-date">
-                      <div class="rounded-circle me-2" style="background: center / cover no-repeat url('{% static 'images/placeholders/apt1.jpg' %}');height:32px;width:32px"></div>
+                      <div class="rounded-circle me-2"></div>
                       {{ article.user.first_name }}
                     </div>
-                    <div >
+                    <div>
                       {{ article.timestamp|date:"F j, Y" }}
                     </div>
                   </div>

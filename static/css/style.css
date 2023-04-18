@@ -131,11 +131,11 @@ h1, h2, h3, h4, h5, h6,
 /*header*/
 
 .center-absolute-header {
-    position: absolute; 
-    left: 0; 
-    right: 0; 
-    margin-left: auto; 
-    margin-right: auto; 
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 100px; /* Need a specific value to work */
 }
 
@@ -667,7 +667,7 @@ ul.pagination {
   font-weight:600;
   font-size: 12px;
 }
- 
+
 /* Profile-page-card insted of chart */
 .city-location {
   font-weight:600;
@@ -813,7 +813,7 @@ ul.pagination {
 .listing-counter {
   font-weight: 700;
   font-size: 24px;
-  line-height:32.74px;
+  line-height: 32.74px;
 }
 .placeholders-search {
   font-weight: 600;
