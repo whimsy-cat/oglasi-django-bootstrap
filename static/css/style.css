@@ -100,9 +100,13 @@ h1, h2, h3, h4, h5, h6,
   opacity: 0.85 !important;
 }
 
+input[type="checkbox"] {
+  box-shadow: none !important;
+}
+
 /* FOOTER */
 .copyright-text {
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;

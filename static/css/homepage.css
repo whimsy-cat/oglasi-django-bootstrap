@@ -106,6 +106,10 @@
   max-width: 648px;
 }
 
+.form-check-input {
+  margin-top: 0;
+}
+
 .listing-state-wrapper {
   margin: 12px 0;
 }
