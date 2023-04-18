@@ -6,13 +6,20 @@
   color: #00A6BD!important;
 }
 
+/*Backgroud slider*/
+
+
 /*homepage*/
 .background-shadow {
   background-color: rgb(29, 41, 62, 0.6);
 }
 
  .home-content {
-  padding-top: 125px
+   padding-top: 125px;
+   top: 10%;
+   left: 0;
+   bottom: 150px;
+   right: 0;
 }
 
 .home-text {
@@ -20,7 +27,7 @@
   margin-top: 0;
 }
 .home-text h1 {
-  font-family: 'Nunito';
+  font-family: 'Nunito', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 40px;
@@ -39,6 +46,34 @@
 .home-search button {
   height: 60px;
 }
+.home-search .location-holder {
+  max-width: 857px;
+}
+.home-search .location-holder input,
+.home-search .location-holder select {
+  width: 175px;
+}
+.home-search .location-holder .placeholders-search {
+  width: 223px;
+}
+
+.home-search #btnFormDetails {
+  width: 132px;
+  font-size: 18px!important;
+}
+.home-search #btnFormDetails img {
+  margin: 0 14px;
+}
+.home-search #btnSearch {
+  width: 132px;
+  padding-left: 20px;
+}
+.home-search #btnSearch img {
+  filter: invert(100%) sepia(3%) saturate(370%) hue-rotate(321deg) brightness(112%) contrast(100%);
+  height: 20px;
+  width: 20px;
+}
+
 
 .search-form-row input,
 .search-form-row select,
@@ -61,10 +96,29 @@
   visibility: hidden;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear;
+  padding: 12px 24px;
 }
 .detail-form.show {
   visibility: visible;
   opacity: 1;
+}
+.detail-form .detail-form-inner {
+  max-width: 648px;
+}
+
+.listing-state-wrapper {
+  margin: 12px 0;
+}
+
+.listing-counter-wrapper {
+  width: 185px;
+}
+.listing-counter-wrapper h3:first-child {
+  margin-bottom: 12px;
+}
+
+.switch-button {
+  width: 132px;font-size: 18px;
 }
 
 
@@ -264,6 +318,31 @@
 .blog-news {
   font-size: 14px;
 }
+.blog-news a {
+  text-decoration: none;
+  color: black
+}
+.blog-cover {
+  height: 212px;
+}
+.blog-title {
+  word-break: break-all;
+  overflow: hidden;
+  height: 24px;
+}
+
+.blog-type {
+  height: 24px;
+}
+.blog-description-date {
+  min-height: 42px;
+}
+.blog-description-date .me-2 {
+  background: center / cover no-repeat url("/staticfiles/images/placeholders/apt1.jpg");
+  height:32px;
+  width:32px
+}
+
 .blog-user {
   margin-bottom: 0;
 }
