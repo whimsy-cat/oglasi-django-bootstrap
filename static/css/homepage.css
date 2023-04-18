@@ -15,7 +15,6 @@
 }
 
  .home-content {
-   padding-top: 125px;
    top: 10%;
    left: 0;
    bottom: 150px;
@@ -350,3 +349,40 @@
 hovers:hover {
   cursor: pointer!important ;
 }
+
+/* Back to top buton styles  starts */
+.back-top-btn{
+  filter: drop-shadow(0px 0px 24px rgba(72, 72, 72, 0.3));
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  top:-45px;
+  right: 0px;
+  z-index: 1;
+}
+.back-top-btn:hover{
+  background-color: #ffffff;
+}
+.bi-chevron-up{
+  font-weight: bolder;
+}
+/* Back to top buton styles ends  */
+
+/* Agency logos section stylings starts here  */
+.logo-card{
+  height: 186px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 18px rgba(31, 56, 54, 0.22);
+  border-radius: 5px;
+  padding: 8px;
+}
+@media only screen and (max-width:1536px) {
+  .logo-card{
+    height: 100%;
+  }
+}
+/* Agency logos section stylings ends here  */
