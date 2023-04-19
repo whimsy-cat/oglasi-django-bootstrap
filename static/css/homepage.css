@@ -275,40 +275,19 @@
 .popular-location {
 
 }
-.popular-location [class*="-cover"] {
+.popular-location .location-cover {
   position: relative;
   height: 96px;
   border-radius: 5px;
   background-size: cover;
   background-position: top;
 }
-.popular-location [class*="-cover"] h4 {
+.popular-location .location-cover h4 {
   line-height: 96px;
   margin-left: 31px;
 }
-.popular-location .ablock-cover {
-  background-image: url("/staticfiles/images/homepage/nbg_cover.jpg")
-}
-.popular-location .kosancicev-cover {
-  background-image: url("/staticfiles/images/homepage/kosancicev_cover.jpg")
-}
-.popular-location .waterfront-cover {
-  background-image: url("/staticfiles/images/homepage/waterfront_cover.jpg")
-}
-.popular-location .residencies-cover {
-  background-image: url("/staticfiles/images/homepage/residencies_cover.jpg")
-}
-.popular-location .dorcol-cover {
-  background-image: url("/staticfiles/images/homepage/dorcol_cover.jpg")
-}
-.popular-location .kalemegdan-cover {
-  background-image: url("/staticfiles/images/homepage/kalemegdan_cover.jpg")
-}
-.popular-location .usce-cover {
-  background-image: url("/staticfiles/images/homepage/usce_cover.jpg")
-}
-.popular-location .hram-cover {
-  background-image: url("/staticfiles/images/homepage/hram_cover.jpg")
+.popular-location button {
+  background: none;
 }
 
 /* Agencies break */

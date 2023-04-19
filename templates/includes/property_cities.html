@@ -2,11 +2,11 @@
 
 <!-- Property Cities -->
 <div>
-<form action="/oglasi" method="GET" class="property-city">
+  <form action="/oglasi" method="GET" class="property-city">
     <h2 class="text-center section-title" style="margin-bottom: 32px;">Pronađite nekretninu u gradu</h2>
 
     <div class="row padding-x-8px">
-      <div class="col-lg-8 col-xl-8 mb-4 " >
+      <div class="col-lg-8 col-xl-8 mb-4 ">
         <div class="property-item">
           <div class="thumb background-beograd"></div>
           <button type="submit" name="grad" class="overlay details border-0" value="Beograd" style="background: none">
@@ -17,7 +17,8 @@
       <div class="col-lg-4 col-xl-4 mb-4 padding-s-20px">
         <div class="property-item">
           <div class="thumb background-kg"></div>
-          <button type="submit" name="grad" class="overlay details border-0" value="Kragujevac" style="background: none">
+          <button type="submit" name="grad" class="overlay details border-0" value="Kragujevac"
+                  style="background: none">
             Kragujevac
           </button>
         </div>
@@ -52,71 +53,24 @@
         </div>
       </div>
     </div>
-  </div>
-</form>
+  </form>
 
-<form action="/oglasi" method="GET">
-  <div class="row padding-x-8px">
-    <div class="col-12" style="margin-bottom: 32px;">
-      <h5 class="popular-locations-text">Pogledajte popularne lokacije</h5>
-    </div>
-  </div>
-  <div class="row popular-location padding-x-8px">
-    <div class="col-md-3 mb-4 ">
-      <div class="ablock-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100 " value="A blok" style="background: none">
-          <h3 class="text-white d-flex ms-4">A blok</h3>
-      </button>
+  <form action="/oglasi" method="GET">
+    <div class="row padding-x-8px">
+      <div class="col-12" style="margin-bottom: 32px;">
+        <h5 class="popular-locations-text">Pogledajte popularne lokacije</h5>
       </div>
     </div>
-    <div class="col-md-3 mb-4 padding-x-20px">
-      <div class="kosancicev-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100 " value="Kosančićev venac" style="background: none">
-          <h3 class="text-white d-flex ms-4">Kosančićev venac</h3>
-        </button>
-      </div>
+    <div class="row popular-location padding-x-8px">
+      {% for location in popular_locations %}
+        <div class="col-md-3 mb-4 ">
+          <div class="location-cover d-flex flex-column" style="background-image: url('{% get_media_prefix %}{{ location.image.file }}');">
+            <button type="submit" name="lokacija" class="overlay details border-0 h-100 " value="{{ location.name }}">
+              <h3 class="text-white d-flex ms-4">{{ location.name }}</h3>
+            </button>
+          </div>
+        </div>
+      {% endfor %}
     </div>
-    <div class="col-md-3 mb-4 padding-x-20px">
-      <div class="waterfront-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100 " value="Centar" style="background: none">
-          <h3 class="text-white d-flex ms-4">Centar</h3>
-        </button>
-      </div>
-    </div>
-    <div class="col-md-3 mb-4 padding-s-20px">
-      <div class="dorcol-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100 " value="Dorćol" style="background: none">
-          <h3 class="text-white d-flex ms-4">Dorćol</h3>
-        </button>
-      </div>
-    </div>
-    <div class="col-md-3  ">
-      <div class="residencies-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100" value="Beograd na Vodi" style="background: none">
-        <h3 class="text-white d-flex ms-4">Beograd na Vodi</h3>
-        </button>
-      </div>
-    </div>
-    <div class="col-md-3 padding-x-20px">
-      <div class="kalemegdan-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100" value="Kalemegdan" style="background: none">
-          <h3 class="text-white d-flex ms-4">Kalemegdan</h3>
-        </button>
-      </div>
-    </div>
-    <div class="col-md-3  padding-x-20px">
-      <div class="usce-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100" value="Novi Beograd" style="background: none">
-          <h3 class="text-white d-flex ms-4">Novi Beograd</h3>
-        </button>
-      </div>
-    </div>
-    <div class="col-md-3 padding-s-20px" >
-      <div class="hram-cover d-flex flex-column">
-        <button type="submit" name="lokacija" class="overlay details border-0 h-100" value="Vračar" style="background: none">
-          <h3 class="text-white d-flex ms-4">Vračar</h3>
-        </button>
-      </div>
-    </div>
-  </div>
-</form>
+  </form>
+</div>

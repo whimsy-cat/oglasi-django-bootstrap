@@ -18,7 +18,7 @@ class Listing(models.Model):
         (1, 'Na čekanju'),
         (2, 'Istekao'),
     )
-    
+
     title = models.CharField(max_length=150, null=False)
     description = models.TextField(max_length=1000, null=True)
     type = models.CharField(max_length=25, choices=LISTING_TYPE, default=0)
@@ -203,3 +203,18 @@ class ListingPrice(models.Model):
 
     class Meta:
         verbose_name_plural = "Prices"
+
+
+class PopularLocations(models.Model):
+    name = models.CharField(max_length=150, null=False, default=None)
+    order = models.IntegerField(null=False, default=0)
+    active = models.BooleanField(null=False, default=True)
+    image = models.OneToOneField(DropBox, related_name="cover", on_delete=models.CASCADE, null=True, default=None)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Popular Locations"
+        ordering = ['order']
+

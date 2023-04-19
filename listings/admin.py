@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Listing, CategoryAmenities, ListingAmenities, Amenity, Detail, CategoryDetails, ListingDetails, ListingCharacteristics, ListingMap, ListingFavorites, Location, ListingPrice
+from .models import Listing, CategoryAmenities, ListingAmenities, Amenity, Detail, CategoryDetails, ListingDetails, \
+    ListingCharacteristics, ListingMap, ListingFavorites, Location, ListingPrice, PopularLocations
 
 
 class ListingMapInline(admin.StackedInline):
@@ -79,3 +80,9 @@ class LocationAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Location, LocationAdmin)
+
+class PopularLocationAdmin(admin.ModelAdmin):
+    list_display = ('name', 'order', 'active')
+
+
+admin.site.register(PopularLocations, PopularLocationAdmin)
