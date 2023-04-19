@@ -39,13 +39,13 @@
         </ul>
       </div>
       <ul class="nav px-5 hover-open">
-        <li class="px-1 header-menu">
+        <li class="px-1 header-menu hover-open">
           <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/' %} link-secondary {% elif request.path == '/' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Nekretnine
           </a>
           <ul class="dropdown-menu header-menu p-0" id="subCategories" ></ul>
         </li>
-        <li class="px-1 ">
+        <li class="px-1 hover-open">
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'new_builds'  %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Novogradnja
           </a>
@@ -58,7 +58,7 @@
             </li>
           </ul>
         </li>
-        <li class="px-1 " >
+        <li class="px-1 hover-open" >
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'news_list' or request.resolver_match.url_name == 'blog_list'  %} link-secondary  {% elif request.resolver_match.url_name == 'home' %} text-white  {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Vesti
           </a>
@@ -71,7 +71,7 @@
             </li>
           </ul>
         </li>
-        <li class="px-1 ">
+        <li class="px-1 hover-open">
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'investors_page' or request.resolver_match.url_name == 'agencies_page' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Oglašavanje
           </a>
@@ -90,10 +90,10 @@
             </li>
           </ul>
         </li>
-        <li class="px-1 ">
+        <li class="px-1 hover-open">
           <a href="#" class="nav-link nav-hover px-2  {% if request.path == '###drugi oglasi###' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white  {% endif %}">Drugi oglasi</a>
         </li>
-        <li class="px-1 ">
+        <li class="px-1 hover-open">
           <a href="#" class="nav-link nav-hover px-2 {% if request.path == '/oglasi/o-nama/' %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Info
           </a>
@@ -118,7 +118,7 @@
             </li>
           </ul>
         </li>
-        <li class="px-1 ">
+        <li class="px-1 hover-open">
           <a href="#" class="nav-link nav-hover px-2 {% if request.resolver_match.url_name == 'new_builds'  %} link-secondary {% elif request.resolver_match.url_name == 'home' %} text-white {% endif %}" data-bs-toggle="dropdown" aria-expanded="false">
             Jezik
           </a>
