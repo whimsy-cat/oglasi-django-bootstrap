@@ -128,7 +128,7 @@
 .form-dropdown-structure ul {
   padding:10px;
   max-height: 176px;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: #6969dd #e0e0e0;
   scrollbar-width: thin;
 }
