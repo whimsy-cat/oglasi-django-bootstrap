@@ -52,6 +52,7 @@
 .home-search .location-holder input,
 .home-search .location-holder select {
   width: 175px;
+  color: #d2d2d2;
 }
 .home-search .location-holder .placeholders-search {
   width: 223px;
