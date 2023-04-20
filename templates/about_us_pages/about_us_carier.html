@@ -22,8 +22,8 @@
       <ul class="col-8 justify-content-between align-items-center pe-4 nav nav-pills fw-bold fs-6" id="pills-tab" role="tablist">
           <div class="infoTabs {% if request.GET.selected == 'karijera' or 'selected' not in request.GET %} color-blue  active {% endif %}" id="pills-karijera-tab" data-bs-toggle="pill" data-bs-target="#pills-karijera" role="tab" aria-controls="pills-karijera" aria-selected="true" onclick="handleInfo(this)">Karijera</div>
           <div class="infoTabs {% if request.GET.selected == 'kontakt' %} color-blue active {% endif %}" id="pills-kontakt-tab" data-bs-toggle="pill" data-bs-target="#pills-kontakt" role="tab" aria-controls="pills-kontakt" aria-selected="false" onclick="handleInfo(this)">Kontakt</div>
-          <div class="infoTabs {% if request.GET.selected == 'onama' %} color-blue active {% endif %}" id="pills-onama-tab" data-bs-toggle="pill" data-bs-target="#pills-onama"  role="tab" aria-controls="pills-onama" aria-selected="false" onclick="handleInfo(this)">O-Nama</div>
-          <div class="infoTabs {% if request.GET.selected == 'pitanja' %} color-blue active {% endif %}" id="pills-PitanjaIOglasi-tab" data-bs-toggle="pill" data-bs-target="#pills-PitanjaIOglasi" role="tab" aria-controls="pills-PitanjaIOglasi" aria-selected="false" onclick="handleInfo(this)">Pitanja I Oglasi</div>
+          <div class="infoTabs {% if request.GET.selected == 'onama' %} color-blue active {% endif %}" id="pills-onama-tab" data-bs-toggle="pill" data-bs-target="#pills-onama"  role="tab" aria-controls="pills-o nama" aria-selected="false" onclick="handleInfo(this)">O Nama</div>
+          <div class="infoTabs {% if request.GET.selected == 'pitanja' %} color-blue active {% endif %}" id="pills-PitanjaIOglasi-tab" data-bs-toggle="pill" data-bs-target="#pills-pitanja i odgovori" role="tab" aria-controls="pills-pitanja i odgovori" aria-selected="false" onclick="handleInfo(this)">Pitanja I odgovori</div>
       </ul>
     </div>
   </div>
