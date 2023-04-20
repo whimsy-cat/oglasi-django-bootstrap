@@ -27,7 +27,7 @@
             {% for image in listing.images.all %}
             <div class="col-4 my-3" onclick="fullScreenImg('{{image.id}}')">
               <div id="fullscreenBG{{image.id}}">
-                <div id="image{{image.id}}" class="d-block w-100 rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ image.file }}');height: 380px;"></div>
+                <div id="image{{image.id}}" class="d-block w-100 rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ image.file }}');height: 301px;margin-top: -16px;"></div>
               </div>
             </div>
             {% endfor %}
