@@ -4,7 +4,7 @@
 
   <div class="row w-100">
     <div class="dropdown col-2 ps-0 ">
-      <input type="text" list="country" class="form-control input-location placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()" value="{{ request.GET.grad }}">
+      <input type="text" list="country" class="form-control input-location placeholders-search" style="height: 40px; border: 1px #D2D2D2 solid;" name="grad" id="location" aria-label="Lokacija" placeholder="Grad" onchange="showNeighbourhoods()" value="{{ request.GET.grad }}">
           <datalist id="country">
             {% for loc in cities %}
               <option value="{{ loc.city }}">
@@ -26,7 +26,7 @@
       </div> -->
     </div>
     <div class="dropdown col-2 px-2">
-      <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="height: 40px; border: 1px #dee2e6 solid;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija" value="{{ request.GET.lokacija }}">
+      <input for="neighbourhood" type="text" class="form-control input-area placeholders-search" style="height: 40px; border: 1px #D2D2D2 solid;"  list="neighbourhoods" name="lokacija" id="neighbourhood" aria-label="Kraj" placeholder="Lokacija" value="{{ request.GET.lokacija }}">
           <datalist id="neighbourhoods">
           </datalist>
       <!-- <button class="btn border d-flex justify-content-between align-items-center w-100"  style="height: 40px!important " type="button" id="dropdownMenuButton" data-bs-offset="-50%,0" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
