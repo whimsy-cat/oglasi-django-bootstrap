@@ -102,11 +102,12 @@ class Command(BaseCommand):
 
     self.stdout.write(self.style.SUCCESS('Successfully seeded data for categories'))
 
-    # ADD DETAILS AND AMENITIES and APPEND THEM TO CATEGORIES
+    # ADD DETAILS AND AMENITIES and APPEND THEM TO CATEGORIES (Čak je debil sebi zabeležio da nije uradio, o jebem ti mater lažljivu raspalu kad moram u kodu još da afirmišem kakav si smećar, 2 meseca nisu raspodelio niti dopunio išta za karakteristike i detalje...)
+    # Bogdane - Ovo moraš da prođeš sa nama na sastanku kroz karakteristike i detalje, da bi se lepo razdelilo sve, jer oni to mamlazi nisu dobro odradili, a džabe je da ja pumpam ovde ako nešto pogrešno ubacujem, tako da samo zajedno ovaj deo...
 
 
-    detailValues = ["Internet", "Kablovska", "Telefon", "Interfon", "Lift", "Garaža", "Parking u zoni", "Parking van zone", "Klima uređaj", "Lođa", "Vešernica", "Video nadzor", "Alarm", "Obezbeđenje", "Održavanje zgrade", "Prilaz za kolica", "Smart", "Dvorište", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Solarni panel", "Kotlarnica", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm"]
-    amenityValues = ["Kuhinja", "Frižider", "Šporet", "Rerna", "Mikrotalasna", "Sudomašina", "Veš mašina", "Garnitura", "Trpezarijski sto", "Plakar", "Krevet", "Kanc. Oprema"]
+    detailValues = ["Internet", "Kablovska", "Telefon", "Interfon", "Lift", "Garaža", "Parking u zoni", "Parking van zone", "Klima", "Lođa", "Vešernica", "Video nadzor", "Alarm", "Obezbeđenje", "Održavanje zgrade", "Prilaz za kolica", "Smart", "Dvorište", "Park", "Bašta", "Igralište", "Bazen", "Sauna", "Teretana", "Solarni panel", "Energetski pasoš" "Kotlarnica", "Grejanje na struju", "Centralno grejanje", "Grejanje na gas", "Čvrsta goriva", "Grejanje ostalo", "Kalorimetri", "Visina do 260cm", "Visina 260-300cm", "Visina od 300cm", "Nije poslednji sprat", "Penthouse", "Duplex", "Triplex", "Nadogradnja", "Stan u kući", "Samo oglasi sa slikom"]
+    amenityValues = ["Kuhinja", "Frižider", "Sudomašina", "Veš mašina", "TV", "Garnitura", "Trpezarijski set", "Plakar", "Krevet", "Pet friendly", "Kanc. Oprema"]
 
 
 
