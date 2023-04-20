@@ -40,7 +40,7 @@
 <div class="container-fluid">
   <div class="home-content home-search justify-content-center position-absolute">
     <div class="text-center home-text">
-      <h1>Pronađite dom vaših snova</h1>
+      <h1>Pronađite dom Vaših snova</h1>
     </div>
     <div class="home-search-form p-3">
       <form action="/oglasi" id="search-listing-form">
@@ -336,6 +336,7 @@
                     <li class="px-1 pb-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="agencija">Agencija</label><input class="form-check-input border-0" {% if 'agencija' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="1" id="agencija"></li>
                     <li class="px-1 pb-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="vlasnik">Vlasnik</label><input class="form-check-input border-0" {% if 'vlasnik' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="0" id="vlasnik"></li>
                     <li class="px-1 pb-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="pravno_lice">Pravno lice</label><input class="form-check-input border-0" {% if 'pravno_lice' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="pravno_lice" id="pravno_lice"></li>
+                    <li class="px-1 pb-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="investitor">Investitor</label><input class="form-check-input border-0" {% if 'investitor' in selected_acctype %} checked="true" {% endif %} name="acc-type" type="checkbox" value="investitor" id="investitor"></li>
                   </ul>
                 </div>
               </div>
