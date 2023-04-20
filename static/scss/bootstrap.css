@@ -2956,8 +2956,8 @@ textarea.form-control-lg {
 }
 .btn-check:checked + .btn-dark, .btn-check:active + .btn-dark, .btn-dark:active, .btn-dark.active, .show > .btn-dark.dropdown-toggle {
   color: #fff;
-  background-color: #3a3a3a;
-  border-color: #363636;
+  background-color: #00A6BD;
+  border-color: #00A6BD;
   height: 40px;
 }
 .btn-check:checked + .btn-dark:focus, .btn-check:active + .btn-dark:focus, .btn-dark:active:focus, .btn-dark.active:focus, .show > .btn-dark.dropdown-toggle:focus {
