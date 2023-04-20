@@ -58,12 +58,12 @@
       </div>
       <div class="col-3 d-flex justify-content-end px-0">
           {% include 'includes/listing_helpers/share_listing.html' %}
+        <img id="compare_on_hover" class="shadow rounded p-2 mx-2  hover-icons" src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" >
             {% if user.id in listing.likes %}
               <img id="liked_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/items/blue_hearth.svg' %}" alt="Liked" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}'); location.reload()">
             {% else %}
               <img id="like_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/icons/hearthfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="addRemoveFavorites('{{listing.id}}'); location.reload()">
             {% endif %}
-              <img id="compare_on_hover" class="shadow rounded p-2 mx-2  hover-icons" src="{% static 'images/icons/sharefromdetails.svg' %}" alt="Hearth" width="44px" height="44px" >
         <img id="share_on_hover" class="non-printable-area shadow rounded p-2 mx-2 hover-icons" src="{% static 'images/icons/shareonmediafromlisting.svg' %}" alt="Hearth" width="44px" height="44px" data-bs-toggle="modal" data-bs-target="#exampleModal">
         <img id="print_on_hover" class="shadow rounded p-2 ms-2 hover-icons" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
       </div>
