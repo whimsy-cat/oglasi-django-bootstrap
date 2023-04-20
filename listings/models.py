@@ -193,6 +193,7 @@ class Location(models.Model):
     municipality = models.CharField(max_length=250, null=False, default=None)
     area = models.CharField(max_length=250, null=False, default=None)
 
+
 class ListingPrice(models.Model):
     listing = models.ForeignKey(Listing, on_delete=models.CASCADE)
     price = models.DecimalField(decimal_places=2, max_digits=15, null=False)

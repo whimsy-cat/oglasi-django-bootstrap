@@ -22,8 +22,10 @@ class ListingCharacteristicsInline(admin.StackedInline):
     extra = 0
     max_num = 1
 
+
 class ListingPricesInline(admin.StackedInline):
     model = ListingPrice
+
 
 class ListingAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'date_listed', 'posted_by')
@@ -77,9 +79,11 @@ admin.site.register(ListingFavorites)
 
 class LocationAdmin(admin.ModelAdmin):
     list_display = ('country', 'city', 'municipality', 'area')
+    search_fields = ('city', 'municipality', 'area')
 
 
 admin.site.register(Location, LocationAdmin)
+
 
 class PopularLocationAdmin(admin.ModelAdmin):
     list_display = ('name', 'order', 'active')
