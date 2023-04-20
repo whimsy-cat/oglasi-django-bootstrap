@@ -829,7 +829,7 @@ ul.pagination {
   color: #a2a2a2;
 }
 .placeholders-search::placeholder {
-  color: rgba(72, 72, 72, 0.4);
+  color: #a2a2a2;
 }
 .detail-input-placeholders {
   font-weight: 600;
