@@ -224,7 +224,7 @@
 
 /* property city */
 .property-city .property-item {
-  height: 322px;
+  height: 312px;
   position: relative;
 }
 .property-city .property-item .thumb {
@@ -262,7 +262,7 @@
 }
 .property-city .property-item .details {
   text-align: center;
-  flex: 0 0 322px;
+  flex: 0 0 312px;
   color: white;
   z-index: 10;
   font-weight: 700;
