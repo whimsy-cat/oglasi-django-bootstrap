@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="card something shadow border-0 mb-4">
-  <div class="rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}'); {% if request.GET.prikaz == 'mreža' %} height: 269px; {% elif 'oglasi/pregled/' in request.path %} height:308px;  {% else %} height: 250px;{% endif %}">
+  <div class="rounded" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ listing.images.first.file }}'); {% if request.GET.prikaz == 'mreža' %} height: 269px; {% elif 'oglasi/pregled/' in request.path %} height:308px;  {% else %} height: 249px;{% endif %}">
     <div class="rounded d-flex flex-column h-100 listing-item-overlayed">
       <div class="col-12 mb-auto d-flex justify-content-between">
         <img src="{% static 'images/icons/star.svg' %}" 
