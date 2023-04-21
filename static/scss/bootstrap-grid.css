@@ -278,12 +278,12 @@
 
 .col-2 {
   flex: 0 0 auto;
-  width: 16%;
+  width: 16.66666667%;
 }
 
 .col-3 {
   flex: 0 0 auto;
-  width: 32.8%;
+  width: 25%;
 }
 
 .col-4 {
@@ -293,7 +293,7 @@
 
 .col-5 {
   flex: 0 0 auto;
-  width: 35.2%;
+  width: 41.66666667%;
 }
 
 .col-6 {
