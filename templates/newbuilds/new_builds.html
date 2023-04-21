@@ -7,25 +7,25 @@
 
 {% block content %}
 <div class="margin-container" style="padding: 24px 40px 0px 40px!important;">
-  <div class="row m-0  align-items-center fs-6" style="height: 64px width: 1456px;">
-    <div class="col-2  ps-0 profile-top-icons" style="width: 200px; margin-right: 64px;">Rezultata: 1436</div>
-    <div class="col-2  px-0" style="width: 200px;">
-      <select class="form-select bg-secondary height-40px efficiency-bar-text" style="width: 200px;">
+  <div class="row m-0  align-items-center fs-6" style="height: 64px;">
+    <div class="col-2  ps-0 profile-top-icons">Rezultata: 1436</div>
+    <div class="col-2  px-0">
+      <select class="form-select bg-secondary height-40px efficiency-bar-text">
         <option selected>Zemlja/Grad</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
     </div> 
-    <div class="col-5  px-4" style="width: 464px;">
-      <div class="input-group" style="width: 464px; margin-left: -32px;">
-        <input type="text" class="form-control border-primary height-40px" style="width: 344px;" placeholder="Naziv novogradnje ili projekta" aria-label="agency_name" aria-describedby="button-addon2">
-        <button class="btn btn-primary text-white height-40px" type="button" id="button-addon2" style="width: 120px;">
+    <div class="col-5  px-4">
+      <div class="input-group">
+        <input type="text" class="form-control border-primary height-40px" placeholder="Naziv novogradnje ili projekta" aria-label="agency_name" aria-describedby="button-addon2">
+        <button class="btn btn-primary text-white height-40px" type="button" id="button-addon2">
           Pretraži <i class="bi bi-search"></i>
         </button>
       </div>
     </div>
-    <div class="col-3  px-0" style="width: 320px; height: 40px; margin-left: 22px;">
+    <div class="col-3  px-0">
       {% include 'agencies/agency_sorting.html' %}
     </div>
   </div>
