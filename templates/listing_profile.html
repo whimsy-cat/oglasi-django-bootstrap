@@ -12,7 +12,7 @@
 <div id="carouselExampleIndicators" class="carousel slide non-printable-area" data-bs-ride="true">
   <div class="d-flex justify-content-center position-absolute align-items-end w-100 h-100" style="z-index: 2;">
     <div class="overflow-hidden mb-4 w-75 d-flex">
-      <div class="d-flex justify-content-center carousel-indicators  m-0" id="caroseulIndicatorFrame" style="width: 1120px; position: inherit">
+      <div class="d-flex justify-content-center carousel-indicators  m-0" id="caroseulIndicatorFrame" style="width: fit-content; position: inherit">
       {% for i in listing.images.all %}
       <div  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %} thumbnail-item thumbnail-target me-3 rounded border-0" aria-label="Slide {{ forloop.counter }}" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;width: 160px"></div>
       {% endfor %}
