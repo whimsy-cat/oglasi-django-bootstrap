@@ -365,11 +365,10 @@ ul.pagination {
   overflow-x: scroll;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-  width: 8px;
-  color: #00A6BD;
 }
+ */
 
 .text-small {
   font-size: 12px!important;
