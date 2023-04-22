@@ -14,7 +14,7 @@
     <div class="overflow-hidden mb-4 w-75 d-flex">
       <div class="d-flex justify-content-center carousel-indicators  m-0" id="caroseulIndicatorFrame" style="width: fit-content;position: inherit">
       {% for i in listing.images.all %}
-      <div  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %} thumbnail-item thumbnail-target me-3 rounded border-0" aria-label="Slide {{ forloop.counter }}" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;width: 151px"></div>
+      <div  data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.counter == 1 %} active {% endif %} thumbnail-item thumbnail-target me-3 rounded border-0" aria-label="Slide {{ forloop.counter }}" style="background: center / cover no-repeat url('{% get_media_prefix %}{{ i.file }}');height: 100px;width: 137px"></div>
       {% endfor %}
       </div>
     </div>
