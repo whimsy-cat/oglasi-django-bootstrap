@@ -62,6 +62,7 @@ h1, h2, h3, h4, h5, h6,
 .btn-white {
   color: #00A6BD;
   background: #FFFFFF;
+  border: 1px solid #ced4da;
 }
 .btn-white:hover {
   opacity: 0.85;
