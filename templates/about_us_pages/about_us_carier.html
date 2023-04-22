@@ -23,7 +23,7 @@
           <div class="infoTabs {% if request.GET.selected == 'karijera' or 'selected' not in request.GET %} color-blue  active {% endif %}" id="pills-karijera-tab" data-bs-toggle="pill" data-bs-target="#pills-karijera" role="tab" aria-controls="pills-karijera" aria-selected="true" onclick="handleInfo(this)">Karijera</div>
           <div class="infoTabs {% if request.GET.selected == 'kontakt' %} color-blue active {% endif %}" id="pills-kontakt-tab" data-bs-toggle="pill" data-bs-target="#pills-kontakt" role="tab" aria-controls="pills-kontakt" aria-selected="false" onclick="handleInfo(this)">Kontakt</div>
           <div class="infoTabs {% if request.GET.selected == 'onama' %} color-blue active {% endif %}" id="pills-onama-tab" data-bs-toggle="pill" data-bs-target="#pills-onama"  role="tab" aria-controls="pills-onama" aria-selected="false" onclick="handleInfo(this)">O Nama</div>
-          <div class="infoTabs {% if request.GET.selected == 'pitanja' %} color-blue active {% endif %}" id="pills-pitanja iodgovori-tab" data-bs-toggle="pill" data-bs-target="#pills-pitanjaiodgovori" role="tab" aria-controls="pills-pitanjaiodgovori" aria-selected="false" onclick="handleInfo(this)">Pitanja i odgovori</div>
+          <div class="infoTabs {% if request.GET.selected == 'pitanja' %} color-blue active {% endif %}" id="pills-pitanjaiodgovori-tab" data-bs-toggle="pill" data-bs-target="#pills-pitanjaiodgovori" role="tab" aria-controls="pills-pitanjaiodgovori" aria-selected="false" onclick="handleInfo(this)">Pitanja i odgovori</div>
       </ul>
     </div>
   </div>
@@ -169,7 +169,7 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade {% if request.GET.selected == 'pitanja' %} show active {% endif %}" id="pills-Pitanjaiodgovori" role="tabpanel" aria-labelledby="pills-Pitanjaiodgovori-tab">
+    <div class="tab-pane fade {% if request.GET.selected == 'pitanja' %} show active {% endif %}" id="pills-pitanjaiodgovori" role="tabpanel" aria-labelledby="pills-pitanjaiodgovori-tab">
       <div class="row">
         <div class="col-8 mb-4 ps-0" style="padding-right: 28px!important;">
           <div class="shadow rounded fs-6 h-100 px-5 py-4" style="text-align: justify;">
