@@ -61,6 +61,7 @@
 .home-search #btnFormDetails {
   width: 132px;
   font-size: 18px!important;
+  border: 1px solid #ced4da;
 }
 .home-search #btnFormDetails img {
   margin: 0 14px;
