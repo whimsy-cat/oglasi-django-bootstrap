@@ -40,31 +40,8 @@
   {% include 'agencies/agency_page_card.html' %}
   {% include 'agencies/agency_page_card.html' %}
   {% include 'agencies/agency_page_card.html' %}
-  <div class="col-4 pe-0">
-    {% if promoted_listings.0 %}
-      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.0 %}
-    {% endif %}
-    {% if articles_different.0 %}
-     <div class="mb-4">
-        {% include 'blog/blog_card.html' with article=articles_different.0 smaller=1%}
-      </div>
-    {% endif %}
-    {% if promoted_listings.1 %}
-      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.1 %}
-    {% endif %}
-    {% if articles_different.1 %}
-      <div class="mb-4">
-        {% include 'blog/blog_card.html' with article=articles_different.1 smaller=1%}
-      </div>
-    {% endif %}
-    {% if promoted_listings.2 %}
-      {% include 'includes/listings/listing_overlay_card.html' with listing=promoted_listings.2 %}
-    {% endif %}
-    {% if articles_different.2 %}
-      <div class="mb-4">
-        {% include 'blog/blog_card.html' with article=articles_different.2 smaller=1 %}
-      </div>
-    {% endif %}
-  </div>
+</div>
+<div class="bg-grayish d-flex justify-content-center align-items-center mt-4" style="height: 84px;">
+  {% include 'includes/listings/listings_pagination.html' %}
 </div>
 {% endblock %}
