@@ -95,7 +95,7 @@
                     <div class="description-guide">Upišite cenu vaše nekretnine u EUR</div>
                   </div>
                   <div class="w-100">
-                    <input type="text" style="text-align: center;" oninput="addPeriods()" placeholder="0" class="form-control border-radius-10 height-40px description-inputs" id="price"  required>
+                    <input type="text" style="text-align: center;" oninput="addPeriods()" class="form-control border-radius-10 height-40px description-inputs" id="price"  required>
                     <input type="hidden" name="price" id="raw_price">
                   </div>
                 </div>
@@ -106,11 +106,11 @@
                     <h5 class="me-4">Oglašivač</h5>
                     <div class="description-guide">Izaberite oglašivača Vaše nekretnine</div>
                   </div>
-                  <select class="form-select border-radius-10 height-40px description-inputs" placeholder="izaberite" name="type" id="type" onchange="getDetails()">
-                    <option value="1">Agencija</option>
-                    <option value="2">Vlasnik</option>
-                    <option value="3">Pravno lice</option>
-                    <option value="4">Investitor</option>
+                  <select class="form-select border-radius-10 height-40px description-inputs"  name="type" id="type" onchange="getDetails()">
+                    <option value="0">Agencija</option>
+                    <option value="1">Vlasnik</option>
+                    <option value="2">Pravno lice</option>
+                    <option value="3">Investitor</option>
                   </select>
                 </div>
               </div>
