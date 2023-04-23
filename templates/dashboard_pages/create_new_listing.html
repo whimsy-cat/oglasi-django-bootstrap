@@ -94,18 +94,18 @@
                     <h5 class="me-4" >Cena</h5>
                     <div class="description-guide">Upišite cenu vaše nekretnine u EUR</div>
                   </div>
-            <div class="col-12 mb-4 shadow rounded" style="padding: 16px 12px 24px 12px;">
-                <div class="d-flex align-items-end step-heading" style="margin-bottom: 12px;">
-                  <h5 class="me-4">Oglašivač</h5>
-                  <div class="description-guide">Izaberite oglašivača Vaše nekretnine</div>
-                </div>
-                <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" name="type" id="type" onchange="getDetails()">
-                  <option value="0" selected>Agencija</option>
-                  <option value="1">Vlasnik</option>
-                  <option value="2">Pravno lice</option>
-                  <option value="4">Investitor</option>
-                </select>
-            </div>
+          <div class="col-12 mb-4 shadow rounded" style="padding: 16px 12px 24px 12px;">
+              <div class="d-flex align-items-end step-heading" style="margin-bottom: 12px;">
+                <h5 class="me-4">Oglašivač</h5>
+                <div class="description-guide">Izaberite oglašivača Vaše nekretnine</div>
+              </div>
+              <select class="form-select border-radius-10 height-40px description-inputs" aria-label="Default select example" name="type" id="type" onchange="getDetails()">
+                <option value="0" selected>Agencija</option>
+                <option value="1">Vlasnik</option>
+                <option value="2">Pravno lice</option>
+                <option value="4">Investitor</option>
+              </select>
+          </div>
                   <div class="w-100">
                     <input type="text" style="text-align: center;" oninput="addPeriods()" placeholder="100.000" class="form-control border-radius-10 height-40px description-inputs" id="price"  required>
                     <input type="hidden" name="price" id="raw_price">
