@@ -42,7 +42,7 @@
               <img class="shadow rounded p-2 mx-2" src="{% static 'images/icons/printfromlisting.svg' %}" alt="Hearth" width="44px" height="44px" onclick="window.print()">
             </div>
           </div>
-          <div class="d-flex pt-3">{{ article.timestamp|date:"F j, Y" }}<div class="text-info ms-1">{{ article.category.name }}</div></div>
+          <div class="d-flex pt-3" style="font-size: 14px;">{{ article.timestamp|date:"F j, Y" }}<div class="text-info ms-1">{{ article.category.name }}</div></div>
             <div class="blog-content">
               <img src="{{article.cover.url}}" class="py-3">
               {{ article.description|safe }}
