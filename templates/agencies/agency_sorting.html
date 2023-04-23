@@ -6,6 +6,7 @@
         <option {% if request.GET.sort == 'asc-date_listed' %} selected {% endif %} value="asc-date_listed">Po datumu - najstarije</option>
         <option {% if request.GET.sort == 'desc-price' %} selected {% endif %} value="desc-price">Po ceni - najviša</option>
         <option {% if request.GET.sort == 'asc-price' %} selected {% endif %} value="asc-price">Po ceni - najniža</option>
+        // Implement sort by name A - Š, take out sort by price, no point in agency sorting //
     </select>
 </div>
 
