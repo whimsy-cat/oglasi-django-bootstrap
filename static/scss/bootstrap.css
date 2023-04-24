@@ -880,6 +880,13 @@ progress {
   width: 41.66666667%;
 }
 
+/* MG added style for simetrical purposes */
+
+.col-5+ {
+  flex: 0 0 auto;
+  width: 35%;
+}
+
 .col-6 {
   flex: 0 0 auto;
   width: 50%;
