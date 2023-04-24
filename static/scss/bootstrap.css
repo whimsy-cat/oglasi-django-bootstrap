@@ -882,7 +882,7 @@ progress {
 
 /* MG added style for simetrical purposes */
 
-.col-5+ {
+.col-14 {
   flex: 0 0 auto;
   width: 35%;
 }
