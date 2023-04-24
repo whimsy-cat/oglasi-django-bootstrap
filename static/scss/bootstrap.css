@@ -884,12 +884,13 @@ progress {
 
 .col-13 {
   flex: 0 0 auto;
-  width: 16%;
+  width: 15.4%;
 }
 
 .col-14 {
   flex: 0 0 auto;
   width: 35%;
+  margin-left: 8px;
 }
 
 .col-6 {
