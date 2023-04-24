@@ -978,3 +978,9 @@ ul.pagination {
   border: 0px !important;
   min-width: 118px;
 }
+
+.user-icon{
+  height: 24px;
+  width: 24px;
+  color: white;
+}
