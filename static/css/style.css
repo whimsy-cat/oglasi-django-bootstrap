@@ -979,6 +979,8 @@ ul.pagination {
   min-width: 118px;
 }
 
+/* MG added new icon style (colour doesnt work) */
+
 .user-icon{
   height: 24px;
   width: 24px;
