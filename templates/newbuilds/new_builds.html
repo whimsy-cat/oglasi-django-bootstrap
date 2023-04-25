@@ -23,9 +23,11 @@
     <div class="col-14  px-4">
       <div class="input-group">
         <input type="text" class="form-control border-primary height-40px" placeholder="Naziv novogradnje ili projekta" aria-label="agency_name" aria-describedby="button-addon2">
-        <button class="btn btn-primary text-white height-40px" type="button" id="button-addon2" style="width: 132px;">
-          Pretraži <i class="bi bi-search"></i>
-        </button>
+        <button class="btn btn-blue btn-search d-flex align-items-center search-font"
+                     type="submit" id="btnSearch" style="width: 132px;">
+              Pretraži
+              <img class="ms-2" src="{% static 'images/icons/search.svg' %}" alt="Search icon" style="height: 20px; width: 20px;"/>
+            </button>
       </div>
     </div>
     <div class="col-3  px-0" style="margin-left: auto;">

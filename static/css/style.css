@@ -989,4 +989,10 @@ ul.pagination {
   color: white;
 }
 
+.btn-search {
+  border-radius: 0px 5px 5px 0px;
+  background: #00A6BD;
+  color: white;
+}
+
 /* MG add end */
