@@ -979,10 +979,14 @@ ul.pagination {
   min-width: 118px;
 }
 
-/* MG added new icon style (colour doesnt work) */
+/* MG add start */
+
+/* User icon homepage after sign in (cant change default bootstrap one) MG added (colour doesnt work) */
 
 .user-icon{
   height: 24px;
   width: 24px;
   color: white;
 }
+
+/* MG add end */
