@@ -39,14 +39,14 @@
   <div class="col-6  mb-2">
     <label for="price" class="form-label ms-2 margin-6_36">Cena</label>
     <div class="d-flex">
-      <input type="text" value="{{request.GET.min_price}}" class="form-control me-2 sidebar-input text-center" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="100.000" aria-describedby="titleHelp">
-      <input type="text" value="{{request.GET.max_price}}" class="form-control sidebar-input text-center" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="375.000" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.min_price}}" class="form-control me-2 sidebar-input text-center" id="min_price" name="min_price" onkeyup="addPeriods()" placeholder="od" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.max_price}}" class="form-control sidebar-input text-center" id="max_price" name="max_price" onkeyup="addPeriods()" placeholder="do" aria-describedby="titleHelp">
     </div>
   </div>
   <div class="col-6  mb-2">
     <label for="size" class="form-label ms-2 margin-6_36">Površina</label>
     <div class="d-flex">
-      <input type="text" value="{{request.GET.min_size}}" class="form-control me-2 sidebar-input text-center" id="min_size" name="min_size"  placeholder="100" aria-describedby="titleHelp">
+      <input type="text" value="{{request.GET.min_size}}" class="form-control me-2 sidebar-input text-center" id="min_size" name="min_size"  placeholder="od" aria-describedby="titleHelp">
       <input type="text" value="{{request.GET.max_size}}" class="form-control sidebar-input text-center" id="max_size" name="max_size"  placeholder="do" aria-describedby="titleHelp">
     </div>
   </div>
@@ -60,7 +60,7 @@
   <div class="col-6  mb-2">
     <label class="form-label ms-2 margin-6_36">Stanje</label>
     <div class="dropdown">
-      <button class="select-inputs btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiselectStruktura" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="select-inputs btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiselectStruktura" placeholder="izaberite" data-bs-toggle="dropdown" aria-expanded="false">
         Stanje
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
