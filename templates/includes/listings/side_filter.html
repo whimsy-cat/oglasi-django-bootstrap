@@ -84,7 +84,7 @@
         Struktura
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
-      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectStruktura">
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectStruktura" style="width: 100%;">
         <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="garsonjera">Garsonjera <div class="px-2">0.5</div></label><input class="form-check-input border-0" {% if '0.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="0.5" id="garsonjera"></li>
         <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednosoban">Jednosoban <div class="px-2">1.0</div></label><input class="form-check-input border-0" {% if '1' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1" id="jednosoban"></li>
         <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="jednoiposoban">Jednoiposoban <div class="px-2">1.5</div> </label><input class="form-check-input border-0" {% if '1.5' in selected_struktura %} checked="true" {% endif %} name="struktura" type="checkbox" value="1.5" id="jednoiposoban"></li>
