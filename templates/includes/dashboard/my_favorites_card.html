@@ -26,9 +26,8 @@
     <div class="d-flex flex-column justify-content-between w-75 pe-5">
       <h6 class="my-listing-price mb-4">{{listing.title|truncatechars:58}}</h6>
       <p class="city-location" style="margin-top: -24px;">{{listing.city}}, {{listing.municipality}}</p>
-      <div class="fs-6 blog-description-date text-justify" style="margin-top: -16px;">
+      <div class="fs-6 blog-description-date text-justify" style="margin-top: -16px;"> <!--MG added margin tops above, to style the cards, can be changed accordingly by a proffesional--> 
           {{listing.description|truncatechars:132}}
-          /* MG added margin tops above, to style the card, can be changed accordingly by a proffesional */
       </div>
       {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
     </div>
