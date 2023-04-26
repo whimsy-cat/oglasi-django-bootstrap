@@ -121,11 +121,11 @@
   <div class="col-6  mb-2">
     <label for="heating" class="form-label ms-2 margin-6_36">Grejanje</label>
     <div class="dropdown">
-      <button class="select-inputs btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiselectstanje" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class="select-inputs btn border d-flex justify-content-between align-items-center w-100" type="button" id="multiselectgrejanje" data-bs-toggle="dropdown" aria-expanded="false">
         Grejanje
         <img src="{% static 'images/icons/chevron_down.svg' %}" alt="Sort" width="16px"  height="16px"/>
       </button>
-      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectstanje" style="width: 100%;">
+      <ul class="dropdown-menu dropdown-menu-form text-nowrap detail-input-placeholders" aria-labelledby="multiselectgrejanje" style="width: 100%;">
         <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje na struju">Grejanje na struju</label><input class="form-check-input border-0" {% if 'Grejanje na struju' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje na struju" id="Grejanje na struju"></li>
         <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Centralno grejanje">Centralno grejanje</label><input class="form-check-input border-0" {% if 'Centralno grejanje' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Centralno grejanje" id="Centralno grejanje"></li>
         <li class="px-1 d-flex justify-content-between"><label class="form-check-label ms-1 d-flex justify-content-between w-100" for="Grejanje na gas">Grejanje na gas</label><input class="form-check-input border-0" {% if 'Grejanje na gas' in selected_grejanje %} checked="true" {% endif %} name="grejanje" type="checkbox" value="Grejanje na gas" id="Grejanje na gas"></li>
