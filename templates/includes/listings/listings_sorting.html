@@ -24,7 +24,7 @@
         </small> 
       <img src="{% static 'images/icons/down_icon.svg' %}" style="margin-left: 15px;" alt="Sort" width="20px" height="20px" id="sort-image"> 
     </button>
-    <ul class="dropdown-menu blog-type" aria-labelledby="dropdownMenuButton1" style="width: 70%;">
+    <ul class="dropdown-menu blog-type" aria-labelledby="dropdownMenuButton1" style="width: 70%;"> <!--MG added width to solve dropdown menu width on half map, fucked up list and grid view-->
       <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'desc-date_listed')">Po datumu - najnovije</a></li>
       <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'asc-date_listed')">Po datumu - najstarije</a></li>
       <li><a class="dropdown-item blog-type" href="#" onclick="queryParam('sort', 'desc-price')">Po ceni - najviša</a></li>
