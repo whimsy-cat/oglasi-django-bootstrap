@@ -358,11 +358,12 @@ hovers:hover {
   height: 40px;
   width: 40px;
   top: -16px;
+  margin-right: 24px;
   right: 0px;
   z-index: 1;
 }
 .back-top-btn:hover{
-  background-color: #ffffff;
+  background-color: #00A6BD;
 }
 .bi-chevron-up{
   font-weight: bolder;
