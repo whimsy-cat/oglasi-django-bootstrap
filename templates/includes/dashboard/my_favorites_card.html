@@ -26,7 +26,7 @@
     <div class="d-flex flex-column justify-content-between w-75 pe-5">
       <h6 class="my-listing-price mb-4">{{listing.title}}, {{listing.title|truncatechars:50}}</h6>
       <p class="city-location">{{listing.city}}, {{listing.municipality}}</p>
-      <div class="fs-6 blog-description-date text-justify" style="height: 121px;">
+      <div class="fs-6 blog-description-date text-justify">
           {{listing.description|truncatechars:100}}
       </div>
       {% include 'includes/listing_helpers/listing_icon_helpers.html' %}
