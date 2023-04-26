@@ -368,6 +368,10 @@ hovers:hover {
 .bi-chevron-up{
   font-weight: bolder;
 }
+
+.bi-chevron-up:hover{
+  background-color: #ffffff;
+}
 /* Back to top buton styles ends  */
 
 /* Agency logos section stylings starts here  */
