@@ -600,12 +600,13 @@ ul.pagination {
   margin-bottom: 12px!important;
 }
 
-.my-favorute-card-button {
+.my-favourite-card-button { /*MG correction txt typo */
   font-weight: 600;
   font-size: 14px;
   line-height: 19.6px;
   letter-spacing: 2%;
-  color: #617E8C;
+  color: #FFFFFF;
+  background-color: #617E8C;
   border: 1px solid #617E8C ;
 }
 .popular-locations-text {
