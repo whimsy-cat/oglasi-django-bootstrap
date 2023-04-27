@@ -600,7 +600,9 @@ ul.pagination {
   margin-bottom: 12px!important;
 }
 
-.my-favorite-card-button { /*MG correction txt typo */
+/*MG correction txt typo and style change for my favorite card button */
+
+.my-favorite-card-button { 
   font-weight: 600;
   font-size: 14px;
   line-height: 19.6px;
