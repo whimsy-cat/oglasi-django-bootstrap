@@ -555,7 +555,7 @@ ul.pagination {
   letter-spacing: 0.02em;
   color: #484848;
   min-height: 44px;
-  max-height: 44px;
+  /* MG: This shit doesnt affect the recommended ads - will be solved through html max height 44px, title pushing content down, extending in height... */ 
 }
 
 .listing-icons-text {
