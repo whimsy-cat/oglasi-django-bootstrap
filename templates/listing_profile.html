@@ -308,7 +308,7 @@
 
       <div class="carousel-inner pb-5">
         <div class=" carousel-item active">
-          <div class="row">
+          <div class="row" style="margin-left: -24px; margin-right: -24px;> <!--MG added margin to solve the width of the recommended ads since css doesnt do shit-->
             {% for similar in similar_listings %}
             <div class="col-xxl-3 col-xl-3 col-md-6 col-sm-12 mb-4">
               {% include 'includes/listings/listing_card.html' with listing=similar %}
