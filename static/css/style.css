@@ -600,15 +600,12 @@ ul.pagination {
   margin-bottom: 12px!important;
 }
 
-/*MG correction txt typo and style change for my favorite card button */
-
-.my-favorite-card-button { 
+.my-favorute-card-button {
   font-weight: 600;
   font-size: 14px;
   line-height: 19.6px;
   letter-spacing: 2%;
-  color: #FFFFFF;
-  background-color: #617E8C;
+  color: #617E8C;
   border: 1px solid #617E8C ;
 }
 .popular-locations-text {
