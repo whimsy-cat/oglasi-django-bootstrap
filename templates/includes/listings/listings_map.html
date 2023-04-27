@@ -38,7 +38,7 @@ function initMap() {
   {% for l in listings %} 
   {% if l.listingmap_set.first.lat != None %}
 
-  const contentString{{ l.id }} = `
+  const contentString{{ l.id }} = 
   <div class="card shadow-sm border-0" id="listingCard" style="cursor: pointer;" onclick="window.location = '{% url 'listing_profile' slug=l.slug %}'">
     <div class="rounded " style="background: center / cover no-repeat url('{% get_media_prefix %}{{ l.images.first.file }}');height: 280px; width:280px">
       <div class="rounded d-flex align-items-start flex-column h-100 listing-item-overlayed">
