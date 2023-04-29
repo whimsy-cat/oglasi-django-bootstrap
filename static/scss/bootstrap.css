@@ -1335,6 +1335,21 @@ progress {
     flex: 0 0 auto;
     width: 41.66666667%;
   }
+
+  /* MG start - added width for blog and news card corections */
+
+  .col-lg-13 {
+    flex: 0 0 auto;
+    width: 28.2%;
+  }
+
+  .col-lg-14 {
+    flex: 0 0 auto;
+    width: 43.6%;
+  }
+
+  /* MG end */
+  
   .col-lg-6 {
     flex: 0 0 auto;
     width: 50%;

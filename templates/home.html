@@ -491,7 +491,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-3 padding-x-8px">
         {% for article in articles %}
           <div
-              class="text-dark p-12 m-0 {% if forloop.first %} col-lg-6 {% elif forloop.last %} col-lg-6 {% else %} col-lg-3 {% endif %}">
+              class="text-dark p-12 m-0 {% if forloop.first %} col-lg-14 {% elif forloop.last %} col-lg-14 {% else %} col-lg-13 {% endif %}">
             <a href="{% url 'blog_detail' pk=article.id %}">
               <div class="card shadow">
                 <div class="w-100 rounded-top blog-cover"
