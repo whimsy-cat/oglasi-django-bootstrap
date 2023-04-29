@@ -685,6 +685,20 @@ progress {
   width: 16.6666666667%;
 }
 
+/* MG start - added width for blog and news card corections */
+
+.col-cols-13 {
+  flex: 0 0 auto;
+  width: 28.2%;
+}
+    
+.col-cols-14 {
+  flex: 0 0 auto;
+  width: 43.6%;
+}
+
+/* MG end */
+
 @media (min-width: 576px) {
   .col-sm {
     flex: 1 0 0%;

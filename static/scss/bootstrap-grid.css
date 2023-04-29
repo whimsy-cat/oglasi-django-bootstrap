@@ -167,7 +167,7 @@
     width: 16.6666666667%;
   }
 
-  
+
 }
 @media (min-width: 992px) {
   .col-lg {
@@ -490,6 +490,21 @@
     flex: 0 0 auto;
     width: 100%;
   }
+
+  /* MG start - added width for blog and news card corections */
+
+  .col-sm-13 {
+    flex: 0 0 auto;
+    width: 28.2%;
+  }
+    
+  .col-sm-14 {
+    flex: 0 0 auto;
+    width: 43.6%;
+  }
+
+  /* MG end */
+
   .offset-sm-0 {
     margin-left: 0;
   }
@@ -628,6 +643,21 @@
     flex: 0 0 auto;
     width: 100%;
   }
+
+  /* MG start - added width for blog and news card corections */
+
+  .col-md-13 {
+    flex: 0 0 auto;
+    width: 28.2%;
+  }
+    
+  .col-md-14 {
+    flex: 0 0 auto;
+    width: 43.6%;
+  }
+
+  /* MG end */
+
   .offset-md-0 {
     margin-left: 0;
   }
