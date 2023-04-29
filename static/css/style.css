@@ -775,6 +775,20 @@ ul.pagination {
   font-size: 14px;
   color: #8C8C8C;
 }
+
+/* MG start - added style for CL needs */
+
+.description-inputs-cl {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 40px;
+  color: #8C8C8C;
+}
+
+/* MG end */
+
 .create-edit-button {
   color:#FFFFFF!important;
   font-weight:700;
